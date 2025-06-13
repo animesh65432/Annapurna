@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: rgb(238, 230, 206);
+
+}
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+*:focus {
+    outline: none;
+}
+
+@media not all and (hover: none) {
+    * {
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 9px;
+            z-index: -1;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #dadada;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2952cc;
+            border-radius: 10px;
+            margin: 1px;
+            min-height: 40px;
+            cursor: grab;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2952cc;
+        }
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    * {
+        ::-webkit-scrollbar {
+            visibility: hidden;
+            width: 1px;
+            height: 1px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            width: 1px;
+            height: 1px;
+            min-height: 1px;
+        }
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.animated-bar {
+    animation: growUp 1.5s ease-out forwards;
+    transform-origin: bottom;
+}
+
+@keyframes growUp {
+    from {
+        transform: scaleY(0);
+    }
+
+    to {
+        transform: scaleY(1);
+    }
+}
