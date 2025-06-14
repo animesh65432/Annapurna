@@ -86,11 +86,6 @@ export const faq = [
             "While Anumpurna AI is built around Indian cuisine and regional diversity, it can also incorporate global dishes, fusion recipes, and dietary preferences."
     },
     {
-        question: "Can I get recipes in regional languages?",
-        answer:
-            "Yes! Anumpurna AI supports multiple Indian languages. You can view recipes and instructions in your preferred regional language."
-    },
-    {
         question: "Is Anumpurna AI free to use?",
         answer:
             "Yes, Anumpurna AI offers free access to recipe suggestions and meal ideas. Premium features like AI meal planning, shopping lists, and nutrition insights are part of a paid plan."
