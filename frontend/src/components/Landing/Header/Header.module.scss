@@ -1,14 +1,27 @@
 .container {
-    display: flex;
-    width: 80vw;
-    margin: auto;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    color: rgb(225, 170, 4);
-    font-weight: bold;
-    font-size: 25px;
-  }
+  position: fixed;
+  left: 10%;
+  top: 2%;
+  display: flex;
+  width: 80vw;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  color: rgb(225, 170, 4);
+  font-weight: bold;
+  font-size: 25px;
+  background-color: transparent; 
+  transition: background-color 0.3s ease;
+  
+}
+.scrolled {
+  background-color: rgba(255, 255, 255, 0.9); 
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  height: 10vh;
+}
   
   .getstarted {
     background-color: rgb(225, 170, 4);
@@ -26,28 +39,155 @@
       background-color: rgb(200, 150, 0);
     }
   }
+
+  .Menucion {
+    display: none;
+  }
+
+  .mobileMenu {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 18px;
+    color: rgb(225, 170, 4);
+    width: 100vw;
+    border-radius: 20px;
+    gap: 1rem;
+    top: 100px;
+    left: 30%;
+    z-index: 1000;
   
-  @media screen and (max-width: 1024px) {
+    div {
+      padding: 0.5rem 0;
+      cursor: pointer;
+      font-weight: bold;
+
+    }
+
+  
+  }
+
+  .Getstartedmenu{
+    background-color: rgb(225, 170, 4);
+    color:white;
+    padding: 1.5rem;
+    margin: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 20px;
+    width: 50%;
+    display: none;
+  
+    &:hover {
+      background-color: rgb(200, 150, 0);
+    }
+  }
+  
+  @media screen and (max-width: 1124px) {
+    .Menucion{
+      position: relative;
+      display: block;
+      height: 5vh;
+      width: 5vw;
+    }
+    .mobileMenu{
+      display: block;
+      width: 40vw;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 18px;
+    }
+    .Menucion {
+      display: block;
+      height: 5vh;
+      width: 5vw;
+      margin-top: 10px;
+    }
+
     .container {
       font-size: 24px;
+      left: 13%;
     }
   
     .getstarted {
-      gap: 7px;
-      padding: 0.5rem 1rem;
+     display: none;
+    }
+    .howitsworks{
+      display: none;
+    }
+
+    .Getstartedmenu{
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
       font-size: 18px;
     }
   }
   
   @media screen and (max-width: 750px) {
+    .Menucion{
+      display: block;
+    }
     .container {
       width: 95vw;
+      left: 3%;
       font-size: 15px;
+      display: flex;
+      align-items: center;
     }
   
     .getstarted {
-      padding: 0.5rem;
-      font-size: 12px;
+      display: none;
     }
+    .howitsworks{
+      display: none;
+    }
+    .mobileMenu{
+      display: block;
+      width: 60vw;
+      left: 20%;
+      font-size: 15px;
+    }
+
+    .Getstartedmenu{
+      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 90%;
+      font-size: 15px;
+    }
+
+    .scrolled {
+      background-color: rgba(255, 255, 255, 0.9); 
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      height: 7vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    
+    }
+    .Menucion{
+      margin-top: 10px;
+    }
+
   }
-  
+@media screen and (max-width: 650px){
+  .container {
+    left: 2%;
+  }
+}

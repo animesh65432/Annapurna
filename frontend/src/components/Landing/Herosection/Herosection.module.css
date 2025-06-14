@@ -1,103 +1,77 @@
 .HerosectionContainer {
     width: 100vw;
     display: flex;
-    justify-content: center;
-    margin-top: 30px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 140px 1rem 2rem 1rem;
 }
 
 .TitleandimageConainer {
     width: 90vw;
     display: flex;
-    flex-direction: column;
-
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .TitleContainer {
-    display: flex;
-    justify-content: center;
+    flex: 1;
     color: rgb(225, 170, 4);
     font-weight: bold;
-    font-size: 55px;
+    font-size: 45px;
 }
-
-.ImageConatiner {
-    display: flex;
-    width: 100vw;
-}
-
 
 .indianfood {
-    position: relative;
-    width: 23vw;
-    height: 40vh;
+    flex: 1;
+    max-width: 400px;
+    height: auto;
     margin: auto;
 }
 
 .indianfood img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-
+    height: auto;
+    object-fit: contain;
+    border-radius: 1rem;
 }
 
-@media screen and (max-width: 1570px) {
-
-    .indianfood {
-        position: relative;
-        width: 29vw;
-        height: 40vh;
-        margin: auto;
-    }
+.lastTitle {
+    text-align: center;
+    font-weight: 600;
+    font-size: 24px;
+    color: rgb(225, 170, 4);
+    line-height: 1.5;
+    max-width: 80vw;
 }
 
-@media screen and (max-width: 1263px) {
-
-    .indianfood {
-        position: relative;
-        width: 38vw;
-        height: 40vh;
-        margin: auto;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-
+@media screen and (max-width: 1124px) {
     .TitleContainer {
-        font-size: 40px;
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .TitleandimageConainer {
+        flex-direction: column;
+        align-items: center;
     }
 
     .indianfood {
-        position: relative;
-        width: 43vw;
-        height: 35vh;
-        margin: auto;
+        width: 60vw;
     }
 }
 
-@media screen and (max-width: 750px) {
-
+@media screen and (max-width: 600px) {
     .TitleContainer {
-        font-size: 20px;
+        font-size: 18px;
+    }
+
+    .lastTitle {
+        font-size: 12px;
     }
 
     .indianfood {
-        position: relative;
-        width: 53vw;
-        height: 40vh;
-        margin: auto;
-    }
-}
-
-@media screen and (max-width: 750px) {
-
-    .TitleContainer {
-        font-size: 20px;
-    }
-
-    .indianfood {
-        position: relative;
-        width: 69vw;
-        height: 40vh;
-        margin: auto;
+        width: 75vw;
     }
 }
