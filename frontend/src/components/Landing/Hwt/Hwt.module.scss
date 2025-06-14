@@ -398,3 +398,8 @@
         margin-top: 50px;
     }
 }
+@media (max-width: 750px) {
+    .imageWrapper {
+        max-width: 300px;
+    }
+}

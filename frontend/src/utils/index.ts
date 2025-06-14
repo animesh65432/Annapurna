@@ -64,3 +64,40 @@ export const sideward = {
         },
     },
 };
+export const faq = [
+    {
+        question: "What is Anumpurna AI?",
+        answer:
+            "Anumpurna AI is an intelligent food assistant that helps you explore Indian cuisine, get personalized meal suggestions, and access traditional recipes all powered by AI."
+    },
+    {
+        question: "How does Anumpurna AI work?",
+        answer:
+            "Anumpurna AI uses artificial intelligence to recommend meals based on your preferences, health goals, and regional tastes. It can also suggest recipes, nutrition info, and meal plans."
+    },
+    {
+        question: "Do I need to create an account?",
+        answer:
+            "No account is needed to explore. However, creating an account allows Anumpurna AI to personalize your food journey with saved preferences, favorite dishes, and custom meal plans."
+    },
+    {
+        question: "Is Anumpurna AI only for Indian food?",
+        answer:
+            "While Anumpurna AI is built around Indian cuisine and regional diversity, it can also incorporate global dishes, fusion recipes, and dietary preferences."
+    },
+    {
+        question: "Can I get recipes in regional languages?",
+        answer:
+            "Yes! Anumpurna AI supports multiple Indian languages. You can view recipes and instructions in your preferred regional language."
+    },
+    {
+        question: "Is Anumpurna AI free to use?",
+        answer:
+            "Yes, Anumpurna AI offers free access to recipe suggestions and meal ideas. Premium features like AI meal planning, shopping lists, and nutrition insights are part of a paid plan."
+    },
+    {
+        question: "What happens to my personal data?",
+        answer:
+            "We respect your privacy. Your data is securely stored and never shared without your consent. You can delete or export your preferences anytime."
+    }
+];
