@@ -1,14 +1,14 @@
 import React from 'react'
-import styles from "./Herosection.module.css"
+import styles from "./Herosection.module.scss"
 import { motion } from "framer-motion"
+import { blurIn } from "../../../utils"
 
 const Herosection: React.FC = () => {
     return (
         <motion.div
             className={styles.HerosectionContainer}
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 1.5 }}
+            initial={blurIn.initial}
+            animate={blurIn.animate}
         >
             <div className={styles.TitleandimageConainer}>
                 <div className={styles.TitleContainer}>

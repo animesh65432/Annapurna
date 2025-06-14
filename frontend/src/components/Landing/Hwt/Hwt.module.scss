@@ -1,0 +1,400 @@
+.container {
+    width: 100%;
+    padding: 5rem 1rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    .header {
+        margin-bottom: 6rem;
+    }
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: black;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .title {
+        font-size: 4rem;
+    }
+}
+
+.titleAccent {
+    color: rgb(225, 170, 4);
+    position: relative;
+}
+
+.titleAccent::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: rgb(225, 170, 4);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: black;
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .subtitle {
+        font-size: 1.25rem;
+    }
+}
+
+.stepsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+@media (min-width: 768px) {
+    .stepsContainer {
+        gap: 8rem;
+    }
+}
+
+.stepWrapper {
+    position: relative;
+}
+
+.connectingLine {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 2px;
+    height: 6rem;
+    background: linear-gradient(to bottom, rgb(225, 170, 4), transparent);
+    z-index: 10;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .connectingLine {
+        display: block;
+        height: 8rem;
+    }
+}
+
+.connectingLine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: rgb(225, 170, 4);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .step {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1280px) {
+    .step {
+        gap: 6rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .stepRight {
+        flex-direction: row-reverse;
+    }
+}
+
+.content {
+    flex: 1;
+    text-align: center;
+    max-width: 500px;
+}
+
+@media (min-width: 768px) {
+    .content {
+        text-align: left;
+    }
+}
+
+@media (min-width: 768px) {
+    .stepRight .content {
+        text-align: right;
+    }
+}
+
+.numberContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .numberContainer {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 768px) {
+    .stepRight .numberContainer {
+        justify-content: flex-end;
+    }
+}
+
+.number {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(225, 170, 4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.number:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 12px 40px rgba(225, 170, 4, 0.3);
+}
+
+.number span {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.25rem;
+    z-index: 2;
+}
+
+.numberGlow {
+    position: absolute;
+    inset: -8px;
+    background-color: rgb(225, 170, 4);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: pulse 2s infinite;
+}
+
+.stepTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .stepTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .stepTitle {
+        font-size: 2.25rem;
+    }
+}
+
+.stepDescription {
+    font-size: 1.125rem;
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .stepDescription {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .stepRight .stepDescription {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+.decorativeElements {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    .decorativeElements {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 768px) {
+    .stepRight .decorativeElements {
+        justify-content: flex-end;
+    }
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgb(225, 170, 4);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.imageContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.imageWrapper:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.imageWrapper:hover .image {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(225, 170, 4, 0.1), rgba(225, 170, 4, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.imageWrapper:hover .imageOverlay {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 8rem 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 10rem 2rem;
+    }
+}
+
+@media (min-width: 400px) {
+    .container {
+        margin-top: 0px;
+    }
+}
+@media (min-width: 600px) {
+    .container {
+        margin-top: 50px;
+    }
+}

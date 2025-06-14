@@ -13,6 +13,7 @@
   font-size: 25px;
   background-color: transparent; 
   transition: background-color 0.3s ease;
+  z-index: 10000;
   
 }
 .scrolled {
@@ -190,4 +191,8 @@
   .container {
     left: 2%;
   }
+}
+a {
+  text-decoration: none;
+  color: inherit;       
 }
