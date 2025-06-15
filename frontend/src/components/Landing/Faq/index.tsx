@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { faq } from '../../../utils';
 import styles from './Faq.module.scss';
-import { ArrowUp, ArrowDown } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
 import { motion } from "framer-motion"
 import { sideward } from "../../../utils"
 
@@ -21,7 +21,7 @@ const Faq: React.FC = () => {
                 <div className={styles.faq} key={index} onClick={() => handleClick(index)}>
                     <div className={styles.questionRow}>
                         <div className={styles.question}>{fq.question}</div>
-                        <div>{openIndex === index ? <ArrowUp /> : <ArrowDown />}</div>
+                        <div>{openIndex === index ? <X /> : <Plus />}</div>
                     </div>
                     {openIndex === index && <p className={styles.answer}>{fq.answer}</p>}
                 </div>

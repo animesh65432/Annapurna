@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styles from "./Header.module.scss"
 import { MenuIcon, X, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { useNavigate } from "react-router-dom"
 
 const Header: React.FC = () => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
     const [scrolled, setScrolled] = useState<boolean>(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -30,7 +32,7 @@ const Header: React.FC = () => {
                     <a href="#howitsworks" >HOW IT'S WORKS
                     </a>
                 </div>
-                <div className={styles.getstarted}>
+                <div className={styles.getstarted} onClick={() => navigate("/home")}>
                     GET STARTED
                     <ArrowRight />
                 </div>
@@ -47,7 +49,7 @@ const Header: React.FC = () => {
                         <a href="#howitsworks" >HOW IT'S WORKS
                         </a>
                     </div>
-                    <div className={styles.Getstartedmenu} >
+                    <div className={styles.Getstartedmenu} onClick={() => navigate("/home")} >
                         GET STARTED
                         <ArrowRight />
                     </div>
