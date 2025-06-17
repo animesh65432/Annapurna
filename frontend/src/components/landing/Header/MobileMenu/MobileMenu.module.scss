@@ -1,0 +1,68 @@
+.MobileMenuContainer{
+    display: flex;
+    flex-direction: column;
+    color: #0f172a;
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    z-index: 500;
+}
+
+.Getstarted{
+    background-color: #15803d; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Getstarted:hover {
+    background-color: #166534;
+}
+
+@media  (max-width:1200px) {
+
+    .MobileMenuContainer{
+        font-size: 16px;
+    }
+
+    .Getstarted{
+        font-size: 16px;
+    }
+    
+}
+
+@media (max-width:600px) {
+   
+    .MobileMenuContainer{
+        font-size: 16px;
+    }
+    .Getstarted{
+        font-size: 16px;
+    }
+   
+}
+
+
+@media (max-width:600px) {
+    .MobileMenuContainer{
+        width: 70%;
+    }
+}
+@media (max-width:400px){
+    .MobileMenuContainer{
+        font-size: 13px;
+    }
+
+    .Getstarted{
+        font-size: 13px;
+    }
+}
