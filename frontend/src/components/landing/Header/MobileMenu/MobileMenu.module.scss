@@ -1,15 +1,5 @@
 .MobileMenuContainer{
-    display: flex;
-    flex-direction: column;
-    color: #0f172a;
-    width: 50%;
-    margin: auto;
-    background-color: white;
-    padding: 20px;
-    gap: 20px;
-    font-weight: bold;
-    border-radius: 10px;
-    z-index: 500;
+   display: none;
 }
 
 .Getstarted{
@@ -28,16 +18,31 @@
     background-color: #166534;
 }
 
-@media  (max-width:1200px) {
 
+@media (max-width:1000px){
     .MobileMenuContainer{
-        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        color: #0f172a;
+        width: 50%;
+        margin: auto;
+        background-color: white;
+        padding: 20px;
+        gap: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        z-index: 500;
+        position:absolute;
+        left: 30%;
+        top: 10%;
+       
     }
+}
 
-    .Getstarted{
-        font-size: 16px;
+@media (max-width:1000px){
+    .MobileMenuContainer{
+        left: 20%; 
     }
-    
 }
 
 @media (max-width:600px) {
@@ -48,15 +53,15 @@
     .Getstarted{
         font-size: 16px;
     }
-   
-}
-
-
-@media (max-width:600px) {
+    .MobileMenuContainer{
+        left: 10%; 
+    }
     .MobileMenuContainer{
         width: 70%;
     }
+   
 }
+
 @media (max-width:400px){
     .MobileMenuContainer{
         font-size: 13px;
