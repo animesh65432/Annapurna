@@ -4,7 +4,13 @@
     height: 100%;
     width: 100%;
     overflow-x:auto;
-    gap: 40px;
+    gap: 80px;
+}
+
+@media (max-width:1000px) {
+    .LandingContainer{
+        gap: 40px;
+    }
 }
 
 // MainLandinConatiner

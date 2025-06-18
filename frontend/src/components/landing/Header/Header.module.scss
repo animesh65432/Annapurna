@@ -12,7 +12,16 @@
     font-size: 20px;
     font-weight: bold;
 }
-
+.scrolled {
+    position: fixed;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    z-index: 500;
+    width: 100%;
+    height: 5vh;
+    justify-content: space-around;
+}
 /* Wrapper for logo and text */
 .headerlogo {
     display: flex;

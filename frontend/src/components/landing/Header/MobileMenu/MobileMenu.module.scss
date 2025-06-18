@@ -12,10 +12,17 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-transform: uppercase;
 }
 
 .Getstarted:hover {
     background-color: #166534;
+}
+
+.MobileMenuContainer div:hover{
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 
@@ -32,7 +39,7 @@
         font-weight: bold;
         border-radius: 10px;
         z-index: 500;
-        position:absolute;
+        position:fixed;
         left: 30%;
         top: 10%;
        

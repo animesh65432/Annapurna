@@ -30,6 +30,10 @@ const Herosection: React.FC = () => {
                 Transform everyday Indian recipes into healthier meals
                 <br /> powered by AI, rooted in Indian wisdom.
             </motion.div>
+
+            <div>
+                <button className={styles.GetStatred}>Get Started</button>
+            </div>
         </div>
     )
 }

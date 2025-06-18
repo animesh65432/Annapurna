@@ -12,7 +12,7 @@ export default function MobileMenu() {
         >
             <div>How it Works</div>
             <div>Contact Us</div>
-            <button className={styles.Getstarted}>Get started</button>
+            <button className={styles.Getstarted}>Get Started</button>
         </motion.div>
     );
 }

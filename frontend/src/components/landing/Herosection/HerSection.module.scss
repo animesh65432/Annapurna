@@ -36,18 +36,41 @@
   
   .description {
     font-size: 1.1rem;
-    color: #333;
+    color:black;
     line-height: 1.6;
+    font-weight: bold;
   }
+
+  .GetStatred{
+    background-color: #15803d; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  .Getstarted:hover {
+    background-color: #166534;
+}
 @media (max-width:1400px) {
     .ResponsiveContainer{
         gap: 400px;
     }
 }
 
-@media (max-width:1106px) {
+@media (max-width:1126px) {
     .ResponsiveContainer{
         gap: 300px;
+    }
+    .Getstarted{
+      font-size: 16px;
+      padding: 8px;
     }
 }
   
@@ -64,6 +87,10 @@
     .Title {
       font-size: 28px;
     }
+
+    .GetStatred{
+      font-size: 20px;
+    }
   }
 
 @media (max-width:750px) {
@@ -72,12 +99,17 @@
    }
 }
 
+@media (max-width:600px) {
+  .GetStatred{
+    font-size: 16px;
+  }
+}
 @media (max-width:409px) {
     .ImgContainer {
         width: 50vw;
       }
     .description{
-     font-size: 12px;
+     font-size: 16px;
     }
  }
  @media (max-width:346px) {

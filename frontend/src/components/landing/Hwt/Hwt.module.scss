@@ -1,0 +1,21 @@
+.Container{
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.workConatiner{
+    display: flex;
+    gap: 20px;
+}
+
+.GetStartedSpan{
+    color: #15803d;;
+}
+
+.Title{
+    font-size: 30px;
+}
