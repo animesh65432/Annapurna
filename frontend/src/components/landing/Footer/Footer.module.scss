@@ -51,5 +51,15 @@
         }
       }
     }
+    @media (max-width:490px) {
+      .container{
+        padding: 1rem;
+      }
+    }
+    @media (max-width:329px) {
+      .container{
+        padding: 0.7rem;
+      }
+    }
   }
   
