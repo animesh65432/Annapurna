@@ -1,3 +1,4 @@
 import LandingPage from "./Landing";
+import Dashboardpage from "./DashboardPage"
 
-export { LandingPage }
+export { LandingPage, Dashboardpage }

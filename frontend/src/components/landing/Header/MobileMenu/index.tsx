@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import styles from "./MobileMenu.module.scss";
 import { slideLeftFade } from "../../../../utils"
+import { useNavigate } from "react-router-dom"
 
 export default function MobileMenu() {
+    const navigate = useNavigate()
     return (
         <motion.div
             className={styles.MobileMenuContainer}
@@ -18,7 +20,7 @@ export default function MobileMenu() {
             <div>
                 <a href='#ContactUs'>Contact Us</a>
             </div>
-            <button className={styles.Getstarted}>Get Started</button>
+            <button className={styles.Getstarted} onClick={() => navigate("/dashboard")}>Get Started</button>
         </motion.div>
     );
 }

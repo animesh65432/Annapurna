@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import styles from './Header.module.scss';
 import { Menu, X } from "lucide-react"
 import MobileMenu from './MobileMenu';
+import { useNavigate } from "react-router-dom"
 export default function Header() {
     const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const navigate = useNavigate()
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -30,7 +32,7 @@ export default function Header() {
                     <a href='#ContactUs'>Contact Us</a>
                 </div>
                 <div>
-                    <button className={styles.headerbutton}>Get Started </button>
+                    <button className={styles.headerbutton} onClick={() => navigate("/dashboard")}>Get Started </button>
                 </div>
                 <div className={styles.MenuIconContainer} onClick={() => setMenuOpen((prev) => !prev)}>
                     {isMenuOpen ? <X className={styles.MenuIcon} /> : <Menu className={styles.MenuIcon} />}
