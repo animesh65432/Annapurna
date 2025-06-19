@@ -103,15 +103,28 @@
   .GetStatred{
     font-size: 16px;
   }
+
+  .description{
+    font-size: 15px;
+  }
+}
+@media (max-width:480px) {
+ 
+  .description{
+   font-size: 12px;
+   margin: auto;
+  }
 }
 @media (max-width:409px) {
     .ImgContainer {
         width: 50vw;
       }
     .description{
-     font-size: 16px;
+     font-size: 10px;
     }
  }
+
+ 
  @media (max-width:346px) {
     .description{
      font-size: 10px;

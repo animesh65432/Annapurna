@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./HerSection.module.scss"
 import { motion } from "framer-motion"
+import { blurIn, fadeInUp } from "../../../utils"
 
 const Herosection: React.FC = () => {
     return (
@@ -13,9 +14,9 @@ const Herosection: React.FC = () => {
 
                 <motion.div
                     className={styles.ImgContainer}
-                    initial={{ filter: "blur(10px)", opacity: 0 }}
-                    animate={{ filter: "blur(0px)", opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeOut" }}
+                    initial={blurIn.initial}
+                    animate={blurIn.animate}
+                    transition={blurIn.transition}
                 >
                     <img src='/heroicon.png' alt="Hero Icon" />
                 </motion.div>
@@ -23,9 +24,9 @@ const Herosection: React.FC = () => {
 
             <motion.div
                 className={styles.description}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.5 }}
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={fadeInUp.transition}
             >
                 Transform everyday Indian recipes into healthier meals
                 <br /> powered by AI, rooted in Indian wisdom.

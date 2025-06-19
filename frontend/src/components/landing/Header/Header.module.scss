@@ -14,14 +14,21 @@
 }
 .scrolled {
     position: fixed;
+    top: 2%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     color: black;
     z-index: 500;
-    width: 100%;
     height: 5vh;
-    justify-content: space-around;
-}
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
 /* Wrapper for logo and text */
 .headerlogo {
     display: flex;
@@ -110,6 +117,7 @@
 
     .headercontainer{
         font-size: 16px;
+        width: 80%;
     }
     .headericon{
         height: 30px;

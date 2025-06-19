@@ -1,15 +1,22 @@
 .LandingContainer{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     overflow-x:auto;
     gap: 80px;
+
 }
 
 @media (max-width:1000px) {
     .LandingContainer{
         gap: 40px;
+    }
+}
+
+@media (max-width:560px) {
+    .LandingContainer{
+        gap: 20px;
     }
 }
 

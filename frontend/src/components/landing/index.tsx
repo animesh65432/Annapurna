@@ -2,6 +2,8 @@ import Header from "./Header"
 import Herosection from "./Herosection"
 import styles from "./Landing.module.scss"
 import Hwt from "./Hwt"
+import Faq from "./Faq"
+import Footer from "./Footer"
 
 export default function Landing() {
     return (
@@ -9,6 +11,8 @@ export default function Landing() {
             <Header />
             <Herosection />
             <Hwt />
+            <Faq />
+            <Footer />
         </div>
     )
 }

@@ -1,0 +1,55 @@
+/* styles/Footer.module.scss */
+
+.footer {
+    color: #166534;
+    margin-top: 5rem;
+    border-top: 1px solid #ccc;
+    padding: 2.5rem 0;
+    width: 100%;
+    .container {
+      width: 90%; 
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+  
+      @media (min-width: 768px) {
+        flex-direction: row;
+    
+      }
+    }
+  
+    .copyright {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+  
+      @media (min-width: 768px) {
+        margin-bottom: 0;
+        font-size: 1.125rem;
+      }
+    }
+  
+    .socials {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+  
+      a {
+        color: #166534;
+        transition: color 0.3s;
+  
+        &:hover {
+          color: #000;
+        }
+  
+        svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+    }
+  }
+  

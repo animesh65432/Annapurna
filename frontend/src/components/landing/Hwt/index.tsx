@@ -1,23 +1,29 @@
-import React from 'react'
-import styles from "./Hwt.module.scss"
-import { howitworks } from "../../../utils"
+import { howitworks } from "../../../utils";
+import styles from "./Hwt.module.scss";
+import { containerVariants, itemVariants } from "../../../utils"
+import { motion } from "framer-motion"
 
-const Hwt: React.FC = () => {
+export default function Hwt() {
     return (
         <div className={styles.Container}>
-            <h3 className={styles.Title}>Simple Steps to <span className={styles.GetStartedSpan}>Get Started</span></h3>
-            <div className={styles.howitworksContainer}>
-                {
-                    howitworks.map((work, index) => {
-                        return <div key={index}>
-                            <div><work.icon /></div>
-                            <div>{work.title}</div>
+            <h2 className={styles.Containertitle}>How it works</h2>
+            <motion.div className={styles.workConatiner} variants={containerVariants}
+                initial="hidden"
+                animate="visible">
+                {howitworks.map((work, index) => (
+                    <motion.div key={index} className={styles.work} variants={itemVariants}
+                        whileHover={{
+                            scale: 1.02,
+                            transition: { duration: 0.2 }
+                        }}>
+                        <div className={styles.index}>
+                            {index + 1}
+                            <work.icon />
                         </div>
-                    })
-                }
-            </div>
+                        <div className={styles.title}>{work.title}</div>
+                    </motion.div>
+                ))}
+            </motion.div>
         </div>
-    )
+    );
 }
-
-export default Hwt

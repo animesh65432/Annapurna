@@ -8,8 +8,7 @@ export default function Header() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY + window.innerHeight > window.innerHeight) {
-                console.log("call")
+            if (window.scrollY > 0) {
                 setIsScrolled(true);
             } else {
                 setIsScrolled(false);
@@ -19,6 +18,7 @@ export default function Header() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
     return (
         <>
             <div className={`${styles.headercontainer} ${isScrolled ? styles.scrolled : ''}`}>
