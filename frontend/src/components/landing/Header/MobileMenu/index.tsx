@@ -11,8 +11,13 @@ export default function MobileMenu() {
             exit={slideLeftFade.exit}
             transition={slideLeftFade.transition}
         >
-            <div>How it Works</div>
-            <div>Contact Us</div>
+            <div>
+                <a href="#howitworks">How it Works</a>
+
+            </div>
+            <div>
+                <a href='#ContactUs'>Contact Us</a>
+            </div>
             <button className={styles.Getstarted}>Get Started</button>
         </motion.div>
     );

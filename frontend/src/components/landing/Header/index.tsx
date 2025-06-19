@@ -5,7 +5,6 @@ import MobileMenu from './MobileMenu';
 export default function Header() {
     const [isMenuOpen, setMenuOpen] = useState<boolean>(false)
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
-
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 0) {
@@ -24,11 +23,11 @@ export default function Header() {
             <div className={`${styles.headercontainer} ${isScrolled ? styles.scrolled : ''}`}>
                 <div className={styles.headerlogo}>
                     <img src="/icon.jpeg" alt="logo" className={styles.headericon} />
-                    <p>Annapurna Ai</p>
+                    <a href='#Home'>Annapurna Ai</a>
                 </div>
                 <div className={styles.middleheadercontainer}>
-                    <div>How it Works</div>
-                    <div>Contact Us</div>
+                    <a href="#howitworks">How it Works</a>
+                    <a href='#ContactUs'>Contact Us</a>
                 </div>
                 <div>
                     <button className={styles.headerbutton}>Get Started </button>
@@ -36,8 +35,9 @@ export default function Header() {
                 <div className={styles.MenuIconContainer} onClick={() => setMenuOpen((prev) => !prev)}>
                     {isMenuOpen ? <X className={styles.MenuIcon} /> : <Menu className={styles.MenuIcon} />}
                 </div>
-            </div>
-            {isMenuOpen && <MobileMenu />}
+            </div >
+            {isMenuOpen && <MobileMenu />
+            }
         </>
     );
 }

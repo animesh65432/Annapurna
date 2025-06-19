@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export default function Hwt() {
     return (
-        <div className={styles.Container}>
+        <section id="howitworks" className={styles.Container}>
             <h2 className={styles.Containertitle}>How it works</h2>
             <motion.div className={styles.workConatiner} variants={containerVariants}
                 initial="hidden"
@@ -24,6 +24,6 @@ export default function Hwt() {
                     </motion.div>
                 ))}
             </motion.div>
-        </div>
+        </section>
     );
 }

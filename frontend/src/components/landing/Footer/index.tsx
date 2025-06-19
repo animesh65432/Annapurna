@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss"
 
 const Footer: React.FC = () => {
     return (
-        <footer className={styles.footer}>
+        <section id='ContactUs' className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.copyright}>
                     © {new Date().getFullYear()} Fromly. All rights reserved.
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                     </a>
                 </div>
             </div>
-        </footer>
+        </section>
     )
 }
 

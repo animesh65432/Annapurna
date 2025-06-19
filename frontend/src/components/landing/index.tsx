@@ -8,7 +8,9 @@ import Footer from "./Footer"
 export default function Landing() {
     return (
         <div className={styles.LandingContainer}>
-            <Header />
+            <section id="Home">
+                <Header />
+            </section>
             <Herosection />
             <Hwt />
             <Faq />
