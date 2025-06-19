@@ -13,13 +13,8 @@ export default function MobileMenu() {
             exit={slideLeftFade.exit}
             transition={slideLeftFade.transition}
         >
-            <div>
-                <a href="#howitworks">How it Works</a>
-
-            </div>
-            <div>
-                <a href='#ContactUs'>Contact Us</a>
-            </div>
+            <a href="#howitworks">How it Works</a>
+            <a href='#ContactUs'>Contact Us</a>
             <button className={styles.Getstarted} onClick={() => navigate("/dashboard")}>Get Started</button>
         </motion.div>
     );

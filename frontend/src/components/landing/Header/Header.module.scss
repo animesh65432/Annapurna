@@ -7,17 +7,17 @@
     font-weight: bold;
     text-transform: uppercase;
     align-items: center;
-    justify-content: space-between; /* Space between logo, links, and button */
-    padding: 16px 0;
+    justify-content: space-around; /* Space between logo, links, and button */
+    padding: 16px;
     font-size: 20px;
     font-weight: bold;
 }
 .scrolled {
     position: fixed;
-    top: 2%;
+    top: 0;
     left: 0;
     right: 0;
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     background: white;
@@ -78,6 +78,7 @@ a{
 
 .MenuIconContainer{
     display: none;
+    
 }
 
 
