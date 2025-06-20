@@ -1,0 +1,12 @@
+.Container{
+  width: 300;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backgroundColor: "white";
+  zIndex: 500;
+  display: "flex";
+  flexDirection: "column";
+  boxShadow: "2px 0 10px rgba(0, 0, 0, 0.1)";
+  transition: "all 0.3s ease";
+}

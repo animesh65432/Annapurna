@@ -161,3 +161,9 @@ export const NavbarItems = [
     { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
     { name: "Saves", href: "/my-recipes", icon: BookMarked },
 ];
+
+export const MobileNavbarItems = [
+    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+    { name: "Saves", href: "/my-recipes", icon: BookMarked },
+    { name: "LogOut", herf: "/", icon: LogOut }
+]

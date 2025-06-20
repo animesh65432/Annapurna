@@ -1,12 +1,16 @@
-.LayoutContainer{
+.LayoutContainer {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
+
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
 }
 
-.NavContainer{
+.NavContainer {
     grid-column: span 1;
     background-color: white;
     color: black;
@@ -15,50 +19,32 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media (max-width:1200px) {
+    @media (max-width: 1200px) {
         display: none;
     }
 }
-.MobileNavContainer{
+
+.MainContainer {
+    grid-column: span 8;
+
+    @media (max-width: 1200px) {
+        grid-column: span 1;
+    }
+}
+
+.MobileNavContainer {
     display: none;
-    @media (max-width:1200px) {
+
+    @media (max-width: 1200px) {
         display: block;
+        grid-column: span 1;
+        color: #166534;
+        font-weight: bold;
+        padding: 40px;
+
+        svg {
+            width: 32px;
+            height: 32px;
+        }
     }
 }
-.MainContainer{
-    grid-column:8  ;
-}
-
-.navitem {
-    display: flex;
-    gap: 10px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    color: #15803d;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  
-    svg {
-      width: 25px;
-      height: 25px;
-    }
-  
-    &:hover {
-      background-color: #99e2b4;
-      transform: translateX(4px);
-    }
-  }
-  
-
-.upperNavContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding: 30px;
-}
-.lowerNavContainer{
-    padding: 30px;
-}
-
-  
