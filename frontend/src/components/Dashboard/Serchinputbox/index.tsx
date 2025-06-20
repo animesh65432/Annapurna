@@ -1,5 +1,7 @@
 import styles from "./Serchinputbox.module.scss"
 import { Search } from "lucide-react"
+import Select from "../../Select"
+import { optionsforFoods, optionsforLanguages } from "../../../utils"
 
 export default function Serchinputbox() {
     return (
@@ -14,8 +16,12 @@ export default function Serchinputbox() {
                 </div>
             </div>
             <div className={styles.downContainer}>
-                <div></div>
-                <div></div>
+                <div className={styles.SelectContainer}>
+                    <Select options={optionsforFoods} name="Variant" />
+                </div>
+                <div className={styles.SelectContainer}>
+                    <Select options={optionsforLanguages} name="English" />
+                </div>
             </div>
         </div>
     )

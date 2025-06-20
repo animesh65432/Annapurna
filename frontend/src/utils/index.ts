@@ -167,3 +167,34 @@ export const MobileNavbarItems = [
     { name: "Saves", href: "/my-recipes", icon: BookMarked },
     { name: "LogOut", herf: "/", icon: LogOut }
 ]
+
+export const optionsforFoods = [
+    { label: "High Protein", value: "high_protein" },
+    { label: "Fibre Rich", value: "fibre_rich" },
+    { label: "Iron Boosting", value: "iron_boosting" },
+];
+
+export const optionsforLanguages = [
+    { label: "हिन्दी", value: "hindi" },
+    { label: "বাংলা", value: "bengali" },
+    { label: "தமிழ்", value: "tamil" },
+    { label: "తెలుగు", value: "telugu" },
+    { label: "मराठी", value: "marathi" },
+    { label: "ગુજરાતી", value: "gujarati" },
+    { label: "ಕನ್ನಡ", value: "kannada" },
+    { label: "മലയാളം", value: "malayalam" },
+    { label: "ਪੰਜਾਬੀ", value: "punjabi" },
+    { label: "ଓଡ଼ିଆ", value: "odia" },
+    { label: "اردو", value: "urdu" },
+    { label: "অসমীয়া", value: "assamese" },
+    { label: "संस्कृतम्", value: "sanskrit" },
+    { label: "मैथिली", value: "maithili" },
+    { label: "संथाली", value: "santhali" },
+    { label: "नेपाली", value: "nepali" },
+    { label: "कोंकणी", value: "konkani" },
+    { label: "डोगरी", value: "dogri" },
+    { label: "बोडो", value: "bodo" },
+    { label: "मणिपुरी", value: "manipuri" },
+    { label: "English", value: "english" }
+];
+
