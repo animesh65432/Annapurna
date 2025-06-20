@@ -2,8 +2,10 @@ import React from 'react'
 import styles from "./HerSection.module.scss"
 import { motion } from "framer-motion"
 import { blurIn, fadeInUp } from "../../../utils"
+import { useNavigate } from "react-router-dom"
 
 const Herosection: React.FC = () => {
+    const navigate = useNavigate()
     return (
         <div className={styles.Container}>
             <div className={styles.ResponsiveContainer}>
@@ -33,7 +35,7 @@ const Herosection: React.FC = () => {
             </motion.div>
 
             <div>
-                <button className={styles.GetStatred}>Get Started</button>
+                <button className={styles.GetStatred} onClick={() => navigate("/dashboard")}>Get Started</button>
             </div>
         </div>
     )

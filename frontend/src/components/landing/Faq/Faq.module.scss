@@ -40,6 +40,9 @@
   width: 70%;
   margin: auto;
 
+  @media (max-width:750px) {
+    width: 90%;
+  }
 }
 
 .question {
@@ -142,7 +145,7 @@
 
   .answer {
     padding: 0 20px 20px;
-    font-size: 13px;
+    font-size: 16px;
   }
   .title{
     font-size: 19px;
@@ -156,7 +159,7 @@
 
   .answer {
     padding: 0 20px 20px;
-    font-size: 12px;
+    font-size: 15px;
   }
 }
 
@@ -199,7 +202,7 @@
 
   .answer {
     padding: 0 16px 16px;
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 
@@ -215,6 +218,7 @@
   }
 
   .answer {
+    font-size: 13px ;
     padding: 0 14px 14px;
   }
 }
