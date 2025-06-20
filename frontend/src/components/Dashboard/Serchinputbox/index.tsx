@@ -4,13 +4,16 @@ import { Search } from "lucide-react"
 export default function Serchinputbox() {
     return (
         <div className={styles.Container}>
-            <div>
-                <div>
-                    <input></input>
+            <div className={styles.UperContainer}>
+                <div className={styles.SearchContainer}>
+                    <input className={styles.inputbox}></input>
+                    <Search />
                 </div>
-                <div></div>
+                <div>
+                    <button>Transform Recipe</button>
+                </div>
             </div>
-            <div>
+            <div className={styles.downContainer}>
                 <div></div>
                 <div></div>
             </div>

@@ -7,7 +7,7 @@ const Navbar: React.FC = () =>
     <>
         <div className={styles.upperNavContainer}>
             {NavbarItems.map((item) =>
-                <div className={styles.navitem}>
+                <div className={styles.navitem} key={item.name}>
                     <div><item.icon className={styles.navitemIcon} /></div>
                     <div>{item.name}</div>
                 </div>)

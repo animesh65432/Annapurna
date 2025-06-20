@@ -1,0 +1,105 @@
+.Container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    @media (max-width:1200px) {
+        padding: 0 10px
+    }
+    
+}
+
+.UperContainer{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    margin-top: 30px;
+
+    @media (max-width: 1200px) {
+        padding-top: 20px; 
+    }
+
+
+    button{
+        background-color: #166534;
+        padding: 13px;
+        border-radius: 10px;
+        border: 0;
+        font-size: 16px;
+        margin-right: 100px;
+        display: block;
+
+        @media (max-width: 1200px) {
+            margin-right: 20px; 
+        }
+    }
+
+    @media (max-width:1400px) {
+        margin-right: 40px;
+        
+    }
+    @media (max-width:977px) {
+        margin-top: 10px;
+    }
+    @media (max-width:775px) {
+        margin-right: 20px;
+    }
+
+    @media (max-width:756px) {
+        button{
+            margin-right: 60px;
+        }
+    }
+
+    @media (max-width:700px) {
+        margin-top: 5px;
+    }
+    @media (max-width:654px) {
+
+        button{
+            display: none;
+        }
+        
+    }
+    @media (max-width:437px) {
+        margin-top: 1px;
+    }
+}
+
+.downContainer{
+    width: 100%;
+    height: 60%;
+}
+
+.SearchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    margin-left: 20px;
+
+    @media (max-width:654px) {
+        width: 80%;
+    }
+  }
+  
+  .inputbox {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px 35px 10px 10px; 
+    border-radius: 10px;
+    width: 100%;
+
+    
+  }
+  
+  .SearchContainer svg {
+    position: absolute;
+    right: 15px;
+    color: gray;
+  }
+  

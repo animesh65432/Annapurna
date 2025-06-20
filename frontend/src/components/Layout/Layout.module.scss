@@ -1,17 +1,17 @@
 .LayoutContainer {
     height: 100vh;
     width: 100vw;
+    display: flex;
     overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
 
-    @media (max-width: 1200px) {
-        grid-template-columns: 1fr;
+    @media (max-width:1200px) {
+        display: flex;
+        flex-direction: column;
     }
 }
 
 .NavContainer {
-    grid-column: span 1;
+    width: 15vw;
     background-color: white;
     color: black;
     height: 100vh;
@@ -21,14 +21,17 @@
 
     @media (max-width: 1200px) {
         display: none;
+
     }
 }
 
 .MainContainer {
-    grid-column: span 8;
+  width: 85vw;
+  height: 100vh;
 
     @media (max-width: 1200px) {
-        grid-column: span 1;
+        width: 100vw;
+        height: 97vh;
     }
 }
 
@@ -37,14 +40,22 @@
 
     @media (max-width: 1200px) {
         display: block;
-        grid-column: span 1;
+        width: 100vw;
+        height: 3vh;
         color: #166534;
         font-weight: bold;
-        padding: 40px;
+        padding: 10px 20px;
 
         svg {
             width: 32px;
             height: 32px;
+        }
+
+        @media (max-width:750px) {
+            svg {
+                width: 28px;
+                height: 28px;
+            }
         }
     }
 }
