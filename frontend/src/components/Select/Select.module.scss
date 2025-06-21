@@ -2,6 +2,7 @@
     width: 100%;
     position: relative;
     font-family: sans-serif;
+    font-weight: bold;
     color: #15803d;
 }
 
@@ -13,7 +14,7 @@
     background-color: white;
     border: 1px solid #ccc;
     cursor: pointer;
-    border-radius: 6px 6px 0 0; // Rounded top only
+    border-radius: 6px 6px 0 0; 
     font-size: 14px;
 }
 
@@ -47,6 +48,18 @@
 @media (max-width: 480px) {
     .selected {
         font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .option {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 350px) {
+    .selected {
+        font-size: 12px;
         padding: 8px 12px;
     }
 

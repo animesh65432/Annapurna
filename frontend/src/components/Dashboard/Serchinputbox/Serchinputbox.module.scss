@@ -34,28 +34,41 @@
 
 
     button{
-        background-color: #166534;
+        background-color: #097331;
         padding: 13px;
         border-radius: 10px;
         border: 0;
         font-size: 16px;
         margin-right: 100px;
         display: block;
+        font-family: 'Inter';
+        font-weight: bold;
 
         @media (max-width: 1200px) {
             margin-right: 20px; 
+            font-size: 15px;
         }
+
+        @media (max-width: 654px) {
+            margin-right: 20px; 
+            font-size: 12px;
+        }
+
+        
     }
 
     @media (max-width:1400px) {
         margin-right: 40px;
         
     }
+
     @media (max-width:977px) {
         margin-top: 10px;
+        height: 15%;
     }
     @media (max-width:775px) {
         margin-right: 20px;
+        height: 19%;
     }
 
     @media (max-width:756px) {
@@ -91,9 +104,12 @@
     @media (max-width:1000px) {
         width: 70%;
     }
+    
     @media (max-width:654px) {
+        width: 88%;
         display: flex;
         justify-content: center;
+        height: 10%;
     }
     @media (max-width:600px) {
         width: 80%;
@@ -119,16 +135,32 @@
         width: 30%;
     }
 
+    @media (max-width:571px) {
+        width: 36%;
+    }
+
     @media (max-width:491px) {
         font-size: 13px;
         width: 35%;
         
     }
     @media (max-width:400px) {
-        font-size: 13px;
+        font-size: 10px;
         width: 39%;
         
     }
+
+    @media (max-width:362px) {
+    width: 40%;
+        
+    }
+
+    @media (max-width:351px) {
+        width: 43%;
+            
+        }
+ 
+
 }
 
 .SearchContainer {
@@ -149,6 +181,7 @@
     padding: 10px 35px 10px 10px; 
     border-radius: 10px;
     width: 100%;
+    color: black;
 
     
   }
@@ -157,5 +190,24 @@
     position: absolute;
     right: 15px;
     color: gray;
+  }
+
+  .lstbutton {
+    display: none;
+  
+    @media (max-width: 654px) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #166534;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: 'Inter';
+      font-weight: bold;
+    }
   }
   

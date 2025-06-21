@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from "./Layout.module.scss"
 import Navbar from '../Navbar'
-import MobileMenu from "../Navbar/Mobile"
-
-
+import MobileMenu from '../Navbar/Mobile'
 type Props = {
     children: React.ReactNode
 }

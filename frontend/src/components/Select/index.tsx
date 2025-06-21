@@ -17,6 +17,7 @@ export default function Select({ options, name }: Props) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleOptionClick = (index: number) => {
+        console.log(index)
         setSelectedIndex(index);
         setIsOpen(false);
     };
