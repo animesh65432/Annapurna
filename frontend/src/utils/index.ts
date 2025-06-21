@@ -198,3 +198,34 @@ export const optionsforLanguages = [
     { label: "English", value: "english" }
 ];
 
+export const popularindianFoods = [
+    {
+        name: "Aloo Paratha",
+        img: "/dashboard/allupartha.jpg"
+    },
+    {
+        name: "Rajma Chawal",
+        img: "/dashboard/RajmaChawal.jpg"
+    },
+    {
+        name: "Palak Paneer",
+        img: "/dashboard/palakpanner.avif"
+    },
+    {
+        name: "Chole Bhature",
+        img: "/dashboard/cholebhature.jpeg"
+    },
+    {
+        name: "Idli Sambhar",
+        img: "/dashboard/idli.webp"
+    },
+    {
+        name: "Pav Bhaji",
+        img: "/dashboard/pavabhaji.jpg"
+    },
+    {
+        name: "Baingan Bharta",
+        img: "/dashboard/bainganbharta.jpeg"
+    },
+    { name: "Shorshe Ilish", img: "/dashboard/elish.jpg" }
+];
