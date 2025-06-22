@@ -17,6 +17,11 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
+
+    @media (max-width: 768px) {
+      width: 24px;
+      height: 24px;
+    }
   }
   
   .closeIcon {
@@ -51,6 +56,11 @@
       background-color: #f0fdf4;
       color: #065121;
     }
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      
+    }
   }
   
   .iconWrapper {
@@ -62,6 +72,6 @@
   }
   
   .name {
-    font-weight: 500;
+    font-weight: bolder;
   }
   

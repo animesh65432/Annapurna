@@ -6,7 +6,18 @@
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
     cursor: pointer;
-    
+    width: 30%;
+
+    @media (max-width:1000px) {
+        width: 37%;
+    }
+
+    @media (max-width:768px) {
+        width: 47%;
+    }
+    @media (max-width:438px) {
+        width: 90%;
+    }
     &:hover {
         transform: translateY(-8px);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -69,13 +80,17 @@
 }
 
 .dishName {
-    font-size: 1.4rem;
+    font-size: 16px;
     font-weight: 600;
     color: #2d5016;
     margin: 0;
     letter-spacing: 0.5px;
     
-    @media (max-width: 768px) {
-        font-size: 1.2rem;
+    @media (max-width: 900px) {
+        font-size: 15px;
+    }
+
+    @media (max-width: 444px) {
+        font-size: 13px;
     }
 }

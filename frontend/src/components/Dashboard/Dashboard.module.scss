@@ -12,10 +12,27 @@
   .upper {
     height: 40vh;
     width: 100%;
+
+    @media (max-width: 1200px) {
+      height: 30vh;
+      
+    }
+    @media (max-width: 1020px) {
+      height: 25vh;
+      
+    }
+    @media (max-width: 768px) {
+      height: 30vh;
+      
+    }
   }
   
   .down {
     height: 60vw;
     width: 100%;
+
+    @media (max-width: 654px) {
+      padding-bottom: 30px;
+    }
   }
   

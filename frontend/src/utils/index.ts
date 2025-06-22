@@ -213,7 +213,7 @@ export const popularindianFoods = [
     },
     {
         name: "Chole Bhature",
-        img: "/dashboard/cholebhature.jpeg"
+        img: "/dashboard/cholebhature.jpg"
     },
     {
         name: "Idli Sambhar",

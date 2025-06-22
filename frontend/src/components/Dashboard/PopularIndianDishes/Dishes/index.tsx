@@ -1,5 +1,5 @@
 import styles from "./Dishes.module.scss";
-
+import { motion } from "framer-motion"
 
 type Props = {
     name: string;
@@ -8,20 +8,21 @@ type Props = {
 
 export default function Dishes({ name, img }: Props) {
     return (
-        <div className={styles.dishCard}>
+        <motion.div
+            className={styles.dishCard}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}>
             <div className={styles.imageContainer}>
                 <img
                     src={img}
                     alt={name}
                     className={styles.dishImage}
                 />
-                <div className={styles.overlay}>
-                    <span className={styles.viewRecipe}>View Recipe</span>
-                </div>
             </div>
             <div className={styles.dishInfo}>
                 <h3 className={styles.dishName}>{name}</h3>
             </div>
-        </div>
+        </motion.div>
     );
 }

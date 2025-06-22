@@ -8,13 +8,17 @@
     @media (max-width:1200px) {
         padding: 0 10px;
     }
+    @media (max-width:1020px) {
+        gap: 20px;
+    }
     @media (max-width:757px) {
         padding: 0 10px;
-        gap: 0px;
+        gap: 20px;
+        
     }
     @media (max-width:656px) {
-        gap: 0px;
         padding: 0px;
+        gap: 8px;
     }
     
 }
