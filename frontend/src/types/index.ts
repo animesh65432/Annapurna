@@ -1,4 +1,4 @@
-export type popularindianFoodsTYpes = {
+export type popularindianFoodstypes = {
     name: string,
     img: string
 }

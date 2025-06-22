@@ -3,7 +3,7 @@ import { popularindianFoods } from "../../../utils";
 import styles from "./PopularIndianDishes.module.scss";
 import Dishes from "./Dishes";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
-import type { popularindianFoodsTYpes } from "../../../types";
+import type { popularindianFoodstypes } from "../../../types";
 
 export default function PopularIndianDishes() {
     const [index, setIndex] = useState(0);
@@ -31,7 +31,7 @@ export default function PopularIndianDishes() {
     }, [window.innerWidth]);
 
     const getItems = (start: number) => {
-        let filterpopularindianFoods: popularindianFoodsTYpes[] = []
+        let filterpopularindianFoods: popularindianFoodstypes[] = []
         if (start + itemsPerPage > popularindianFoods.length) {
             const remainingItems = popularindianFoods.length - start;
             const itemsToFill = itemsPerPage - remainingItems;
@@ -65,7 +65,7 @@ export default function PopularIndianDishes() {
         if (index > 0) {
             setIndex(prev => prev - 1);
         } else {
-            setIndex(Math.max(popularindianFoods.length - 1, 0));
+            setIndex(popularindianFoods.length - 1);
         }
     };
 
