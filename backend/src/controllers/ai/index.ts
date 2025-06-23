@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
 import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
-
+import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
+import db from "../../db"
 
 export const generateSuggestionController = asyncerrorhandler(
     async (req: Request, res: Response) => {
@@ -17,13 +18,33 @@ export const generateSuggestionController = asyncerrorhandler(
 )
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
-    const { dish, variant, language } = req.body
+    const { dish, variant, language, id } = req.body
 
-    if (!dish || !variant || !language) {
+    if (!dish || !variant || !id || !language) {
         res.status(400).json({
             message: "invalid credentials"
         })
 
         return
     }
+    const recipe = await GenrateRecipebyAi(dish, variant, language)
+
+
+    await db.recipe.create({
+        data: {
+            originalNutrition: recipe.originalNutrition,
+            healthierVersion: recipe.healthierVersion,
+            nutritionComparison: recipe.nutritionComparison,
+            substitutions: recipe.substitutions,
+            motivationalMessage: recipe.motivationalMessage,
+            funFact: recipe.funFact,
+            id,
+            dish,
+            variant,
+            language
+        }
+    })
+
+    res.status(201).json(recipe)
+    return
 })
