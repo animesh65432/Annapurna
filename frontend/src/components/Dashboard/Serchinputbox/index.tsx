@@ -5,6 +5,7 @@ import { optionsforFoods, optionsforLanguages } from "../../../utils"
 import { useState } from "react"
 import { debounce } from "../../../utils/usedebounce"
 import { Getsuggestions } from "../../../api/ai"
+import Suggestions from "./Suggestions"
 
 export default function Serchinputbox() {
     const [text, settext] = useState<string>("")
@@ -24,24 +25,37 @@ export default function Serchinputbox() {
         }
     }, 1000);
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.value.length === 0) {
+            settext(e.target.value)
+            setsuggestions([])
+            return
+        }
+        else {
+            settext(e.target.value)
+            debouncedSearch(e.target.value)
+        }
+    };
+
+    const OnChangesuggestion = (suggestion: string) => {
+        settext(suggestion)
+        setsuggestions([])
+    }
+
     return (
         <div className={styles.Container}>
             <div className={styles.UperContainer}>
                 <div className={styles.SearchContainer}>
-                    <input className={styles.inputbox} value={text} onChange={(e) => {
-                        settext(e.target.value);
-                        debouncedSearch(e.target.value);
-                    }}></input>
-                    <Search />
+                    <input className={styles.inputbox} value={text} onChange={handleChange}></input>
+                    <Search className={styles.SearchIcon} />
+                    {
+                        text.length > 0 ? <Suggestions suggestions={suggestions} OnChangesuggestion={OnChangesuggestion} /> : null
+                    }
                 </div>
                 <div>
                     <button>Transform Recipe</button>
                 </div>
-                {
-                    suggestions.length > 0 && <div>
-                        {suggestions.map((suggestion) => <div key={suggestion}>{suggestion}</div>)}
-                    </div>
-                }
+
             </div>
             <div className={styles.downContainer}>
                 <div className={styles.SelectContainer}>

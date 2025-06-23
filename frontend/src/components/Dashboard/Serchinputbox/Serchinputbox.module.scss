@@ -185,12 +185,13 @@
     padding: 10px 35px 10px 10px; 
     border-radius: 10px;
     width: 100%;
-    color: black;
+    color:#15803d ;
+    font-weight: bolder;
 
     
   }
   
-  .SearchContainer svg {
+  .SearchIcon {
     position: absolute;
     right: 15px;
     color: gray;
@@ -198,6 +199,8 @@
 
   .lstbutton {
     display: none;
+
+   
   
     @media (max-width: 654px) {
       display: block;
@@ -214,4 +217,3 @@
       font-weight: bold;
     }
   }
-  

@@ -1,0 +1,103 @@
+.suggestionsContainer {
+    position: fixed;
+    color: black;
+    background-color: white;
+    width: 51%;
+    z-index: 500;
+    top: 18.2%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color:#15803d ;
+    font-weight: bold;
+
+    @media (max-width:1200px) {
+        top: 18%;
+        width: 59%;  
+    }
+
+    @media (max-width:1151px) {
+        top: 18.2%;
+    }
+    @media (max-width:1071px) {
+        top: 18.4%; 
+    }
+    @media (max-width:1030px) {
+        top: 18.6%; 
+    }
+    @media (max-width:1022px) {
+        top: 18.1%; 
+    }
+    @media (max-width:978px) {
+       
+        top: 14%; 
+    }
+    @media (max-width:778px) {
+        top: 14.2%; 
+    }
+    @media (max-width:774px) {
+        top: 15%; 
+    }
+    @media (max-width:669px) {
+        top: 14.5%; 
+    }
+    @media (max-width: 655px) {
+        top: 14.6%;
+        width: 78% !important;
+    }
+
+
+    @media (max-width:450px) {
+        top: 14.4%;
+    }
+
+    @media (max-width:437px) {
+        top: 14.1%;
+    }
+
+    @media (max-width:431px) {
+        top: 14.1%;
+    }
+
+    @media (max-width:414px) {
+        top: 12.5%;
+    }
+    @media (max-width:413px) {
+        top: 14.7%;
+    }
+    @media (max-width:410px) {
+        top: 14.1%;
+    }
+}
+
+.suggestion {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 6px;
+    gap: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #dff4e7;
+    }
+
+    @media (max-width:1000px) {
+        span {
+            font-size: 15px;
+        }
+    }
+    @media (max-width:1000px) {
+        span {
+            font-size: 13px;
+        }
+    }
+    @media (max-width:500px) {
+        span {
+            font-size: 11px;
+        }
+    }
+}
