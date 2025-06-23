@@ -2,12 +2,16 @@ import styles from "./Serchinputbox.module.scss"
 import { Search } from "lucide-react"
 import Select from "../../Select"
 import { optionsforFoods, optionsforLanguages } from "../../../utils"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { debounce } from "../../../utils/usedebounce"
 import { Getsuggestions } from "../../../api/ai"
 import Suggestions from "./Suggestions"
 
-export default function Serchinputbox() {
+type Props = {
+    txt: string | null
+}
+
+export default function Serchinputbox({ txt }: Props) {
     const [text, settext] = useState<string>("")
     const [suggestions, setsuggestions] = useState<string[]>([])
     const debouncedSearch = debounce(async (query: string) => {
@@ -23,7 +27,7 @@ export default function Serchinputbox() {
         } catch (error) {
             console.error("Error fetching suggestions:", error);
         }
-    }, 1000);
+    }, 300);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.length === 0) {
@@ -41,6 +45,18 @@ export default function Serchinputbox() {
         settext(suggestion)
         setsuggestions([])
     }
+
+    const selectfromPopularIndianDishes = () => {
+        if (!txt) {
+            return
+        }
+        else {
+            settext(txt)
+        }
+    }
+    useEffect(() => {
+        selectfromPopularIndianDishes()
+    }, [txt])
 
     return (
         <div className={styles.Container}>

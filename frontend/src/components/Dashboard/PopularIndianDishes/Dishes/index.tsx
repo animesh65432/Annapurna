@@ -4,15 +4,17 @@ import { motion } from "framer-motion"
 type Props = {
     name: string;
     img: string;
+    selectfromPopularIndianDishes: (dish: string) => void
 }
 
-export default function Dishes({ name, img }: Props) {
+
+export default function Dishes({ name, img, selectfromPopularIndianDishes }: Props) {
     return (
         <motion.div
             className={styles.dishCard}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}>
+            transition={{ duration: 0.4, ease: "easeOut" }} onClick={() => selectfromPopularIndianDishes(name)}>
             <div className={styles.imageContainer}>
                 <img
                     src={img}

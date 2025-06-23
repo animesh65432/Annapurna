@@ -5,7 +5,11 @@ import Dishes from "./Dishes";
 import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import type { popularindianFoodstypes } from "../../../types";
 
-export default function PopularIndianDishes() {
+type Props = {
+    selectfromPopularIndianDishes: (dish: string) => void
+}
+
+export default function PopularIndianDishes({ selectfromPopularIndianDishes }: Props) {
     const [index, setIndex] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(2);
 
@@ -69,7 +73,6 @@ export default function PopularIndianDishes() {
         }
     };
 
-
     const filterpopularindianFoods = getItems(index);
     return (
         <div className={styles.container}>
@@ -85,7 +88,7 @@ export default function PopularIndianDishes() {
 
                 <div className={styles.dishesContainer}>
                     {filterpopularindianFoods.map((food) => (
-                        <Dishes key={food.name} name={food.name} img={food.img} />
+                        <Dishes key={food.name} name={food.name} img={food.img} selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
                     ))}
                 </div>
 
