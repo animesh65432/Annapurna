@@ -1,4 +1,4 @@
-import config from "./config"
+// import config from "./config"
 import express from "express"
 import { errorMiddleware } from "./middleware"
 import cors from "cors"
@@ -13,6 +13,8 @@ app.use(express.urlencoded({ extended: true }))
 app.use(router)
 app.use(errorMiddleware)
 
-app.listen(config.PORT, () => {
-    console.log(`Server is running on port ${config.PORT}`)
-})
+// app.listen(config.PORT, () => {
+//     console.log(`Server is running on port ${config.PORT}`)
+// })
+
+export default app
