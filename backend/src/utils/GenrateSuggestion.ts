@@ -1,14 +1,25 @@
-import { AI_Model } from "../services";
+import { groq } from "../services/Groq"
 
 export const generateSuggestion = async (key: string): Promise<string[]> => {
     const prompt = `List 10 famous Indian foods that start with the letters "${key}". Only return the names in a valid JSON array format, with no extra text or explanation.`;
 
     try {
-        const response = await AI_Model.generateContent(prompt);
-        const rawText = await response.response.text();
+        const response = await groq.chat.completions.create({
+            messages: [
+                {
+                    role: "user",
+                    content: prompt,
+                },
+            ],
+            model: "llama3-70b-8192",
+        });
+
+        const rawText = response.choices[0]?.message?.content ?? "";
+
         const match = rawText.match(/\[.*\]/s);
 
         if (!match) {
+            console.warn("No valid JSON array found in response:", rawText);
             return [];
         }
 

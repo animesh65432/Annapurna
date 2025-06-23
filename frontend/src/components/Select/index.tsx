@@ -10,35 +10,30 @@ type Option = {
 type Props = {
     options: Option[];
     name: string;
+    value: string;
+    onChange: (value: string) => void;
 };
 
-export default function Select({ options, name }: Props) {
-    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+export default function Select({ options, name, value, onChange }: Props) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
-    const handleOptionClick = (index: number) => {
-        console.log(index)
-        setSelectedIndex(index);
-        setIsOpen(false);
-    };
-
-
+    const selectedLabel = options.find((opt) => opt.value === value)?.label || name;
     return (
         <div className={styles.container} >
             <div className={styles.selected} onClick={() => setIsOpen((prev) => !prev)}>
-                <span>{selectedIndex !== null ? options[selectedIndex].label : name}</span>
+                <span>{selectedLabel}</span>
                 {isOpen ? <ArrowUp size={16} /> : <ArrowDown size={16} />}
             </div>
 
             {isOpen && (
                 <div className={styles.dropdown}>
-                    {options.map((option, index) => (
+                    {options.map((option) => (
                         <div
                             key={option.label}
                             className={styles.option}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                handleOptionClick(index);
+                                onChange(option.value)
+                                setIsOpen(false)
                             }}
                         >
                             {option.label}

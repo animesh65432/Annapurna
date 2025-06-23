@@ -10,13 +10,9 @@
   }
   
   .upper {
-    height: 40vh;
+    height: 30vh;
     width: 100%;
 
-    @media (max-width: 1200px) {
-      height: 30vh;
-      
-    }
     @media (max-width: 1020px) {
       height: 25vh;
       

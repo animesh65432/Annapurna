@@ -1,0 +1,8 @@
+import { z } from "zod"
+
+
+export const RecipeFromSchema = z.object({
+    dish: z.string().min(1, { message: "Dish Name is required" }),
+    variant: z.string().min(1, { message: "Please select any variant" }),
+    language: z.string().min(1, { message: "Please select any language" })
+})

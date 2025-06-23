@@ -7,7 +7,6 @@ import PopularIndianDishes from './PopularIndianDishes'
 
 const Dashboard: React.FC = () => {
     const [txt, settext] = useState<string | null>(null);
-
     const selectfromPopularIndianDishes = (dish: string) => {
         settext(dish);
     };
