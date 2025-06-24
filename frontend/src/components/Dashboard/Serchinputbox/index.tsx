@@ -10,15 +10,19 @@ import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom"
+
+
 type RecipeTypes = z.infer<typeof RecipeFromSchema>;
 
 type Props = {
     txt: string | null,
-    createRecipe: (dish: string, variant: string, language: string) => void
+    createRecipe: (dish: string, variant: string, language: string) => Promise<{ id: string }>
 }
 
 export default function Serchinputbox({ txt, createRecipe }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
+    const navigate = useNavigate()
     const {
         handleSubmit,
         setValue,
@@ -84,13 +88,11 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         window.addEventListener("click", closeSuggestions);
         return () => window.removeEventListener("click", closeSuggestions);
     }, []);
-
-
     const onSubmit = async (data: RecipeTypes) => {
-        await createRecipe(data.dish, data.variant, data.language)
+        const response = await createRecipe(data.dish, data.variant, data.language)
+        const analysisrecipeId = response.id
+        navigate(`/analysis/${analysisrecipeId}`)
     };
-
-
     return (
         <form className={styles.Container} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.UperContainer}>

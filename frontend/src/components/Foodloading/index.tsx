@@ -4,8 +4,12 @@ export default function Foodloading() {
     return (
         <div className={styles.Container}>
             <div className={styles.imgContainer}>
-                <img src="/cooking.gif" />
+                <img src="/cooking.gif" alt="Cooking animation" />
+            </div>
+            <div className={styles.txt}>
+                Ma Annapurna is lovingly creating a recipe for you
             </div>
         </div>
     )
 }
+
