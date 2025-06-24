@@ -7,7 +7,7 @@ import { debounce } from "../../../utils/usedebounce"
 import { Getsuggestions } from "../../../api/ai"
 import Suggestions from "./Suggestions"
 import { RecipeFromSchema } from "../../../schema/RecipeFrom"
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -20,10 +20,10 @@ type Props = {
 export default function Serchinputbox({ txt }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
     const {
-        register,
         handleSubmit,
         setValue,
         watch,
+        control,
         formState: { errors }
     } = useForm<RecipeTypes>({
         resolver: zodResolver(RecipeFromSchema),
@@ -34,8 +34,6 @@ export default function Serchinputbox({ txt }: Props) {
         }
     });
     const dish = watch("dish");
-    const variant = watch("variant");
-    const language = watch("language");
     const debouncedSearch = debounce(async (query: string) => {
         if (query.trim() === "") {
             return;
@@ -74,6 +72,7 @@ export default function Serchinputbox({ txt }: Props) {
         }
         else {
             setValue("dish", txt);
+            setsuggestions([])
         }
     }
     useEffect(() => {
@@ -88,7 +87,21 @@ export default function Serchinputbox({ txt }: Props) {
             <div className={styles.UperContainer}>
                 <div className={styles.SearchContainerWithError}>
                     <div className={styles.SearchContainer}>
-                        <input className={styles.inputbox}  {...register("dish")} value={dish} onChange={handleChange}></input>
+                        <Controller
+                            name="dish"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={styles.inputbox}
+                                    {...field}
+                                    onChange={(e) => {
+                                        field.onChange(e);
+                                        handleChange(e);
+                                    }}
+                                />
+                            )}
+                        />
+
                         <Search className={styles.SearchIcon} />
                         {
                             dish.length > 0 ? <Suggestions suggestions={suggestions} OnChangesuggestion={OnChangesuggestion} /> : null
@@ -102,20 +115,32 @@ export default function Serchinputbox({ txt }: Props) {
             </div>
             <div className={styles.downContainer}>
                 <div className={styles.SelectContainer}>
-                    <Select
-                        options={optionsforFoods}
-                        name="Variant"
-                        value={variant}
-                        onChange={(val) => setValue("variant", val)}
+                    <Controller
+                        name="variant"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                options={optionsforFoods}
+                                name="Variant"
+                                value={field.value}
+                                onChange={(val) => field.onChange(val)}
+                            />
+                        )}
                     />
                     {errors.variant && <p className={styles.error}>{errors.variant.message}</p>}
                 </div>
                 <div className={styles.SelectContainer}>
-                    <Select
-                        options={optionsforLanguages}
-                        name="Language"
-                        value={language}
-                        onChange={(val) => setValue("language", val)}
+                    <Controller
+                        name="language"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                options={optionsforLanguages}
+                                name="Language"
+                                value={field.value}
+                                onChange={(val) => field.onChange(val)}
+                            />
+                        )}
                     />
                     {errors.language && <p className={styles.error}>{errors.language.message}</p>}
                 </div>

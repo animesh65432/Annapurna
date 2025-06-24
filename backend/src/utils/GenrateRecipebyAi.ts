@@ -1,7 +1,7 @@
-import { AI_Model } from "../services";
+import { groq } from "../services/Groq"
 
 export async function GenrateRecipebyAi(dishname: string, Variant: string, Language: string) {
-    const prompt = `You are a nutrition expert assistant helping Indian users improve their meals.
+  const prompt = `You are a nutrition expert assistant helping Indian users improve their meals.
 
 A user has provided the following details:
 - Dish Name: ${dishname}
@@ -61,18 +61,25 @@ Tasks:
 
 Use only widely available Indian ingredients. Keep the tone helpful, respectful, and friendly. Output strictly in valid JSON format.`;
 
-    const response = await AI_Model.generateContent(prompt);
-    const rawText = await response.response.text();
+  const response = await groq.chat.completions.create({
+    messages: [
+      {
+        role: "user",
+        content: prompt,
+      },
+    ],
+    model: "llama3-70b-8192",
+  });
+  const rawText = response.choices[0]?.message?.content ?? "";
+  const cleanedText = rawText.replace(/```json|```/g, '').trim();
 
-    const cleanedText = rawText.replace(/```json|```/g, '').trim();
-
-    try {
-        const structured = JSON.parse(cleanedText);
-        console.log("Structured AI Output:", structured);
-        return structured;
-    } catch (err) {
-        console.error("JSON parse error:", err);
-        console.log("Raw AI response:", rawText);
-        return { error: "Invalid JSON structure from AI" };
-    }
+  try {
+    const structured = JSON.parse(cleanedText);
+    console.log("Structured AI Output:", structured);
+    return structured;
+  } catch (err) {
+    console.error("JSON parse error:", err);
+    console.log("Raw AI response:", rawText);
+    return { error: "Invalid JSON structure from AI" };
+  }
 }

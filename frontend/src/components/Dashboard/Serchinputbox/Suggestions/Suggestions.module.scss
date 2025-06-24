@@ -4,7 +4,7 @@
     background-color: white;
     width: 51%;
     z-index: 500;
-    top: 18.2%;
+    top: 20.4%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -15,24 +15,20 @@
     font-weight: bold;
 
     @media (max-width:1200px) {
-        top: 18%;
+        top: 19.9%;
         width: 59%;  
     }
 
     @media (max-width:1151px) {
-        top: 18.2%;
+        top: 20.1%;
     }
-    @media (max-width:1071px) {
-        top: 18.4%; 
+    @media (max-width:1072px) {
+        top: 20%; 
     }
     @media (max-width:1030px) {
-        top: 18.6%; 
-    }
-    @media (max-width:1022px) {
-        top: 18.1%; 
+        top: 20.2%; 
     }
     @media (max-width:978px) {
-       
         top: 14%; 
     }
     @media (max-width:778px) {
