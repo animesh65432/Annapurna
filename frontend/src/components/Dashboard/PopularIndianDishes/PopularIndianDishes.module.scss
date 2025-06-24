@@ -9,6 +9,9 @@
     @media (max-width:773px) {
         gap: 20px;
     }
+    @media (max-width:703px) {
+        gap: 10px;
+    }
 
    
 }
@@ -79,6 +82,10 @@
 
     @media (max-width:769px) {
         width: 85%;
+    }
+
+    @media (max-width:706px) {
+        width: 79%;
     }
 
     @media (max-width:527px) {
