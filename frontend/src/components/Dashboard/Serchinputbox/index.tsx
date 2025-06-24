@@ -10,14 +10,14 @@ import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
-
 type RecipeTypes = z.infer<typeof RecipeFromSchema>;
 
 type Props = {
-    txt: string | null
+    txt: string | null,
+    createRecipe: (dish: string, variant: string, language: string) => void
 }
 
-export default function Serchinputbox({ txt }: Props) {
+export default function Serchinputbox({ txt, createRecipe }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
     const {
         handleSubmit,
@@ -47,7 +47,7 @@ export default function Serchinputbox({ txt }: Props) {
         } catch (error) {
             console.error("Error fetching suggestions:", error);
         }
-    }, 300);
+    }, 800);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.length === 0) {
@@ -71,7 +71,7 @@ export default function Serchinputbox({ txt }: Props) {
             return
         }
         else {
-            setValue("dish", txt);
+            setValue("dish", txt, { shouldValidate: true });
             setsuggestions([])
         }
     }
@@ -79,9 +79,18 @@ export default function Serchinputbox({ txt }: Props) {
         selectfromPopularIndianDishes()
     }, [txt])
 
-    const onSubmit = (data: RecipeTypes) => {
-        console.log("Submitting payload:", data);
+    useEffect(() => {
+        const closeSuggestions = () => setsuggestions([]);
+        window.addEventListener("click", closeSuggestions);
+        return () => window.removeEventListener("click", closeSuggestions);
+    }, []);
+
+
+    const onSubmit = async (data: RecipeTypes) => {
+        await createRecipe(data.dish, data.variant, data.language)
     };
+
+
     return (
         <form className={styles.Container} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.UperContainer}>
@@ -110,7 +119,7 @@ export default function Serchinputbox({ txt }: Props) {
                     {errors.dish && <p className={styles.error}>{errors.dish.message}</p>}
                 </div>
                 <div>
-                    <button type="submit">Transform Recipe</button>
+                    <button type="submit" >Transform Recipe</button>
                 </div>
             </div>
             <div className={styles.downContainer}>
@@ -145,7 +154,7 @@ export default function Serchinputbox({ txt }: Props) {
                     {errors.language && <p className={styles.error}>{errors.language.message}</p>}
                 </div>
             </div>
-            <button className={styles.lstbutton} type="submit">Transform Recipe</button>
+            <button className={styles.lstbutton} type="submit" >Transform Recipe</button>
         </form>
     )
 }
