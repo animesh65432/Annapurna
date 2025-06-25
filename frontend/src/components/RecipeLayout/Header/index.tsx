@@ -4,7 +4,6 @@ import { Share, Save } from "lucide-react"
 
 export default function Header() {
     const { recipe } = useRecipeStore()
-    console.log(recipe)
     return (
         <div className={styles.Container}>
             <div className={styles.NameWithIcons}>

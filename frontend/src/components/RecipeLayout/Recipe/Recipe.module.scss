@@ -1,0 +1,22 @@
+.RecipeContainer{
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+.ingredientsContainer{
+    height: 40%;
+    width: 95%;
+    border-radius: 10px;
+    margin: auto;
+    background-color: white;
+    padding: 5px;
+
+    .ingredientHeader{
+        display: flex;
+        color: #15803d;
+        background-color:#cbecd7 ;
+
+    }
+}

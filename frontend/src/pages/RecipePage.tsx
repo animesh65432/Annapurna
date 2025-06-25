@@ -1,8 +1,8 @@
-import { Recipe } from "../components"
+import { RecipeLayout } from "../components"
 export default function Recipepage() {
     return (
         <>
-            <Recipe />
+            <RecipeLayout />
         </>
     )
 }

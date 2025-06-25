@@ -6,22 +6,33 @@
 }
 
 .HeaderContainer{
-    height: 20%;
+    height: 30%;
     width: 100%;
     display: flex;
     flex-direction: column;
+
+    @media (max-width:1000px) {
+        height: 20%;
+    }
+    @media (max-width:596px) {
+        height: 24%;
+    }
 }
 
 .MainContainer{
-    height: 80%;
+    height: 70%;
     width: 100%;
+    @media (max-width:1000px) {
+        height: 80%;
+    }
+    @media (max-width:596px) {
+        height: 76%;
+    }
 }
 .Navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 24px;
-    margin-top: 16px;
     padding: 10px 0;
     border-bottom: 1px solid #15803d;; 
 }
