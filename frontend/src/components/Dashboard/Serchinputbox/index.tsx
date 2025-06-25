@@ -11,7 +11,7 @@ import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom"
-
+import { useRecipeStore } from "../../../store/Recipe"
 
 type RecipeTypes = z.infer<typeof RecipeFromSchema>;
 
@@ -22,6 +22,7 @@ type Props = {
 
 export default function Serchinputbox({ txt, createRecipe }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
+    const { clearRecipe } = useRecipeStore()
     const navigate = useNavigate()
     const {
         handleSubmit,
@@ -90,11 +91,22 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         window.addEventListener("click", closeSuggestions);
         return () => window.removeEventListener("click", closeSuggestions);
     }, []);
-    const onSubmit = async (data: RecipeTypes) => {
-        const response = await createRecipe(data.dish, data.variant, data.language)
-        const analysisrecipeId = response.id
-        navigate(`/analysis/${analysisrecipeId}`)
+
+    const onSubmit = (data: RecipeTypes) => {
+        createRecipe(data.dish, data.variant, data.language)
+            .then((response) => {
+                const recipeId = response.id;
+                clearRecipe();
+                return recipeId;
+            })
+            .then((recipeId) => {
+                navigate(`/recipe/${recipeId}`, { replace: true });
+            })
+            .catch((error) => {
+                console.error("Error during recipe submission:", error);
+            });
     };
+
     return (
         <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.UperContainer}>

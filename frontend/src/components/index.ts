@@ -1,5 +1,7 @@
 import Landing from "./landing"
 import Dashboard from "./Dashboard"
-import Analysis from "./Analysis"
+import Recipe from "./RecipeLayout/Recipe"
+import WhyTheseChagnes from "./RecipeLayout/WhyTheseChagnes"
+import Layout from "./Layout"
 
-export { Landing, Dashboard, Analysis }
+export { Landing, Dashboard, Recipe, WhyTheseChagnes, Layout }

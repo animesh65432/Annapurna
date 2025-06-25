@@ -3,7 +3,7 @@ export type popularindianFoodstypes = {
     img: string
 }
 
-export type AnalysisRecipe = {
+export type RecipeTypes = {
     dish: string;
     funFact: string;
     motivationalMessage: string;
@@ -40,4 +40,6 @@ export type AnalysisRecipe = {
         to: string;
         why: string;
     }[];
+    variant: string;
+    language: string
 };

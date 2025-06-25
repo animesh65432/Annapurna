@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
                         </div>
                     </div>
             }
-        </Layout>
+        </Layout >
     )
 }
 

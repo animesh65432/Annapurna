@@ -25,7 +25,8 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             nutritionComparison: true,
             healthierVersion: true,
             substitutions: true,
-            dish: true
+            dish: true,
+            language: true
         }
     })
 

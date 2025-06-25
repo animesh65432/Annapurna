@@ -1,4 +1,4 @@
-import { AI_Model } from "../services"
+import { groq } from "../services/Groq"
 
 export async function GenrateRecipebyAi(dishname: string, Variant: string, Language: string) {
   console.log(dishname, Variant, Language)
@@ -60,15 +60,25 @@ Required JSON format:
 }
 ],
 "motivationalMessage": "[Write encouraging message in ${Language}]",
-"funFact": "[Write interesting fact in ${Language}]"
+"funFact": "[Write interesting fact in ${Language}]",
+"dish":"[Write dish name is${dishname}-${Variant} in ${Language}]"
 }
 
 ⚠️ FINAL CHECK: Before responding, verify that ALL text content is written in "${Language}" language, not English!`
 
   try {
-    const response = await AI_Model.generateContent(prompt);
+    const response = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      model: "llama3-70b-8192",
+    });
 
-    const rawText = response.response.text() ?? "";
+
+    const rawText = response.choices[0]?.message?.content ?? "";
 
     // Enhanced JSON extraction with multiple fallback patterns
     let cleanedText = rawText.trim();
@@ -87,6 +97,8 @@ Required JSON format:
 
     // Parse and validate JSON
     const structured = JSON.parse(cleanedText);
+
+    console.log(structured)
 
     // Validate required fields
     const requiredFields = [
