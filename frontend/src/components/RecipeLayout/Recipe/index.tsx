@@ -21,14 +21,17 @@ export default function Recipe() {
                         </div>
                     </div>
                     <div className={styles.ingredients}>
-                        {recipe?.healthierVersion.ingredients.map((ingredient) => <div className={styles.ingredient}>{ingredient}</div>)}
+                        {recipe?.healthierVersion.ingredients.map((ingredient) => <div className={styles.ingredient}>
+                            <span className={styles.bullet}>•</span>
+                            <span>{ingredient}</span>
+                        </div>)}
                     </div>
                 </div>
                 <div className={styles.stepsContainer}>
                     <div className={styles.stepstitle}>{title.steps}</div>
                     <div className={styles.steps}>
                         {recipe?.healthierVersion.steps.map((step, index) =>
-                            <div key={index} className={styles.step}>
+                            <div key={step} className={styles.step}>
                                 <div>{index}</div>
                                 <div>{step}</div>
                             </div>)

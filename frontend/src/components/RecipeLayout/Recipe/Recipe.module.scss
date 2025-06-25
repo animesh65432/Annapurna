@@ -1,22 +1,60 @@
 .RecipeContainer{
     height: 100%;
     width: 100%;
-    padding: 10px;
+    padding-right: 30px;
+    padding-top: 20px;
     overflow-x: auto;
 }
 
 .ingredientsContainer{
-    height: 40%;
-    width: 95%;
+    height: 50%;
+    width: 90%;
     border-radius: 10px;
     margin: auto;
     background-color: white;
-    padding: 5px;
 
     .ingredientHeader{
         display: flex;
         color: #15803d;
         background-color:#cbecd7 ;
+        padding: 10px;
+        gap: 10px;
+        border-radius: 10px;
+
+        div{
+            font-weight: bolder;
+        }
 
     }
+    .ingredients{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 20px;
+        padding-left: 20px;
+        padding-top: 10px;
+        list-style-type: disc;
+
+        .ingredient {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            background-color: #f6fdf9;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border: 1px solid #e0f1e8;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+          }
+          
+          .bullet {
+            font-size: 1.2rem;
+            line-height: 1;
+            color: #15803d;
+          }
+          
+    }
+}
+.ingredientstitle{
+    font-weight:bolder;
+    font-size: 22px;
 }
