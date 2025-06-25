@@ -30,65 +30,24 @@
         font-size: 18px ;
     }
 }
+.dishNameandDes{
+    display: flex;
+    flex-direction: column;
+}
+.description{
+    color: black;
+    @media (max-width:596px) {
+        font-size: 15px;
+        width: 90%;
+    }
+}
 
 .NameWithIcons{
-    width: 100%;
+    width: 90%;
     display: flex;
     align-items: center;
-    gap: 700px;
-
-    @media (max-width:1530px) {
-        gap: 600px;
-    }
-    @media (max-width:1400px) {
-        gap: 530px;
-    }
-    @media (max-width:1340px) {
-        gap: 500px;
-    }
-    @media (max-width:1300px) {
-        gap: 450px;
-    }
-    @media (max-width:1217px) {
-        gap: 410px;
-    }
-    @media (max-width:1200px) {
-        gap: 500px;
-    }
-
-    @media (max-width:1095px) {
-        gap: 450px;
-    }
-
-    @media (max-width:978px) {
-        gap: 400px;
-    }
-    @media (max-width:876px) {
-        gap: 350px;
-    }
-
-    @media (max-width:827px) {
-        gap: 300px;
-    }
-    @media (max-width:776px) {
-        gap: 250px;
-    }
-    @media (max-width:665px) {
-        gap: 200px;
-    }
-    @media (max-width:615px) {
-        gap: 170px;
-    }
-    @media (max-width:579px) {
-        gap: 150px;
-    }
-    @media (max-width:514px) {
-        gap: 120px;
-    }
-    @media (max-width:479px) {
-        gap: 90px;
-    }
-    @media (max-width:435px) {
+    justify-content: space-between;
+    @media (max-width:435px){
         display: none;
     }
 }
@@ -110,6 +69,20 @@
         .MobiledishName{
             margin-top: 10px;
             text-align: center;
+        }
+        .MobiledishNameWithDes{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .MobiledishNameDes{
+            font-size: 12px;
+            text-align: center;
+            color: black;
+
+            @media (max-width:324px) {
+                font-size: 11px;
+            }
         }
     }
 }

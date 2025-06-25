@@ -37,8 +37,6 @@ export default function RecipeLayout({ children }: Props) {
     }
 
     const title = nutritionTranslations[recipe.language]
-    console.log(title, recipe.language)
-
 
     const navigate_to_path = (path: string) => {
         navigate(path)
