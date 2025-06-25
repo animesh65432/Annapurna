@@ -38,6 +38,8 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         }
     });
     const dish = watch("dish");
+    const hasErrors = Object.keys(errors).length > 0;
+
     const debouncedSearch = debounce(async (query: string) => {
         if (query.trim() === "") {
             return;
@@ -94,7 +96,7 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         navigate(`/analysis/${analysisrecipeId}`)
     };
     return (
-        <form className={styles.Container} onSubmit={handleSubmit(onSubmit)}>
+        <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.UperContainer}>
                 <div className={styles.SearchContainerWithError}>
                     <div className={styles.SearchContainer}>
