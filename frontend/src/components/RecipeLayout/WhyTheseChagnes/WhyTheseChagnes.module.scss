@@ -1,0 +1,236 @@
+.whyTheseChanges {
+    padding: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  // Nutrition Comparison Section
+  .nutritionSection {
+    margin-bottom: 2.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+  
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .comparisonContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  
+  .comparisonColumn {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  
+  .columnTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+  
+    &.before {
+      color: #e53e3e;
+    }
+    
+    &.after {
+      color: #38a169;
+    }
+  }
+  
+  .nutritionValues {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .nutritionValue {
+    padding: 0.5rem;
+    background: #f7fafc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: #2d3748;
+    border-left: 3px solid #cbd5e0;
+  
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+      padding: 0.4rem;
+    }
+  }
+  
+  // Substitutions Section
+  .substitutionsSection {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  
+  .substitutionsContainer {
+    display: grid;
+    gap: 1.5rem;
+  
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+  }
+  
+  .substitutionCard {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+  
+  .substitutionChange {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+  
+  .substitutionItem {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+  
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+      padding: 0.4rem 0.8rem;
+    }
+    
+    &.from {
+      background: #fed7d7;
+      color: #c53030;
+    }
+    
+    &.to {
+      background: #c6f6d5;
+      color: #2f855a;
+    }
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+    color: #718096;
+    font-weight: bold;
+  
+    @media (max-width: 480px) {
+      transform: rotate(90deg);
+    }
+  }
+  
+  .substitutionReason {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #3182ce;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #4a5568;
+  
+    @media (max-width: 768px) {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  .whyLabel {
+    font-weight: 600;
+    color: #3182ce;
+    margin-right: 0.5rem;
+  }
+  
+  // Responsive typography for main container
+  .whyTheseChanges {
+    @media (max-width: 1024px) {
+      padding: 1.25rem;
+    }
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  
+    @media (max-width: 480px) {
+      padding: 0.75rem;
+    }
+  }
+  
+  // Print styles
+  @media print {
+    .nutritionSection,
+    .substitutionsSection {
+      box-shadow: none;
+      border: 1px solid #ccc;
+    }
+    
+    .substitutionCard {
+      break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #ddd;
+    }
+  }
