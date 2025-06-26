@@ -15,20 +15,20 @@ const Dashboard: React.FC = () => {
     };
 
 
+    if (isGenrateRecipeloading) {
+        return <Foodloading />
+    }
+
     return (
         <Layout>
-            {
-                isGenrateRecipeloading ?
-                    <Foodloading /> :
-                    <div className={styles.Container}>
-                        <div className={styles.upper}>
-                            <Serchinputbox txt={txt} createRecipe={createRecipe} />
-                        </div>
-                        <div className={styles.down}>
-                            <PopularIndianDishes selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
-                        </div>
-                    </div>
-            }
+            <div className={styles.Container}>
+                <div className={styles.upper}>
+                    <Serchinputbox txt={txt} createRecipe={createRecipe} />
+                </div>
+                <div className={styles.down}>
+                    <PopularIndianDishes selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
+                </div>
+            </div>
         </Layout >
     )
 }

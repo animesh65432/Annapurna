@@ -1,20 +1,23 @@
 .Container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
-  flex-direction: column; /* Stack image and text */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem; /* spacing between image and text */
+  gap: 1.5rem;
   text-align: center;
   padding: 1rem;
+  box-sizing: border-box;
+  @media (max-width:1200px) {
+    height: 94vh;
+  }
 }
 
 .imgContainer {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  overflow: hidden;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   background: white;
   display: flex;
@@ -22,15 +25,15 @@
   justify-content: center;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    animation: pulse 2s infinite ease-in-out;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: pulse 2s infinite ease-in-out;
   }
 
   @media (max-width: 500px) {
-    width: 140px;
-    height: 140px;
+      width: 140px;
+      height: 140px;
   }
 }
 
@@ -42,26 +45,26 @@
   max-width: 90%;
   line-height: 1.6;
 
-  @media (max-width:500px) {
-    font-size: 14px;
+  @media (max-width: 500px) {
+      font-size: 14px;
   }
-  @media (max-width:340px) {
-    font-size: 13px;
+  
+  @media (max-width: 340px) {
+      font-size: 13px;
   }
 }
 
-/* Subtle pulsing animation */
 @keyframes pulse {
   0% {
-    transform: scale(1);
-    opacity: 0.95;
+      transform: scale(1);
+      opacity: 0.95;
   }
   50% {
-    transform: scale(1.05);
-    opacity: 1;
+      transform: scale(1.05);
+      opacity: 1;
   }
   100% {
-    transform: scale(1);
-    opacity: 0.95;
+      transform: scale(1);
+      opacity: 0.95;
   }
 }

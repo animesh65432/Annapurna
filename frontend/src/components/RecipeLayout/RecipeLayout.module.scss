@@ -1,40 +1,34 @@
-.Container{
-    height: 100%;
+.Container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    @media (max-width:1200px) {
+        width: 100%;
+        height: 94vh;
+    }
+}
+
+.HeaderContainer {
+    flex: 0 0 auto;
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.HeaderContainer{
-    height: 20%;
+.MainContainer {
+    flex: 1;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    @media (max-width:1000px) {
-        height: 20%;
-    }
-    @media (max-width:596px) {
-        height: 24%;
-    }
+    overflow-y: auto;
 }
 
-.MainContainer{
-    height: 70%;
-    width: 100%;
-    @media (max-width:1000px) {
-        height: 80%;
-    }
-    @media (max-width:596px) {
-        height: 76%;
-    }
-}
 .Navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid #15803d;; 
+    border-bottom: 1px solid #15803d;
 }
 
 .NavItem {
@@ -44,24 +38,24 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    color: #15803d;;
+    color: #15803d;
     font-size: 1.2rem;
 
-    @media (max-width:1000px) {
+    @media (max-width: 1000px) {
         font-size: 1rem;
     }
 
-    @media (max-width:500px) {
+    @media (max-width: 500px) {
         font-size: 13px;
     }
 
     &:hover {
-        color: #074e21;; 
+        color: #074e21;
         text-decoration: underline;
     }
 
     &.active {
-        border-color:#043b18;;
-        color: #07471f;;
+        border-color: #043b18;
+        color: #07471f;
     }
 }

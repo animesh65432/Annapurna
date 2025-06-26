@@ -2,9 +2,8 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    overflow: hidden;
 
-    @media (max-width:1200px) {
+    @media (max-width: 1200px) {
         display: flex;
         flex-direction: column;
     }
@@ -18,20 +17,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-shrink: 0; 
 
     @media (max-width: 1200px) {
         display: none;
-
     }
 }
 
 .MainContainer {
-  width: 85vw;
-  height: 100vh;
+    width: 85vw;
+    height: 100vh;
+    flex: 1; 
 
     @media (max-width: 1200px) {
         width: 100vw;
-        height: 97vh;
+        height: calc(100vh - 3vh);
+        flex: 1;
     }
 }
 
@@ -42,16 +43,19 @@
         display: block;
         width: 100vw;
         height: 3vh;
+        min-height: 40px; 
         color: #166534;
         font-weight: bold;
         padding: 10px 20px;
+        flex-shrink: 0; 
+        box-sizing: border-box;
 
         svg {
             width: 32px;
             height: 32px;
         }
 
-        @media (max-width:750px) {
+        @media (max-width: 750px) {
             svg {
                 width: 28px;
                 height: 28px;

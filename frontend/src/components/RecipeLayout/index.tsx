@@ -24,9 +24,7 @@ export default function RecipeLayout() {
 
     if (!id || isFecthrecipeloading || !recipe) {
         return (
-            <Layout>
-                <Foodloading />
-            </Layout>
+            <Foodloading />
         )
     }
 

@@ -9,7 +9,6 @@ export default function Header() {
             <div className={styles.NameWithIcons}>
                 <div className={styles.dishNameandDes}>
                     <div className={styles.dishName}>{recipe?.dish}</div>
-                    <div className={styles.description}>{recipe?.funFact}</div>
                 </div>
                 <div className={styles.Icons}>
                     <div><Share /></div>
@@ -24,9 +23,6 @@ export default function Header() {
                 <div className={styles.MobiledishNameWithDes}>
                     <div className={styles.MobiledishName}>
                         {recipe?.dish}
-                    </div>
-                    <div className={styles.MobiledishNameDes}>
-                        {recipe?.funFact}
                     </div>
                 </div>
             </div>
