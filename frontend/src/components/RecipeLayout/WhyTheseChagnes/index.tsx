@@ -2,7 +2,8 @@ import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
 import styles from "./WhyTheseChagnes.module.scss"
 import { Heart, RotateCcw, ArrowBigRight, ArrowBigDown, MoveRight, CircleCheckBig } from 'lucide-react';
-
+import { motion } from "framer-motion"
+import { slideLeftFade, blurIn } from "../../../utils"
 export default function WhyTheseChanges() {
     const { recipe } = useRecipeStore()
     const translation = nutritionTranslations[recipe!.language]
@@ -12,7 +13,7 @@ export default function WhyTheseChanges() {
     const nutritionComparisonBeforeValues = Object.values(recipe!.nutritionComparison.before)
     return (
         <div className={styles.whyTheseChanges}>
-            <div className={styles.nutritionSection}>
+            <motion.div initial={slideLeftFade.initial} animate={slideLeftFade.animate} transition={slideLeftFade.transition} className={styles.nutritionSection}>
                 <div className={styles.sectionTitle}>
                     <Heart className={styles.icon} />
                     <span>{translation.nutritionComparison}</span>
@@ -49,9 +50,9 @@ export default function WhyTheseChanges() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className={styles.substitutionsSection}>
+            <motion.div initial={blurIn.initial} transition={blurIn.transition} animate={blurIn.animate} className={styles.substitutionsSection}>
                 <div className={styles.sectionTitle}>
                     {translation.whyTheseChanges}
                 </div>
@@ -77,7 +78,7 @@ export default function WhyTheseChanges() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
 
             <div className={styles.funFactSection}>
                 <span>{translation.funFact}</span>

@@ -16,9 +16,14 @@ export default function RecipeLayout() {
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
     const [currentComponent, setCurrentComponent] = useState<"recipe" | "why">("recipe")
 
+    const fetch = async (id: string) => {
+        const res = await fetchrecipe(id)
+        setRecipe(res)
+    }
+
     useEffect(() => {
-        if (id && !recipe) {
-            fetchrecipe(id).then(setRecipe)
+        if (id) {
+            fetch(id)
         }
     }, [id])
 

@@ -4,7 +4,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route ></Route>
         <Route path="/" element={<LandingPage />}></Route>
         <Route path="/dashboard" element={<Dashboardpage />}></Route>
         <Route path="/recipe/:id" element={<Recipepage />}></Route>

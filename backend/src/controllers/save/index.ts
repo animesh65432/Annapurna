@@ -31,15 +31,15 @@ export const saverecipe = asyncerrorhandler(async (req: Request, res: Response) 
         return
     }
 
-    const saverecipes = db.save.create({
+    const saverecipes = await db.save.create({
         data: {
             recipeId: Id,
             userId
         }
     })
-    const DeleteExsitingsaverecipes = redis.del(redisKey)
+    // const DeleteExsitingsaverecipes = redis.del(redisKey)
 
-    await Promise.all([saverecipes, DeleteExsitingsaverecipes])
+    // await Promise.all([saverecipes, DeleteExsitingsaverecipes])
 
     res.status(201).json({
         message: "sucessfully save recipe"
@@ -56,12 +56,12 @@ export const GetallSavedrecipebysUserId = asyncerrorhandler(async (req: Request,
         return
     }
     const redisKey = `saveRecipes-${userId}`
-    const cachedData = await redis.get<any>(redisKey)
+    // const cachedData = await redis.get<any>(redisKey)
 
-    if (cachedData) {
-        res.status(200).json(cachedData)
-        return
-    }
+    // if (cachedData) {
+    //     res.status(200).json(cachedData)
+    //     return
+    // }
 
     const savedrecipes = await db.save.findMany({
         where: {
@@ -72,7 +72,7 @@ export const GetallSavedrecipebysUserId = asyncerrorhandler(async (req: Request,
         },
     });
 
-    await redis.set(redisKey, savedrecipes)
+    // await redis.set(redisKey, savedrecipes)
 
     res.status(200).json(savedrecipes)
     return

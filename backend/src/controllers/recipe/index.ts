@@ -15,12 +15,12 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
     }
 
     const redisKey = `users-recipe:${req.user?.id}`;
-    const cachedData = await redis.get<any>(redisKey);
+    // const cachedData = await redis.get<any>(redisKey);
 
-    if (cachedData) {
-        res.status(200).json(cachedData)
-        return
-    }
+    // if (cachedData) {
+    //     res.status(200).json(cachedData)
+    //     return
+    // }
 
 
     const recipe = await db.recipe.findFirst({
@@ -36,11 +36,11 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             healthierVersion: true,
             substitutions: true,
             dish: true,
-            language: true
+            language: true,
         }
     })
 
-    await redis.set(redisKey, recipe, { ex: 300 })
+    // await redis.set(redisKey, recipe, { ex: 300 })
 
     res.status(200).json(recipe)
     return

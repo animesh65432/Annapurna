@@ -34,7 +34,14 @@ Required JSON format:
 "healthierVersion": {
 "description": "[Write description in ${Language} language]",
 "ingredients": ["[ingredient 1 in ${Language}]", "[ingredient 2 in ${Language}]"],
-"steps": ["[step 1 in ${Language}]", "[step 2 in ${Language}]"]
+"steps": [
+  "[Step 1: Start with detailed prep work in ${Language}]",
+  "[Step 2: Describe next step clearly in ${Language}]",
+  "...", 
+  "[Make sure there are at least 5-7 well-written, complete steps in ${Language}]",
+  "[Each step should be complete, not too short —  how to cook it]"
+]
+
 },
 "nutritionComparison": {
 "before": {
@@ -97,8 +104,6 @@ Required JSON format:
 
     // Parse and validate JSON
     const structured = JSON.parse(cleanedText);
-
-    console.log(structured)
 
     // Validate required fields
     const requiredFields = [

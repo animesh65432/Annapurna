@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { AxiosRequestConfig, AxiosResponse } from "axios"
 import { config } from "../config";
+import { toast } from "react-toastify";
 
 const apiUrl = config.API_URL;
 
@@ -35,6 +36,7 @@ export async function Call<T, ResponseType>({
         config.headers = {
             ...config.headers,
             'Content-Type': 'application/json',
+            withCredentials: true
         };
     }
 
@@ -57,6 +59,7 @@ export async function Call<T, ResponseType>({
                 console.error("Error Request:", error.request);
             } else {
                 console.error("Error Message:", error.message);
+                toast.error(error.message)
             }
         }
 
