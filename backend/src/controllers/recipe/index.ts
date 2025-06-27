@@ -1,6 +1,7 @@
 import { asyncerrorhandler } from "../../middleware"
 import { Request, Response } from "express"
 import db from "../../db"
+import { redis } from "../../services/redis"
 
 
 export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Response) => {
@@ -12,6 +13,15 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
         })
         return
     }
+
+    const redisKey = `users-recipe:${req.user?.id}`;
+    const cachedData = await redis.get<any>(redisKey);
+
+    if (cachedData) {
+        res.status(200).json(cachedData)
+        return
+    }
+
 
     const recipe = await db.recipe.findFirst({
         where: {
@@ -30,5 +40,8 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
         }
     })
 
+    await redis.set(redisKey, recipe, { ex: 300 })
+
     res.status(200).json(recipe)
+    return
 })

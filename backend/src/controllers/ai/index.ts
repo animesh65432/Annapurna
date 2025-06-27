@@ -31,8 +31,6 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
     }
     const recipe = await GenrateRecipebyAi(dish, variant, language)
 
-    console.log(recipe.dish)
-
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,

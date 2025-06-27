@@ -54,7 +54,7 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         } catch (error) {
             console.error("Error fetching suggestions:", error);
         }
-    }, 800);
+    }, 2000);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.value.length === 0) {
