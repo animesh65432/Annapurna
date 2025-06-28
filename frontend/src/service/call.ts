@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosRequestConfig, AxiosResponse } from "axios"
 import { config } from "../config";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify"
 
 const apiUrl = config.API_URL;
 
@@ -36,9 +36,10 @@ export async function Call<T, ResponseType>({
         config.headers = {
             ...config.headers,
             'Content-Type': 'application/json',
-            withCredentials: true
         };
     }
+
+    config.withCredentials = true
 
     try {
         const response: AxiosResponse<ResponseType> = await axios(config);
@@ -54,12 +55,12 @@ export async function Call<T, ResponseType>({
         if (axios.isAxiosError(error)) {
             if (error.response) {
                 console.error("Error Response:", error.response.data);
+                toast.error(`${error.response.data.message}`)
                 console.error("Error Status:", error.response.status);
             } else if (error.request) {
                 console.error("Error Request:", error.request);
             } else {
                 console.error("Error Message:", error.message);
-                toast.error(error.message)
             }
         }
 
