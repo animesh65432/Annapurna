@@ -1,0 +1,133 @@
+
+.shareSection {
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 900;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width:636px) {
+      width: 70%;
+    }
+    @media (max-width:531px) {
+      width: 75%;
+    }
+    @media (max-width:500px) {
+      left: 48%;
+      width: 75%;
+    }
+
+    @media (max-width:461px) {
+      padding: 1rem;
+    }
+    @media (max-width:438px) {
+      width: 80%;
+    }
+}
+
+.shareHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  @media (max-width:714px) {
+    margin-bottom: 1rem;
+  }
+  @media (max-width:500px) {
+    font-size: 16px;
+  }
+}
+
+.shareTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  margin: 0;
+  @media (max-width:500px) {
+    font-size: 16px;
+  }
+  @media (max-width:400px) {
+    font-size: 14px;
+  }
+}
+
+.shareSubtitle {
+  color: #6b7280;
+  margin: 0.5rem 0 0 0;
+  @media (max-width:500px) {
+    font-size: 14px;
+  }
+  @media (max-width:400px) {
+    font-size: 13px;
+  }
+}
+
+.sharePreview {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  border-left: 4px solid  #059669;
+  @media (max-width:500px) {
+    font-size: 12px;
+  }
+  @media (max-width:461px) {
+    padding: 14px;
+    width: 95%;
+  }
+}
+
+.shareMessage {
+  color: #374151;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+
+  @media (max-width:694px) {
+    font-size: 14px;
+  }
+  @media (max-width:500px) {
+    font-size: 13px;
+  }
+  @media (max-width:408px) {
+    font-size: 12px;
+  }
+  @media (max-width:378px) {
+    font-size: 11px;
+  }
+  @media (max-width:344px) {
+    font-size: 10px;
+  }
+}
+
+.shareUrl {
+  color:green;
+  font-size: 0.875rem;
+  margin: 0;
+  word-break: break-all;
+  @media (max-width:694px) {
+    font-size: 14px;
+  }
+  @media (max-width:500px) {
+    font-size: 12px;
+  }
+  @media (max-width:408px) {
+    font-size: 12px;
+  }
+  @media (max-width:378px) {
+    font-size: 11px;
+  }
+  @media (max-width:344px) {
+    font-size: 10px;
+  }
+}
+
