@@ -90,7 +90,6 @@ export default function ShareSection({ dishname, setisShareOPen }: Props) {
                             aria-label={`Share on ${option.name}`}
                         >
                             <div className={styles.shareButtonIcon}>{option.icon}</div>
-                            <span className={styles.shareButtonText}>{option.name}</span>
                         </button>
                     ))}
                 </div>
