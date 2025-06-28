@@ -1,4 +1,4 @@
-import { UploadCloud, BarChart3, HeartPulse, LayoutDashboard, BookMarked, LogOut } from "lucide-react";
+import { UploadCloud, BarChart3, HeartPulse } from "lucide-react";
 import { easeOut, easeIn } from "framer-motion";
 
 export const howitworks = [
@@ -157,15 +157,7 @@ export const faq = [
             "Our system is optimized for Indian kitchens. If something’s missing, we give regionally available suggestions based on your dish type."
     }
 ];
-export const NavbarItems = [
-    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Saves", href: "/my-recipes", icon: BookMarked },
-];
-export const MobileNavbarItems = [
-    { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-    { name: "Saves", href: "/my-recipes", icon: BookMarked },
-    { name: "LogOut", herf: "/", icon: LogOut }
-]
+
 
 
 export const optionsforFoods = [

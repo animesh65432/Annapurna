@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useRecipeStore } from "../../../store/Recipe"
 import styles from "./Header.module.scss"
-import { Share, Save } from "lucide-react"
+import { Save } from "lucide-react"
 import { FaShare } from "react-icons/fa";
 import { useAuthstroe } from "../../../store/useauth"
 import SigninwithGoogle from "../../SigninwithGoogle"

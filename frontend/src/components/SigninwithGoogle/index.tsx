@@ -55,9 +55,9 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
         <div className={styles.Container}>
             <div className={styles.Card} ref={modalRef}>
                 <h2 className={styles.Title}>Welcome to <span>Annapurna AI</span></h2>
-                <p className={styles.Subtitle}>Sign in to get started</p>
+                <p className={styles.Subtitle}>To save the recipe, please sign in with <br />your Google account. </p>
                 <div className={styles.ButtonWrapper}>
-                    {isSinginLoading ? <Loader /> : <GoogleLogin
+                    {isSinginLoading ? <Loader className={styles.loader} /> : <GoogleLogin
                         onSuccess={(data) => onsinginwithgoogle(data)}
                     />}
                 </div>

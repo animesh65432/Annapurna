@@ -1,25 +1,34 @@
 import React from 'react'
-import { NavbarItems } from "../../utils"
 import styles from "./Navbar.module.scss"
-import { LogOut } from "lucide-react"
+import { LogOut, LayoutDashboard, BookMarked } from "lucide-react"
+import { useAuthstroe } from '../../store/useauth'
+import { useNavigate } from "react-router-dom"
 
-const Navbar: React.FC = () =>
-    <>
+const Navbar: React.FC = () => {
+    const navigate = useNavigate()
+    const { token, removetoken } = useAuthstroe()
+    return <>
         <div className={styles.upperNavContainer}>
-            {NavbarItems.map((item) =>
-                <div className={styles.navitem} key={item.name}>
-                    <div><item.icon className={styles.navitemIcon} /></div>
-                    <div>{item.name}</div>
-                </div>)
+            <div className={styles.navitem} onClick={() => navigate("/dashboard")} >
+                <div><LayoutDashboard className={styles.navitemIcon} /></div>
+                <div>Dashboard</div>
+            </div>
+            {token &&
+                <div className={styles.navitem} >
+                    <div><BookMarked className={styles.navitemIcon} /></div>
+                    <div>Saves</div>
+                </div>
             }
         </div>
         <div className={styles.lowerNavContainer}>
-            <div className={styles.navitem}>
-                <div><LogOut className={styles.navitemIcon} /></div>
-                <div>Logout</div>
-            </div>
+            {token &&
+                <div className={styles.navitem} onClick={removetoken}>
+                    <div><LogOut className={styles.navitemIcon} /></div>
+                    <div>Logout</div>
+                </div>
+            }
         </div>
     </>
 
-
+}
 export default Navbar
