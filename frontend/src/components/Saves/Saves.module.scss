@@ -3,9 +3,8 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    width: 80%;
-    border-radius: 10px;
-    
+    width: 100%;
+    overflow-y: auto;
     @media (max-width: 1200px) {
       height: 94vh;
     }
