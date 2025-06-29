@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { popularindianFoods } from "../../../utils";
 import styles from "./PopularIndianDishes.module.scss";
 import Dishes from "./Dishes";
@@ -35,6 +35,7 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
     }, [window.innerWidth]);
 
     const getItems = (start: number) => {
+        console.log(start)
         let filterpopularindianFoods: popularindianFoodstypes[] = []
         if (start + itemsPerPage > popularindianFoods.length) {
             const remainingItems = popularindianFoods.length - start;
@@ -53,25 +54,23 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
         else {
             filterpopularindianFoods = popularindianFoods.slice(start, start + itemsPerPage);
         }
+        console.log(filterpopularindianFoods)
         return filterpopularindianFoods
+
     };
 
-    const handleNext = () => {
-        if (index < popularindianFoods.length - 1) {
-            setIndex(prev => prev + 1);
-        } else {
-            console.log("Reached the end of the list, resetting index to 0");
-            setIndex(0);
-        }
-    };
+    const handleNext = useCallback(() => {
+        setIndex(prev => (prev + 1) % popularindianFoods.length);
+    }, []);
 
-    const handlePrev = () => {
-        if (index > 0) {
-            setIndex(prev => prev - 1);
-        } else {
-            setIndex(popularindianFoods.length - 1);
-        }
-    };
+    const handlePrev = useCallback(() => {
+        setIndex(prev => prev === 0 ? popularindianFoods.length - 1 : prev - 1);
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(handleNext, 3000);
+        return () => clearInterval(interval);
+    }, [handleNext]);
 
     const filterpopularindianFoods = getItems(index);
     return (
