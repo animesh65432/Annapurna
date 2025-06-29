@@ -1,17 +1,18 @@
 import React from 'react'
-import { Link } from "react-router-dom"
 import styles from "./NotFound.module.scss"
+import { useNavigate } from "react-router-dom"
 
 const NotFound: React.FC = () => {
+    const navigate = useNavigate()
     return (
         <div className={styles.Container}>
             <h1>404 - Page Not Found</h1>
-            <Link
-                to="/"
+            <button
+                onClick={() => navigate(-1)}
                 className={styles.Goback}
             >
                 Go back to Home
-            </Link>
+            </button>
         </div >
     )
 }

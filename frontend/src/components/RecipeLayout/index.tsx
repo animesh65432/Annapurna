@@ -27,13 +27,13 @@ export default function RecipeLayout() {
         }
     }, [id])
 
-    if (!id || isFecthrecipeloading || !recipe) {
+    if (isFecthrecipeloading) {
         return (
             <Foodloading />
         )
     }
 
-    const title = nutritionTranslations[recipe.language]
+    const title = nutritionTranslations[recipe!.language]
 
     return (
         <Layout>

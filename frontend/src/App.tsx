@@ -1,22 +1,37 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { lazy, Suspense } from "react"
-import { PageLaoding, NotFound } from "./components"
+import { PageLaoding, NotFound, ErrorBoundary } from "./components"
 
 const LandingPage = lazy(() => import("./pages/Landing"))
 const Dashboardpage = lazy(() => import("./pages/DashboardPage"))
 const Recipepage = lazy(() => import("./pages/RecipePage"))
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboardpage />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: "/recipe/:id",
+    element: <Recipepage />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: "*",
+    element: <NotFound />
+  }
+])
+
 export default function App() {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<PageLaoding />}>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={<Dashboardpage />} />
-          <Route path="/recipe/:id" element={<Recipepage />} />
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Suspense fallback={<PageLaoding />}>
+      <RouterProvider router={router} />
+    </Suspense>
   )
 }

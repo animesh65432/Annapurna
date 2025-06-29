@@ -6,5 +6,6 @@ import Layout from "./Layout"
 import RecipeLayout from "./RecipeLayout"
 import PageLaoding from "./Pageloading"
 import NotFound from "./NotFound"
+import ErrorBoundary from "./ErrorBoundary"
 
-export { Landing, Dashboard, Recipe, WhyTheseChagnes, Layout, RecipeLayout, PageLaoding, NotFound }
+export { Landing, Dashboard, Recipe, WhyTheseChagnes, Layout, RecipeLayout, PageLaoding, NotFound, ErrorBoundary }

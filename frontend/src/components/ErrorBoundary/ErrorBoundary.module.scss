@@ -1,0 +1,86 @@
+.Container {
+    display: flex;
+    height:91vh;
+    width: 91vw;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+  
+    h1 {
+      font-size: 40px;
+    }
+  
+    p {
+      margin: 0.5rem 0;
+      color: #666;
+      font-style: italic;
+    }
+    
+    @media (max-width: 789px) {
+      h1 {
+        font-size: 32px;
+      }
+    }
+    @media (max-width: 711px) {
+        height: 85vh;
+        width: 85vw;
+
+        .subtitle{
+            font-size: 15px;
+        }
+    }
+  
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 22px;
+      }
+      .subtitle{
+        font-size: 12px;
+    }
+    }
+    @media (max-width: 423px) {
+        height: 85vh;
+        width: 82vw;
+      }
+      @media (max-width: 353px) {
+        height: 85vh;
+        width: 80vw;
+
+        .subtitle{
+            font-size: 11px;
+        }
+    }
+  }
+  
+  .Goback {
+    margin-top: 1rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background-color: forestgreen;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #228b22;
+      transform: scale(1.05);
+    }
+  
+    &:active {
+      transform: scale(0.95);
+    }
+  
+    @media (max-width: 500px) {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+  
