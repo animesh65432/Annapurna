@@ -40,7 +40,7 @@ export default function MobileMenu() {
                             <div className={styles.name}>Dashboard</div>
                         </div>
                         {token &&
-                            <div className={styles.menuItem}>
+                            <div className={styles.menuItem} onClick={() => navigate("/save")}>
                                 <div className={styles.iconWrapper}><BookMarked /></div>
                                 <div className={styles.name}>Saves</div>
                             </div>

@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
                 <div>Dashboard</div>
             </div>
             {token &&
-                <div className={styles.navitem} >
+                <div className={styles.navitem} onClick={() => navigate("/save")}>
                     <div><BookMarked className={styles.navitemIcon} /></div>
                     <div>Saves</div>
                 </div>

@@ -1,0 +1,127 @@
+@keyframes shimmer {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+@mixin skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+.container {
+    padding: 16px;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    background-color: #fff;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.avatar {
+    @include skeleton;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.userInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.username {
+    @include skeleton;
+    height: 16px;
+    width: 120px;
+}
+
+.timestamp {
+    @include skeleton;
+    height: 12px;
+    width: 80px;
+}
+
+.content {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.textLine {
+    @include skeleton;
+    height: 16px;
+    width: 100%;
+}
+
+.textLineShort {
+    @include skeleton;
+    height: 16px;
+    width: 60%;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        background-color: white;
+        border-color: whitesmoke;
+        width: 80%;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    @mixin skeleton {
+        background:#e0e0e0;
+        background-size: 200px 100%;
+        animation: shimmer 1.5s infinite;
+        border-radius: 4px;
+    }
+    
+    .avatar,
+    .username,
+    .timestamp,
+    .textLine,
+    .textLineShort,
+    .button {
+        @include skeleton;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .actions {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .button {
+        width: 70px;
+        height: 28px;
+    }
+}

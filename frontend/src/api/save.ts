@@ -6,7 +6,7 @@ export const create = (recipeId: string) => Call({
     method: "POST"
 })
 
-export const Get = () => Call({
+export const GetAll = () => Call({
     path: `/save/Get`,
     method: "GET"
 })

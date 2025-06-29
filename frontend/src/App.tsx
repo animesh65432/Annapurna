@@ -5,6 +5,7 @@ import { PageLaoding, NotFound, ErrorBoundary } from "./components"
 const LandingPage = lazy(() => import("./pages/Landing"))
 const Dashboardpage = lazy(() => import("./pages/DashboardPage"))
 const Recipepage = lazy(() => import("./pages/RecipePage"))
+const SavePages = lazy(() => import("./pages/SavePage"))
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "/recipe/:id",
     element: <Recipepage />,
+    errorElement: <ErrorBoundary />
+  },
+  {
+    path: "/save",
+    element: <SavePages />,
     errorElement: <ErrorBoundary />
   },
   {
