@@ -18,7 +18,7 @@ export default function Hwt() {
                         }}>
                         <div className={styles.index}>
                             {index + 1}
-                            <work.icon />
+                            {/* <work.icon /> */}
                         </div>
                         <div className={styles.title}>{work.title}</div>
                     </motion.div>

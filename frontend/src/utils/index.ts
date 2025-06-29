@@ -1,20 +1,28 @@
-import { UploadCloud, BarChart3, HeartPulse } from "lucide-react";
 import { easeOut, easeIn } from "framer-motion";
 
 export const howitworks = [
     {
-        title: "Upload your recipe",
-        icon: UploadCloud,
+        title: "Create Your Dish",
+        des: "Easily write your own dish name, choose from various Indian languages, and select specific nutritional variants like high-protein, fiber-rich, or iron-boosting recipes.",
+        image: "/createrecipe.png",
     },
     {
-        title: "original foods",
-        icon: BarChart3,
+        title: "Choose from Popular Indian Dishes",
+        des: "Browse and select from a curated list of the most popular dishes across India, tailored to regional tastes and preferences.",
+        image: "/populardishes.png",
     },
     {
-        title: "Get a healthier, tastier version with AI",
-        icon: HeartPulse,
-    }
+        title: "Get a Healthier Recipe",
+        des: "Using AI, receive a healthier version of your selected dish based on your chosen variant. Explore the dish’s evolution, nutritional changes, and historical context in your preferred Indian language.",
+        image: "/recipe.png",
+    },
+    {
+        title: "Save and Share Your Recipe",
+        des: "Easily save your favorite recipes and share them with friends and family. Access your saved recipes anytime for future use.",
+        image: "/shareandsave.png",
+    },
 ];
+
 
 export const blurIn = {
     initial: { filter: "blur(10px)", opacity: 0 },
@@ -198,34 +206,239 @@ export const optionsforLanguages = [
 export const popularindianFoods = [
     {
         name: "Aloo Paratha",
-        img: "/dashboard/allupartha.jpg"
+        img: "/dashboard/allupartha.jpg",
+        des: "Aloo Paratha is a beloved North Indian stuffed flatbread from Punjab...",
+        state: "Punjab",
+        region: "North India",
+        type: "Breakfast / Comfort Food / Vegetarian",
+        pairings: ["Curd", "Butter", "Pickle"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich"]
     },
     {
-        name: "Rajma Chawal",
-        img: "/dashboard/RajmaChawal.jpg"
-    },
-    {
-        name: "Palak Paneer",
-        img: "/dashboard/palakpanner.avif"
-    },
-    {
-        name: "Chole Bhature",
-        img: "/dashboard/cholebhature.jpg"
-    },
-    {
-        name: "Idli Sambhar",
-        img: "/dashboard/idli.webp"
+        name: "Idli Sambar",
+        img: "/dashboard/idli.webp",
+        des: "Idli Sambar is a classic South Indian breakfast dish...",
+        state: "Tamil Nadu",
+        region: "South India",
+        type: "Breakfast / Light Meal / Vegetarian",
+        pairings: ["Coconut Chutney", "Tomato Chutney", "Filter Coffee"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
     },
     {
         name: "Pav Bhaji",
-        img: "/dashboard/pavabhaji.jpg"
+        img: "/dashboard/pavabhaji.jpg",
+        des: "Pav Bhaji is a famous street food from Maharashtra...",
+        state: "Maharashtra",
+        region: "West India",
+        type: "Street Food / Snack / Dinner / Vegetarian",
+        pairings: ["Chopped Onion", "Lemon Wedge", "Butter Pav"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich"]
     },
     {
         name: "Baingan Bharta",
-        img: "/dashboard/bainganbharta.jpeg"
+        img: "/dashboard/bainganbharta.jpeg",
+        des: "Baingan Bharta is a smoky-flavored North Indian dish...",
+        state: "Uttar Pradesh / Punjab",
+        region: "North India",
+        type: "Lunch / Dinner / Vegetarian",
+        pairings: ["Roti", "Paratha", "Curd"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich"]
     },
-    { name: "Shorshe Ilish", img: "/dashboard/elish.jpg" }
+    {
+        name: "Shorshe Ilish",
+        img: "/dashboard/elish.jpg",
+        des: "Shorshe Ilish is a traditional Bengali delicacy...",
+        state: "West Bengal",
+        region: "East India",
+        type: "Lunch / Festive Meal / Non-Vegetarian",
+        pairings: ["Steamed Rice", "Green Chili", "Mustard Oil Drizzle"],
+        category: "Non-Vegetarian",
+        variant: ["Protein-rich", "Omega-3"]
+    },
+    {
+        name: "Aloo Ke Gutke",
+        img: "/dashboard/AlooKeGutke.jpeg",
+        des: "Aloo Ke Gutke is a traditional dish from Uttarakhand...",
+        state: "Uttarakhand",
+        region: "North India",
+        type: "Lunch / Side Dish / Vegetarian",
+        pairings: ["Puri", "Rice", "Dal"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich"]
+    },
+    {
+        name: "Bafauri",
+        img: "/dashboard/Bafauri.jpeg",
+        des: "Bafauri is a nutritious and oil-free snack from Chhattisgarh...",
+        state: "Chhattisgarh",
+        region: "Central India",
+        type: "Snack / Healthy Food / Vegetarian",
+        pairings: ["Green Chutney", "Mint Chutney", "Lemon"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
+    },
+    {
+        name: "Bhutte Ka Kees",
+        img: "/dashboard/Bhuttekakees.jpg",
+        des: "Bhutte Ka Kees is a unique and healthy snack from Madhya Pradesh...",
+        state: "Madhya Pradesh",
+        region: "Central India",
+        type: "Snack / Street Food / Vegetarian",
+        pairings: ["Sev", "Coriander Garnish", "Lemon Juice"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich"]
+    },
+    {
+        name: "Butter Chicken",
+        img: "/dashboard/ButterChicken.jpg",
+        des: "Butter Chicken, also known as Murgh Makhani, is a rich and creamy...",
+        state: "Delhi / Punjab",
+        region: "North India",
+        type: "Dinner / Restaurant Special / Non-Vegetarian",
+        pairings: ["Naan", "Jeera Rice", "Salad"],
+        category: "Non-Vegetarian",
+        variant: ["Protein-rich"]
+    },
+    {
+        name: "Chilka Roti",
+        img: "/dashboard/ChilkaRoti.jpg",
+        des: "Chilka Roti is a traditional rice-based flatbread from Jharkhand...",
+        state: "Jharkhand",
+        region: "East India",
+        type: "Breakfast / Dinner / Tribal Cuisine / Vegetarian",
+        pairings: ["Tomato Chutney", "Mixed Vegetable Curry", "Green Chilli"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
+    },
+    {
+        name: "Dal Baati Churma",
+        img: "/dashboard/DalBaatiChurma.jpg",
+        des: "Dal Baati Churma is a traditional Rajasthani meal consisting of three elements: spicy lentil curry (dal), hard wheat rolls baked over fire or in a tandoor (baati), and sweet crumbled wheat with ghee and jaggery (churma). It's a rich, hearty dish full of flavor and cultural significance, often served during festivals and special occasions.",
+        state: "Rajasthan",
+        region: "West India",
+        type: "Lunch / Festive Meal / Vegetarian",
+        pairings: ["Ghee", "Pickle", "Buttermilk"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
+    },
+    {
+        name: "Dalma",
+        img: "/dashboard/Dalma.jpeg",
+        des: "Dalma is a wholesome and traditional Odia dish made with toor dal (split pigeon peas) and seasonal vegetables like raw banana, pumpkin, and papaya, tempered with ghee, cumin, and ginger. It is mildly spiced, highly nutritious, and often served as a part of temple or festive meals in Odisha.",
+        state: "Odisha",
+        region: "East India",
+        type: "Lunch / Temple Food / Vegetarian",
+        pairings: ["Steamed Rice", "Papad", "Ghee"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
+    },
+    {
+        name: "Dhokla",
+        img: "/dashboard/Dhokla.jpg",
+        des: "Dhokla is a light and fluffy steamed snack from Gujarat made with a fermented batter of gram flour (besan). It's mildly tangy, slightly sweet, and spiced with mustard seeds, curry leaves, and green chilies. Known for being soft, spongy, and easy to digest, Dhokla is often served as a breakfast or tea-time snack.",
+        state: "Gujarat",
+        region: "West India",
+        type: "Breakfast / Snack / Vegetarian",
+        pairings: ["Green Chutney", "Sweet Chutney", "Fried Green Chilies"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Fiber-rich"]
+    },
+    {
+        name: "Fish Molee",
+        img: "/dashboard/FishMolee.jpg",
+        des: "Fish Molee, also known as Fish Molly, is a traditional Kerala-style fish stew cooked in coconut milk with lightly spiced ingredients like green chilies, curry leaves, ginger, and tomatoes. This mildly flavored, aromatic dish reflects the Portuguese influence on Kerala’s cuisine and is best enjoyed with appam or steamed rice.",
+        state: "Kerala",
+        region: "South India",
+        type: "Lunch / Dinner / Coastal Cuisine / Non-Vegetarian",
+        pairings: ["Appam", "Steamed Rice", "Coconut Chutney"],
+        category: "Non-Vegetarian",
+        variant: ["Protein-rich", "Omega-3"]
+    },
+    {
+        name: "Kadhi Pakora",
+        img: "/dashboard/KadhiPakora.jpg",
+        des: "Kadhi Pakora is a comforting North Indian dish made from gram flour (besan) and yogurt, slow-cooked into a tangy, spiced gravy with soft, fried chickpea flour dumplings (pakoras). It’s typically served with steamed rice and is known for its balance of sourness, spice, and creamy texture.",
+        state: "Punjab / Uttar Pradesh / Rajasthan",
+        region: "North India",
+        type: "Lunch / Comfort Food / Vegetarian",
+        pairings: ["Steamed Rice", "Papad", "Fried Green Chilies"],
+        category: "Vegetarian",
+        variant: ["Protein-rich", "Probiotic"]
+    },
+    {
+        name: "Khar",
+        img: "/dashboard/Khar.jpg",
+        des: "Khar is a signature Assamese dish made with raw papaya, pulses, or vegetables, and an alkaline water extract filtered through sun-dried banana peels (called 'khar'). Known for its distinct earthy flavor and cleansing properties, Khar is typically eaten at the beginning of meals and holds cultural and medicinal significance in Assamese households.",
+        state: "Assam",
+        region: "North-East India",
+        type: "Lunch / Traditional / Vegetarian (sometimes Non-Vegetarian variants)",
+        pairings: ["Steamed Rice", "Green Chili", "Lemon"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich", "Alkaline"]
+    }
+    , {
+        name: "Litti Chokha",
+        img: "/dashboard/LittiChokha.jpg",
+        des: "Litti Chokha is a traditional Bihari dish made from whole wheat dough balls (litti) stuffed with roasted gram flour (sattu), herbs, and spices, then baked over fire or coals. It’s served with chokha – a mashed mixture of roasted eggplant, tomatoes, potatoes, garlic, and mustard oil. This wholesome and earthy meal is known for its robust flavors and nutritional value.",
+        state: "Bihar",
+        region: "East India",
+        type: "Lunch / Dinner / Rural Cuisine / Vegetarian",
+        pairings: ["Green Chutney", "Ghee Drizzle", "Onion Slices"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich", "Iron-rich", "Plant Protein"]
+    },
+    {
+        name: "Prawn Balchão",
+        img: "/dashboard/PrawnBalchão.jpg",
+        des: "Prawn Balchão is a fiery and tangy Goan prawn pickle-curry made with vinegar, dried red chilies, and spices. Originally influenced by Portuguese cuisine, this dish is known for its bold flavors, long shelf life, and spicy-sour punch. Typically enjoyed with steamed rice or bread.",
+        state: "Goa",
+        region: "West India",
+        type: "Lunch / Dinner / Coastal Cuisine / Non-Vegetarian",
+        pairings: ["Steamed Rice", "Goan Poi Bread", "Lemon Slices"],
+        category: "Non-Vegetarian",
+        variant: ["Protein-rich", "Probiotic", "Spicy"]
+    },
+    {
+        name: "Ragi Mudde",
+        img: "/dashboard/RagiMudde.jpeg",
+        des: "Ragi Mudde is a traditional Karnataka staple made by cooking finger millet flour (ragi) into soft, round balls. Highly nutritious and gluten-free, it's usually eaten with spicy sambar, saaru, or meat curries. This humble food is packed with calcium, fiber, and iron, and is especially popular in rural Karnataka.",
+        state: "Karnataka",
+        region: "South India",
+        type: "Lunch / Staple Food / Vegetarian",
+        pairings: ["Sambar", "Bassaru", "Chicken Curry"],
+        category: "Vegetarian",
+        variant: ["Fiber-rich", "Calcium-rich", "Gluten-free"]
+    },
+    {
+        name: "Thukpa",
+        img: "/dashboard/Thukpa.jpeg",
+        des: "Thukpa is a comforting noodle soup from the Himalayan regions of Arunachal Pradesh and Sikkim, made with hand-pulled noodles, vegetables or meat, and a lightly spiced broth. Influenced by Tibetan cuisine, Thukpa is hearty, warming, and often served as a main meal in colder regions.",
+        state: "Arunachal Pradesh / Sikkim",
+        region: "North-East India",
+        type: "Dinner / Soup / Himalayan Cuisine",
+        pairings: ["Chili Sauce", "Dumplings (Momo)", "Boiled Egg (optional)"],
+        category: "Vegetarian / Non-Vegetarian (varies)",
+        variant: ["Protein-rich", "Warm & Healing", "Low-fat"]
+    },
+    {
+        name: "Tunday Kababi",
+        img: "/dashboard/TundayKababi.jpg",
+        des: "Tunday Kababi is a world-famous Awadhi delicacy from Lucknow, known for its soft, melt-in-the-mouth texture and rich blend of over 100 spices. Made from finely minced buffalo or mutton meat, these kebabs are shallow-fried and typically served with roomali roti or paratha.",
+        state: "Uttar Pradesh",
+        region: "North India",
+        type: "Dinner / Street Food / Royal Cuisine / Non-Vegetarian",
+        pairings: ["Roomali Roti", "Onion Rings", "Mint Chutney"],
+        category: "Non-Vegetarian",
+        variant: ["Protein-rich", "Spice-rich", "Soft-textured"]
+    }
+
 ];
+
+
 export const nutritionTranslations: Record<string, Record<string, string>> = {
     english: {
         originalNutrition: "Original Nutrition",
