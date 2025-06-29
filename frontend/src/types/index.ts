@@ -45,3 +45,6 @@ export type RecipeTypes = {
     foodHistoryContext: string;
     id: string
 };
+export type SavesRecipesTypes = {
+    recipe: RecipeTypes
+}
