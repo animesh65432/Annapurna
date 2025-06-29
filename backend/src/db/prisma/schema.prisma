@@ -23,6 +23,7 @@ model Recipe {
   substitutions        Json
   motivationalMessage  String
   funFact              String
+  foodHistoryContext   String
   save                 Save?   
 }
 

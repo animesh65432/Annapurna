@@ -1,8 +1,8 @@
 .Container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  height:91vh;
+  width: 91vw;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -19,11 +19,17 @@
     margin-bottom: 0.5rem;
   }
 
+
   @media (max-width: 789px) {
     h1 {
       font-size: 32px;
     }
   }
+
+  @media (max-width: 711px) {
+    height: 85vh;
+    width: 85vw;
+}
 
   @media (max-width: 600px) {
     h1 {
@@ -33,6 +39,15 @@
     .subtitle {
       font-size: 1px; 
     }
+  }
+
+  @media (max-width: 423px) {
+    height: 85vh;
+    width: 82vw;
+  }
+  @media (max-width: 353px) {
+    height: 85vh;
+    width: 80vw;
   }
 }
 

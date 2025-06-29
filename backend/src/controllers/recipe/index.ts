@@ -5,28 +5,23 @@ import { redis } from "../../services/redis"
 
 
 export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Response) => {
-    const { id } = req.query
-
+    const { id } = req.query;
     if (!id || typeof id !== "string") {
-        res.status(400).json({
-            message: "invalid credentials"
-        })
-        return
+        res.status(400).json({ message: "Invalid credentials" });
+        return;
+    }
+
+    const isValidObjectId = (id: string) => /^[0-9a-fA-F]{24}$/.test(id);
+
+    if (!isValidObjectId(id)) {
+        res.status(400).json({ message: "Invalid recipe Url" });
+        return;
     }
 
     const redisKey = `users-recipe:${req.user?.id}`;
-    // const cachedData = await redis.get<any>(redisKey);
-
-    // if (cachedData) {
-    //     res.status(200).json(cachedData)
-    //     return
-    // }
-
 
     const recipe = await db.recipe.findFirst({
-        where: {
-            id
-        },
+        where: { id },
         select: {
             funFact: true,
             variant: true,
@@ -37,11 +32,17 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             substitutions: true,
             dish: true,
             language: true,
-        }
-    })
+            foodHistoryContext: true
+        },
+    });
 
-    // await redis.set(redisKey, recipe, { ex: 300 })
+    if (!recipe) {
+        res.status(404).json({ message: "Invalid recipe Url" });
+        return;
+    }
 
-    res.status(200).json(recipe)
-    return
-})
+    // await redis.set(redisKey, recipe, { ex: 300 });
+
+    res.status(200).json(recipe);
+    return;
+});

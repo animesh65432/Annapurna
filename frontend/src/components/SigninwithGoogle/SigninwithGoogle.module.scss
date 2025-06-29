@@ -60,6 +60,18 @@
     }
 }
 
+@media (max-width:500px) {
+    .Subtitle{
+        font-size: 13px;
+    }
+}
+@media (max-width:338px) {
+    .Subtitle{
+        font-size: 12px;
+    }
+}
+
+
 .loader {
     animation: spin 1s linear infinite;
     display: inline-block;

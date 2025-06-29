@@ -9,16 +9,19 @@ import { nutritionTranslations } from "../../utils"
 import Header from "./Header"
 import Recipe from "./Recipe"
 import WhyTheseChagnes from "./WhyTheseChagnes"
+import History from "./History"
 
 export default function RecipeLayout() {
     const { id } = useParams()
     const { setRecipe, recipe } = useRecipeStore()
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
-    const [currentComponent, setCurrentComponent] = useState<"recipe" | "why">("recipe")
+    const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
 
     const fetch = async (id: string) => {
         const res = await fetchrecipe(id)
-        setRecipe(res)
+        if (res) {
+            setRecipe(res)
+        }
     }
 
     useEffect(() => {
@@ -27,7 +30,7 @@ export default function RecipeLayout() {
         }
     }, [id])
 
-    if (isFecthrecipeloading) {
+    if (isFecthrecipeloading || !recipe) {
         return (
             <Foodloading />
         )
@@ -53,12 +56,19 @@ export default function RecipeLayout() {
                         >
                             {title.whyTheseChanges}
                         </button>
+                        <button
+                            className={styles.NavItem}
+                            onClick={() => setCurrentComponent("History")}
+                        >
+                            {title.History}
+                        </button>
                     </div>
                 </div>
 
                 <div className={styles.MainContainer}>
                     {currentComponent === "recipe" && <Recipe />}
                     {currentComponent === "why" && <WhyTheseChagnes />}
+                    {currentComponent === "History" && <History />}
                 </div>
             </div>
         </Layout>

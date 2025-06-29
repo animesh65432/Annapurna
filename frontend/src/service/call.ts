@@ -2,7 +2,6 @@ import axios from "axios";
 import type { AxiosRequestConfig, AxiosResponse } from "axios"
 import { config } from "../config";
 import { toast } from "react-toastify"
-
 const apiUrl = config.API_URL;
 
 export async function Call<T, ResponseType>({
@@ -22,7 +21,6 @@ export async function Call<T, ResponseType>({
     formDataRequest?: boolean;
 }): Promise<ResponseType> {
     const mergedPath = path.startsWith("https://") ? path : `${apiUrl}${path}`;
-
     const config: AxiosRequestConfig = {
         method,
         url: mergedPath,

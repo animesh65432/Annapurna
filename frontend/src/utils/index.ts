@@ -42,6 +42,11 @@ export const slideLeftFade = {
     exit: { x: -100, opacity: 0 },
     transition: { duration: 0.3, ease: easeOut }
 };
+export const slideRightFade = {
+    initial: { x: 20, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    transition: { duration: 0.3, ease: easeOut }
+};
 
 export const containerVariants = {
     hidden: { opacity: 0 },
@@ -235,7 +240,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "After",
         recipe: "Recipe",
         whyTheseChanges: "Why These Changes",
-        why: "why"
+        why: "why",
+        History: "History"
     },
 
     hindi: {
@@ -251,7 +257,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "बाद में",
         recipe: "रेसिपी",
         whyTheseChanges: "ये बदलाव क्यों",
-        why: "क्यों"
+        why: "क्यों",
+        History: "इतिहास"
     },
     bengali: {
         originalNutrition: "মূল পুষ্টি",
@@ -266,7 +273,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "পরে",
         recipe: "রেসিপি",
         whyTheseChanges: "এই পরিবর্তনগুলি কেন",
-        why: "কেন"
+        why: "কেন",
+        History: "ইতিহাস"
     },
 
     tamil: {
@@ -282,7 +290,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "பின்பு",
         recipe: "செய்முறை",
         whyTheseChanges: "ஏன் இந்த மாற்றங்கள்",
-        why: "ஏன்"
+        why: "ஏன்",
+        History: "வரலாறு"
 
     },
 
@@ -299,7 +308,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "తర్వాత",
         recipe: "వంటకం",
         whyTheseChanges: "ఈ మార్పులు ఎందుకు",
-        why: "ఎందుకు"
+        why: "ఎందుకు",
+        History: "చరిత్ర"
     },
 
     marathi: {
@@ -315,7 +325,9 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "नंतर",
         recipe: "पाककृती",
         whyTheseChanges: "हे बदल का",
-        why: "का"
+        why: "का",
+        History: "इतिहास"
+
     },
 
     gujarati: {
@@ -331,7 +343,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "પછી",
         recipe: "રેસીપી",
         whyTheseChanges: "આ ફેરફારો શા માટે",
-        why: "શા માટે"
+        why: "શા માટે",
+        History: "ઇતિહાસ"
     },
 
     kannada: {
@@ -347,7 +360,9 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "ನಂತರ",
         recipe: "ಪಾಕವಿಧಾನ",
         whyTheseChanges: "ಈ ಬದಲಾವಣೆಗಳು ಏಕೆ",
-        why: "ಏಕೆ"
+        why: "ಏಕೆ",
+        History: "ಇತಿಹಾಸ"
+
     },
 
     malayalam: {
@@ -363,7 +378,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "ശേഷം",
         recipe: "പാചകക്രമം",
         whyTheseChanges: "എന്തുകൊണ്ട് ഈ മാറ്റങ്ങൾ",
-        why: "എന്തുകൊണ്ട്"
+        why: "എന്തുകൊണ്ട്",
+        History: "ചരിത്രം"
     },
 
     punjabi: {
@@ -379,7 +395,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "ਬਾਅਦ",
         recipe: "ਪਕਵਾਨ",
         whyTheseChanges: "ਇਹ ਤਬਦੀਲੀਆਂ ਕਿਉਂ",
-        why: "ਕਿਉਂ"
+        why: "ਕਿਉਂ",
+        History: "ਇਤਿਹਾਸ"
     },
 
     odia: {
@@ -395,7 +412,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "ପରେ",
         recipe: "ରନ୍ଧନ ପ୍ରଣାଳୀ",
         whyTheseChanges: "ଏହି ପରିବର୍ତ୍ତନଗୁଡ଼ିକ କାହିଁକି",
-        why: "କାହିଁକି?"
+        why: "କାହିଁକି?",
+        History: "ଇତିହାସ"
     },
 
     urdu: {
@@ -411,7 +429,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "بعد میں",
         recipe: "ترکیب",
         whyTheseChanges: "یہ تبدیلیاں کیوں",
-        why: "کیوں"
+        why: "کیوں",
+        History: "تاریخ"
     },
 
     assamese: {
@@ -427,7 +446,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "পিছত",
         recipe: "ৰান্ধনী",
         whyTheseChanges: "এই পৰিৱর্তনবোৰ কিয়",
-        why: "কিয়"
+        why: "কিয়",
+        History: "ইতিহাস"
     },
 
     sanskrit: {
@@ -443,7 +463,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "अनन्तरम्",
         recipe: "पाकविधिः",
         whyTheseChanges: "एते परिवर्तनाः कस्मात्",
-        why: "किमर्थम्‌"
+        why: "किमर्थम्‌",
+        History: "इतिहास"
     },
 
     maithili: {
@@ -459,7 +480,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "बाद मे",
         recipe: "पकवान विधि",
         whyTheseChanges: "ई परिवर्तन किएक",
-        why: "किएक"
+        why: "किएक",
+        History: "इतिहास"
     },
 
     santhali: {
@@ -475,7 +497,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "ᱛᱟᱭᱚᱢ",
         recipe: "ᱡᱚᱢᱟᱜ ᱵᱟᱱᱟᱣ",
         whyTheseChanges: "ᱪᱮᱫᱟᱜ ᱱᱚᱶᱟ ᱵᱚᱫᱚᱞ",
-        why: "ᱪᱮᱫᱟᱜ"
+        why: "ᱪᱮᱫᱟᱜ",
+        History: "ᱤᱝᱞᱤᱥ"
     },
 
     nepali: {
@@ -491,7 +514,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "पछि",
         recipe: "रेसिपी",
         whyTheseChanges: "यी परिवर्तनहरू किन",
-        why: "किन"
+        why: "किन",
+        History: "अंग्रेजी"
     },
 
     konkani: {
@@ -507,7 +531,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "उपरांत",
         recipe: "पाकक्रम",
         whyTheseChanges: "हे बदल कित्याक",
-        why: "इंग्लीश"
+        why: "इंग्लीश",
+        History: "इंग्लीश"
     },
 
     dogri: {
@@ -523,7 +548,8 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "बाद च",
         recipe: "बनाने दा तरीका",
         whyTheseChanges: "एह् बदलाव कजो",
-        why: "की"
+        why: "की",
+        History: "अंगरेजी"
     },
 
     bodo: {
@@ -539,9 +565,9 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "उनाव",
         recipe: "जानाय सुबुं",
         whyTheseChanges: "बे सोलाइनायखौ मानोना",
-        why: "मानो"
+        why: "मानो",
+        History: "इतिहास"
     },
-
     manipuri: {
         originalNutrition: "অহানবা পুষ্টি",
         healthierVersion: "অশেংবা অয়বা",
@@ -555,8 +581,10 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
         after: "মতুং",
         recipe: "চাক থোংবা",
         whyTheseChanges: "করিগী অসুম্না খোংজিল্লিবগে",
-        why: "ꯀꯔꯤꯒꯤꯅꯣ"
+        why: "ꯀꯔꯤꯒꯤꯅꯣ",
+        History: "ফামদা"
     }
+
 };
 
 export default nutritionTranslations;

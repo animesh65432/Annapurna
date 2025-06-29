@@ -66,12 +66,13 @@ Required JSON format:
 "why": "[reason in ${Language}]"
 }
 ],
+"foodHistoryContext": "[Write about the fascinating history of ingredients used in ${dishname} in ${Language}. Research and mention the origins of key ingredients - for example: if the dish contains potatoes (came from South America via Portuguese traders in 16th century), tomatoes (brought by Portuguese from Americas), chillies (introduced by Portuguese from Mexico/South America), paneer (techniques from Middle Eastern/Persian influence), onions (came via Central Asian trade routes), garlic (ancient trade from Mediterranean), soya products (Chinese influence), etc. Explain specifically how these ingredients traveled to India through trade, colonization, or cultural exchange. Show how ${dishname} itself represents this beautiful fusion of global ingredients that became 'Indian' over time. This proves that cuisine evolution is natural and our healthy modifications today continue this ancient tradition and they evoled into that dish please make breif alteast 10 lines.]",
 "motivationalMessage": "[Write encouraging message in ${Language}]",
 "funFact": "[Write interesting fact in ${Language}]",
-"dish":"[Write dish name is${dishname}-${Variant} in ${Language}]"
+"dish":"[Write dish name is ${dishname}-${Variant} in ${Language}]"
 }
 
-⚠️ FINAL CHECK: Before responding, verify that ALL text content is written in "${Language}" language, not English!`
+⚠️ FINAL CHECK: Before responding, verify that ALL text content is written in "${Language}" language, not English! and please create all the thing i mention and don't miss any proproties`
 
   try {
     const response = await groq.chat.completions.create({
@@ -91,7 +92,7 @@ Required JSON format:
     let cleanedText = rawText.trim();
 
     // Remove markdown code blocks if present
-    const jsonBlockMatch = cleanedText.match(/```(?: json) ?\s * ([\s\S] *?)```/);
+    const jsonBlockMatch = cleanedText.match(/```(?:json)?\s*([\s\S]*?)```/);
     if (jsonBlockMatch) {
       cleanedText = jsonBlockMatch[1].trim();
     }
@@ -111,13 +112,14 @@ Required JSON format:
       'healthierVersion',
       'nutritionComparison',
       'substitutions',
+      'foodHistoryContext',
       'motivationalMessage',
       'funFact'
     ];
 
     const missingFields = requiredFields.filter(field => !structured[field]);
     if (missingFields.length > 0) {
-      throw new Error(`Missing required fields: ${missingFields.join(', ')} `);
+      throw new Error(`Missing required fields: ${missingFields.join(', ')}`);
     }
 
     if (!structured.healthierVersion.description ||

@@ -3,7 +3,7 @@ import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
 import db from "../../db"
-import { redis } from "../../services/redis"
+
 
 export const generateSuggestionController = asyncerrorhandler(
     async (req: Request, res: Response) => {
@@ -29,9 +29,9 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
 
         return
     }
-    const redisKey = `users-recipe:${req.user?.id}`;
 
     const recipe = await GenrateRecipebyAi(dish, variant, language)
+
 
     const dbrecipe = await db.recipe.create({
         data: {
@@ -43,12 +43,10 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
             funFact: recipe.funFact,
             dish: recipe.dish,
             variant,
-            language
+            language,
+            foodHistoryContext: recipe.foodHistoryContext,
         }
     })
-
-    await redis.del(redisKey)
-
     res.status(201).json({
         message: "sucessfully create it",
         id: dbrecipe.id

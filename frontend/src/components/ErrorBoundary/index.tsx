@@ -1,5 +1,5 @@
 import React from 'react'
-import { useRouteError, Link } from 'react-router-dom'
+import { useRouteError, useNavigate } from 'react-router-dom'
 import styles from './ErrorBoundary.module.scss'
 
 interface RouteError {
@@ -9,6 +9,7 @@ interface RouteError {
 }
 
 const ErrorBoundary: React.FC = () => {
+    const navigate = useNavigate()
     const error = useRouteError() as RouteError
 
     return (
@@ -16,9 +17,9 @@ const ErrorBoundary: React.FC = () => {
             <h1>Oops! Something went wrong</h1>
             <div className={styles.subtitle}>Sorry, an unexpected error has occurred.</div>
             <div className={styles.subtitle}>{error?.statusText || error?.message || 'Unknown error'}</div>
-            <Link to="/" className={styles.Goback}>
+            <button className={styles.Goback} onClick={() => navigate(-1)}>
                 Go back to Home
-            </Link>
+            </button>
         </div>
     )
 }
