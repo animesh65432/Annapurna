@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom"
-import { useFecthrecipe } from "../../hooks/useFecthrecipe"
+import { useFecthrecipe } from "../../hooks/useFecthrecipes"
 import styles from "./RecipeLayout.module.scss"
 import Foodloading from "../Foodloading"
 import Layout from "../Layout"

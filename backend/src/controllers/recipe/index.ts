@@ -32,7 +32,8 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             substitutions: true,
             dish: true,
             language: true,
-            foodHistoryContext: true
+            foodHistoryContext: true,
+            id: true
         },
     });
 

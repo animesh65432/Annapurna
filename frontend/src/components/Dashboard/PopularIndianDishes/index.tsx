@@ -35,7 +35,6 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
     }, [window.innerWidth]);
 
     const getItems = (start: number) => {
-        console.log(start)
         let filterpopularindianFoods: popularindianFoodstypes[] = []
         if (start + itemsPerPage > popularindianFoods.length) {
             const remainingItems = popularindianFoods.length - start;
@@ -54,9 +53,7 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
         else {
             filterpopularindianFoods = popularindianFoods.slice(start, start + itemsPerPage);
         }
-        console.log(filterpopularindianFoods)
         return filterpopularindianFoods
-
     };
 
     const handleNext = useCallback(() => {

@@ -42,5 +42,6 @@ export type RecipeTypes = {
     }[];
     variant: string;
     language: string;
-    foodHistoryContext: string
+    foodHistoryContext: string;
+    id: string
 };

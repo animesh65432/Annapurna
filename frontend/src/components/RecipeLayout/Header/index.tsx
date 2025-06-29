@@ -6,17 +6,24 @@ import { FaShare } from "react-icons/fa";
 import { useAuthstroe } from "../../../store/useauth"
 import SigninwithGoogle from "../../SigninwithGoogle"
 import ShareSection from "../../ShareSection"
+import { useSaverecipe } from "../../../hooks/useSaverecipe"
+import { Loader } from "lucide-react"
 
 
 export default function Header() {
     const [isauth, setauth] = useState<boolean>(false)
     const [isShareOpen, setisShareOPen] = useState<boolean>(false)
     const { token } = useAuthstroe()
+    const { isloadingSaverecipe, saverecipe } = useSaverecipe()
     const { recipe } = useRecipeStore()
 
-    const onsave = () => {
+    const onsave = async () => {
         if (!token) {
             setauth(true)
+            return
+        }
+        else {
+            saverecipe(recipe?.id!)
         }
     }
 
@@ -32,13 +39,13 @@ export default function Header() {
                     </div>
                     <div className={styles.Icons}>
                         <div><FaShare onClick={OntoogleShareSection} /></div>
-                        <div><Save onClick={onsave} /></div>
+                        <div>{isloadingSaverecipe ? <Loader className={styles.loader} /> : <Save onClick={onsave} />}</div>
                     </div>
                 </div>
                 <div className={styles.MobileNameWithIcons}>
                     <div className={styles.MobileIcons}>
                         <div><FaShare onClick={OntoogleShareSection} /></div>
-                        <div><Save onClick={onsave} /></div>
+                        <div>{isloadingSaverecipe ? <Loader className={styles.loader} /> : <Save onClick={onsave} />}</div>
                     </div>
                     <div className={styles.MobiledishNameWithDes}>
                         <div className={styles.MobiledishName}>
