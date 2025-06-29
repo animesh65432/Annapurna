@@ -216,11 +216,35 @@
     width: 100%;
     color:#15803d ;
     font-weight: bolder;
+    &::placeholder {
+        font-size: 16px;
+        background: #15803d;
+        background-size: 200% 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: shimmer 2s ease-in-out infinite;
+        font-weight: bold;
+
+        @media (max-width:480px) {
+            font-size: 14px;
+        }
+        
+    }
         
     &.error-border {
         border-color: red;
     }
-}     
+}    
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
 
 .SearchIcon {
     position: absolute;

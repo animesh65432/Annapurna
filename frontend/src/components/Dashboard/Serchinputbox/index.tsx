@@ -118,6 +118,7 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
                                         field.onChange(e);
                                         handleChange(e);
                                     }}
+                                    placeholder="write dish name"
                                 />
                             )}
                         />
