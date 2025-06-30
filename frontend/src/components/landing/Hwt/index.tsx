@@ -19,7 +19,7 @@ export default function Hwt() {
                         {index % 2 === 0 ? <div>
                             <div>
                                 <div>
-                                    <span>0{index}</span>
+                                    <span>{index}</span>
                                     {work.title}
                                 </div>
                                 <div>
