@@ -16,11 +16,33 @@ export default function Hwt() {
                             scale: 1.02,
                             transition: { duration: 0.2 }
                         }}>
-                        <div className={styles.index}>
-                            {index + 1}
-                            {/* <work.icon /> */}
-                        </div>
-                        <div className={styles.title}>{work.title}</div>
+                        {index % 2 === 0 ? <div>
+                            <div>
+                                <div>
+                                    <span>0{index}</span>
+                                    {work.title}
+                                </div>
+                                <div>
+                                    {work.des}
+                                </div>
+                            </div>
+                            <div>
+                                <img src={work.image} />
+                            </div>
+                        </div> : <div>
+                            <div>
+                                <img src={work.image} />
+                            </div>
+                            <div>
+                                <div>
+                                    <span>0{index}</span>
+                                    {work.title}
+                                </div>
+                                <div>
+                                    {work.des}
+                                </div>
+                            </div>
+                        </div>}
                     </motion.div>
                 ))}
             </motion.div>
