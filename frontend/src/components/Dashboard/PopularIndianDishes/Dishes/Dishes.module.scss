@@ -15,9 +15,16 @@
     @media (max-width:768px) {
         width: 47%;
     }
-    @media (max-width:438px) {
+    @media (max-width:656px) {
+        width: 70%;
+    }
+    @media (max-width:434px) {
         width: 90%;
     }
+    @media (max-width:374px) {
+        width: 100%;
+    }
+
     &:hover {
         transform: translateY(-8px);
         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -77,10 +84,12 @@
 .dishInfo {
     padding: 1.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .dishName {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     color: #2d5016;
     margin: 0;
@@ -92,5 +101,44 @@
 
     @media (max-width: 444px) {
         font-size: 13px;
+    }
+    @media (max-width: 444px) {
+        font-size: 12px;
+    }
+   
+}
+
+.variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 0.75rem;
+}
+
+.variant {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2d5016;
+    background-color: rgba(45, 80, 22, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    border: 1px solid rgba(45, 80, 22, 0.2);
+    letter-spacing: 0.3px;
+    transition: all 0.2s ease;
+    
+    &:hover {
+        background-color: rgba(45, 80, 22, 0.15);
+        transform: translateY(-1px);
+    }
+    
+    @media (max-width: 900px) {
+        font-size: 11px;
+        padding: 0.2rem 0.6rem;
+    }
+    
+    @media (max-width: 444px) {
+        font-size: 10px;
+        padding: 0.15rem 0.5rem;
     }
 }

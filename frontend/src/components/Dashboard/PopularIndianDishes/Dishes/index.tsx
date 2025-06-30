@@ -4,11 +4,13 @@ import { motion } from "framer-motion"
 type Props = {
     name: string;
     img: string;
-    selectfromPopularIndianDishes: (dish: string) => void
+    region: string;
+    selectfromPopularIndianDishes: (dish: string) => void;
+    variant: string[]
 }
 
 
-export default function Dishes({ name, img, selectfromPopularIndianDishes }: Props) {
+export default function Dishes({ name, img, selectfromPopularIndianDishes, region, variant }: Props) {
     return (
         <motion.div
             className={styles.dishCard}
@@ -23,7 +25,14 @@ export default function Dishes({ name, img, selectfromPopularIndianDishes }: Pro
                 />
             </div>
             <div className={styles.dishInfo}>
-                <h3 className={styles.dishName}>{name}</h3>
+                <h3 className={styles.dishName}>{name},{region}</h3>
+                <div className={styles.variants}>
+                    {variant.map((vari, index) => (
+                        <span key={index} className={styles.variant}>
+                            {vari}
+                        </span>
+                    ))}
+                </div>
             </div>
         </motion.div>
     );

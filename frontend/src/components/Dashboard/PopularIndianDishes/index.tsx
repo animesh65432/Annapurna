@@ -18,9 +18,9 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
             if (window.innerWidth > 1200) {
                 setItemsPerPage(4)
             }
-            else if (window.innerWidth > 768) {
+            else if (window.innerWidth > 900) {
                 setItemsPerPage(3);
-            } else if (window.innerWidth > 438) {
+            } else if (window.innerWidth > 656) {
                 setItemsPerPage(2);
             }
             else {
@@ -69,7 +69,7 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
         return () => clearInterval(interval);
     }, [handleNext]);
 
-    const filterpopularindianFoods = getItems(index);
+    const filterpopularindianFoods = getItems(index)
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -84,7 +84,7 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
 
                 <div className={styles.dishesContainer}>
                     {filterpopularindianFoods.map((food) => (
-                        <Dishes key={food.name} name={food.name} img={food.img} selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
+                        <Dishes key={food.name} variant={food.variant} name={food.name} region={food.region} img={food.img} selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
                     ))}
                 </div>
 
