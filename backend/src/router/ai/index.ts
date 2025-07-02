@@ -4,8 +4,7 @@ import { rateLimiter } from "../../middleware/ratelimiter"
 
 const router = Router()
 
-router.use(rateLimiter(5, 60000) as RequestHandler)
 router.post("/generate-suggestion", generateSuggestionController)
-router.post("/generate-recipe", GenrateRecipe)
+router.post("/generate-recipe", rateLimiter(5, 60000) as RequestHandler, GenrateRecipe)
 
 export default router
