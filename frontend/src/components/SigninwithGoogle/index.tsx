@@ -7,6 +7,7 @@ import { singinwithgoogle } from "../../api/user"
 import { Loader } from "lucide-react"
 import jscookie from "js-cookie"
 import { useAuthstroe } from '../../store/useauth';
+import { toast } from 'react-toastify';
 
 type Props = {
     setauth: React.Dispatch<React.SetStateAction<boolean>>
@@ -37,6 +38,7 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
             addtoken(res.token)
             jscookie.set("token", res.token)
             setauth(false);
+            toast.success("sucessfully log in")
         } finally {
             setisSinginLoading(false)
         }
