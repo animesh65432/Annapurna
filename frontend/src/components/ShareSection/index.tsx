@@ -1,5 +1,5 @@
 import type React from "react"
-import { FaWhatsapp, FaTwitter, FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { FaWhatsapp, FaTwitter, FaEnvelope } from "react-icons/fa"
 import styles from "./ShareSection.module.scss"
 import { useEffect, useRef } from "react"
 
@@ -36,12 +36,6 @@ export default function ShareSection({ dishname, setisShareOPen }: Props) {
             icon: <FaTwitter className={styles.shareIcon} />,
             url: `https://twitter.com/intent/tweet?text=${encodedMessage}&url=${encodedUrl}`,
             className: styles.twitter,
-        },
-        {
-            name: "LinkedIn",
-            icon: <FaLinkedin className={styles.shareIcon} />,
-            url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
-            className: styles.linkedin,
         },
         {
             name: "Email",

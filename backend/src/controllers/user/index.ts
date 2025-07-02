@@ -42,9 +42,11 @@ export const googleAuth = asyncerrorhandler(async (req: Request, res: Response) 
 
 
     res.cookie("token", token, {
+        httpOnly: true,
         secure: true,
+        sameSite: "none",
         maxAge: 7 * 24 * 60 * 60 * 1000
-    })
+    });
 
     res.status(user ? 200 : 201).json({
         message: user ? "Successfully logged in" : "Account created and logged in",
