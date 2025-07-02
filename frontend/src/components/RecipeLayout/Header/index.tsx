@@ -8,6 +8,7 @@ import SigninwithGoogle from "../../SigninwithGoogle"
 import ShareSection from "../../ShareSection"
 import { useSaverecipe } from "../../../hooks/useSaverecipe"
 import { Loader } from "lucide-react"
+import { toast } from "react-toastify";
 
 
 export default function Header() {
@@ -22,10 +23,8 @@ export default function Header() {
             setauth(true)
             return
         }
-        else {
-            console.log(recipe?.id)
-            saverecipe(recipe?.id!)
-        }
+        await saverecipe(recipe?.id!)
+        toast.success("just saved the recipe")
     }
 
     const OntoogleShareSection = () => {
