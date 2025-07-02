@@ -1,48 +1,85 @@
 import { howitworks } from "../../../utils";
 import styles from "./Hwt.module.scss";
-import { containerVariants, itemVariants } from "../../../utils"
-import { motion } from "framer-motion"
+import { containerVariants } from "../../../utils";
+import { motion, easeOut } from "framer-motion";
+
+const enhancedItemVariants = {
+    hidden: {
+        opacity: 0,
+        y: 50,
+        scale: 0.9
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.6,
+            ease: easeOut
+        }
+    }
+};
 
 export default function Hwt() {
     return (
         <section id="howitworks" className={styles.Container}>
-            <h2 className={styles.Containertitle}>How it works</h2>
-            <motion.div className={styles.workConatiner} variants={containerVariants}
+            <motion.div
+                className={styles.HeaderContainer}
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                <h2 className={styles.ContainerTitle}>How It Works</h2>
+                {/* <p className={styles.Subtitle}>
+                    Follow these simple steps to get started with our platform
+                </p> */}
+            </motion.div>
+
+            <motion.div
+                className={styles.WorkContainer}
+                variants={containerVariants}
                 initial="hidden"
-                animate="visible">
+                animate="visible"
+            >
                 {howitworks.map((work, index) => (
-                    <motion.div key={index} className={styles.work} variants={itemVariants}
+                    <motion.div
+                        key={index}
+                        className={styles.Work}
+                        variants={enhancedItemVariants}
                         whileHover={{
                             scale: 1.02,
-                            transition: { duration: 0.2 }
-                        }}>
-                        {index % 2 === 0 ? <div>
-                            <div>
-                                <div>
-                                    <span>{index}</span>
-                                    {work.title}
+                            y: -5,
+                            transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        whileInView={{
+                            opacity: 1,
+                            y: 0
+                        }}
+                        viewport={{ once: true, margin: "-50px" }}
+                    >
+                        <div className={`${styles.HowItWorkContainer} ${index % 2 !== 0 ? styles.Reverse : ''}`}>
+                            <div className={styles.ContentSection}>
+                                <div className={styles.StepNumber}>
+                                    <span>{String(index + 1).padStart(2, '0')}</span>
                                 </div>
-                                <div>
-                                    {work.des}
-                                </div>
-                            </div>
-                            <div>
-                                <img src={work.image} />
-                            </div>
-                        </div> : <div>
-                            <div>
-                                <img src={work.image} />
-                            </div>
-                            <div>
-                                <div>
-                                    <span>0{index}</span>
-                                    {work.title}
-                                </div>
-                                <div>
-                                    {work.des}
+                                <div className={styles.TitleAndDescription}>
+                                    <h3 className={styles.StepTitle}>{work.title}</h3>
+                                    <p className={styles.StepDescription}>{work.des}</p>
                                 </div>
                             </div>
-                        </div>}
+
+                            <div className={styles.ImageSection}>
+                                <div className={styles.ImageContainer}>
+                                    <img
+                                        src={work.image}
+                                        alt={work.title}
+                                        loading="lazy"
+                                        className={styles.StepImage}
+                                    />
+                                    <div className={styles.ImageOverlay}></div>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>
