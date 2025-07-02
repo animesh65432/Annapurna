@@ -9,11 +9,12 @@ import Suggestions from "./Suggestions"
 import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
+import type { RecipeTypes } from "../../../types"
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom"
 
 
-type RecipeTypes = z.infer<typeof RecipeFromSchema>;
+type RecipeFromTypes = z.infer<typeof RecipeFromSchema>;
 
 type Props = {
     txt: string | null,
@@ -29,7 +30,7 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         watch,
         control,
         formState: { errors }
-    } = useForm<RecipeTypes>({
+    } = useForm<RecipeFromTypes>({
         resolver: zodResolver(RecipeFromSchema),
         defaultValues: {
             dish: "",
@@ -91,12 +92,17 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         return () => window.removeEventListener("click", closeSuggestions);
     }, []);
 
-    const onSubmit = async (data: RecipeTypes) => {
+    const onSubmit = async (data: RecipeFromTypes) => {
         try {
-            const response = await createRecipe(data.dish, data.variant, data.language) as { id: string }
+            const response = await createRecipe(data.dish, data.variant, data.language) as { id: string, recipe: RecipeTypes }
             const recipeId = response.id;
             if (recipeId) {
-                navigate(`/recipe/${recipeId}`, { replace: true })
+                navigate(`/recipe/${recipeId}`, {
+                    replace: true,
+                    state: {
+                        recipe: response.recipe
+                    }
+                })
             }
         } catch (error) {
             console.log(error)

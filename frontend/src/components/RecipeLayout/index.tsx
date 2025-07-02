@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { useFecthrecipe } from "../../hooks/useFecthrecipes"
 import styles from "./RecipeLayout.module.scss"
 import Foodloading from "../Foodloading"
@@ -16,11 +16,19 @@ export default function RecipeLayout() {
     const { setRecipe, recipe } = useRecipeStore()
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
     const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
+    const location = useLocation();
+    const recipestate = location.state?.recipe;
 
     const fetch = async (id: string) => {
-        const res = await fetchrecipe(id)
-        if (res) {
-            setRecipe(res)
+        if (recipestate) {
+            setRecipe(recipestate)
+            return
+        }
+        else {
+            const res = await fetchrecipe(id)
+            if (res) {
+                setRecipe(res)
+            }
         }
     }
 

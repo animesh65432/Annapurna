@@ -49,7 +49,8 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
     })
     res.status(201).json({
         message: "sucessfully create it",
-        id: dbrecipe.id
+        id: dbrecipe.id,
+        recipe
     })
     return
 })
