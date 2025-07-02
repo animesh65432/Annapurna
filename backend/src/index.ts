@@ -18,8 +18,8 @@ app.use(errorMiddleware)
 
 
 
-app.listen(config.PORT, () => {
-    console.log(`Server is running on port ${config.PORT}`)
-})
+// app.listen(config.PORT, () => {
+//     console.log(`Server is running on port ${config.PORT}`)
+// })
 
 export default app

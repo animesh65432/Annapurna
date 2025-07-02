@@ -42,7 +42,7 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
         return;
     }
 
-    // await redis.set(redisKey, recipe, { ex: 300 });
+    await redis.set(redisKey, recipe, { ex: 300 });
 
     res.status(200).json(recipe);
     return;
