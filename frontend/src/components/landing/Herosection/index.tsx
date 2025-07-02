@@ -20,7 +20,7 @@ const Herosection: React.FC = () => {
                     animate={blurIn.animate}
                     transition={blurIn.transition}
                 >
-                    <img src='/heroicon.png' alt="Hero Icon" loading="lazy" />
+                    <img src='/heroicon.png' alt="Hero Icon" />
                 </motion.div>
             </div>
 
