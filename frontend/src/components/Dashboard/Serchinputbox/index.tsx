@@ -95,7 +95,9 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
         try {
             const response = await createRecipe(data.dish, data.variant, data.language) as { id: string }
             const recipeId = response.id;
-            navigate(`/recipe/${recipeId}`, { replace: true })
+            if (recipeId) {
+                navigate(`/recipe/${recipeId}`, { replace: true })
+            }
         } catch (error) {
             console.log(error)
         }
