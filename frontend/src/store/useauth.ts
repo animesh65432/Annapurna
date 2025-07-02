@@ -9,6 +9,7 @@ type RecipeStore = {
 
 function checkuserhastokenOrNot(): string | null {
     const token = jscookie.get("token")
+    console.log(token)
     if (token) {
         return token
     }

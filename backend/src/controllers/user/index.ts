@@ -50,6 +50,7 @@ export const googleAuth = asyncerrorhandler(async (req: Request, res: Response) 
 
     res.status(user ? 200 : 201).json({
         message: user ? "Successfully logged in" : "Account created and logged in",
+        token
     });
     return
 });

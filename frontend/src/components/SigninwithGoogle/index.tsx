@@ -34,17 +34,9 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
     const onsinginwithgoogle = async (data: CredentialResponse) => {
         setisSinginLoading(true)
         try {
-            const res = await singinwithgoogle(data.credential!, data.clientId!) as { message: string }
-
-            const token = jscookie.get("token") as string
-            if (token) {
-                addtoken(token)
-                setauth(false);
-                toast.success(res.message)
-            } else {
-                toast.error("Something went wrong please try again later.");
-                setauth(false);
-            }
+            const res = await singinwithgoogle(data.credential!, data.clientId!) as { message: string, token: string }
+            addtoken(res.token)
+            setauth(false);
         } finally {
             setisSinginLoading(false)
         }
