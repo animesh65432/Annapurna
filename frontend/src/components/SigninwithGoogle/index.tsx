@@ -6,7 +6,6 @@ import { createPortal } from "react-dom"
 import { singinwithgoogle } from "../../api/user"
 import { Loader } from "lucide-react"
 import jscookie from "js-cookie"
-import { toast } from "react-toastify"
 import { useAuthstroe } from '../../store/useauth';
 
 type Props = {
@@ -36,6 +35,7 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
         try {
             const res = await singinwithgoogle(data.credential!, data.clientId!) as { message: string, token: string }
             addtoken(res.token)
+            jscookie.set("token", res.token)
             setauth(false);
         } finally {
             setisSinginLoading(false)
