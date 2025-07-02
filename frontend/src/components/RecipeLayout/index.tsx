@@ -18,6 +18,7 @@ export default function RecipeLayout() {
     const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
     const location = useLocation();
     const recipestate = location.state?.recipe;
+    console.log(recipestate)
 
     const fetch = async (id: string) => {
         if (recipestate) {
@@ -44,7 +45,7 @@ export default function RecipeLayout() {
         )
     }
 
-    const title = nutritionTranslations[recipe!.language]
+    const title = nutritionTranslations[recipe.language]
 
     return (
         <Layout>
