@@ -24,7 +24,7 @@ export default function Header() {
         <>
             <div className={`${styles.headercontainer} ${isScrolled ? styles.scrolled : ''}`}>
                 <div className={styles.headerlogo}>
-                    <img src="/icon.jpeg" alt="logo" className={styles.headericon} />
+                    <img src="/icon.jpeg" alt="logo" className={styles.headericon} loading="lazy" />
                     <a href='#Home'>Annapurna Ai</a>
                 </div>
                 <div className={styles.middleheadercontainer}>

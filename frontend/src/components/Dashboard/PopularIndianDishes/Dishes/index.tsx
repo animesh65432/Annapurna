@@ -22,6 +22,7 @@ export default function Dishes({ name, img, selectfromPopularIndianDishes, regio
                     src={img}
                     alt={name}
                     className={styles.dishImage}
+                    loading="lazy"
                 />
             </div>
             <div className={styles.dishInfo}>
