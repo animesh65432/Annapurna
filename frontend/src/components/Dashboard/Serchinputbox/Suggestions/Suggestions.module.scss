@@ -4,7 +4,7 @@
     background-color: white;
     width: 51%;
     z-index: 500;
-    top: 20.5%;
+    top: 17%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -15,57 +15,65 @@
     font-weight: bold;
 
     @media (max-width:1200px) {
-        top: 21.1%;
+        top: 19.6%;
         width: 59%;  
     }
 
-    @media (max-width:1151px) {
-        top: 20.1%;
-    }
-    @media (max-width:1072px) {
-        top: 20%; 
+   
+    @media (max-width:1087px) {
+        top: 19.5%; 
     }
     @media (max-width:1030px) {
-        top: 20.2%; 
+        top: 19.3%; 
+    }
+    @media (max-width:1019px) {
+        top: 18.9%; 
     }
     @media (max-width:978px) {
-        top: 14%; 
+        top: 13.7%; 
     }
     @media (max-width:778px) {
-        top: 14.2%; 
+        top: 13.5%; 
     }
     @media (max-width:774px) {
-        top: 15%; 
+        top: 14%; 
     }
-    @media (max-width:669px) {
-        top: 14.5%; 
+    @media (max-width:710px) {
+        top: 14.1%; 
+    }
+    @media (max-width:697px) {
+        top: 13.4%; 
     }
     @media (max-width: 655px) {
-        top: 14.6%;
+        top: 13.5%;
+        width: 78% !important;
+    }
+    @media (max-width: 640px) {
+        top: 13.6%;
         width: 78% !important;
     }
 
 
     @media (max-width:450px) {
-        top: 14.4%;
+        top: 13.8%;
     }
 
     @media (max-width:437px) {
-        top: 14.1%;
+        top: 13.3%;
     }
 
     @media (max-width:431px) {
-        top: 14.1%;
+        top: 13.1%;
     }
 
     @media (max-width:414px) {
-        top: 12.5%;
+        top: 13%;
     }
     @media (max-width:413px) {
-        top: 14.7%;
+        top: 13.3%;
     }
     @media (max-width:410px) {
-        top: 14.1%;
+        top: 13.1%;
     }
 }
 

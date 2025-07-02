@@ -23,6 +23,7 @@ type Props = {
 
 export default function Serchinputbox({ txt, createRecipe }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
+    const [isCooldown, setIsCooldown] = useState(false);
     const navigate = useNavigate()
     const {
         handleSubmit,
@@ -42,9 +43,8 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
     const hasErrors = Object.keys(errors).length > 0;
 
     const debouncedSearch = debounce(async (query: string) => {
-        if (query.trim() === "") {
-            return;
-        }
+        if (isCooldown || query.trim() === "") return;
+        setIsCooldown(true)
         try {
             const response = await Getsuggestions(query) as {
                 suggestions: string[];
@@ -53,6 +53,10 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
             setsuggestions(response.suggestions)
         } catch (error) {
             console.error("Error fetching suggestions:", error);
+        } finally {
+            setTimeout(() => {
+                setIsCooldown(false);
+            }, 2000);
         }
     }, 2000);
 
