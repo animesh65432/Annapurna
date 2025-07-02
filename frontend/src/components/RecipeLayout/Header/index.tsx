@@ -23,6 +23,7 @@ export default function Header() {
             return
         }
         else {
+            console.log(recipe?.id)
             saverecipe(recipe?.id!)
         }
     }
