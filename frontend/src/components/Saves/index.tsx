@@ -22,7 +22,7 @@ export default function Saves() {
             {isFecthallsaverecipesloading ?
                 <SavesSkeleton /> :
                 <div className={styles.Container}>
-                    {SavesRecipes.length > 0 ? SavesRecipes.map((saveRecipe, index) => <Save key={index} SavesRecipe={saveRecipe} />) : <div className={styles.NotFoundContainer}></div>}
+                    {SavesRecipes.length > 0 ? SavesRecipes.map((saveRecipe, index) => <Save key={index} SavesRecipe={saveRecipe} />) : <div className={styles.NotFoundContainer}><p>did't save any recipe</p></div>}
                 </div>
             }
         </Layout>
