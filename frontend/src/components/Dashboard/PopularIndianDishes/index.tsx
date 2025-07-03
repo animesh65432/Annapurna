@@ -84,7 +84,7 @@ export default function PopularIndianDishes({ selectfromPopularIndianDishes }: P
 
                 <div className={styles.dishesContainer}>
                     {filterpopularindianFoods.map((food) => (
-                        <Dishes key={food.name} variant={food.variant} name={food.name} region={food.region} img={food.img} selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
+                        <Dishes key={food.name} variant={food.variant} name={food.name} region={food.region} img={food.img} state={food.state} selectfromPopularIndianDishes={selectfromPopularIndianDishes} />
                     ))}
                 </div>
 

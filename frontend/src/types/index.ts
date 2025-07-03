@@ -2,7 +2,8 @@ export type popularindianFoodstypes = {
     name: string,
     img: string,
     region: string,
-    variant: string[]
+    variant: string[],
+    state: string
 }
 
 export type RecipeTypes = {
