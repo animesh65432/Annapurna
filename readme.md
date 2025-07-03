@@ -83,10 +83,10 @@ GROQ_API_KEY="your-groq-api-key"
 PORT=8000
 ```
 
-**Frontend (.env)**
-```env
-VITE_API_URL="http://localhost:8000"
-VITE_GOOGLE_CLIENT_ID="your-google-client-id"
+**Frontend (src/config)**
+```
+API_URL="http://localhost:8000",
+GOOGLE_CLIENT_ID="your-google-client-id"
 ```
 
 ### Installation
