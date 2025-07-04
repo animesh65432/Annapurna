@@ -10,39 +10,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 15px;
+    padding: 10px;
     background-color:#daf4b3;
     cursor: pointer;
     border-radius: 6px 6px 0 0; 
-    font-size: 14px;
+    font-size: 17px;
     font-family: "Crimson";
     color: #4C7C04;
 }
 
 .dropdown {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 10%;
     color: black;
-    left: 0;
+    left:72%;
     width: max-content;
-    min-width: 100%;
+    width: 15vw;
     background-color: #F2FFDF;
     z-index: 300;
     border-top: none;
     border-radius: 0 0 6px 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    max-height: 200px;
+    height: 40vh;
     overflow-y: auto;
   }
   
 
 .option {
-    padding: 10px 14px;
+    padding: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    color: #B2C793;
+    font-weight: bold;
+    border-bottom:1px solid #bee287;
 
     &:hover {
-        background-color: #f0f0f0;
+        color: #4C7C04;
     }
 }
 
