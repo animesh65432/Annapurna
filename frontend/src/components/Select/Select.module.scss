@@ -10,23 +10,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 14px;
-    background-color: white;
-    border: 1px solid #ccc;
+    padding: 15px 15px;
+    background-color:#daf4b3;
     cursor: pointer;
     border-radius: 6px 6px 0 0; 
     font-size: 14px;
+    font-family: "Crimson";
+    color: #4C7C04;
 }
 
 .dropdown {
     position: absolute;
     top: 100%;
+    color: black;
     left: 0;
     width: max-content;
     min-width: 100%;
-    background-color: white;
-    z-index: 200;
-    border: 1px solid #ccc;
+    background-color: #F2FFDF;
+    z-index: 300;
     border-top: none;
     border-radius: 0 0 6px 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);

@@ -1,5 +1,4 @@
 import styles from "./Serchinputbox.module.scss"
-import { Search } from "lucide-react"
 import Select from "../../Select"
 import { optionsforFoods, optionsforLanguages } from "../../../utils"
 import React, { useEffect, useState } from "react"
@@ -119,7 +118,28 @@ export default function Serchinputbox({ txt, createRecipe, setisGenrateRecipeloa
 
     return (
         <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.UperContainer}>
+
+            <div className={styles.upperContainer}>
+                <div className={styles.Headingtitle}>
+                    Annapurna Ai
+                </div>
+                <div className={styles.SelectContainer}>
+                    <Controller
+                        name="language"
+                        control={control}
+                        render={({ field }) => (
+                            <Select
+                                options={optionsforLanguages}
+                                name="Language"
+                                InitialValue={optionsforLanguages[optionsforLanguages.length - 1]}
+                                value={field.value}
+                                onChange={(val) => field.onChange(val)}
+                            />
+                        )}
+                    />
+                </div>
+            </div>
+            <div className={styles.downContainer}>
                 <div className={styles.SearchContainerWithError}>
                     <div className={styles.SearchContainer}>
                         <Controller
@@ -137,51 +157,14 @@ export default function Serchinputbox({ txt, createRecipe, setisGenrateRecipeloa
                                 />
                             )}
                         />
-
-                        <Search className={styles.SearchIcon} />
                         {
                             dish.length > 0 ? <Suggestions suggestions={suggestions} OnChangesuggestion={OnChangesuggestion} /> : null
                         }
                     </div>
+
                     {errors.dish && <p className={styles.error}>{errors.dish.message}</p>}
                 </div>
-                <div>
-                    <button type="submit" >Transform Recipe</button>
-                </div>
             </div>
-            <div className={styles.downContainer}>
-                <div className={styles.SelectContainer}>
-                    <Controller
-                        name="variant"
-                        control={control}
-                        render={({ field }) => (
-                            <Select
-                                options={optionsforFoods}
-                                name="Variant"
-                                value={field.value}
-                                onChange={(val) => field.onChange(val)}
-                            />
-                        )}
-                    />
-                    {errors.variant && <p className={styles.error}>{errors.variant.message}</p>}
-                </div>
-                <div className={styles.SelectContainer}>
-                    <Controller
-                        name="language"
-                        control={control}
-                        render={({ field }) => (
-                            <Select
-                                options={optionsforLanguages}
-                                name="Language"
-                                value={field.value}
-                                onChange={(val) => field.onChange(val)}
-                            />
-                        )}
-                    />
-                    {errors.language && <p className={styles.error}>{errors.language.message}</p>}
-                </div>
-            </div>
-            <button className={styles.lstbutton} type="submit" >Transform Recipe</button>
-        </form>
+        </form >
     )
 }

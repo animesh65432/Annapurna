@@ -11,7 +11,7 @@ type Props = {
 }
 
 
-export default function Dishes({ name, img, selectfromPopularIndianDishes, region, variant }: Props) {
+export default function Dishes({ name, img, selectfromPopularIndianDishes, state, variant }: Props) {
     return (
         <motion.div
             className={styles.dishCard}
@@ -27,7 +27,7 @@ export default function Dishes({ name, img, selectfromPopularIndianDishes, regio
                 />
             </div>
             <div className={styles.dishInfo}>
-                <h3 className={styles.dishName}>{name},{region}</h3>
+                <h3 className={styles.dishName}>{name},{state}</h3>
                 <div className={styles.variants}>
                     {variant.map((vari, index) => (
                         <span key={index} className={styles.variant}>
