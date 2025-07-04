@@ -9,7 +9,7 @@ import { useGenrateRecipe } from "../../hooks/useGenrateRecipe"
 
 const Dashboard: React.FC = () => {
     const [txt, settext] = useState<string | null>(null);
-    const { isGenrateRecipeloading, createRecipe } = useGenrateRecipe()
+    const { isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading } = useGenrateRecipe()
     const selectfromPopularIndianDishes = (dish: string) => {
         settext(dish);
     };
@@ -23,7 +23,7 @@ const Dashboard: React.FC = () => {
         <Layout>
             <div className={styles.Container}>
                 <div className={styles.upper}>
-                    <Serchinputbox txt={txt} createRecipe={createRecipe} />
+                    <Serchinputbox txt={txt} createRecipe={createRecipe} setisGenrateRecipeloading={setisGenrateRecipeloading} />
                 </div>
                 <div className={styles.down}>
                     <PopularIndianDishes selectfromPopularIndianDishes={selectfromPopularIndianDishes} />

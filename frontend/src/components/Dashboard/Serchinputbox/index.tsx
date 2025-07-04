@@ -2,7 +2,7 @@ import styles from "./Serchinputbox.module.scss"
 import { Search } from "lucide-react"
 import Select from "../../Select"
 import { optionsforFoods, optionsforLanguages } from "../../../utils"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { debounce } from "../../../utils/usedebounce"
 import { Getsuggestions } from "../../../api/ai"
 import Suggestions from "./Suggestions"
@@ -18,10 +18,12 @@ type RecipeFromTypes = z.infer<typeof RecipeFromSchema>;
 
 type Props = {
     txt: string | null,
-    createRecipe: (dish: string, variant: string, language: string) => Promise<{ id: string }>
+    createRecipe: (dish: string, variant: string, language: string) => Promise<{ id: string }>,
+    setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
+
 }
 
-export default function Serchinputbox({ txt, createRecipe }: Props) {
+export default function Serchinputbox({ txt, createRecipe, setisGenrateRecipeloading }: Props) {
     const [suggestions, setsuggestions] = useState<string[]>([])
     const [isCooldown, setIsCooldown] = useState(false);
     const navigate = useNavigate()
@@ -101,6 +103,7 @@ export default function Serchinputbox({ txt, createRecipe }: Props) {
             const response = await createRecipe(data.dish, data.variant, data.language) as { id: string, recipe: RecipeTypes }
             const recipeId = response.id;
             if (recipeId) {
+                setisGenrateRecipeloading(false)
                 navigate(`/recipe/${recipeId}`, {
                     replace: true,
                     state: {
