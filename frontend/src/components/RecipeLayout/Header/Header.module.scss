@@ -1,3 +1,12 @@
+.HeaderContainer{
+      display: flex;
+      justify-content: space-between;
+}
+.HeaderIcons{
+      display: flex;
+      gap: 10px;
+}
+
 .Headingtitle{
     color: #4C7C04;
     font-family: "Philosopher";
