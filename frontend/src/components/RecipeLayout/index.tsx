@@ -7,6 +7,7 @@ import { useEffect, useState } from "react"
 import { useRecipeStore } from "../../store/Recipe"
 import { nutritionTranslations } from "../../utils"
 import Header from "./Header"
+import HealthyFoodIcon from "../../assets/HealthyfoodIcon.svg"
 import Recipe from "./Recipe"
 import WhyTheseChagnes from "./WhyTheseChagnes"
 import History from "./History"
@@ -49,6 +50,17 @@ export default function RecipeLayout() {
         <Layout>
             <div className={styles.Container}>
                 <Header />
+                <div className={styles.FoodtitlewithContainer}>
+                    <div className={styles.Foodtitle}>
+                        <div className={styles.HealthyFoodIcon}>
+                            <img src={HealthyFoodIcon} />
+                        </div>
+                        <div>
+                            {recipe.dish}
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
             </div>
         </Layout >
     )

@@ -1,4 +1,69 @@
 .Container{
     flex: 1;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @media (max-width:1200px) {
+        padding: 0;
+        gap: 10px;
+    }
+    @media (max-width:361px) {
+        gap: 5px;
+    }
+}
+.Foodtitle{
+    display: flex;
+    align-items: center;
+    font-family: "Philosopher";
+    font-size: 3rem;
+    color: #4C7C04;
+
+    @media (max-width:1200px) {
+        font-size: 2.7rem;
+    }
+    @media (max-width:1000px) {
+        gap: 12px;
+        font-size: 2.2rem;
+    }
+    @media (max-width:745px) {
+        font-size: 2rem;
+    }
+    @media (max-width:645px) {
+        font-size: 1.8rem;
+    }
+    @media (max-width:500px) {
+        font-size: 1.6rem;
+    }
+    @media (max-width:400px) {
+        font-size: 1.5rem;
+    }
+    @media (max-width:361px) {
+        font-size: 1.2rem;
+    }
+}
+.FoodtitlewithContainer{
+    padding-left: 30px;
+}
+.HealthyFoodIcon{
+    position: relative;
+    height: 6vh;
+    width: 6vw;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+    @media (max-width:645px) {
+        height: 8vh;
+        width: 8vw;
+    }
+    @media (max-width:476px) {
+        height: 9vh;
+        width: 9vw;
+    }
+    @media (max-width:420px) {
+        height: 10vh;
+        width: 10vw;
+    }
 }
