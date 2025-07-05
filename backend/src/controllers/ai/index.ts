@@ -19,10 +19,10 @@ export const generateSuggestionController = asyncerrorhandler(
 )
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
-    const { dish, variant, language } = req.body
+    const { Calories, Cabs, dish, variant, language } = req.body
 
 
-    if (!dish || !variant || !language) {
+    if (!dish || !variant || !language || !Calories || !Cabs) {
         res.status(400).json({
             message: "invalid credentials"
         })
@@ -30,9 +30,9 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
         return
     }
 
-    const recipe = await GenrateRecipebyAi(dish, variant, language)
+    const recipe = await GenrateRecipebyAi(Calories, Cabs, dish, variant, language)
 
-
+    console.log(recipe)
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,

@@ -14,14 +14,10 @@ const Dashboard: React.FC = () => {
     // };
 
 
-    if (isGenrateRecipeloading) {
-        return <Foodloading />
-    }
-
     return (
         <Layout>
             <div className={styles.Container}>
-                <Serchinputbox txt={txt} createRecipe={createRecipe} setisGenrateRecipeloading={setisGenrateRecipeloading} />
+                <Serchinputbox txt={txt} isGenrateRecipeloading={isGenrateRecipeloading} createRecipe={createRecipe} setisGenrateRecipeloading={setisGenrateRecipeloading} />
             </div>
         </Layout >
     )

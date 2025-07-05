@@ -1,133 +1,14 @@
-.Container {
-    width: 90%;
-    padding: 30px;
-    
-    @media (max-width: 1200px) {
-        padding: 10px;
+.Headingtitle{
+    color: #4C7C04;
+    font-family: "Philosopher";
+    font-size: 2rem;
+    @media (max-width:765px) {
+          font-size: 1.7rem;
     }
-    
-    @media (max-width: 435px) {
-        padding: 10px;
+    @media (max-width:667px) {
+          font-size: 1.4rem;
     }
-}
-
-.dishName {
-    color: #15803d;
-    font-weight: bolder;
-    font-size: 32px;
-    text-transform: uppercase;
-    
-    @media (max-width: 1095px) {
-        font-size: 28px;
-    }
-    
-    @media (max-width: 978px) {
-        font-size: 24px;
-    }
-    
-    @media (max-width: 738px) {
-        font-size: 22px;
-    }
-    
-    // @media (max-width: 578px) {
-    //     font-size: 19px;
-    // }
-    
-    // @media (max-width: 486px) {
-    //     font-size: 18px;
-    // }
-}
-
-.dishNameandDes {
-    display: flex;
-    flex-direction: column;
-}
-
-.description {
-    color: black;
-    
-    @media (max-width: 596px) {
-        font-size: 15px;
-        width: 90%;
-    }
-}
-
-.NameWithIcons {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    @media (max-width: 435px) {
-        display: none;
-    }
-}
-
-.MobileNameWithIcons {
-    display: none;
-    width: 90%;
-    
-    @media (max-width: 435px) {
-        display: block;
-        text-transform: uppercase;
-        color: #15803d;
-        font-weight: bolder;
-        flex-direction: column;
-        
-        .MobileIcons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-        }
-        
-        .MobiledishName {
-            margin-top: 10px;
-            text-align: center;
-        }
-        
-        .MobiledishNameWithDes {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .MobiledishNameDes {
-            font-size: 12px;
-            text-align: center;
-            color: black;
-            
-            @media (max-width: 324px) {
-                font-size: 11px;
-            }
-        }
-    }
-}
-
-.Icons {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: #15803d;
-    font-weight: bold;
-    
-    @media (max-width: 692px) {
-        gap: 10px;
-    }
-}
-
-.loader {
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    
-    svg {
-        stroke: #333;
-    }
-}
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+    @media (max-width:361px) {
+          font-size: 1rem;
     }
 }

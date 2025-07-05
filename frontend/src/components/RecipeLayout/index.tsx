@@ -18,8 +18,6 @@ export default function RecipeLayout() {
     const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
     const location = useLocation();
     const recipestate = location.state?.recipe;
-    console.log(recipestate)
-
     const fetch = async (id: string) => {
         if (recipestate) {
             setRecipe(recipestate)
@@ -50,36 +48,8 @@ export default function RecipeLayout() {
     return (
         <Layout>
             <div className={styles.Container}>
-                <div className={styles.HeaderContainer}>
-                    <Header />
-                    <div className={styles.Navbar}>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("recipe")}
-                        >
-                            {title.recipe}
-                        </button>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("why")}
-                        >
-                            {title.whyTheseChanges}
-                        </button>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("History")}
-                        >
-                            {title.History}
-                        </button>
-                    </div>
-                </div>
-
-                <div className={styles.MainContainer}>
-                    {currentComponent === "recipe" && <Recipe />}
-                    {currentComponent === "why" && <WhyTheseChagnes />}
-                    {currentComponent === "History" && <History />}
-                </div>
+                <Header />
             </div>
-        </Layout>
+        </Layout >
     )
 }

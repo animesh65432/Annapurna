@@ -16,13 +16,13 @@ export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
 type Props = {
     txt: string | null
-    createRecipe: (dish: string, variant: string, language: string) => Promise<{ id: string }>
+    createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string }>
     setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
+    isGenrateRecipeloading: boolean
 }
 
-export default function SearchInputBox({ txt, createRecipe, setisGenrateRecipeloading }: Props) {
+export default function SearchInputBox({ isGenrateRecipeloading, txt, createRecipe, setisGenrateRecipeloading }: Props) {
     const navigate = useNavigate()
-    const [loading, setloading] = useState<boolean>(true)
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
     const {
         handleSubmit,
@@ -65,9 +65,11 @@ export default function SearchInputBox({ txt, createRecipe, setisGenrateRecipelo
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
             console.log(data)
-            // const response = await createRecipe(data.dish, data.variant, data.language);
-            // setisGenrateRecipeloading(false);
-            // navigate(`/recipe/${response.id}`, { replace: true });
+            const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
+            if (response.id) {
+                navigate(`/recipe/${response.id}`, { replace: true });
+                setisGenrateRecipeloading(false);
+            }
         } catch (error) {
             console.error(error)
         }
@@ -82,7 +84,7 @@ export default function SearchInputBox({ txt, createRecipe, setisGenrateRecipelo
                 </div>
             </div>
             {
-                !loading ? <div className={styles.downContainer}>
+                !isGenrateRecipeloading ? <div className={styles.downContainer}>
                     <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
                     <div className={styles.SearchContainerwithOptionsContainer}>
                         <div className={styles.SearchContainerWithError}>
