@@ -17,6 +17,11 @@
     font-size: 17px;
     font-family: "Crimson";
     color: #4C7C04;
+
+    @media (max-width:1000px) {
+        font-size: 15px;
+        padding: 10px;
+    }
 }
 
 .dropdown {

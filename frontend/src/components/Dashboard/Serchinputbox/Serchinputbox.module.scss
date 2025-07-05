@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    gap: 10rem;
+    gap: 8rem;
 
     @media (max-width:1200vw) {
         height: 92vh;
@@ -21,6 +21,9 @@
         color: #4C7C04;
         font-family: "Philosopher";
         font-size: 2rem;
+        @media (max-width:765px) {
+          font-size: 1.7rem;
+        }
     }
     @media (max-width:1200px) {
         width: 97%;
@@ -28,6 +31,7 @@
         padding-left: 10px;;
         align-items: start;
     }
+    
 }
 .downContainer{
     display: flex;
@@ -35,6 +39,11 @@
     gap: 3rem;
     width: 100%;
     align-items: center;
+
+  @media (max-width:1000px) {
+    
+    gap: 2rem;
+  }
 }
 .SearchContainer {
     display: flex;
@@ -57,10 +66,18 @@
       font-size: 1.7rem;
       text-align: center;
       color: black;
+      font-style: italic;
   
       &::placeholder {
         color: #000;
         font-size: 1.7rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        font-style: italic;
+
+        @media (max-width:765px) {
+          font-size: 1.5rem;
+        }
       }
   
       &:hover,
@@ -69,8 +86,43 @@
         outline: none;
       }
     }
+    @media (max-width:1400px) {
+      width: 40vw;
+    }
+    @media (max-width:1100px) {
+      width: 45vw;
+    }
+    @media (max-width:1000px) {
+      width: 50vw;
+    }
+    @media (max-width:900px) {
+      width: 55vw;
+    }
+    @media (max-width:800px) {
+      width: 65vw;
+    }
   }
+
+.arrowroud{
+  background-color: #e0f1ca ;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+.arrow{
+  height: 2vh;
+  width: 2vw;
+  font-weight: bold;
+  color: #878484;
   
+}
+.arrowroudactive{
+  background-color: #4C7C04;
+  color: white;
+  .arrow{
+    color: white;
+  }
+}
 .textlabel{
     margin-left: auto;
     margin-right: auto;
@@ -78,4 +130,83 @@
     font-family: "Crimson";
     font-weight: 500;
     font-size: 3rem;
+  @media (max-width:1200px) {
+    font-size: 2.9rem;
+  }
+  @media (max-width:1000px) {
+    font-size: 2.6rem;
+  }
+  @media (max-width:765px) {
+    font-size: 2.3rem;
+  }
+}
+.SearchContainerwithOptionsContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.optionforvariants{
+  display: flex;
+  justify-content: space-evenly;
+}
+.optionforvariant{
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 15px;
+  padding: 5px;
+  background-color: #F2FFDF;  
+  border: 1px solid #D3E9B1;
+  width: 25%;
+  border-radius:5px;
+  justify-content: space-around;
+
+  .optionforvariantbox{
+    width: 1vw;
+    height: 2vh;
+    border: 1px solid #4C7C04;
+    border-radius: 3px;
+    @media (max-width:1000px) {
+      height: 2vh;
+      width: 1.4vw;
+    }
+  }
+}
+.activevariant{
+  background-color: #4C7C04;
+}
+
+.CarbsandCalories{
+  display: flex;
+  justify-content: space-around;
+}
+.Carbs, .Calories {
+  display: flex;
+  width: 40%;
+  padding: 5px;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #F2FFDF;
+  border: 1px solid #D3E9B1;
+  font-weight: 300;
+  font-size: 15px;
+  justify-content: space-around;
+
+  .title {
+    font-weight: 200;
+  }
+
+  .low, .high {
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #F2FFDF;    
+    border: 1px solid #D3E9B1;     
+    font-style: italic;
+    font-family: 'Crimson Pro', serif;
+  }
+
+  .active {
+    font-weight: 600;
+    border: 1px solid #4C7C04;    
+  }
 }
