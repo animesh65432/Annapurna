@@ -24,12 +24,22 @@
         @media (max-width:765px) {
           font-size: 1.7rem;
         }
+        @media (max-width:667px) {
+          font-size: 1.4rem;
+        }
+        @media (max-width:361px) {
+          font-size: 1rem;
+        }
     }
     @media (max-width:1200px) {
         width: 97%;
         padding: 0;
         padding-left: 10px;;
         align-items: start;
+    }
+
+    @media (max-width:500px) {
+      width: 90%;
     }
     
 }
@@ -78,12 +88,30 @@
         @media (max-width:765px) {
           font-size: 1.5rem;
         }
+        @media (max-width:667px) {
+          font-size: 1.2rem;
+        }
+        @media (max-width:600px) {
+          font-size: 1rem;
+        }
+        @media (max-width:500px) {
+          font-size: 15px;
+        }
       }
   
       &:hover,
       &:focus {
         border: none;
         outline: none;
+      }
+      @media (max-width:765px) {
+        font-size: 1.5rem;
+      }
+      @media (max-width:667px) {
+        font-size: 1.2rem;
+      }
+      @media (max-width:600px) {
+        font-size: 1rem;
       }
     }
     @media (max-width:1400px) {
@@ -101,6 +129,22 @@
     @media (max-width:800px) {
       width: 65vw;
     }
+    @media (max-width:667px) {
+      width: 75vw;
+    }
+    @media (max-width:500px) {
+      width: 70vw;
+    }
+    @media (max-width:484px) {
+      width: 80vw;
+    }
+    @media (max-width:390px) {
+      width: 85vw;
+    }
+    @media (max-width:363px) {
+      width: 95vw;
+    }
+    
   }
 
 .arrowroud{
@@ -139,6 +183,22 @@
   @media (max-width:765px) {
     font-size: 2.3rem;
   }
+  @media (max-width:667px) {
+    font-size: 2rem;
+  }
+  @media (max-width:600px) {
+    font-size: 1.7rem;
+  }
+  @media (max-width:500px) {
+    font-size: 1.4rem;
+  }
+  @media (max-width:360px) {
+    font-size: 1.3rem;
+  }
+  @media (max-width:330px) {
+    font-size: 1.1rem;
+  }
+
 }
 .SearchContainerwithOptionsContainer{
   display: flex;
@@ -170,6 +230,29 @@
       height: 2vh;
       width: 1.4vw;
     }
+    @media (max-width:484px) {
+      height: 2vh;
+      width: 2.2vw;
+    }
+
+  }
+  @media (max-width:700px) {
+    width: 27%;
+  }
+
+  @media (max-width:600px) {
+    font-size: 13px;
+  }
+  @media (max-width:474px) {
+    justify-content: space-between;
+    width: 27%;
+  }
+  @media (max-width:448px) {
+    width: 28%;
+  }
+
+  @media (max-width:424px) {
+    font-size: 12px;
   }
 }
 .activevariant{
@@ -208,5 +291,12 @@
   .active {
     font-weight: 600;
     border: 1px solid #4C7C04;    
+  }
+  @media (max-width:600px) {
+    font-size: 13px;
+    width: 45%;
+  }
+  @media (max-width:424px) {
+    font-size: 12px;
   }
 }
