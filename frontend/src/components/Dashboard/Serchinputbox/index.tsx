@@ -1,10 +1,10 @@
 import styles from "./Serchinputbox.module.scss"
 import Select from "../../Select"
-import { optionsforFoods, optionsforLanguages } from "../../../utils"
+import { optionsforLanguages, popularindianFoods } from "../../../utils"
 import React, { useEffect, useState } from "react"
 import { debounce } from "../../../utils/usedebounce"
 import { Getsuggestions } from "../../../api/ai"
-import Suggestions from "./Suggestions"
+import NounfoodIcon from '../../../assets/nounfood.svg';
 import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
@@ -140,8 +140,11 @@ export default function Serchinputbox({ txt, createRecipe, setisGenrateRecipeloa
                 </div>
             </div>
             <div className={styles.downContainer}>
+                <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
                 <div className={styles.SearchContainerWithError}>
                     <div className={styles.SearchContainer}>
+                        <img src={NounfoodIcon} alt="left icon" />
+
                         <Controller
                             name="dish"
                             control={control}
@@ -154,16 +157,17 @@ export default function Serchinputbox({ txt, createRecipe, setisGenrateRecipeloa
                                         handleChange(e);
                                     }}
                                     placeholder="write dish name"
+                                    value={dish}
                                 />
                             )}
                         />
-                        {
-                            dish.length > 0 ? <Suggestions suggestions={suggestions} OnChangesuggestion={OnChangesuggestion} /> : null
-                        }
+
+                        <img src={NounfoodIcon} alt="right icon" />
                     </div>
 
                     {errors.dish && <p className={styles.error}>{errors.dish.message}</p>}
                 </div>
+
             </div>
         </form >
     )
