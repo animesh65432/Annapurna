@@ -2,6 +2,7 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    overflow: hidden;
     background: radial-gradient(circle, #F3FFE2 0%, #FCFFF7 100%);
 
     @media (max-width: 1200px) {
@@ -26,11 +27,8 @@
 }
 
 .MainContainer {
-    width: 95vw;
     flex: 1; 
-    @media (max-width: 1200px) {
-        width: 100vw;
-    }
+    
 }
 
 .MobileNavContainer {

@@ -4,9 +4,11 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    width: 98%;
     @media (max-width:1200px) {
         padding: 0;
         gap: 10px;
+        width: 100%;
     }
     @media (max-width:361px) {
         gap: 5px;
@@ -21,6 +23,7 @@
 
     @media (max-width:1200px) {
         font-size: 2.7rem;
+        padding-left: 20px;
     }
     @media (max-width:1000px) {
         gap: 12px;
@@ -43,7 +46,8 @@
     }
 }
 .FoodtitlewithContainer{
-    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
 }
 .HealthyFoodIcon{
     position: relative;
@@ -66,4 +70,11 @@
         height: 10vh;
         width: 10vw;
     }
+}
+.FoodrecipeContainer{
+   height: 77vh;
+   overflow-y: auto;
+   @media (max-width:1000px) {
+    height: 79vh;
+   }
 }

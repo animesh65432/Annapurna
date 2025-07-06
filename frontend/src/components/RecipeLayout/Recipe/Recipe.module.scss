@@ -1,275 +1,132 @@
-.RecipeContainer {
-    width: 90%;
-    padding-right: 30px;
+.ingredientsContainer{
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  gap: 30px;
+  @media (max-width:1200px) {
+    padding-left: 25px;
+  }
+  @media (max-width:880px) {
     padding-top: 20px;
-    display: flex;
-    gap: 30px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    @media (max-width:1200px) {
-      width: 97%;
-    }
-    @media (max-width:998px) {
-      width: 96%;
-    }
-    @media (max-width:753px) {
-      width: 95%;
-    }
-    @media (max-width:606px) {
-      width: 94%;
-    }
-    @media (max-width:507px) {
-      width: 93%;
-    }
-    @media (max-width:436px) {
-      width: 92%;
-    }
-    @media (max-width:384px) {
-      width: 91%;
-    }
-    @media (max-width:343px) {
-      width: 90%;
-    }
+    gap: 20px;
   }
-  
-  .ingredientsContainer {
-    width: 90%;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    overflow: hidden;
-  
-    .ingredientHeader {
-      display: flex;
-      align-items: center;
-      color: #14532d;
-      background-color: #e6f4ec;
-      padding: 10px;
-      gap: 10px;
-      border-radius: 10px;
-  
-      div {
-        font-weight: bolder;
-      }
-  
-      @media (max-width: 500px) {
-        padding: 5px;
-      }
-    }
-  
-    .ingredients {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 10px;
-      overflow-x: auto;
-      overflow-y: hidden;
-  
-      .ingredient {
-        display: flex;
-        align-items: flex-start;
-        gap: 8px;
-        background-color: #ffffff;
-        padding: 12px 14px;
-        border-radius: 8px;
-        font-size: 0.95rem;
-        border: 1px solid #cce3d3;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-        color: #000000;
-  
-        @media (max-width: 1200px) {
-          padding: 10px;
-        }
-  
-        @media (max-width: 1000px) {
-          font-size: 0.9rem;
-        }
-  
-        @media (max-width: 567px) {
-          padding: 5px;
-        }
-  
-        @media (max-width: 500px) {
-          font-size: 0.8rem;
-        }
-      }
-  
-      .bullet {
-        font-size: 1.2rem;
-        line-height: 1;
-        color: #15803d;
-      }
-  
-      @media (max-width: 567px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
+  @media (max-width:1000px) {
+    padding-left: 25px;
   }
-  
-  .ingredientstitle {
-    font-weight: bolder;
-    font-size: 22px;
-  
-    @media (max-width: 1000px) {
-      font-size: 20px;
-    }
-  
-    @media (max-width: 567px) {
-      font-size: 18px;
-    }
-  
-    @media (max-width: 500px) {
-      font-size: 16px;
-    }
-  }
-  
-  .stepsContainer {
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-  
-    .stepstitle {
-      display: flex;
-      background-color: #e6f4ec;
-      padding: 10px;
-      align-items: center;
-      gap: 10px;
-      color: #14532d;
-      font-weight: bolder;
-      font-size: 22px;
-  
-      @media (max-width: 1000px) {
-        font-size: 20px;
-      }
-  
-      @media (max-width: 567px) {
-        font-size: 18px;
-      }
-  
-      @media (max-width: 500px) {
-        font-size: 16px;
-      }
-    }
-  
-    .steps {
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      overflow: hidden;
-  
-      .step {
-        display: flex;
-        gap: 15px;
-        align-items: flex-start;
-        background-color: #ffffff;
-        padding: 12px;
-        border-radius: 8px;
-        border: 1px solid #d6f0e1;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  
-        .stepNumber {
-          background-color: #15803d;
-          color: white;
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-          font-size: 0.9rem;
-          flex-shrink: 0;
-        }
-  
-        .stepContent {
-          flex: 1;
-          line-height: 1.5;
-          color: #000000;
-  
-          @media (max-width: 1000px) {
-            font-size: 0.9rem;
-          }
-  
-          @media (max-width: 567px) {
-            padding: 5px;
-          }
-  
-          @media (max-width: 500px) {
-            font-size: 0.8rem;
-          }
-        }
-  
-        @media (max-width: 567px) {
-          padding: 8px;
-          gap: 10px;
-  
-          .stepNumber {
-            width: 25px;
-            height: 25px;
-            font-size: 0.8rem;
-          }
-        }
-      }
-    }
-  }
-  
-  .motivationalMessage {
-    width: 90%;
-    display: flex;
-    align-items: flex-start;
-    background-color: #e6f4ec;
-    padding: 12px 16px;
-    overflow: hidden;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 1rem;
-    font-weight: bolder;
-    color: #0b3d2c;
+  @media (max-width:600px) {
+    padding-top: 10px;
     gap: 10px;
-    line-height: 1.5;
-    margin: auto;
-    margin-bottom: 50px;
-  
-    span:first-child {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-    }
-  
-    span:last-child {
-      flex: 1;
-      word-break: break-word;
-    }
-  
-    svg {
-      color: #15803d;
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      margin-top: 4px;
-    }
-  
-    @media (max-width: 768px) {
-      padding: 10px 14px;
-      font-size: 0.9rem;
-    }
-  
-    @media (max-width: 507px) {
-      width: 80%;
-      font-size: 0.75rem;
-      margin-left: auto;
-      margin-right: auto;
-      span:first-child {
-        margin-top: 3px;
-      }
-    }
+  }
+  @media (max-width:500px) {
+    padding-top: 0px;
+    gap: 5px;
+  }
+}
+.ingredientsContainertitle{
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  gap: 10px;
+  @media (max-width:785px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width:500px) {
+    font-size: 1rem;
+  }
+ 
+}
+.ingredientsSvg{
+  height: 5vh;
+  width: 5vw;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  @media (max-width:785px) {
+    height: 6vh;
+    width: 6vw;
+  }
+  @media (max-width:600px) {
+    height: 8vh;
+    width: 8vw;
+  }
+  @media (max-width:500px) {
+    height: 10vh;
+    width: 10vw;
+  }
+}
+.ingredientsGrid{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  padding-left: 30px;
+  gap: 30px;
+  @media (max-width:1300px) {
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
   }
   
+  @media (max-width:880px) {
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+  }
+  @media (max-width:500px) {
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    padding-left: 0px;
+  }
+  
+}
+.ingredient{
+  color: #4C7C04;
+  font-family: "Inter";
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  @media (max-width:1000px) {
+    font-size: 15px;
+  }
+
+  @media (max-width:700px) {
+    font-size: 13px;
+  }
+  @media (max-width:600px) {
+    font-size: 12px;
+  }
+  @media (max-width:370px) {
+    font-size: 11px;
+  }
+}
+.ingredientCheckbox{
+  height: 2.3vh;
+  width: 1.6vw;
+  background-color: #F2FFDF;
+  border: 1px solid #B2C793;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width:1130px) {
+    padding: 5px;
+  }
+  @media (max-width:1000px) {
+    width: 2.2vw;
+    img{
+      height: 2vh;
+      width: 1.9vw;
+    }
+  }
+  @media (max-width:733px) {
+    width: 2vw;
+  }
+  @media (max-width:785px){
+    height: 2vh;
+  }
+  @media (max-width:600px){
+    height: 1.8vh;
+  }
+}

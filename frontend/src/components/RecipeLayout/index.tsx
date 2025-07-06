@@ -59,7 +59,9 @@ export default function RecipeLayout() {
                             {recipe.dish}
                         </div>
                     </div>
-                    <div></div>
+                    <div className={styles.FoodrecipeContainer}>
+                        <Recipe />
+                    </div>
                 </div>
             </div>
         </Layout >
