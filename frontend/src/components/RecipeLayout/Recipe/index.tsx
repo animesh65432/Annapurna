@@ -1,8 +1,6 @@
 import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
 import styles from "./Recipe.module.scss"
-import { motion } from "framer-motion"
-import { containerVariants, itemVariants } from "../../../utils"
 import indegredientssvg from "../../../assets/ingredients.svg"
 import { useState } from "react"
 import rightarrow from "../../../assets/right.svg"

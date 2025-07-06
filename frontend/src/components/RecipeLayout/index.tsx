@@ -3,9 +3,8 @@ import { useFecthrecipe } from "../../hooks/useFecthrecipes"
 import styles from "./RecipeLayout.module.scss"
 import Foodloading from "../Foodloading"
 import Layout from "../Layout"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useRecipeStore } from "../../store/Recipe"
-import { nutritionTranslations } from "../../utils"
 import Header from "./Header"
 import HealthyFoodIcon from "../../assets/HealthyfoodIcon.svg"
 import Recipe from "./Recipe"
@@ -16,7 +15,6 @@ export default function RecipeLayout() {
     const { id } = useParams()
     const { setRecipe, recipe } = useRecipeStore()
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
-    const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
     const location = useLocation();
     const recipestate = location.state?.recipe;
     const fetch = async (id: string) => {
