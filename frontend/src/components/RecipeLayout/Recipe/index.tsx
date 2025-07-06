@@ -1,64 +1,81 @@
 import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
-import Foodloading from "../../Foodloading"
 import styles from "./Recipe.module.scss"
-import { Leaf, Zap, Star } from "lucide-react"
-import { motion } from "framer-motion"
-import { containerVariants, itemVariants } from "../../../utils"
+import indegredientssvg from "../../../assets/ingredients.svg"
+import { useState } from "react"
+import rightarrow from "../../../assets/right.svg"
+import recipesvg from "../../../assets/recipe.svg"
 
 export default function Recipe() {
+    const [ingredientindexs, setingredientindexs] = useState<number[]>([])
+    const [stepsindexs, setstepsindexs] = useState<number[]>([])
     const { recipe } = useRecipeStore()
-
-    if (!recipe) {
-        return <Foodloading />
+    const title = nutritionTranslations[recipe!.language]
+    function capitalizeWords(str: string) {
+        return str.replace(/\b\w/g, char => char.toUpperCase());
     }
 
-    const title = nutritionTranslations[recipe.language]
+    const clickingredient = (index: number) => {
+        if (ingredientindexs.includes(index)) {
+            const filteringredientindexs = ingredientindexs.filter((i) => i !== index)
+            setingredientindexs(filteringredientindexs)
+        }
+        else {
+            setingredientindexs((prev) => [...prev, index])
+        }
+    }
+
+    const Onclicksteps = (index: number) => {
+        if (stepsindexs?.includes(index)) {
+            const filterstpes = stepsindexs.filter((step) => step !== index)
+            setstepsindexs(filterstpes)
+        }
+        else {
+            setstepsindexs((prev) => [...prev, index])
+        }
+    }
+
 
     return (
-        <div className={styles.RecipeContainer}>
+        <div className={styles.Container}>
             <div className={styles.ingredientsContainer}>
-                <div className={styles.ingredientHeader}>
-                    <div><Leaf /></div>
-                    <div className={styles.ingredientstitle}>
-                        {title.ingredients}
+                <div className={styles.ingredientsContainertitle}>
+                    <div className={styles.ingredientsSvg}>
+                        <img src={indegredientssvg} />
+                    </div>
+                    <div>{title.ingredients}</div>
+                </div>
+                <div className={styles.ingredientsGrid}>
+                    {
+                        recipe?.healthierVersion.ingredients.map((ingredient, index) => <div className={styles.ingredient} key={ingredient} onClick={() => clickingredient(index)}>
+                            <div className={styles.Checkbox} >
+                                {ingredientindexs.includes(index) && <img src={rightarrow} />}
+                            </div>
+                            <div> {capitalizeWords(ingredient)}</div>
+                        </div>)
+
+                    }
+                </div>
+            </div>
+            <div className={styles.RecipeContainer}>
+                <div className={styles.RecipeContainertitlewithimg}>
+                    <div className={styles.RecipeContainertitleimg}>
+                        <img src={recipesvg} />
+                    </div>
+                    <div className={styles.RecipeContainertitle}>
+                        {title.steps}
                     </div>
                 </div>
-                <div className={styles.ingredients}>
-                    {recipe.healthierVersion.ingredients.map((ingredient, index) => (
-                        <div key={index} className={styles.ingredient} >
-                            <span className={styles.bullet}>•</span>
-                            <span>{ingredient}</span>
-                        </div>
-                    ))}
+                <div className={styles.RecipeContainerSteps}>
+                    {
+                        recipe?.healthierVersion.steps.map((step, index) => <div className={styles.recipe} key={step}>
+                            <div className={styles.Checkbox} onClick={() => Onclicksteps(index)}>
+                                {stepsindexs.includes(index) && <img src={rightarrow} />}
+                            </div>
+                            <div className={styles.recipetext}>{step}</div>
+                        </div>)
+                    }
                 </div>
-            </div>
-
-            <div className={styles.stepsContainer}>
-                <div className={styles.stepstitle}>
-                    <span><Zap /></span>
-                    <span className={styles.stepsTitle}>{title.steps}</span>
-                </div>
-                <motion.div className={styles.steps} variants={containerVariants}
-                    initial="hidden"
-                    animate="visible">
-                    {recipe.healthierVersion.steps.map((step, index) => (
-                        <motion.div key={index} className={styles.step} variants={itemVariants}
-                            whileHover={{
-                                scale: 1.02,
-                                transition: { duration: 0.2 }
-                            }}>
-                            <div className={styles.stepNumber}>{index + 1}</div>
-                            <div className={styles.stepContent}>{step}</div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-            <div className={styles.motivationalMessage}>
-                <span><Star /></span>
-                <span>
-                    {recipe.motivationalMessage}
-                </span>
             </div>
         </div>
     )

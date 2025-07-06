@@ -1,62 +1,80 @@
-.Container {
-    height: 100vh;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
+.Container{
+    flex: 1;
+    padding: 30px;
     display: flex;
     flex-direction: column;
+    gap: 30px;
+    width: 98%;
+    @media (max-width:1200px) {
+        padding: 0;
+        gap: 10px;
+        width: 100%;
+    }
+    @media (max-width:361px) {
+        gap: 5px;
+    }
+}
+.Foodtitle{
+    display: flex;
+    align-items: center;
+    font-family: "Philosopher";
+    font-size: 3rem;
+    color: #4C7C04;
 
     @media (max-width:1200px) {
-      height: 94vh;
+        font-size: 2.7rem;
+        padding-left: 20px;
+    }
+    @media (max-width:1000px) {
+        gap: 12px;
+        font-size: 2.2rem;
+    }
+    @media (max-width:745px) {
+        font-size: 2rem;
+    }
+    @media (max-width:645px) {
+        font-size: 1.8rem;
+    }
+    @media (max-width:500px) {
+        font-size: 1.6rem;
+    }
+    @media (max-width:400px) {
+        font-size: 1.5rem;
+    }
+    @media (max-width:361px) {
+        font-size: 1.2rem;
     }
 }
-
-.HeaderContainer {
-    flex: 0 0 auto;
-    width: 100%;
+.FoodtitlewithContainer{
     display: flex;
     flex-direction: column;
 }
-
-.MainContainer {
-    flex: 1;
-    width: 100%;
-    overflow-y: auto;
+.HealthyFoodIcon{
+    position: relative;
+    height: 6vh;
+    width: 6vw;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+    @media (max-width:645px) {
+        height: 8vh;
+        width: 8vw;
+    }
+    @media (max-width:476px) {
+        height: 9vh;
+        width: 9vw;
+    }
+    @media (max-width:420px) {
+        height: 10vh;
+        width: 10vw;
+    }
 }
-
-.Navbar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #15803d;
-}
-
-.NavItem {
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid transparent;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: #15803d;
-    font-size: 1.2rem;
-
-    @media (max-width: 1000px) {
-        font-size: 1rem;
-    }
-
-    @media (max-width: 500px) {
-        font-size: 14px;
-    }
-
-    &:hover {
-        color: #074e21;
-        text-decoration: underline;
-    }
-
-    &.active {
-        border-color: #043b18;
-        color: #07471f;
-    }
+.FoodrecipeContainer{
+   height: 77vh;
+   overflow-y: auto;
+   @media (max-width:1000px) {
+    height: 79vh;
+   }
 }

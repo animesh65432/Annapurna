@@ -11,7 +11,7 @@ const Navbar: React.FC = () => {
         <div className={styles.upperNavContainer}>
             <div className={styles.navitem} onClick={() => navigate("/dashboard")} >
                 <div><LayoutDashboard className={styles.navitemIcon} /></div>
-                <div>Dashboard</div>
+                <div>Home</div>
             </div>
             {token &&
                 <div className={styles.navitem} onClick={() => navigate("/save")}>
@@ -24,7 +24,6 @@ const Navbar: React.FC = () => {
             {token &&
                 <div className={styles.navitem} onClick={removetoken}>
                     <div><LogOut className={styles.navitemIcon} /></div>
-                    <div>Logout</div>
                 </div>
             }
         </div>

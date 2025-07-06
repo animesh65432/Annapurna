@@ -17,6 +17,7 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
+    color: #4C7C04;;
 
     @media (max-width: 768px) {
       width: 24px;
@@ -30,11 +31,7 @@
     width: 32px;
     height: 32px;
     margin-bottom: 2rem;
-    color:#15803d;
-  
-    &:hover {
-      color: #094720;
-    }
+    color: #4C7C04;
   }
   
   .menuItems {
@@ -48,13 +45,12 @@
     align-items: center;
     gap: 0.75rem;
     font-size: 1.1rem;
-    color: #15803d;
+    color: #4C7C04;
     padding: 0.75rem 1rem;
     border-radius: 0.5rem;
   
     &:hover {
-      background-color: #f0fdf4;
-      color: #065121;
+      background-color:  #dcf4bc ;
     }
     @media (max-width: 768px) {
       font-size: 0.9rem;

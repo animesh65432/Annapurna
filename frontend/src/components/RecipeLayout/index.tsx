@@ -3,10 +3,10 @@ import { useFecthrecipe } from "../../hooks/useFecthrecipes"
 import styles from "./RecipeLayout.module.scss"
 import Foodloading from "../Foodloading"
 import Layout from "../Layout"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useRecipeStore } from "../../store/Recipe"
-import { nutritionTranslations } from "../../utils"
 import Header from "./Header"
+import HealthyFoodIcon from "../../assets/HealthyfoodIcon.svg"
 import Recipe from "./Recipe"
 import WhyTheseChagnes from "./WhyTheseChagnes"
 import History from "./History"
@@ -15,11 +15,8 @@ export default function RecipeLayout() {
     const { id } = useParams()
     const { setRecipe, recipe } = useRecipeStore()
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
-    const [currentComponent, setCurrentComponent] = useState<"recipe" | "why" | "History">("recipe")
     const location = useLocation();
     const recipestate = location.state?.recipe;
-    console.log(recipestate)
-
     const fetch = async (id: string) => {
         if (recipestate) {
             setRecipe(recipestate)
@@ -44,42 +41,26 @@ export default function RecipeLayout() {
             <Foodloading />
         )
     }
-
-    const title = nutritionTranslations[recipe.language]
-
     return (
         <Layout>
             <div className={styles.Container}>
-                <div className={styles.HeaderContainer}>
-                    <Header />
-                    <div className={styles.Navbar}>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("recipe")}
-                        >
-                            {title.recipe}
-                        </button>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("why")}
-                        >
-                            {title.whyTheseChanges}
-                        </button>
-                        <button
-                            className={styles.NavItem}
-                            onClick={() => setCurrentComponent("History")}
-                        >
-                            {title.History}
-                        </button>
+                <Header />
+                <div className={styles.FoodtitlewithContainer}>
+                    <div className={styles.Foodtitle}>
+                        <div className={styles.HealthyFoodIcon}>
+                            <img src={HealthyFoodIcon} />
+                        </div>
+                        <div>
+                            {recipe.dish}
+                        </div>
+                    </div>
+                    <div className={styles.FoodrecipeContainer}>
+                        <Recipe />
+                        <WhyTheseChagnes />
+                        <History />
                     </div>
                 </div>
-
-                <div className={styles.MainContainer}>
-                    {currentComponent === "recipe" && <Recipe />}
-                    {currentComponent === "why" && <WhyTheseChagnes />}
-                    {currentComponent === "History" && <History />}
-                </div>
             </div>
-        </Layout>
+        </Layout >
     )
 }

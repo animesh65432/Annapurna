@@ -10,38 +10,70 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 14px;
-    background-color: white;
-    border: 1px solid #ccc;
+    padding: 10px;
+    background-color:#daf4b3;
     cursor: pointer;
     border-radius: 6px 6px 0 0; 
-    font-size: 14px;
+    font-size: 17px;
+    font-family: "Crimson";
+    color: #4C7C04;
+
+    @media (max-width:1000px) {
+        font-size: 15px;
+        padding: 10px;
+    }
+    @media (max-width:666px) {
+        font-size: 14px;
+        padding: 8px;
+    }
 }
 
 .dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
+    position: fixed;
+    top: 10%;
+    color: black;
+    left:74%;
     width: max-content;
-    min-width: 100%;
-    background-color: white;
-    z-index: 200;
-    border: 1px solid #ccc;
+    width: 15vw;
+    background-color: #F2FFDF;
+    z-index: 300;
     border-top: none;
     border-radius: 0 0 6px 6px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    max-height: 200px;
+    height: 40vh;
     overflow-y: auto;
+    @media (max-width:1200px) {
+        top: 14%;
+        left:80% ;
+    }
+    @media (max-width:900px) {
+        top: 14%;
+        left: 70%;
+        width: 25vw;
+    }
+    @media (max-width:750px) {
+        top:14% ;
+    }
+    @media (max-width:666px) {
+        top: 12%;
+    }
+    @media (max-width:460px) {
+        left: 50%;
+        width: 40vw;
+    }
   }
   
 
 .option {
-    padding: 10px 14px;
+    padding: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    color: #B2C793;
+    font-weight: bold;
+    border-bottom:1px solid #bee287;
 
     &:hover {
-        background-color: #f0f0f0;
+        color: #4C7C04;
     }
 }
 

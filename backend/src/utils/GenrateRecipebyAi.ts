@@ -1,6 +1,6 @@
 import { groq } from "../services/Groq"
 
-export async function GenrateRecipebyAi(dishname: string, Variant: string, Language: string) {
+export async function GenrateRecipebyAi(Calories: string, Cabs: string, dishname: string, Variant: string, Language: string) {
   console.log(dishname, Variant, Language)
   const prompt = `You are a nutrition expert assistant helping users improve their meals.
 
@@ -20,6 +20,8 @@ export async function GenrateRecipebyAi(dishname: string, Variant: string, Langu
 User Details:
 - Dish Name: ${dishname}
 - Variant Type: ${Variant}
+-Calories Type :${Calories}
+-Cabs Type :${Cabs}
 - Response Language: ${Language}
 
 Required JSON format:
@@ -35,8 +37,8 @@ Required JSON format:
 "description": "[Write description in ${Language} language]",
 "ingredients": ["[ingredient 1 in ${Language}]", "[ingredient 2 in ${Language}]"],
 "steps": [
-  "[Step 1: Start with detailed prep work in ${Language}]",
-  "[Step 2: Describe next step clearly in ${Language}]",
+  "[Start with detailed prep work in ${Language}]",
+  "[Describe next step clearly in ${Language}]",
   "...", 
   "[Make sure there are at least 5-7 well-written, complete steps in ${Language}]",
   "[Each step should be complete, not too short —  how to cook it]"
@@ -69,7 +71,7 @@ Required JSON format:
 "foodHistoryContext": "[Write about the fascinating history of ingredients used in ${dishname} in ${Language}. Research and mention the origins of key ingredients - for example: if the dish contains potatoes (came from South America via Portuguese traders in 16th century), tomatoes (brought by Portuguese from Americas), chillies (introduced by Portuguese from Mexico/South America), paneer (techniques from Middle Eastern/Persian influence), onions (came via Central Asian trade routes), garlic (ancient trade from Mediterranean), soya products (Chinese influence), etc. Explain specifically how these ingredients traveled to India through trade, colonization, or cultural exchange. Show how ${dishname} itself represents this beautiful fusion of global ingredients that became 'Indian' over time. This proves that cuisine evolution is natural and our healthy modifications today continue this ancient tradition and they evoled into that dish please make breif alteast 10 lines.]",
 "motivationalMessage": "[Write encouraging message in ${Language}]",
 "funFact": "[Write interesting fact in ${Language}]",
-"dish":"[Write dish name is ${dishname}-${Variant} in ${Language}]"
+"dish":"[Write dish name is  Healthy ${dishname} in ${Language} ]"
 }
 
 ⚠️ FINAL CHECK: Before responding, verify that ALL text content is written in "${Language}" language, not English! and please create all the thing i mention and don't miss any proproties`

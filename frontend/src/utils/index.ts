@@ -1,5 +1,18 @@
 import { easeOut, easeIn } from "framer-motion";
 
+export const placeholders = [
+    "e.g. Aloo Paratha",
+    "e.g. Rajma Chawal",
+    "e.g. Pav Bhaji",
+    "e.g. Dosa",
+    "e.g. Biryani",
+    "e.g. Chole Bhature",
+    "e.g. Masoor Dal",
+    "e.g. Idli Sambhar",
+    "e.g. Pulao",
+    "e.g. Baingan Bharta"
+];
+
 export const howitworks = [
     {
         title: "Create Your Dish",
@@ -178,6 +191,8 @@ export const optionsforFoods = [
     { label: "Fibre Rich", value: "fibre_rich" },
     { label: "Iron Boosting", value: "iron_boosting" },
 ];
+
+
 
 export const optionsforLanguages = [
     { label: "हिन्दी", value: "hindi" },

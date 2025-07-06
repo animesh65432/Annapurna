@@ -8,5 +8,6 @@ import PageLaoding from "./Pageloading"
 import NotFound from "./NotFound"
 import ErrorBoundary from "./ErrorBoundary"
 import Saves from "./Saves"
+import Foodloading from "./Foodloading"
 
-export { Landing, Dashboard, Recipe, WhyTheseChagnes, Layout, RecipeLayout, PageLaoding, NotFound, ErrorBoundary, Saves }
+export { Landing, Dashboard, Recipe, WhyTheseChagnes, Layout, RecipeLayout, PageLaoding, NotFound, ErrorBoundary, Saves, Foodloading }

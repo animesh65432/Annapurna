@@ -1,62 +1,26 @@
 import { useState } from "react"
-import { useRecipeStore } from "../../../store/Recipe"
 import styles from "./Header.module.scss"
-import { Save } from "lucide-react"
-import { FaShare } from "react-icons/fa";
-import { useAuthstroe } from "../../../store/useauth"
-import SigninwithGoogle from "../../SigninwithGoogle"
-import ShareSection from "../../ShareSection"
-import { useSaverecipe } from "../../../hooks/useSaverecipe"
-import { Loader } from "lucide-react"
-import { toast } from "react-toastify";
-
-
+import shareIcon from "../../../assets/share.svg"
+import downloadIcon from "../../../assets/download.svg"
 export default function Header() {
-    const [isauth, setauth] = useState<boolean>(false)
     const [isShareOpen, setisShareOPen] = useState<boolean>(false)
-    const { token } = useAuthstroe()
-    const { isloadingSaverecipe, saverecipe } = useSaverecipe()
-    const { recipe } = useRecipeStore()
-
-    const onsave = async () => {
-        if (!token) {
-            setauth(true)
-            return
-        }
-        await saverecipe(recipe?.id!)
-        toast.success("just saved the recipe")
-    }
 
     const OntoogleShareSection = () => {
         setisShareOPen(true)
     }
+    console.log(isShareOpen, OntoogleShareSection)
     return (
-        <>
-            <div className={styles.Container}>
-                <div className={styles.NameWithIcons}>
-                    <div className={styles.dishNameandDes}>
-                        <div className={styles.dishName}>{recipe?.dish}</div>
-                    </div>
-                    <div className={styles.Icons}>
-                        <div><FaShare onClick={OntoogleShareSection} /></div>
-                        <div>{isloadingSaverecipe ? <Loader className={styles.loader} /> : <Save onClick={onsave} />}</div>
-                    </div>
+        <div className={styles.HeaderContainer}>
+            <div className={styles.Headingtitle}>Annapurna Ai</div>
+            <div className={styles.HeaderIcons}>
+                <div className={styles.HeaderIcon}>
+                    <img src={shareIcon} />
                 </div>
-                <div className={styles.MobileNameWithIcons}>
-                    <div className={styles.MobileIcons}>
-                        <div><FaShare onClick={OntoogleShareSection} /></div>
-                        <div>{isloadingSaverecipe ? <Loader className={styles.loader} /> : <Save onClick={onsave} />}</div>
-                    </div>
-                    <div className={styles.MobiledishNameWithDes}>
-                        <div className={styles.MobiledishName}>
-                            {recipe?.dish}
-                        </div>
-                    </div>
+                <div className={styles.HeaderIcon}>
+                    <img src={downloadIcon} />
                 </div>
             </div>
-            {isauth && <SigninwithGoogle setauth={setauth} />}
-            {isShareOpen && <ShareSection dishname={recipe?.dish!} setisShareOPen={setisShareOPen} />}
-        </>
+        </div>
 
     )
 }

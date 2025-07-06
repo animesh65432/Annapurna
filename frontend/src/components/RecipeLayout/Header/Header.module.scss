@@ -1,133 +1,92 @@
-.Container {
-    width: 90%;
-    padding: 30px;
-    
-    @media (max-width: 1200px) {
-        padding: 10px;
-    }
-    
-    @media (max-width: 435px) {
-        padding: 10px;
-    }
+.HeaderContainer{
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      @media (max-width:1200px) {
+            margin-left: 16px;
+      }
 }
-
-.dishName {
-    color: #15803d;
-    font-weight: bolder;
-    font-size: 32px;
-    text-transform: uppercase;
-    
-    @media (max-width: 1095px) {
-        font-size: 28px;
-    }
-    
-    @media (max-width: 978px) {
-        font-size: 24px;
-    }
-    
-    @media (max-width: 738px) {
-        font-size: 22px;
-    }
-    
-    // @media (max-width: 578px) {
-    //     font-size: 19px;
-    // }
-    
-    // @media (max-width: 486px) {
-    //     font-size: 18px;
-    // }
-}
-
-.dishNameandDes {
-    display: flex;
-    flex-direction: column;
-}
-
-.description {
-    color: black;
-    
-    @media (max-width: 596px) {
-        font-size: 15px;
-        width: 90%;
-    }
-}
-
-.NameWithIcons {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-    @media (max-width: 435px) {
-        display: none;
-    }
-}
-
-.MobileNameWithIcons {
-    display: none;
-    width: 90%;
-    
-    @media (max-width: 435px) {
-        display: block;
-        text-transform: uppercase;
-        color: #15803d;
-        font-weight: bolder;
-        flex-direction: column;
-        
-        .MobileIcons {
-            display: flex;
-            justify-content: flex-end;
+.HeaderIcons{
+      display: flex;
+      gap: 30px;
+      @media (max-width:600px) {
+            gap: 20px;
+      }
+      @media (max-width:400px) {
             gap: 10px;
-        }
-        
-        .MobiledishName {
-            margin-top: 10px;
-            text-align: center;
-        }
-        
-        .MobiledishNameWithDes {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .MobiledishNameDes {
-            font-size: 12px;
-            text-align: center;
-            color: black;
-            
-            @media (max-width: 324px) {
-                font-size: 11px;
+      }
+}
+
+.HeaderIcon{
+      background-color: #F3FFE2;
+      color: #B2C793;
+      border:  1px solid #B2C793;
+      border-radius: 2px;
+      height: 3.5vh;
+      width: 2.2vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+            height: 2.7vh;
+            width: 2vw;
+      }
+      @media (max-width:1200px) {
+           height: 3.8vh;
+           width: 2.6vw; 
+      }
+      @media (max-width:1130px) {
+            height: 4vh;
+            width: 2.9vw; 
+       }
+      @media (max-width:955px) {
+            height: 4.3vh;
+            width: 3.4vw;
+      }
+      @media (max-width:800px) {
+            height: 4.2vh;
+            width: 3.7vw;
+      }
+      @media (max-width:749px) {
+            height: 4.2vh;
+            width: 4.4vw;
+      }
+      @media (max-width:600px) {
+            height: 4.2vh;
+            width: 4.9vw;
+      }
+      @media (max-width:500px) {
+            img{
+                  height: 3vh;
+                  width: 3vw;
             }
-        }
-    }
+      }
+      @media (max-width:450px) {
+            width: 5.9vw;
+      }
+      @media (max-width:400px) {
+            img{
+                  height: 3.7vh;
+                  width: 3.7vw;
+            }
+      }
+      @media (max-width:370px) {
+            width: 6.6vw;
+            
+      }
 }
 
-.Icons {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    color: #15803d;
-    font-weight: bold;
-    
-    @media (max-width: 692px) {
-        gap: 10px;
+.Headingtitle{
+    color: #4C7C04;
+    font-family: "Philosopher";
+    font-size: 2rem;
+    @media (max-width:765px) {
+          font-size: 1.7rem;
     }
-}
-
-.loader {
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    
-    svg {
-        stroke: #333;
+    @media (max-width:667px) {
+          font-size: 1.4rem;
     }
-}
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
+    @media (max-width:361px) {
+          font-size: 1rem;
     }
 }
