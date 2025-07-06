@@ -43,9 +43,6 @@ export default function RecipeLayout() {
             <Foodloading />
         )
     }
-
-    const title = nutritionTranslations[recipe.language]
-
     return (
         <Layout>
             <div className={styles.Container}>
@@ -61,6 +58,8 @@ export default function RecipeLayout() {
                     </div>
                     <div className={styles.FoodrecipeContainer}>
                         <Recipe />
+                        <WhyTheseChagnes />
+                        <History />
                     </div>
                 </div>
             </div>
