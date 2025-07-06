@@ -1,3 +1,9 @@
+.Container{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .ingredientsContainer{
   display: flex;
   padding-top: 30px;
@@ -28,7 +34,10 @@
   color: #4C7C04;
   font-family: "Philosopher";
   font-size: 1.7rem;
-  gap: 10px;
+  gap: 5px;
+  @media (max-width:1200px) {
+    gap: 10px;
+  }
   @media (max-width:785px) {
     font-size: 1.5rem;
   }
@@ -100,7 +109,7 @@
     font-size: 11px;
   }
 }
-.ingredientCheckbox{
+.Checkbox{
   height: 2.3vh;
   width: 1.6vw;
   background-color: #F2FFDF;
@@ -128,5 +137,102 @@
   }
   @media (max-width:600px){
     height: 1.8vh;
+  }
+}
+
+.RecipeContainer{
+  display: flex;
+  padding-top: 30px;
+  flex-direction: column;
+  gap: 30px;
+  @media (max-width:1200px) {
+    padding-left: 25px;
+  }
+  @media (max-width:880px) {
+    padding-top: 20px;
+  }
+  @media (max-width:1000px) {
+    padding-left: 25px;
+  }
+  @media (max-width:600px) {
+    padding-top: 10px;
+    gap: 10px;
+  }
+  @media (max-width:500px) {
+    padding-top: 0px;
+    gap: 5px;
+  }
+}
+
+.RecipeContainertitlewithimg{
+  display: flex;
+  align-items: center;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.5rem;
+  gap: 5px;
+  @media (max-width:1200px) {
+    gap: 10px;
+  }
+  @media (max-width:785px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width:500px) {
+    font-size: 1rem;
+  }
+}
+.RecipeContainertitleimg{
+  height: 5vh;
+  width: 5vw;
+  img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  @media (max-width:785px) {
+    height: 6vh;
+    width: 6vw;
+  }
+  @media (max-width:600px) {
+    height: 8vh;
+    width: 8vw;
+  }
+  @media (max-width:500px) {
+    height: 10vh;
+    width: 10vw;
+  }
+}
+.recipe{
+  color: #4C7C04;
+  font-family: "Inter";
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding-left: 30px;
+
+  @media (max-width:1000px) {
+    font-size: 15px;
+  }
+
+  @media (max-width:700px) {
+    font-size: 13px;
+  }
+  @media (max-width:600px) {
+    font-size: 12px;
+  }
+  @media (max-width:500px) {
+    padding-left: 0px;
+  }
+  @media (max-width:370px) {
+    font-size: 11px;
+  }
+}
+.RecipeContainerSteps{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width:1000px) {
+    gap: 20px;
   }
 }
