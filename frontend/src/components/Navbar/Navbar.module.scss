@@ -13,6 +13,10 @@
       width: 25px;
       height: 25px;
     }
+
+    @media (max-width:1340px) {
+      font-size: 15px;
+    }
     
   }
   .navitem:hover {

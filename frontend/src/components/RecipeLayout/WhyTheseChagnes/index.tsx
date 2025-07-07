@@ -11,6 +11,7 @@ export default function WhyTheseChanges() {
     const nutritionComparisonKeys = Object.keys(recipe!.nutritionComparison.after)
     const nutritionComparisonAfterValues = Object.values(recipe!.nutritionComparison.after)
     const nutritionComparisonBeforeValues = Object.values(recipe!.nutritionComparison.before)
+
     return (
         <div className={styles.whyTheseChanges}>
             <motion.div initial={slideLeftFade.initial} animate={slideLeftFade.animate} transition={slideLeftFade.transition} className={styles.nutritionSection}>
