@@ -1,9 +1,12 @@
 import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
 import styles from "./WhyTheseChagnes.module.scss"
-import { Heart, RotateCcw, ArrowBigRight, ArrowBigDown, MoveRight, CircleCheckBig } from 'lucide-react';
+import { Heart, RotateCcw, MoveRight, CircleCheckBig } from 'lucide-react';
 import { motion } from "framer-motion"
-import { slideLeftFade, blurIn } from "../../../utils"
+import { blurIn } from "../../../utils"
+import { BiQuestionMark } from "react-icons/bi";
+import { X, CheckCheck, ArrowRightLeft } from "lucide-react"
+
 export default function WhyTheseChanges() {
     const { recipe } = useRecipeStore()
     const translation = nutritionTranslations[recipe!.language]
@@ -11,51 +14,66 @@ export default function WhyTheseChanges() {
     const nutritionComparisonKeys = Object.keys(recipe!.nutritionComparison.after)
     const nutritionComparisonAfterValues = Object.values(recipe!.nutritionComparison.after)
     const nutritionComparisonBeforeValues = Object.values(recipe!.nutritionComparison.before)
-
     return (
         <div className={styles.whyTheseChanges}>
-            <motion.div initial={slideLeftFade.initial} animate={slideLeftFade.animate} transition={slideLeftFade.transition} className={styles.nutritionSection}>
-                <div className={styles.sectionTitle}>
-                    <Heart className={styles.icon} />
-                    <span>{translation.nutritionComparison}</span>
-                </div>
+            <div className={styles.sectionTitle}>
+                <Heart className={styles.Svg} />
+                <span>{translation.nutritionComparison}</span>
+            </div>
 
-                <div className={styles.comparisonContainer}>
-                    <div className={styles.BeforcomparisonColumn}>
-                        <div className={`${styles.before}`}>
-                            {translation.before}
-                        </div>
 
-                        <div className={styles.BeforenutritionValues}>
-                            {nutritionComparisonBeforeValues.map((value, index) => (
-                                <div key={index} className={styles.BeforenutritionValue}>
+            <div className={styles.comparisonContainer}>
+                <div className={styles.BeforcomparisonColumn}>
+                    <div className={`${styles.before}`}>
+                        {translation.before}
+                    </div>
+
+                    <div className={styles.BeforenutritionValues}>
+                        {nutritionComparisonBeforeValues.map((value, index) => (
+                            <div key={index} className={styles.BeforenutritionValue}>
+                                <div>
+                                    <X />
+                                </div>
+                                <div>
                                     <span>{nutritionComparisonKeys[index]}:</span><span> {value}</span>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
-                    <ArrowBigRight className={styles.RightArrow} />
-                    <ArrowBigDown className={styles.DownArrow} />
-                    <div className={styles.AftercomparisonColumn}>
-                        <div className={`${styles.after}`}>
-                            {translation.after}
-                        </div>
-                        <div className={styles.AfternutritionValues}>
-                            {nutritionComparisonAfterValues.map((value, index) => (
-                                <div key={index} className={styles.AfternutritionValue}>
+                </div>
+                <div className={styles.arrow}>
+                    <ArrowRightLeft className={styles.Svg} />
+                </div>
+                <div className={styles.AftercomparisonColumn}>
+                    <div className={`${styles.after}`}>
+                        {translation.after}
+                    </div>
+                    <div className={styles.AfternutritionValues}>
+                        {nutritionComparisonAfterValues.map((value, index) => (
+                            <div key={index} className={styles.AfternutritionValue}>
+                                <span>
+                                    <CheckCheck />
+                                </span>
+                                <div>
                                     <span>{nutritionComparisonKeys[index]}:</span>
                                     <span>{value}</span>
                                 </div>
+                            </div>
 
-                            ))}
-                        </div>
+                        ))}
                     </div>
                 </div>
-            </motion.div>
+            </div>
+
 
             <motion.div initial={blurIn.initial} transition={blurIn.transition} animate={blurIn.animate} className={styles.substitutionsSection}>
                 <div className={styles.sectionTitle}>
-                    {translation.whyTheseChanges}
+                    <div>
+                        {translation.whyTheseChanges}
+                    </div>
+                    <span>
+                        <BiQuestionMark className={styles.Svg} />
+                    </span>
                 </div>
                 <div className={styles.substitutionsContainer}>
                     {recipe?.substitutions.map((substitution, index) => (
@@ -81,10 +99,6 @@ export default function WhyTheseChanges() {
                 </div>
             </motion.div>
 
-            <div className={styles.funFactSection}>
-                <span>{translation.funFact}</span>
-                <span>{recipe?.funFact}</span>
-            </div>
         </div >
     )
 }

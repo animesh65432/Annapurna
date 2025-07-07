@@ -1,0 +1,187 @@
+.whyTheseChanges{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 30px;
+}
+.sectionTitle{
+        display: flex;
+        align-items: center;
+        color: #4C7C04;
+        font-family: "Philosopher";
+        font-size: 1.7rem;
+        gap: 5px;
+        @media (max-width:1200px) {
+          gap: 10px;
+        }
+        @media (max-width:785px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width:500px) {
+          font-size: 1rem;
+        }
+       
+    
+}
+.Svg{
+    height: 5vh;
+    width: 5vw;
+    color: #4C7C04;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    @media (max-width:785px) {
+      height: 6vh;
+      width: 6vw;
+    }
+    @media (max-width:600px) {
+      height: 8vh;
+      width: 8vw;
+    }
+    @media (max-width:500px) {
+      height: 10vh;
+      width: 10vw;
+    }
+  }
+.comparisonContainer{
+    display: flex;
+    width: 95%;
+    margin-left: 30px;
+}
+
+.BeforcomparisonColumn{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid #4C7C04;
+    border-radius: 5px;
+    color: #4C7C04;
+
+    .before{
+        border-bottom: 1px solid #4C7C04;
+        width: 95%;
+        display: flex;
+        justify-content: start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        color: #4C7C04;
+        font-family: "Crimson+Pro";
+        font-size: 1.7rem;
+        gap: 5px;
+        @media (max-width:1200px) {
+          gap: 10px;
+        }
+        @media (max-width:785px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width:500px) {
+          font-size: 1rem;
+        }
+    }
+    .BeforenutritionValues{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 30px;
+        @media (max-width:1000px) {
+            font-size: 15px;
+          }
+        
+          @media (max-width:700px) {
+            font-size: 13px;
+          }
+          @media (max-width:600px) {
+            font-size: 12px;
+          }
+          @media (max-width:500px) {
+            padding-left: 0px;
+          }
+          @media (max-width:370px) {
+            font-size: 11px;
+          }
+
+    }
+
+}
+.arrow{
+    width: 10%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+.AftercomparisonColumn{
+    width: 45%;
+    display:flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid #4C7C04;
+    border-radius: 5px;
+    color: #4C7C04;
+
+    .after{
+        border-bottom: 1px solid #4C7C04;
+        padding-left: 30px;
+        width: 95%;
+        display: flex;
+        justify-content: start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+        color: #4C7C04;
+        font-family: "Crimson+Pro";
+        font-size: 1.7rem;
+        gap: 5px;
+        @media (max-width:1200px) {
+          gap: 10px;
+        }
+        @media (max-width:785px) {
+          font-size: 1.5rem;
+        }
+        @media (max-width:500px) {
+          font-size: 1rem;
+        }
+        
+    }
+    .AfternutritionValues{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 30px;
+        @media (max-width:1000px) {
+            font-size: 15px;
+        }
+        
+          @media (max-width:700px) {
+            font-size: 13px;
+          }
+          @media (max-width:600px) {
+            font-size: 12px;
+          }
+          @media (max-width:500px) {
+            padding-left: 0px;
+          }
+          @media (max-width:370px) {
+            font-size: 11px;
+          }
+    }
+
+    
+}
+.BeforenutritionValue{
+    display: flex;
+}
+.AfternutritionValue{
+    display: flex;
+}
