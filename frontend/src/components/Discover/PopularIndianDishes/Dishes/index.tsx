@@ -1,41 +1,18 @@
-import styles from "./Dishes.module.scss";
-import { motion } from "framer-motion"
+import type { popularindianFoodstypes } from "../../../../types";
+import styles from "./Dishes.module.scss"
+
 
 type Props = {
-    name: string;
-    img: string;
-    region: string;
-    selectfromPopularIndianDishes: (dish: string) => void;
-    variant: string[];
-    state: string
+    food: popularindianFoodstypes
 }
 
 
-export default function Dishes({ name, img, selectfromPopularIndianDishes, state, variant }: Props) {
+export default function Dishes({ food }: Props) {
     return (
-        <motion.div
-            className={styles.dishCard}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }} onClick={() => selectfromPopularIndianDishes(name)}>
-            <div className={styles.imageContainer}>
-                <img
-                    src={img}
-                    alt={name}
-                    className={styles.dishImage}
-                    loading="lazy"
-                />
-            </div>
-            <div className={styles.dishInfo}>
-                <h3 className={styles.dishName}>{name},{state}</h3>
-                <div className={styles.variants}>
-                    {variant.map((vari, index) => (
-                        <span key={index} className={styles.variant}>
-                            {vari}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </motion.div>
+        <div className={styles.dishContainer}>
+            <img src={food.img} />
+            <div className={styles.overlay}></div>
+            <p className={styles.foodname}>{food.name},{food.state}</p>
+        </div>
     );
 }

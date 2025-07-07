@@ -1,144 +1,52 @@
-.dishCard {
-    background: white;
-    border-radius: 16px;
+.dishContainer {
+    position: relative;
+    height: 30vh;
+    width: 26vw;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid #f0f0f0;
-    cursor: pointer;
-    width: 30%;
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        z-index: 50;
+    }
+
+    @media (max-width:1200px) {
+        width: 28vw;
+    }
 
     @media (max-width:1000px) {
-        width: 37%;
+        height: 35vh;
+        width: 45vw;
     }
-
-    @media (max-width:768px) {
-        width: 47%;
+    @media (max-width:780px) {
+        height: 32vw;
+        width: 42vw;
     }
-    @media (max-width:656px) {
-        width: 70%;
-    }
-    @media (max-width:434px) {
-        width: 90%;
-    }
-    @media (max-width:374px) {
-        width: 100%;
-    }
-
-    &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-        
-        .dishImage {
-            transform: scale(1.05);
-        }
-        
-        .overlay {
-            opacity: 1;
-        }
+    @media (max-width:500px) {
+        height: 32vh;
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-.imageContainer {
-    position: relative;
-    overflow: hidden;
-    height: 250px;
-}
-
-.dishImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.overlay {
+.foodname {
     position: absolute;
-    top: 0;
+    top: 60%;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(45, 80, 22, 0.8), rgba(34, 60, 16, 0.9));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.viewRecipe {
+    padding: 8px;
     color: white;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border: 2px solid white;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    
-    &:hover {
-        background-color: white;
-        color: #2d5016;
-    }
-}
-
-.dishInfo {
-    padding: 1.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.dishName {
-    font-size: 14px;
-    font-weight: 600;
-    color: #2d5016;
-    margin: 0;
-    letter-spacing: 0.5px;
-    
-    @media (max-width: 900px) {
-        font-size: 15px;
-    }
-
-    @media (max-width: 444px) {
-        font-size: 13px;
-    }
-    @media (max-width: 444px) {
-        font-size: 12px;
-    }
-   
-}
-
-.variants {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-top: 0.75rem;
-}
-
-.variant {
-    font-size: 12px;
-    font-weight: 500;
-    color: #2d5016;
-    background-color: rgba(45, 80, 22, 0.1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    border: 1px solid rgba(45, 80, 22, 0.2);
-    letter-spacing: 0.3px;
-    transition: all 0.2s ease;
-    
-    &:hover {
-        background-color: rgba(45, 80, 22, 0.15);
-        transform: translateY(-1px);
-    }
-    
-    @media (max-width: 900px) {
-        font-size: 11px;
-        padding: 0.2rem 0.6rem;
-    }
-    
-    @media (max-width: 444px) {
-        font-size: 10px;
-        padding: 0.15rem 0.5rem;
-    }
+    font-weight: bolder;
+    z-index: 100;
 }
