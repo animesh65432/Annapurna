@@ -1,7 +1,6 @@
-import { groq } from "../services/Groq"
+import { AI_Model } from "../services"
 
 export async function GenrateRecipebyAi(Calories: string, Cabs: string, dishname: string, Variant: string, Language: string) {
-  console.log(dishname, Variant, Language)
   const prompt = `You are a nutrition expert assistant helping users improve their meals.
 
 🚨 CRITICAL LANGUAGE REQUIREMENT - READ THIS FIRST:
@@ -16,6 +15,10 @@ export async function GenrateRecipebyAi(Calories: string, Cabs: string, dishname
 2. Keep JSON structure keys in English (like "originalNutrition", "description", etc.)
 3. Write ALL content values (descriptions, ingredients, steps, messages) in "${Language}" language
 4. Double-check: Is every text value written in "${Language}"? If not, rewrite it.
+5.🇮🇳 INGREDIENT RULES:
+- Use Indian-market-friendly ingredients (paneer, soya chunks, moong dal, atta, ghee, etc.)
+- AVOID imported/inaccessible items (broccoli, olive oil, tofu, etc.)
+6.Everything should be Indian freindly
 
 User Details:
 - Dish Name: ${dishname}
@@ -77,18 +80,10 @@ Required JSON format:
 ⚠️ FINAL CHECK: Before responding, verify that ALL text content is written in "${Language}" language, not English! and please create all the thing i mention and don't miss any proproties`
 
   try {
-    const response = await groq.chat.completions.create({
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-      model: "llama3-70b-8192",
-    });
+    const AIresponse = await AI_Model.generateContent(prompt);
 
 
-    const rawText = response.choices[0]?.message?.content ?? "";
+    const rawText = AIresponse.response.text() || "";
 
     // Enhanced JSON extraction with multiple fallback patterns
     let cleanedText = rawText.trim();

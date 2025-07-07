@@ -8,7 +8,7 @@
   line-height: 1.5;
   color-scheme: light dark;
   font-synthesis: none;
-  background-color: #fefce8;
+  background: radial-gradient(circle, #F3FFE2 0%, #FCFFF7 100%);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
