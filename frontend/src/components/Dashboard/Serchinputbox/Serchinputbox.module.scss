@@ -17,6 +17,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    .MenuIcon{
+      display: none;
+      
+    }
     .Headingtitle{
         color: #4C7C04;
         font-family: "Philosopher";
@@ -27,20 +34,35 @@
         @media (max-width:667px) {
           font-size: 1.4rem;
         }
-        @media (max-width:361px) {
-          font-size: 1rem;
-        }
     }
     @media (max-width:1200px) {
         width: 97%;
         padding: 0;
+        padding-top: 10px;
         padding-left: 10px;;
         align-items: start;
+        .MenuIcon{
+          display: block;
+          margin-top: 10px;
+        }
+
     }
 
+    @media (max-width:668px) {
+      .MenuIcon{
+        display: block;
+        margin-top: 5px;
+      }
+    }
+   
     @media (max-width:500px) {
       width: 90%;
     }
+  .titlewithIcon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
     
 }
 .downContainer{
@@ -278,6 +300,12 @@
     @media (max-width:484px) {
       height: 2vh;
       width: 2.2vw;
+    }
+    @media (max-width:364px) {
+      width: 2.7vw;
+    }
+    @media (max-width:324px) {
+      width: 2.4vw;
     }
 
   }

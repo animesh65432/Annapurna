@@ -32,6 +32,7 @@
             width: 2vw;
       }
       @media (max-width:1200px) {
+            margin-top: 10px;
            height: 3.8vh;
            width: 2.6vw; 
       }
@@ -80,13 +81,20 @@
     color: #4C7C04;
     font-family: "Philosopher";
     font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    svg {
+      display: none;
+      @media (max-width:1200px) {
+            display: block;
+      }
+    }
     @media (max-width:765px) {
           font-size: 1.7rem;
     }
     @media (max-width:667px) {
           font-size: 1.4rem;
-    }
-    @media (max-width:361px) {
-          font-size: 1rem;
     }
 }

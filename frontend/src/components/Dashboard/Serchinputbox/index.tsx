@@ -11,6 +11,7 @@ import DishInput from "./DishInput"
 import VariantSelector from "./VariantSelector"
 import NutritionToggles from "./NutritionToggles"
 import { Foodloading } from "../../../components"
+import MobileMenu from "../../Navbar/Mobile"
 
 export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
@@ -78,7 +79,12 @@ export default function SearchInputBox({ isGenrateRecipeloading, txt, createReci
     return (
         <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.upperContainer}>
-                <div className={styles.Headingtitle}>Annapurna Ai</div>
+                <div className={styles.titlewithIcon}>
+                    <span className={styles.MenuIcon}>
+                        <MobileMenu />
+                    </span>
+                    <div className={styles.Headingtitle}>Annapurna Ai</div>
+                </div>
                 <div className={styles.SelectContainer}>
                     <LanguageSelect control={control} />
                 </div>
