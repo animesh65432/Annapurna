@@ -40,8 +40,8 @@ export default function Recipe() {
         <div className={styles.Container}>
             <div className={styles.ingredientsContainer}>
                 <div className={styles.ingredientsContainertitle}>
-                    <div className={styles.ingredientsSvg}>
-                        <img src={indegredientssvg} />
+                    <div >
+                        <img src={indegredientssvg} className={styles.ingredientsSvg} />
                     </div>
                     <div>{title.ingredients}</div>
                 </div>
@@ -57,10 +57,10 @@ export default function Recipe() {
                     }
                 </div>
             </div>
-            <div className={styles.RecipeContainer}>
+            {/* <div className={styles.RecipeContainer}>
                 <div className={styles.RecipeContainertitlewithimg}>
-                    <div className={styles.RecipeContainertitleimg}>
-                        <img src={recipesvg} />
+                    <div className={styles.Recipeimg}>
+                        <img src={recipesvg} className={styles.Recipeimg} />
                     </div>
                     <div className={styles.RecipeContainertitle}>
                         {title.steps}
@@ -76,7 +76,7 @@ export default function Recipe() {
                         </div>)
                     }
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

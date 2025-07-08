@@ -62,7 +62,7 @@ export default function WhyTheseChanges() {
                     </div>
                 </div>
             </div>
-            <div className={styles.whyTheseChangesContainer}>
+            {/* <div className={styles.whyTheseChangesContainer}>
                 <div className={styles.sectionTitleForwhyTheseChanges}>
                     <div>
                         {translation.whyTheseChanges}
@@ -92,7 +92,7 @@ export default function WhyTheseChanges() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </div >
     )
 }
