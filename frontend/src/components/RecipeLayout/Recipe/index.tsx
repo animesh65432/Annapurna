@@ -57,7 +57,7 @@ export default function Recipe() {
                     }
                 </div>
             </div>
-            {/* <div className={styles.RecipeContainer}>
+            <div className={styles.RecipeContainer}>
                 <div className={styles.RecipeContainertitlewithimg}>
                     <div className={styles.Recipeimg}>
                         <img src={recipesvg} className={styles.Recipeimg} />
@@ -76,7 +76,7 @@ export default function Recipe() {
                         </div>)
                     }
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

@@ -1,0 +1,116 @@
+.HistoryContainer{
+    margin-top: 30px;
+}
+.HistoryTitle{
+    display: flex;
+    align-items: center;
+    color: #4C7C04;
+    font-family: "Philosopher";
+    font-size: 1.7rem;
+    padding-left: 10px;
+    @media (max-width:785px) {
+      font-size: 1.5rem;
+    }
+    @media (max-width:500px) {
+      font-size: 1rem;
+      align-items: center;
+    }
+}
+.HistoryIcon{
+    height: 4.4vh;
+    margin-top: 10px;
+    width: 4vw;
+    @media (max-width:886px) {
+        height: 5vh;
+        width: 5vw;
+    }
+    @media (max-width:501px) {
+        height: 5vh;
+        width: 5vw;
+    }
+}
+.foodHistoryContext{
+    color: #4C7C04;
+    padding: 10px;
+    border: 1px solid #4c7c04;
+    border-radius: 10px;
+    background-color: #F3FFE2;
+    width: 95%;
+    line-height: 1.7;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width:1000px) {
+        font-size: 15px;
+      }
+      @media (max-width:700px) {
+        font-size: 13px;
+      }
+      @media (max-width:600px) {
+        font-size: 12px;
+      }
+      @media (max-width:500px) {
+        padding-left: 20px;
+      }
+      @media (max-width:370px) {
+        font-size: 11px;
+      }
+
+    @media (max-width:767px) {
+        width: 90%;
+    }
+}
+.funfactContainer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.funfactIcon{
+    color: #4C7C04;
+    width: 4vw;
+    height: 5vh;
+}
+.funFactHeader{
+    display: flex;
+    align-items: center;
+    color: #4C7C04;
+    font-family: "Philosopher";
+    font-size: 1.7rem;
+    padding-left: 10px;
+    @media (max-width:785px) {
+      font-size: 1.5rem;
+    }
+    @media (max-width:500px) {
+      font-size: 1rem;
+      align-items: center;
+    }
+}
+.funFactsubtitle{
+    color: #4C7C04;
+    padding: 10px;
+    border: 1px solid #4c7c04;
+    border-radius: 10px;
+    background-color: #F3FFE2;
+    width: 95%;
+    line-height: 1.7;
+    margin-left: auto;
+    margin-right: auto;
+    @media (max-width:1000px) {
+        font-size: 15px;
+      }
+      @media (max-width:700px) {
+        font-size: 13px;
+      }
+      @media (max-width:600px) {
+        font-size: 12px;
+      }
+      @media (max-width:500px) {
+        padding-left: 20px;
+      }
+      @media (max-width:370px) {
+        font-size: 11px;
+      }
+
+    @media (max-width:767px) {
+        width: 90%;
+    }
+}

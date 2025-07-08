@@ -59,7 +59,7 @@ export default function RecipeLayout() {
                     <div className={styles.FoodrecipeContainer}>
                         <Recipe />
                         <WhyTheseChagnes />
-                        {/* <History /> */}
+                        <History />
                     </div>
                 </div>
             </div>

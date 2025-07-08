@@ -1,7 +1,7 @@
 import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
 import styles from "./WhyTheseChagnes.module.scss"
-import { Heart, RotateCcw, MoveRight } from 'lucide-react';
+import { Heart, RotateCcw, MoveRight, ArrowDownUp } from 'lucide-react';
 import { BiQuestionMark } from "react-icons/bi";
 import { X, CheckCheck, ArrowRightLeft } from "lucide-react"
 
@@ -41,6 +41,7 @@ export default function WhyTheseChanges() {
                 </div>
                 <div className={styles.arrow}>
                     <ArrowRightLeft className={styles.arrowright} />
+                    <ArrowDownUp className={styles.ArrowDownUp} />
                 </div>
                 <div className={styles.AftercomparisonColumn}>
                     <div className={`${styles.after}`}>
@@ -62,7 +63,7 @@ export default function WhyTheseChanges() {
                     </div>
                 </div>
             </div>
-            {/* <div className={styles.whyTheseChangesContainer}>
+            <div className={styles.whyTheseChangesContainer}>
                 <div className={styles.sectionTitleForwhyTheseChanges}>
                     <div>
                         {translation.whyTheseChanges}
@@ -74,13 +75,13 @@ export default function WhyTheseChanges() {
                 <div className={styles.substitutionsContainer}>
                     {recipe?.substitutions.map((substitution, index) => (
                         <div key={index} className={styles.substitutionCard}>
-                            <div className={styles.WhyTheseChangesIcon}><RotateCcw /></div>
+                            <div className={styles.WhyTheseChangesIcon}><RotateCcw className={styles.substitutionIcon} /></div>
                             <div>
                                 <div className={styles.substitutionChange}>
                                     <div className={`${styles.substitutionItem} ${styles.from}`}>
                                         {substitution.from}
                                     </div>
-                                    <MoveRight className={styles.arrowright} />
+                                    <MoveRight className={styles.arrowrightForsubstitution} />
                                     <div className={`${styles.substitutionItem} ${styles.to}`}>
                                         {substitution.to}
                                     </div>
@@ -92,7 +93,7 @@ export default function WhyTheseChanges() {
                         </div>
                     ))}
                 </div>
-            </div> */}
+            </div>
         </div >
     )
 }

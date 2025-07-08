@@ -6,11 +6,23 @@ export default function HistoryandFunFact() {
     const { recipe } = useRecipeStore()
     const transition = nutritionTranslations[recipe?.language!]
     return (
-        <div className={styles.Container}>
+        <>
             <div className={styles.HistoryContainer}>
-                <div className={styles.HistoryTitle}>{transition.History}</div>
+                <div className={styles.HistoryTitle}>
+                    <div >
+                        <History className={styles.HistoryIcon} />
+                    </div>
+                    <div>{transition.History}</div>
+                </div>
                 <div className={styles.foodHistoryContext}>{recipe?.foodHistoryContext}</div>
             </div>
-        </div >
+            <div className={styles.funfactContainer}>
+                <div className={styles.funFactHeader}>
+                    <div><Lightbulb className={styles.funfactIcon} /></div>
+                    <div>{transition.funFact}</div>
+                </div>
+                <div className={styles.funFactsubtitle}>{recipe?.funFact}</div>
+            </div>
+        </>
     )
 }
