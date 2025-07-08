@@ -91,6 +91,7 @@
         flex-direction: column;
         gap: 10px;
         padding-left: 30px;
+        padding-bottom: 10px;
         @media (max-width:1000px) {
             font-size: 15px;
           }
@@ -159,6 +160,7 @@
         flex-direction: column;
         gap: 10px;
         padding-left: 30px;
+        padding-bottom: 10px;
         @media (max-width:1000px) {
             font-size: 15px;
         }
@@ -180,8 +182,119 @@
     
 }
 .BeforenutritionValue{
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .AfternutritionValue{
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.whyTheseChangesContainer{
+  padding-left: 30px;
+}
+
+.sectionTitleForwhyTheseChanges{
+  display: flex;
+  color: #4C7C04;
+  font-family: "Philosopher";
+  font-size: 1.7rem;
+  @media (max-width:785px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width:500px) {
+    font-size: 1rem;
+  }
+
+  svg{
+    height: 5vh;
+    width: 2vw;
+    color: #4C7C04;
+    img{
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+    @media (max-width:785px) {
+      height: 6vh;
+      width: 6vw;
+    }
+    @media (max-width:600px) {
+      height: 8vh;
+      width: 8vw;
+    }
+    @media (max-width:500px) {
+      height: 10vh;
+      width: 10vw;
+    }
+  }
+}
+.closeBefore {
+  background-color: #F3FFE2;
+  width: 20px; 
+  height: 20px;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+
+  svg {
+    height: 60%; 
+    width: 60%;
+  }
+}
+.afterright{
+  background-color: #F3FFE2;
+  width: 20px; 
+  height: 20px;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+
+  svg {
+    height: 60%; 
+    width: 60%;
+  }
+}
+.substitutionsContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.substitutionCard{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.substitutionChange{
+  display: flex;
+}
+.WhyTheseChangesIcon{
+  background-color: #F3FFE2;
+  width: 20px; 
+  height: 20px;
+  border: 1px solid #4c7c04;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4c7c04;
+
+  svg {
+    height: 60%; 
+    width: 60%;
+  }
+}
+.arrowright{
+  color: #4c7c04;
+  height: 2vh;
+  width: 2vw;
 }

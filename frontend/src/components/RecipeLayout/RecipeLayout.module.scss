@@ -74,7 +74,15 @@
 .FoodrecipeContainer{
    height: 77vh;
    overflow-y: auto;
-   @media (max-width:1000px) {
-    height: 79vh;
+   @media (max-width:1200px) {
+    height: 85vh;
    }
+}
+
+.loadingContainer{
+    flex: 1;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
 }

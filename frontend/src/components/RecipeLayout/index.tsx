@@ -38,7 +38,9 @@ export default function RecipeLayout() {
 
     if (isFecthrecipeloading || !recipe) {
         return (
-            <Foodloading />
+            <div className={styles.loadingContainer}>
+                <Foodloading />
+            </div>
         )
     }
     return (

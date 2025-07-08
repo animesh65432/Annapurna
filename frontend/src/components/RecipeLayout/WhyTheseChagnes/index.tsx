@@ -1,9 +1,7 @@
 import { useRecipeStore } from "../../../store/Recipe"
 import { nutritionTranslations } from "../../../utils"
 import styles from "./WhyTheseChagnes.module.scss"
-import { Heart, RotateCcw, MoveRight, CircleCheckBig } from 'lucide-react';
-import { motion } from "framer-motion"
-import { blurIn } from "../../../utils"
+import { Heart, RotateCcw, MoveRight } from 'lucide-react';
 import { BiQuestionMark } from "react-icons/bi";
 import { X, CheckCheck, ArrowRightLeft } from "lucide-react"
 
@@ -31,7 +29,7 @@ export default function WhyTheseChanges() {
                     <div className={styles.BeforenutritionValues}>
                         {nutritionComparisonBeforeValues.map((value, index) => (
                             <div key={index} className={styles.BeforenutritionValue}>
-                                <div>
+                                <div className={styles.closeBefore}>
                                     <X />
                                 </div>
                                 <div>
@@ -42,7 +40,7 @@ export default function WhyTheseChanges() {
                     </div>
                 </div>
                 <div className={styles.arrow}>
-                    <ArrowRightLeft className={styles.Svg} />
+                    <ArrowRightLeft className={styles.arrowright} />
                 </div>
                 <div className={styles.AftercomparisonColumn}>
                     <div className={`${styles.after}`}>
@@ -51,7 +49,7 @@ export default function WhyTheseChanges() {
                     <div className={styles.AfternutritionValues}>
                         {nutritionComparisonAfterValues.map((value, index) => (
                             <div key={index} className={styles.AfternutritionValue}>
-                                <span>
+                                <span className={styles.afterright}>
                                     <CheckCheck />
                                 </span>
                                 <div>
@@ -64,41 +62,37 @@ export default function WhyTheseChanges() {
                     </div>
                 </div>
             </div>
-
-
-            <motion.div initial={blurIn.initial} transition={blurIn.transition} animate={blurIn.animate} className={styles.substitutionsSection}>
-                <div className={styles.sectionTitle}>
+            <div className={styles.whyTheseChangesContainer}>
+                <div className={styles.sectionTitleForwhyTheseChanges}>
                     <div>
                         {translation.whyTheseChanges}
                     </div>
-                    <span>
+                    <div>
                         <BiQuestionMark className={styles.Svg} />
-                    </span>
+                    </div>
                 </div>
                 <div className={styles.substitutionsContainer}>
                     {recipe?.substitutions.map((substitution, index) => (
                         <div key={index} className={styles.substitutionCard}>
-                            <div className={styles.substitutionChange}>
-                                <div className={`${styles.substitutionItem} ${styles.from}`}>
-                                    <span><RotateCcw /></span>
-                                    {substitution.from}
+                            <div className={styles.WhyTheseChangesIcon}><RotateCcw /></div>
+                            <div>
+                                <div className={styles.substitutionChange}>
+                                    <div className={`${styles.substitutionItem} ${styles.from}`}>
+                                        {substitution.from}
+                                    </div>
+                                    <MoveRight className={styles.arrowright} />
+                                    <div className={`${styles.substitutionItem} ${styles.to}`}>
+                                        {substitution.to}
+                                    </div>
                                 </div>
-                                <MoveRight className={styles.arrow} />
-                                <div className={`${styles.substitutionItem} ${styles.to}`}>
-                                    <span><CircleCheckBig /></span>{substitution.to}
+                                <div className={styles.substitutionReason}>
+                                    {substitution.why}
                                 </div>
-                            </div>
-                            <div className={styles.substitutionReason}>
-                                <span className={styles.whyLabel}>
-                                    {translation.why}
-                                </span>
-                                {substitution.why}
                             </div>
                         </div>
                     ))}
                 </div>
-            </motion.div>
-
+            </div>
         </div >
     )
 }
