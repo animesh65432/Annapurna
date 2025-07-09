@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styles from "./Header.module.scss"
 import shareIcon from "../../../assets/share.svg"
-import downloadIcon from "../../../assets/download.svg"
+// import downloadIcon from "../../../assets/download.svg"
 import MobileMenu from "../../Navbar/Mobile"
 import ShareSection from "../../ShareSection"
 import { useRecipeStore } from "../../../store/Recipe"
