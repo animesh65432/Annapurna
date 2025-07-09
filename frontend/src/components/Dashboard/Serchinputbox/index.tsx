@@ -102,6 +102,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
             console.error(error)
         }
     }
+<<<<<<< HEAD
     return (
         <>
             <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
@@ -132,6 +133,40 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
                     </div> : <Foodloading />
                 }
 
+=======
+
+
+    return (
+        <>
+            <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.upperContainer}>
+                    <div className={styles.titlewithIcon}>
+                        <span className={styles.MenuIcon}>
+                            <MobileMenu />
+                        </span>
+                        <div className={styles.Headingtitle}>Annapurna Ai</div>
+                    </div>
+                    <div className={styles.SelectContainer}>
+                        <LanguageSelect control={control} />
+                    </div>
+                </div>
+                {
+                    !isGenrateRecipeloading ? <div className={styles.downContainer}>
+                        <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
+                        <div className={styles.SearchContainerwithOptionsContainer}>
+                            <div className={styles.SearchContainerWithError}>
+                                <DishInput control={control} placeholder={placeholders[placeholderIndex]} dish={dish} onDishChange={handleDishChange} />
+                                {
+                                    suggestions.length === 5 ? <Suggestions setsuggestions={setsuggestions} selectfromsuggestions={selectfromsuggestions} suggestions={suggestions} /> : null
+                                }
+                            </div>
+                            <VariantSelector variant={variant} setValue={setValue} suggestions={suggestions} />
+                            <NutritionToggles carbs={carbs} calories={calories} setValue={setValue} suggestions={suggestions} />
+                        </div>
+                    </div> : <Foodloading />
+                }
+
+>>>>>>> 7502902 (add suggestions)
             </form>
         </>
     )
