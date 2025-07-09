@@ -16,7 +16,7 @@ export default function RecipeLayout() {
     const { setRecipe, recipe } = useRecipeStore()
     const { fetchrecipe, isFecthrecipeloading } = useFecthrecipe()
     const location = useLocation();
-    const recipestate = location.state?.recipe;
+    const recipestate = location.state
     const fetch = async (id: string) => {
         if (recipestate) {
             setRecipe(recipestate)

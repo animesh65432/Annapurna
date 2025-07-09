@@ -13,11 +13,12 @@ import NutritionToggles from "./NutritionToggles"
 import { Foodloading } from "../../../components"
 import MobileMenu from "../../Navbar/Mobile"
 import { useLocation } from "react-router-dom"
+import type { RecipeTypes } from "../../../types"
 
 export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
 type Props = {
-    createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string }>
+    createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string, recipe: RecipeTypes }>
     setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
     isGenrateRecipeloading: boolean
 }
@@ -70,9 +71,8 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
             const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
-            console.log(response)
             if (response.id) {
-                navigate(`/recipe/${response.id}`, { replace: true },);
+                navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
                 setisGenrateRecipeloading(false);
             }
         } catch (error) {
