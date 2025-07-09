@@ -77,14 +77,14 @@ export default function ShareSection({ dishname, setisShareOPen }: Props) {
 
                 <div className={styles.shareGrid}>
                     {shareOptions.map((option) => (
-                        <button
+                        <div
                             key={option.name}
                             onClick={() => handleShare(option.url)}
                             className={`${styles.shareButton} ${option.className} `}
                             aria-label={`Share on ${option.name}`}
                         >
                             <div className={styles.shareButtonIcon}>{option.icon}</div>
-                        </button>
+                        </div>
                     ))}
                 </div>
 

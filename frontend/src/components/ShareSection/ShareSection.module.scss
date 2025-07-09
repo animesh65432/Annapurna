@@ -53,7 +53,7 @@
 .shareTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #4C7C04;
   margin-bottom: 0.5rem;
   margin: 0;
   @media (max-width:500px) {
@@ -65,7 +65,7 @@
 }
 
 .shareSubtitle {
-  color: #6b7280;
+  color: #4C7C04;
   margin: 0.5rem 0 0 0;
   @media (max-width:500px) {
     font-size: 14px;
@@ -91,7 +91,7 @@
 }
 
 .shareMessage {
-  color: #374151;
+  color: #355702;
   font-weight: 500;
   margin: 0 0 0.25rem 0;
 
@@ -113,7 +113,7 @@
 }
 
 .shareUrl {
-  color:green;
+  color: #355702;
   font-size: 0.875rem;
   margin: 0;
   word-break: break-all;
@@ -139,10 +139,10 @@
   gap: 20px;
 }
 .shareButton{
-  color: white;
-  background-color: #05533d;
+  background-color: #F3FFE2;
+  color: #355702;
+  border: 1.4px solid #355702;
   padding: 10px;
-  border: 0;
   overflow: hidden;
   border-radius: 3px;
   width: 28%;
@@ -162,6 +162,7 @@
   }
 }
 .shareFooterText{
+  color: #355702;
   @media (max-width:500px) {
     font-size: 14px;
   }

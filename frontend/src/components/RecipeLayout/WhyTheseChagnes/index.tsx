@@ -69,7 +69,7 @@ export default function WhyTheseChanges() {
                         {translation.whyTheseChanges}
                     </div>
                     <div>
-                        <BiQuestionMark className={styles.Svg} />
+                        <BiQuestionMark className={styles.questionvg} />
                     </div>
                 </div>
                 <div className={styles.substitutionsContainer}>
