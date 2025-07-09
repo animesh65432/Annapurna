@@ -14,6 +14,9 @@ import { Foodloading } from "../../../components"
 import MobileMenu from "../../Navbar/Mobile"
 import { useLocation } from "react-router-dom"
 import type { RecipeTypes } from "../../../types"
+import { Getsuggestions } from "../../../api/ai"
+import { debounce } from "../../../utils/usedebounce"
+import Suggestions from "./Suggestions"
 
 export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
@@ -25,6 +28,7 @@ type Props = {
 
 export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading }: Props) {
     const navigate = useNavigate()
+    const [suggestions, setsuggestions] = useState<string[]>([])
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
     const {
         handleSubmit,
@@ -64,8 +68,27 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
         if (dishstate) setValue("dish", dishstate, { shouldValidate: true })
     }, [dishstate])
 
+    const GenerateSuggestionByKey = debounce(async (dish: string) => {
+        const response = await Getsuggestions(dish) as { suggestions: string[] }
+        setsuggestions(response.suggestions)
+    }, 300)
+
+    useEffect(() => {
+        if (dish.length === 0) {
+            return
+        }
+        else {
+            GenerateSuggestionByKey(dish)
+        }
+    }, [dish])
+
     const handleDishChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue("dish", e.target.value)
+    }
+
+    const selectfromsuggestions = (dish: string) => {
+        setValue("dish", dish)
+        setsuggestions([])
     }
 
     const onSubmit = async (data: RecipeFromTypes) => {
@@ -80,32 +103,38 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
         }
     }
 
+    console.log(suggestions)
     return (
-        <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
-            <div className={styles.upperContainer}>
-                <div className={styles.titlewithIcon}>
-                    <span className={styles.MenuIcon}>
-                        <MobileMenu />
-                    </span>
-                    <div className={styles.Headingtitle}>Annapurna Ai</div>
-                </div>
-                <div className={styles.SelectContainer}>
-                    <LanguageSelect control={control} />
-                </div>
-            </div>
-            {
-                !isGenrateRecipeloading ? <div className={styles.downContainer}>
-                    <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
-                    <div className={styles.SearchContainerwithOptionsContainer}>
-                        <div className={styles.SearchContainerWithError}>
-                            <DishInput control={control} placeholder={placeholders[placeholderIndex]} dish={dish} onDishChange={handleDishChange} />
-                        </div>
-                        <VariantSelector variant={variant} setValue={setValue} />
-                        <NutritionToggles carbs={carbs} calories={calories} setValue={setValue} />
+        <>
+            <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.upperContainer}>
+                    <div className={styles.titlewithIcon}>
+                        <span className={styles.MenuIcon}>
+                            <MobileMenu />
+                        </span>
+                        <div className={styles.Headingtitle}>Annapurna Ai</div>
                     </div>
-                </div> : <Foodloading />
-            }
+                    <div className={styles.SelectContainer}>
+                        <LanguageSelect control={control} />
+                    </div>
+                </div>
+                {
+                    !isGenrateRecipeloading ? <div className={styles.downContainer}>
+                        <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
+                        <div className={styles.SearchContainerwithOptionsContainer}>
+                            <div className={styles.SearchContainerWithError}>
+                                <DishInput control={control} placeholder={placeholders[placeholderIndex]} dish={dish} onDishChange={handleDishChange} />
+                                {
+                                    suggestions.length === 5 ? <Suggestions setsuggestions={setsuggestions} selectfromsuggestions={selectfromsuggestions} suggestions={suggestions} /> : null
+                                }
+                            </div>
+                            <VariantSelector variant={variant} setValue={setValue} suggestions={suggestions} />
+                            <NutritionToggles carbs={carbs} calories={calories} setValue={setValue} suggestions={suggestions} />
+                        </div>
+                    </div> : <Foodloading />
+                }
 
-        </form>
+            </form>
+        </>
     )
 }

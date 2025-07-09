@@ -6,11 +6,12 @@ type Props = {
     carbs: string
     calories: string
     setValue: UseFormSetValue<RecipeFromTypes>
+    suggestions: string[]
 }
 
-export default function NutritionToggles({ carbs, calories, setValue }: Props) {
+export default function NutritionToggles({ carbs, calories, setValue, suggestions }: Props) {
     return (
-        <div className={styles.CarbsandCalories}>
+        <div className={`${styles.CarbsandCalories}  ${suggestions.length === 5 ? styles.NutritionTogglesactive : null}`}>
             <div className={styles.Carbs}>
                 <div className={styles.title}>Carbs</div>
                 <div onClick={() => setValue("Cabs", "Low")} className={`${styles.low} ${carbs === "Low" ? styles.active : ""}`}>Low</div>
