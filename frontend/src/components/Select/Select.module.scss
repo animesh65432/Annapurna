@@ -32,7 +32,7 @@
     position: fixed;
     top: 10%;
     color: black;
-    left:74%;
+    left:77%;
     width: max-content;
     width: 15vw;
     background-color: #F2FFDF;
@@ -43,37 +43,31 @@
     height: 40vh;
     overflow-y: auto;
     @media (max-width:1200px) {
-        top: 14%;
+        top: 7%;
         left:78% ;
     }
     @media (max-width:900px) {
-        top: 14%;
-        left: 70%;
+        left: 67%;
         width: 25vw;
     }
     @media (max-width:750px) {
-        top:13.3% ;
         left: 65%;
     }
     @media (max-width:666px) {
-        top: 12.5%;
+        top: 6%;
     }
     @media (max-width:600px){
-        top: 12.2%;
+        top: 6%;
     }
     @media (max-width:540px) {
         left: 54%;
         width: 35vw;
     }
     @media (max-width:500px) {
-        top: 12.5%;
         left: 49%;
         width: 35vw;
     }
-    @media (max-width:400px) {
-        top: 13.3%;
-    }
-  }
+}
   
 
 .option {

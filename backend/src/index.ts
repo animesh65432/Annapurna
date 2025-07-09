@@ -1,4 +1,4 @@
-import config from "./config"
+// import config from "./config"
 import express from "express"
 import { errorMiddleware } from "./middleware"
 import cors from "cors"
@@ -7,7 +7,7 @@ import cookieparser from "cookie-parser"
 const app = express()
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://annapurna-ai.vercel.app'],
+    origin: ['http://localhost:5173', 'https://annapurna-ai.tech'],
     credentials: true
 }))
 app.use(express.json())
@@ -18,8 +18,8 @@ app.use(errorMiddleware)
 
 
 
-app.listen(config.PORT, () => {
-    console.log(`Server is running on port ${config.PORT}`)
-})
+// app.listen(config.PORT, () => {
+//     console.log(`Server is running on port ${config.PORT}`)
+// })
 
-// export default app
+export default app

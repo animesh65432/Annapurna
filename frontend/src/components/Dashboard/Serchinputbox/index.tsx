@@ -69,10 +69,10 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
 
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
-            console.log(data)
             const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
+            console.log(response)
             if (response.id) {
-                navigate(`/recipe/${response.id}`, { replace: true });
+                navigate(`/recipe/${response.id}`, { replace: true },);
                 setisGenrateRecipeloading(false);
             }
         } catch (error) {

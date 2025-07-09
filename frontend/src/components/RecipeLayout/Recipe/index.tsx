@@ -5,6 +5,8 @@ import indegredientssvg from "../../../assets/ingredients.svg"
 import { useState } from "react"
 import rightarrow from "../../../assets/right.svg"
 import recipesvg from "../../../assets/recipe.svg"
+import { motion } from "framer-motion"
+import { slideLeftFade, blurIn } from "../../../utils"
 
 export default function Recipe() {
     const [ingredientindexs, setingredientindexs] = useState<number[]>([])
@@ -38,7 +40,7 @@ export default function Recipe() {
 
     return (
         <div className={styles.Container}>
-            <div className={styles.ingredientsContainer}>
+            <motion.div className={styles.ingredientsContainer} initial={blurIn.initial} animate={blurIn.animate} transition={blurIn.transition}>
                 <div className={styles.ingredientsContainertitle}>
                     <div >
                         <img src={indegredientssvg} className={styles.ingredientsSvg} />
@@ -56,8 +58,8 @@ export default function Recipe() {
 
                     }
                 </div>
-            </div>
-            <div className={styles.RecipeContainer}>
+            </motion.div>
+            <motion.div className={styles.RecipeContainer} initial={slideLeftFade.initial} animate={slideLeftFade.animate} transition={slideLeftFade.transition}>
                 <div className={styles.RecipeContainertitlewithimg}>
                     <div className={styles.Recipeimg}>
                         <img src={recipesvg} className={styles.Recipeimg} />
@@ -76,7 +78,7 @@ export default function Recipe() {
                         </div>)
                     }
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </div >
     )
 }

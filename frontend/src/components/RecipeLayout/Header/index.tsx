@@ -22,9 +22,9 @@ export default function Header() {
                     <div className={styles.HeaderIcon} onClick={OntoogleShareSection}>
                         <img src={shareIcon} />
                     </div>
-                    <div className={styles.HeaderIcon}>
+                    {/* <div className={styles.HeaderIcon}>
                         <img src={downloadIcon} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {

@@ -20,8 +20,6 @@ export const generateSuggestionController = asyncerrorhandler(
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
     const { Calories, Cabs, dish, variant, language } = req.body
-
-
     if (!dish || !variant || !language || !Calories || !Cabs) {
         res.status(400).json({
             message: "invalid credentials"
