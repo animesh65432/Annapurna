@@ -12,17 +12,17 @@ import VariantSelector from "./VariantSelector"
 import NutritionToggles from "./NutritionToggles"
 import { Foodloading } from "../../../components"
 import MobileMenu from "../../Navbar/Mobile"
+import { useLocation } from "react-router-dom"
 
 export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
 type Props = {
-    txt: string | null
     createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string }>
     setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
     isGenrateRecipeloading: boolean
 }
 
-export default function SearchInputBox({ isGenrateRecipeloading, txt, createRecipe, setisGenrateRecipeloading }: Props) {
+export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading }: Props) {
     const navigate = useNavigate()
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
     const {
@@ -41,7 +41,8 @@ export default function SearchInputBox({ isGenrateRecipeloading, txt, createReci
             Calories: "Low"
         }
     })
-
+    const location = useLocation()
+    const dishstate = location.state;
     const dish = watch("dish")
     const carbs = watch("Cabs")
     const calories = watch("Calories")
@@ -52,12 +53,15 @@ export default function SearchInputBox({ isGenrateRecipeloading, txt, createReci
         const interval = setInterval(() => {
             setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
         }, 2000)
+        if (dish.length > 0) {
+            clearInterval(interval)
+        }
         return () => clearInterval(interval)
-    }, [])
+    }, [dish])
 
     useEffect(() => {
-        if (txt) setValue("dish", txt, { shouldValidate: true })
-    }, [txt])
+        if (dishstate) setValue("dish", dishstate, { shouldValidate: true })
+    }, [dishstate])
 
     const handleDishChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setValue("dish", e.target.value)

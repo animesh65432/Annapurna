@@ -3,6 +3,11 @@
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background-color: white;
+  border-left: 1px solid #4C7C04;
+  @media (max-width:1200px) {
+    border: 0;
+  }
 
 }
 

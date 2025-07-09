@@ -38,7 +38,7 @@ export default function MobileMenu() {
                             <div className={styles.name}>Dashboard</div>
                         </div>
                         <div className={styles.menuItem} onClick={() => navigate("/discover")}>
-                            <div className={styles.iconWrapper}><IoEarthOutline /></div>
+                            <div className={styles.iconWrapper}><IoEarthOutline className={styles.discoverIcon} /></div>
                             <div className={styles.name}>Discover</div>
                         </div>
                     </div>

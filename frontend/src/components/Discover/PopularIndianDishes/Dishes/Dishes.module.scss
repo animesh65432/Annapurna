@@ -1,3 +1,8 @@
+.dish{
+  display: flex;
+  flex-direction: column;
+}
+
 .dishContainer {
     position: relative;
     height: 30vh;
@@ -8,47 +13,43 @@
     img {
         height: 100%;
         width: 100%;
-        object-fit: fill;
+        object-fit: cover;
+        object-position: center;
     }
 
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.4); 
-        z-index: 20;
-    }
 
     @media (max-width:1200px) {
         width: 28vw;
     }
 
-    @media (max-width:1000px) {
-        height: 35vh;
-        width: 45vw;
-    }
     @media (max-width:780px) {
-        height: 32vw;
-        width: 42vw;
+        height: 29vw;
+        width: 28vw;
+    }
+    @media (max-width:700px) {
+      height: 32vh;
+      width: 38vw;
     }
     @media (max-width:500px) {
         height: 32vh;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
+        width: 40vw;
+    }
+
+    @media (max-width:459px) {
+      height: 28vh;
+      width: 40vw;
+    }
+    @media (max-width:400px) {
+      height: 28vh;
+      width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
     }
 }
 
 .foodname {
-    position: absolute;
-    top: 60%;
-    left: 0;
-    padding: 8px;
-    color: white;
+    color: black;
     font-weight: bolder;
-    z-index: 100;
     font-family: "Inter";
     font-size: 1.2rem;
     
@@ -59,14 +60,27 @@
     @media (max-width:700px) {
       font-size: 1rem;
     }
-    @media (max-width:600px) {
+    @media (max-width:780px) {
       font-size: 0.9rem;
     }
     @media (max-width:500px) {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     @media (max-width:500px) {
-      font-size: 0.9rem;
+      text-align: center;
     }
    
+}
+.foodtitle{
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width:500px) {
+    align-items: center;
+  }
+
+  :nth-child(1){
+    display: flex;
+    justify-content: start;
+  }
 }
