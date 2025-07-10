@@ -24,8 +24,6 @@ const Suggestions: React.FC<Props> = ({ suggestions, selectfromsuggestions, sets
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [])
-
-
     return (
         <div className={styles.suggestionsContainer} ref={modalRef}>
             {suggestions.map((suggestion) => (

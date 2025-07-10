@@ -11,6 +11,7 @@ import Recipe from "./Recipe"
 import WhyTheseChagnes from "./WhyTheseChagnes"
 import History from "./History"
 
+
 export default function RecipeLayout() {
     const { id } = useParams()
     const { setRecipe, recipe } = useRecipeStore()
@@ -35,6 +36,8 @@ export default function RecipeLayout() {
             fetch(id)
         }
     }, [id])
+
+
 
     if (isFecthrecipeloading || !recipe) {
         return (

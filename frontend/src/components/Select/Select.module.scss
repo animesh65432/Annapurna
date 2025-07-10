@@ -30,7 +30,7 @@
 
 .dropdown {
     position: fixed;
-    top: 10%;
+    top: 12%;
     color: black;
     left:77%;
     width: max-content;
@@ -42,9 +42,14 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     height: 40vh;
     overflow-y: auto;
+
+    @media (max-width:1600px) {
+        left:77%;
+        top: 10%;
+    }
     @media (max-width:1200px) {
         top: 7%;
-        left:78% ;
+        left:80% ;
     }
     @media (max-width:900px) {
         left: 67%;

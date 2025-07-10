@@ -5,8 +5,8 @@ import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
 import db from "../../db"
 
 
-export const generateSuggestionController = asyncerrorhandler(
-    async (req: Request, res: Response) => {
+export const generateSuggestionController = async (req: Request, res: Response) => {
+    try {
         const { prompt } = req.body
         if (!prompt) {
             res.status(400).json({ error: "Prompt is required" })
@@ -15,8 +15,11 @@ export const generateSuggestionController = asyncerrorhandler(
         const suggestions = await generateSuggestion(prompt)
         res.status(200).json({ suggestions })
         return
+    } catch (error) {
+        res.status(200).json({ suggestions: [] })
+        return
     }
-)
+}
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
     const { Calories, Cabs, dish, variant, language } = req.body
