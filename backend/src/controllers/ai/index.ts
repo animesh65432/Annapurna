@@ -2,8 +2,8 @@ import { Request, Response } from "express"
 import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
+import { isDishOrRecipe } from "../../utils/Checkdishorrecipe"
 import db from "../../db"
-
 
 export const generateSuggestionController = async (req: Request, res: Response) => {
     try {
@@ -31,9 +31,8 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
         return
     }
 
-    const recipe = await GenrateRecipebyAi(Calories, Cabs, dish, variant, language)
-
-    console.log(recipe)
+    const DishOrRecipe = await isDishOrRecipe(dish) as string
+    const recipe = await GenrateRecipebyAi(Calories, Cabs, dish, variant, language, DishOrRecipe)
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,
