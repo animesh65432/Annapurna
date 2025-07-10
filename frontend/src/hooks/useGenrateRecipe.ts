@@ -15,6 +15,7 @@ export const useGenrateRecipe = () => {
             return res
         } catch (error) {
             navigate("/")
+            setisGenrateRecipeloading(false)
             return null
         }
     }

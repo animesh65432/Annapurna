@@ -21,7 +21,7 @@ import Suggestions from "./Suggestions"
 export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 
 type Props = {
-    createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string, recipe: RecipeTypes }>
+    createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string, recipe: RecipeTypes } | null>
     setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
     isGenrateRecipeloading: boolean
 }
@@ -94,7 +94,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
             const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
-            if (response.id) {
+            if (response) {
                 navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
                 setisGenrateRecipeloading(false);
             }
@@ -102,8 +102,6 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
             console.error(error)
         }
     }
-
-    console.log(suggestions)
     return (
         <>
             <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
