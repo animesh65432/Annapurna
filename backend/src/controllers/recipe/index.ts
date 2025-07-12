@@ -72,9 +72,11 @@ export const GenratePdf = async (req: Request, res: Response) => {
 
         const pdfBuffer = pdfResponse.data;
 
+        const safeFilename = recipe.dish.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, '_');
+
         res.set({
             "Content-Type": "application/pdf",
-            "Content-Disposition": `attachment; filename="${recipe.dish}.pdf"`,
+            "Content-Disposition": `attachment; filename="${safeFilename}.pdf"`,
             "Content-Length": pdfBuffer.length,
         });
 
