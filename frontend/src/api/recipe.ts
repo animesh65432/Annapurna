@@ -1,6 +1,4 @@
 import { Call } from "../service/call"
-import type { RecipeTypes } from "../types"
-
 
 export const GetRecipebyId = (id: string) => Call({
     path: `/recipe/GetRecipe?id=${id}`,
