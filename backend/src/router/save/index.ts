@@ -8,8 +8,7 @@ const saverouter = Router()
 saverouter.use(auth)
 
 
-// saverouter.use(rateLimiter(10, 60000) as RequestHandler)
-
+saverouter.use(rateLimiter(10, 60000) as RequestHandler)
 saverouter.get("/Get", GetallSavedrecipebysUserId)
 saverouter.post("/add", saverecipe)
 
