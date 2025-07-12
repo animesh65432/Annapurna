@@ -17,7 +17,7 @@ export default function Header() {
 
     const GetPdf = async () => {
         try {
-            await dowloadpdf(recipe!)
+            await dowloadpdf(recipe?.id!, recipe?.dish!)
         } catch (error) {
             console.log(error)
         }
