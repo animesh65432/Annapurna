@@ -8,11 +8,12 @@ export const GetRecipebyId = (id: string) => Call({
 })
 
 
-export const downloadRecipePDF = (recipe: RecipeTypes) => Call({
+export const downloadRecipePDF = (Id: string, dish: string) => Call({
     path: "/recipe/GenratePdf",
     method: "POST",
     request: {
-        recipe
+        Id,
+        dish
     },
     responseType: "blob"
 })

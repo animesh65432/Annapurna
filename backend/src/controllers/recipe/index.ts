@@ -51,17 +51,16 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
 });
 
 export const GenratePdf = async (req: Request, res: Response) => {
-    const { recipe } = req.body;
+    const { Id, dish } = req.body;
 
-    if (!recipe) {
+    if (!Id || !dish) {
         res.status(400).json({ message: "Recipe is required" });
         return
     }
 
     try {
         const pdfResponse = await axios.post(
-            `${config.RECIPE_PDF_GENERATER}/genereaterecipePdf`,
-            { recipe },
+            `${config.RECIPE_PDF_GENERATER}/genereaterecipePdf/${Id}`,
             {
                 responseType: "arraybuffer",
                 headers: {
@@ -71,8 +70,7 @@ export const GenratePdf = async (req: Request, res: Response) => {
         );
 
         const pdfBuffer = pdfResponse.data;
-
-        const safeFilename = recipe.dish.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, '_');
+        const safeFilename = dish.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, '_');
 
         res.set({
             "Content-Type": "application/pdf",

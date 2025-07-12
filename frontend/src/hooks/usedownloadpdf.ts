@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { downloadRecipePDF } from "../api/recipe"
-import type { RecipeTypes } from "../types"
 import { toast } from "react-toastify"
 
 export function usedownloadpdf() {
     const [ispdfdownloading, setpdfdownloading] = useState<boolean>(false)
-    const dowloadpdf = async (recipe: RecipeTypes) => {
+    const dowloadpdf = async (Id: string, dish: string) => {
         setpdfdownloading(true)
         try {
-            const blob = await downloadRecipePDF(recipe) as Blob
+            const blob = await downloadRecipePDF(Id, dish) as Blob
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `${recipe.dish || "Recipe"}.pdf`;
+            a.download = `${dish || "Recipe"}.pdf`;
             document.body.appendChild(a)
             a.click();
             window.URL.revokeObjectURL(url)
