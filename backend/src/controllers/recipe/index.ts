@@ -2,6 +2,8 @@ import { asyncerrorhandler } from "../../middleware"
 import { Request, Response } from "express"
 import db from "../../db"
 import { redis } from "../../services/redis"
+import axios from "axios"
+import config from "../../config"
 
 
 export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Response) => {
@@ -47,3 +49,40 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
     res.status(200).json(recipe);
     return;
 });
+
+export const GenratePdf = async (req: Request, res: Response) => {
+    const { recipe } = req.body;
+
+    if (!recipe) {
+        res.status(400).json({ message: "Recipe is required" });
+        return
+    }
+
+    try {
+        const pdfResponse = await axios.post(
+            `${config.RECIPE_PDF_GENERATER}/genereaterecipePdf`,
+            { recipe },
+            {
+                responseType: "arraybuffer",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        const pdfBuffer = pdfResponse.data;
+
+        res.set({
+            "Content-Type": "application/pdf",
+            "Content-Disposition": `attachment; filename="${recipe.dish}.pdf"`,
+            "Content-Length": pdfBuffer.length,
+        });
+
+        res.send(pdfBuffer);
+        return
+    } catch (error) {
+        console.error("Error forwarding PDF:", error);
+        res.status(500).json({ message: "Failed to generate PDF" });
+        return
+    }
+}

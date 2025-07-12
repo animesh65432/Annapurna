@@ -98,3 +98,33 @@
           font-size: 1.4rem;
     }
 }
+.HeaderIconLoader{
+      color:  #4C7C04;
+      display: inline-block;
+      animation: spin 1s linear infinite;
+      img{
+            height: 2.7vh;
+            width: 2vw;
+      }
+      @media (max-width:500px) {
+            img{
+                  height: 3vh;
+                  width: 3vw;
+            }
+      }
+      @media (max-width:400px) {
+            img{
+                  height: 3.7vh;
+                  width: 3.7vw;
+            }
+      }
+}
+
+@keyframes spin {
+      from {
+          transform: rotate(0deg);
+      }
+      to {
+          transform: rotate(360deg);
+      }
+  }
