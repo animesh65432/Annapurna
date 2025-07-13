@@ -20,7 +20,16 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
         return;
     }
 
-    const redisKey = `users-recipe:${req.user?.id}`;
+    const redisKey = `recipe:${id}`;
+
+    const cachedData = await redis.get<any>(redisKey)
+
+    if (cachedData) {
+        if (cachedData) {
+            res.status(200).json(cachedData)
+            return
+        }
+    }
 
     const recipe = await db.recipe.findFirst({
         where: { id },
@@ -49,29 +58,36 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
     res.status(200).json(recipe);
     return;
 });
-
 export const GenratePdf = async (req: Request, res: Response) => {
     const { Id, dish } = req.body;
 
     if (!Id || !dish) {
-        res.status(400).json({ message: "Recipe is required" });
-        return
+        res.status(400).json({ message: "Recipe ID and dish name are required" });
+        return;
     }
+
     try {
         const pdfResponse = await axios.post(
             `${config.RECIPE_PDF_GENERATER}/genereaterecipePdf/${Id}`,
+            { dish }, // Send dish name if needed
             {
                 responseType: "arraybuffer",
                 headers: {
                     "Content-Type": "application/json",
                 },
+                timeout: 30000
             }
         );
 
         const pdfBuffer = pdfResponse.data;
+        console.log("PDF buffer length:", pdfBuffer.length);
+
+        if (!pdfBuffer || pdfBuffer.length === 0) {
+            throw new Error("Empty PDF buffer received");
+        }
+
         const safeFilename = dish.replace(/[^\x20-\x7E]/g, '').replace(/\s+/g, '_');
 
-        console.log(pdfBuffer)
         res.set({
             "Content-Type": "application/pdf",
             "Content-Disposition": `attachment; filename="${safeFilename}.pdf"`,
@@ -79,10 +95,10 @@ export const GenratePdf = async (req: Request, res: Response) => {
         });
 
         res.send(pdfBuffer);
-        return
+        return;
     } catch (error) {
         console.error("Error forwarding PDF:", error);
         res.status(500).json({ message: "Failed to generate PDF" });
-        return
+        return;
     }
-}
+};
