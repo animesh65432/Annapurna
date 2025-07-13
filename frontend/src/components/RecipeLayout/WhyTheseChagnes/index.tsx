@@ -1,9 +1,10 @@
 import { useRecipeStore } from "../../../store/Recipe"
-import { nutritionTranslations } from "../../../utils"
 import styles from "./WhyTheseChagnes.module.scss"
 import { Heart, RotateCcw, MoveRight, ArrowDownUp } from 'lucide-react';
 import { BiQuestionMark } from "react-icons/bi";
 import { X, CheckCheck, ArrowRightLeft } from "lucide-react"
+import { nutritionTranslations, blurIn, slideLeftFade } from "../../../utils"
+import { motion } from "framer-motion"
 
 export default function WhyTheseChanges() {
     const { recipe } = useRecipeStore()
@@ -20,7 +21,7 @@ export default function WhyTheseChanges() {
             </div>
 
 
-            <div className={styles.comparisonContainer}>
+            <motion.div className={styles.comparisonContainer} initial={blurIn.initial} animate={blurIn.animate} transition={blurIn.transition}>
                 <div className={styles.BeforcomparisonColumn}>
                     <div className={`${styles.before}`}>
                         {translation.before}
@@ -62,8 +63,8 @@ export default function WhyTheseChanges() {
                         ))}
                     </div>
                 </div>
-            </div>
-            <div className={styles.whyTheseChangesContainer}>
+            </motion.div>
+            <motion.div className={styles.whyTheseChangesContainer} initial={slideLeftFade.initial} animate={slideLeftFade.animate} transition={slideLeftFade.transition}>
                 <div className={styles.sectionTitleForwhyTheseChanges}>
                     <div>
                         {translation.whyTheseChanges}
@@ -93,7 +94,7 @@ export default function WhyTheseChanges() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </div >
     )
 }
