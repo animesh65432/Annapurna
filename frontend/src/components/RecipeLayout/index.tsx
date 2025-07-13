@@ -60,8 +60,8 @@ export default function RecipeLayout() {
                         </div>
                     </div>
                     <div className={styles.FoodrecipeContainer}>
-                        <Recipe />
                         <WhyTheseChagnes />
+                        <Recipe />
                         <History />
                     </div>
                 </div>
