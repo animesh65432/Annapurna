@@ -1,25 +1,23 @@
 import { Controller } from "react-hook-form"
 import Select from "../../../Select"
 import { optionsforLanguages } from "../../../../utils"
+import React from "react"
 
 type Props = {
-    control: any
+    setlanguage: React.Dispatch<string>,
+    language: string
 }
 
-export default function LanguageSelect({ control }: Props) {
+export default function LanguageSelect({ setlanguage, language }: Props) {
     return (
-        <Controller
-            name="language"
-            control={control}
-            render={({ field }) => (
-                <Select
-                    options={optionsforLanguages}
-                    name="Language"
-                    InitialValue={optionsforLanguages[optionsforLanguages.length - 1]}
-                    value={field.value}
-                    onChange={(val) => field.onChange(val)}
-                />
-            )}
-        />
+        <>
+            <Select
+                options={optionsforLanguages}
+                name="Language"
+                InitialValue={optionsforLanguages[optionsforLanguages.length - 1]}
+                value={language}
+                onChange={(val) => setlanguage(val)}
+            />
+        </>
     )
 }
