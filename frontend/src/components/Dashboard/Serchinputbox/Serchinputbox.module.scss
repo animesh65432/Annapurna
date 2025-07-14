@@ -155,17 +155,16 @@
     @media (max-width:667px) {
       width: 75vw;
     }
-    @media (max-width:500px) {
-      width: 70vw;
-    }
-    @media (max-width:484px) {
-      width: 80vw;
-    }
-    @media (max-width:390px) {
+    @media (max-width:530px) {
       width: 85vw;
+    }
+    @media (max-width:500px) {
+      width: 90vw;
     }
     @media (max-width:363px) {
       width: 95vw;
+      margin-left: auto;
+      margin-right: auto;
     }
     
   }
@@ -279,8 +278,8 @@
 .optionforvariant{
   display: flex;
   align-items: center;
-  font-weight: 300;
-  font-size: 15px;
+font-weight: 300;
+font-size: 15px;
   padding: 5px;
   background-color: #F2FFDF;  
   border: 1px solid #D3E9B1;

@@ -817,4 +817,10 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
 
 };
 
-export default nutritionTranslations;
+export const MicronutrientsOptions = [
+    "Vitamin D",
+    "B12",
+    "Calcium",
+    "Zinc",
+    "Magnesium"
+]
