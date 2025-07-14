@@ -451,32 +451,32 @@
     height: 3vh;
   }
   @media (max-width:900px) {
-    width: 5vw; 
+    width: 3vw; 
     height: 4vh;
   }
 
   @media (max-width:765px) {
-    width: 6vw;
+    width: 4.2vw;
   }
   @media (max-width:655px) {
-    width: 7vw;
+    width: 4vw;
     height: 4vw;
   }
   @media (max-width:600px) {
-    width: 9vw;
+    width: 5vw;
     height: 4vw;
   }
   @media (max-width:500px) {
-    height: 4vh;
-    width: 10vw;
-  }
-  @media (max-width:445px) {
     height: 3vh;
-    width: 13vw;
+    width: 5vw;
   }
   @media (max-width:445px) {
     height: 3.2vh;
-    width: 15vw;
+    width: 5vw;
+  }
+  @media (max-width:425px) {
+    height: 3.2vh;
+    width: 6vw;
   }
 }
 .questionvg{

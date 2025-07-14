@@ -188,9 +188,11 @@
   color: #4C7C04;
   font-family: "Inter";
   display: flex;
+  width: 90%;
   gap: 6px;
   align-items: center;
   padding-left: 30px;
+  line-height: 1.5rem;
 
   @media (max-width:1000px) {
     font-size: 15px;

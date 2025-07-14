@@ -1,0 +1,53 @@
+.MicronutrientContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.micronutrient{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 5px;
+    background-color: #F2FFDF;  
+    border: 1px solid #D3E9B1;
+    border-radius: 5px;
+
+    @media (max-width:600px) {
+        font-size: 13px;
+    }
+    @media (max-width:444px) {
+        gap: 5px;
+    }
+    @media (max-width:424px) {
+        font-size: 12px;
+    }
+    @media (max-width:398px) {
+        font-size: 11px;
+    }
+    @media (max-width:333px) {
+        gap: 2px;
+    }
+    
+}
+.checkbox{
+    width: 1vw;
+    height: 2vh;
+    border: 1px solid #4C7C04;
+    border-radius: 3px;
+    @media (max-width:1000px) {
+      height: 2vh;
+      width: 1.4vw;
+    }
+    @media (max-width:484px) {
+      height: 2vh;
+      width: 2.2vw;
+    }
+    @media (max-width:364px) {
+      width: 2.7vw;
+    }
+    @media (max-width:324px) {
+      width: 2.4vw;
+    }
+
+}

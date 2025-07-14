@@ -129,6 +129,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
                                 }
                             </div>
                             <VariantSelector variant={variant} setValue={setValue} suggestions={suggestions} />
+                            {/* <Micronutrients /> */}
                             <NutritionToggles carbs={carbs} calories={calories} setValue={setValue} suggestions={suggestions} />
                         </div>
                     </div> : <Foodloading />
