@@ -26,17 +26,21 @@ const UpdateSerchInputBox: React.FC = () => {
                     <div className={styles.SerchinputboxOptionFirst}>
                         <div className={styles.option}>
                             <Sprout />
+                            <span className={styles.optiontext}>Choose NutritionBoost</span>
                         </div>
                         <div className={styles.option}>
                             <BicepsFlexed />
+                            <span className={styles.optiontext}>Choose Nutrients</span>
                         </div>
                         <div className={styles.option}>
                             <Soup />
+                            <span className={styles.optiontext}>Choose Diet Type</span>
                         </div>
                     </div>
                     <div className={styles.SerchinputboxOptionSecond}>
-                        <div>
-                            <Paperclip className={styles.optionfile} />
+                        <div className={styles.optionfile}>
+                            <Paperclip />
+                            <span className={styles.optionfiletext}>Upload Ingredient</span>
                         </div>
                         <div>
                             <ArrowRight className={styles.arrowroud} />
@@ -44,7 +48,7 @@ const UpdateSerchInputBox: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
