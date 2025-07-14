@@ -10,7 +10,6 @@ import LanguageSelect from "./LanguageSelect"
 import DishInput from "./DishInput"
 import VariantSelector from "./VariantSelector"
 import NutritionToggles from "./NutritionToggles"
-import Micronutrients from "./Micronutrients"
 import { Foodloading } from "../../../components"
 import MobileMenu from "../../Navbar/Mobile"
 import { useLocation } from "react-router-dom"
@@ -130,7 +129,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
                                 }
                             </div>
                             <VariantSelector variant={variant} setValue={setValue} suggestions={suggestions} />
-                            <Micronutrients />
+                            {/* <Micronutrients /> */}
                             <NutritionToggles carbs={carbs} calories={calories} setValue={setValue} suggestions={suggestions} />
                         </div>
                     </div> : <Foodloading />
