@@ -3,6 +3,7 @@ import { micronutrientIcons } from "../../../../../utils"
 import styles from "./Nutrients.module.scss"
 import { Search } from "lucide-react";
 import type { SuggestionsActiveType } from "../../../../../types"
+import { useClickOutside } from "../../../../../hooks/useClickOutside"
 
 type Props = {
     setSuggestionsActive: React.Dispatch<React.SetStateAction<SuggestionsActiveType>>;
@@ -18,20 +19,9 @@ const Nutrients: React.FC<Props> = ({ setSuggestionsActive }) => {
         );
         setFilterMicronutrients(filtered);
     };
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-                console.log("clicked")
-                setSuggestionsActive((prev) => ({ ...prev, Nutrients: false }))
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [])
-
+    useClickOutside(modalRef, () => {
+        setSuggestionsActive((prev) => ({ ...prev, Nutrients: false }))
+    })
     return (
         <div className={styles.NutrientsContainer} ref={modalRef}>
             <div className={styles.NutrientsSerchboxContainer}>
