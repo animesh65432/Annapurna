@@ -23,8 +23,6 @@ const UpdateSerchInputBox: React.FC = () => {
         }
         return () => clearInterval(interval)
     }, [dish])
-
-    console.log(SuggestionsActive)
     return (
         <div className={styles.Container}>
             <div className={styles.textlabel}>Amp your recipes with healthy twists</div>

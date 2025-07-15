@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { micronutrientIcons } from "../../../../../utils"
 import styles from "./Nutrients.module.scss"
 import { Search } from "lucide-react";
@@ -26,7 +26,7 @@ const Nutrients: React.FC<Props> = ({ setSuggestionsActive }) => {
         <div className={styles.NutrientsContainer} ref={modalRef}>
             <div className={styles.NutrientsSerchboxContainer}>
                 <div className={styles.InputWithIcon}>
-                    <input onChange={onChangeNutrient} className={styles.NutrientsSerchbox} ></input>
+                    <input onChange={onChangeNutrient} placeholder='Search micronutrients...' className={styles.NutrientsSerchbox} ></input>
                     <Search className={styles.SerchIcon} />
                 </div>
             </div>

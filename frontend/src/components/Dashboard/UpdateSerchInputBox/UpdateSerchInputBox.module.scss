@@ -13,6 +13,7 @@
         height: 100vh;
         justify-content: space-between;
     }
+    
 }
 .textlabel{
     margin-left: auto;
@@ -43,16 +44,22 @@
         font-size: 1.7rem;
     }
     @media (max-width:500px) {
-        font-size: 1.4rem;
+      width: 70%;
+      font-size: 2rem;
     }
-    @media (max-width:360px) {
-        font-size: 1.2rem;
+    @media (max-width:346px) {
+      width: 70%;
+      font-size: 1.6rem;
     }
 
 }
 .SerchinputboxWithSuggestions{
   display: flex;
   flex-direction: column;
+  @media (max-width:400px) {
+    align-items: center;
+  }
+
 }
 .Serchinputbox{
     background-color: #FCFFF7;

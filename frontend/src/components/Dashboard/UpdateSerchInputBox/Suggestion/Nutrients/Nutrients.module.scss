@@ -56,17 +56,24 @@
     @media (max-width:765px){
         top:55%;
         left: 20%;
+        width: 30%;
     }
     @media (max-width:750px) {
         top: 59%;
         left: 10%;
         width: 30%;
     }
+    @media (max-width:656px){
+        width: 45%;
+    }
     @media (max-width:600px){
         left: 13%;
     }
     @media (max-width:500px){
-        width: 45%;
+        width: 55%;
+    }
+    @media (max-width:361px) {
+        width:60% ;
     }
 }
 
