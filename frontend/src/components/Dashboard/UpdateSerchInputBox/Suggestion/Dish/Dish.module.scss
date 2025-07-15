@@ -1,6 +1,6 @@
 .dishContainer{
     position: fixed;
-    top: 40%;
+    top: 41%;
     left: 35%;
     right: 0;
     bottom: 0;
@@ -20,55 +20,42 @@
     }
    
     @media (max-width:1400px){
-        left: 27%;
+        left: 32%;
     }
 
-    @media (max-width:1300px) {
-        left: 26%;
-    }
     @media (max-width:1200px) {
-        left: 22%;
-        top: 33%;
-        width: 26%;
+        left: 28%;
+        top: 41%;
     }
-    @media (max-width:1100px) {
-        left: 18%;
-        top: 33%;
-        width: 26%;
-    }
+  
     @media (max-width:1000px) {
-        left: 20%;
-        top: 33%;
-        width: 26%;
+        top: 40%;
+        width: 17%;
     }
     @media (max-width:900px) {
-        left: 18%;
-        top: 33%;
-        width: 26%;
-    }
-    @media (max-width:850px) {
-        left: 15%;
-        top: 33%;
-        width: 26%;
+        width: 17%;
     }
     @media (max-width:800px) {
-        left: 15%;
-        top: 33%;
-        width: 26%;
+       left:25%
     }
     @media (max-width:765px){
-        top: 32%;
+        top: 38%;
     }
     @media (max-width:750px) {
-        top: 72%;
-        left: 6%;
-        width: 37%;
+        top: 79%;
+        left: 18%;
+        width: 20%;
+    }
+    @media (max-width:600px) {
+        left: 24%;
+        width: 28%;
     }
     @media (max-width:500px){
-        width: 43%;
+       width: 32%;
     }
     @media (max-width:400px){
-        width: 50%;
+        left: 26%;
+        width: 36%;
     }
 }
 .dish{
