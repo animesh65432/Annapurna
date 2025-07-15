@@ -51,3 +51,9 @@ export type RecipeTypes = {
 export type SavesRecipesTypes = {
     recipe: RecipeTypes
 }
+
+export type SuggestionsActiveType = {
+    NutritionBoost: boolean;
+    Nutrients: boolean;
+    DietType: boolean;
+};

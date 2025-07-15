@@ -188,13 +188,40 @@ export const faq = [
 
 
 
-export const optionsforFoods = [
-    { label: "High Protein", value: "high_protein" },
-    { label: "Fibre Rich", value: "fibre_rich" },
-    { label: "Iron Boosting", value: "iron_boosting" },
+export const NutritionBoostOptions = [
+    { label: "🌱 High Protein", value: "high_protein", key: "protein" },
+    { label: "🌾 Fibre Rich", value: "fibre_rich", key: "fibre" },
+    { label: "🩸 Iron Boosting", value: "iron_boosting", key: "iron" },
 ];
-
-
+export const micronutrientIcons = [
+    { label: "☀️ Vitamin D", key: "VitaminD" },
+    { label: "🧠 Vitamin B12", key: "B12" },
+    { label: "🦴 Calcium", key: "Calcium" },
+    { label: "💪 Magnesium", key: "Magnesium" },
+    { label: "🩹 Zinc", key: "Zinc" },
+    { label: "❤️ Folate (B9)", key: "Folate" },
+    { label: "🔥 Vitamin C", key: "VitaminC" },
+    { label: "👁️ Vitamin A", key: "VitaminA" },
+    { label: "🫁 Vitamin E", key: "VitaminE" },
+    { label: "🧪 Vitamin K", key: "VitaminK" },
+    { label: "💡 Vitamin B1 (Thiamine)", key: "VitaminB1" },
+    { label: "⚙️ Vitamin B2 (Riboflavin)", key: "VitaminB2" },
+    { label: "⚡ Vitamin B3 (Niacin)", key: "VitaminB3" },
+    { label: "🧂 Sodium", key: "Sodium" },
+    { label: "⚡ Potassium", key: "Potassium" },
+    { label: "🧬 Iodine", key: "Iodine" },
+    { label: "🦠 Selenium", key: "Selenium" },
+    { label: "🔩 Copper", key: "Copper" },
+    { label: "🪨 Manganese", key: "Manganese" },
+    { label: "🪙 Chromium", key: "Chromium" },
+    { label: "🔗 Molybdenum", key: "Molybdenum" },
+    { label: "🛡️ Phosphorus", key: "Phosphorus" },
+    { label: "🧱 Chloride", key: "Chloride" }
+];
+export const DishType = [
+    { label: "🥬 Veg", value: "veg" },
+    { label: "🥩 Non-Veg", value: "nonveg" }
+];
 
 export const optionsforLanguages = [
     { label: "हिन्दी", value: "hindi" },

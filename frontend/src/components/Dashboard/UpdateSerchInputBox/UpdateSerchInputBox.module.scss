@@ -4,6 +4,10 @@
     flex-direction: column;
     gap: 5rem;
 
+    @media (max-width:1200px) {
+      gap: 8rem;
+    }
+
     @media (max-width:750px) {
         gap: 0;
         height: 100vh;
@@ -45,6 +49,10 @@
         font-size: 1.2rem;
     }
 
+}
+.SerchinputboxWithSuggestions{
+  display: flex;
+  flex-direction: column;
 }
 .Serchinputbox{
     background-color: #FCFFF7;
@@ -132,7 +140,6 @@
     align-items: center;
     gap: 20px;
 }
-
 .option {
   color: #4c7c04;
   position: relative;
@@ -293,4 +300,16 @@
     .arrow{
       color: white;
     }
+}
+.suggestionsForDesktop{
+  display: block;
+  @media (max-width:750px) {
+    display: none;
+  }
+}
+.suggestionsForMobile{
+  display: none;
+  @media (max-width:750px) {
+    display: block;
+  }
 }
