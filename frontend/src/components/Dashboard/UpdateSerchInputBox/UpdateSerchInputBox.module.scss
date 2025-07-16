@@ -13,6 +13,9 @@
         height: 100vh;
         justify-content: space-between;
     }
+    @media (max-width:413px) {
+      justify-content: space-around;
+    }
     @media (max-width:350px) {
       justify-content: space-around;
     }
@@ -52,14 +55,14 @@
       width: 70%;
       font-size: 2rem;
     }
-    @media (max-width:350px) {
+    @media (max-width:413px) {
       width: 80%;
-      height: 60%;
-      font-size: 1.4rem;
+      height: 50%;
+      font-size: 1.6rem;
     }
     @media (max-width:300px) {
       width: 80%;
-      height: 40%;
+      height: 70%;
       font-size: 1rem;
     }
 
