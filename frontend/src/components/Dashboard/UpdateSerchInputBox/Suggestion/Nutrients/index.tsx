@@ -4,12 +4,15 @@ import styles from "./Nutrients.module.scss"
 import { Search } from "lucide-react";
 import type { SuggestionsActiveType } from "../../../../../types"
 import { useClickOutside } from "../../../../../hooks/useClickOutside"
+import type { UseFormSetValue } from 'react-hook-form';
+import type { RecipeFromTypes } from '../..';
 
 type Props = {
     setSuggestionsActive: React.Dispatch<React.SetStateAction<SuggestionsActiveType>>;
+    setValue: UseFormSetValue<RecipeFromTypes>
 };
 
-const Nutrients: React.FC<Props> = ({ setSuggestionsActive }) => {
+const Nutrients: React.FC<Props> = ({ setValue, setSuggestionsActive }) => {
     const [Filtermicronutrients, setFilterMicronutrients] = useState(micronutrientIcons)
     const modalRef = useRef<HTMLDivElement>(null)
     const onChangeNutrient = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +34,7 @@ const Nutrients: React.FC<Props> = ({ setSuggestionsActive }) => {
                 </div>
             </div>
             <div className={styles.NutrientList}>
-                {Filtermicronutrients.map((micronutrient) => <div className={styles.Nutrient} key={micronutrient.key}>
+                {Filtermicronutrients.map((micronutrient) => <div className={styles.Nutrient} key={micronutrient.key} onClick={() => setValue("Nutrients", micronutrient.key)}>
                     {micronutrient.label}
                 </div>)}
             </div>

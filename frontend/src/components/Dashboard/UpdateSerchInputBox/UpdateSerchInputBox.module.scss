@@ -199,6 +199,24 @@
       width: 5vw;
     }
   }
+  
+}
+.active{
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  @media (max-width:600px) {
+    font-size: 14px;
+  }
+
+  @media (max-width:500px) {
+   font-size: 13px;
+  }
+  @media (max-width:450px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .optionfile {
