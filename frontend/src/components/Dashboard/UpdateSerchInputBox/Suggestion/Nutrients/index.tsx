@@ -34,7 +34,7 @@ const Nutrients: React.FC<Props> = ({ setValue, setSuggestionsActive }) => {
                 </div>
             </div>
             <div className={styles.NutrientList}>
-                {Filtermicronutrients.map((micronutrient) => <div className={styles.Nutrient} key={micronutrient.key} onClick={() => setValue("Nutrients", micronutrient.key)}>
+                {Filtermicronutrients.map((micronutrient) => <div className={styles.Nutrient} key={micronutrient.key} onClick={() => setValue("Nutrient", micronutrient.key)}>
                     {micronutrient.label}
                 </div>)}
             </div>

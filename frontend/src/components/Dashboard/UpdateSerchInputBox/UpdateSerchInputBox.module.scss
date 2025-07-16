@@ -56,8 +56,9 @@
 .SerchinputboxWithSuggestions{
   display: flex;
   flex-direction: column;
-  @media (max-width:400px) {
+  @media (max-width:500px) {
     align-items: center;
+    justify-content: center;
   }
 
 }
@@ -71,7 +72,7 @@
     gap: 15px;
     justify-content: center;
     padding: 10px;
-    height: 13vh;
+    height: 15vh;
 
     @media (max-width:750px) {
         width: 90vw;
@@ -216,6 +217,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 2px;
   }
 }
 
@@ -264,68 +266,66 @@
 
 
 .arrowroud{
-    background-color: #e0f1ca ;
+    background-color: #cae9a2 ;
     border: 0;
-    height: 3vh;
-    width: 2vw;
+    height: 4.5vh;
+    width: 2.5vw;
     padding: 5px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    @media (max-width:1000px) {
+    @media (max-width:1200px) {
       border-radius: 60px;
+      height: 5vh;
+      width: 3vw;
     }
-    @media (max-width:919px) {
-      height: 3vh;
-      width: 2.2vw;
+    @media (max-width:1000px) {
+      width: 4vw;
     }
     
-    @media (max-width:544px) {
-      height: 3.5vh;
-      width: 3.8vw;
+    @media (max-width:765px) {
+      height: 4.5vh;
+      width: 4.5vw;
     }
-    @media (max-width:468px) {
-      width: 4.8vw;
+    @media (max-width:658px) {
+      width:6vw;
     }
-  
+    @media (max-width:508px) {
+      width:8vw;
+    }
+  .arrowactive{
+    color: #558E00;
   }
+}
   
 .arrow{
-    height: 2vh;
-    width: 1vw;
-    font-weight: bold;
+    height: 3vh;
+    width: 2vw;
+    font-weight: bolder;
     color: #878484;
-    @media (max-width:1000px) {
-      border-radius: 60px;
-      height: 2.3vh;
-      width: 2.3vw;
+    @media (max-width:1200px) {
+      height:2.8vh;
+      width: 2.8vw;
     }
     @media (max-width:809px) {
       height: 2.5vh;
       width: 2.5vw;
     }
-    @media (max-width:500px) {
-      height: 2.8vh;
-      width: 2.8vw;
+    @media (max-width:600px) {
+      height: 3.3vh;
+      width: 3.3vw;
     }
     @media (max-width:450px) {
-      height: 3vh;
-      width: 3vw;
+      height: 3.8vh;
+      width: 3.8vw;
     }
     @media (max-width:390px) {
       height: 3.5vh;
       width: 4vw;
     }  
 }
-.arrowroudactive{
-    background-color: #4C7C04;
-    color: white;
-    border: 0;
-    .arrow{
-      color: white;
-    }
-}
+
 .suggestionsForDesktop{
   display: block;
   @media (max-width:750px) {
@@ -336,5 +336,18 @@
   display: none;
   @media (max-width:750px) {
     display: block;
+    width: 98%;
   }
+  @media (max-width:500px) {
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width:481px){
+    width: 90%;
+  }
+}
+.button{
+  background-color: transparent;
+  border: 0;
 }

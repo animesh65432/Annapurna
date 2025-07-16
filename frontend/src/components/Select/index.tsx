@@ -10,7 +10,7 @@ type Props = {
     options: Option[];
     name: string;
     value: string;
-    onChange: (value: string) => void;
+    onChange: (value: { label: string, value: string }) => void;
     InitialValue: Option
 };
 
@@ -46,7 +46,7 @@ export default function Select({ options, value, onChange, InitialValue }: Props
                             className={styles.option}
                             onClick={(e) => {
                                 e.stopPropagation();
-                                onChange(option.value)
+                                onChange(option)
                                 setIsOpen(false)
                             }}
                         >

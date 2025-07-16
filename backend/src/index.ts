@@ -10,13 +10,13 @@ app.use(cors({
     origin: ['http://localhost:5173', 'https://annapurna-ai.tech', `${config.RECIPE_PDF_GENERATER}`],
     credentials: true
 }))
-app.use(express.json())
+app.use(express.json({ limit: "20mb" }))
 app.use(cookieparser())
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
 app.use(errorMiddleware)
 
-// app.listen(config.PORT, () => {
-//     console.log(`Server is running on port ${config.PORT}`)
-// })
+app.listen(config.PORT, () => {
+    console.log(`Server is running on port ${config.PORT}`)
+})
 export default app

@@ -4,53 +4,104 @@ import { useForm, Controller } from "react-hook-form"
 import { z } from "zod"
 import { UpdateRecipeFrom } from "../../../schema/UpdateRecipeFrom"
 import { placeholders } from "../../../utils"
-import { Sprout, Soup, Paperclip, ArrowRight, Carrot } from "lucide-react"
+import { Sprout, Soup, ArrowRight, Carrot } from "lucide-react"
 import { NutritionBoost, Nutrients, Dish } from "./Suggestion"
 import { zodResolver } from '@hookform/resolvers/zod'
+import Suggestions from "../Serchinputbox/Suggestions"
+import { Getsuggestions } from '../../../api/ai'
+import { debounce } from '../../../utils/usedebounce'
+import type { RecipeTypes } from '../../../types'
+import { useNavigate } from "react-router-dom"
 
 export type RecipeFromTypes = z.infer<typeof UpdateRecipeFrom>
-const UpdateSerchInputBox: React.FC = () => {
-    const [placeholderIndex, setPlaceholderIndex] = useState(0)
-    const { handleSubmit,
-        setValue,
-        watch, control } = useForm<RecipeFromTypes>({
-            resolver: zodResolver(UpdateRecipeFrom),
-            defaultValues: {
-                variant: "",
-                dish: "",
-                Nutrients: "",
-                DishType: ""
 
-            }
-        })
+type Props = {
+    language: { label: string, value: string },
+    createRecipe: (Nutrient: string, dish: string, variant: string, language: string, DishType: string) => Promise<{ id: string, recipe: RecipeTypes } | null>,
+    setisGenrateRecipeloading: React.Dispatch<boolean>
+}
+const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGenrateRecipeloading }) => {
+    const [suggestions, setsuggestions] = useState<string[]>([])
+    const [placeholderIndex, setPlaceholderIndex] = useState(0)
     const [SuggestionsActive, setSuggestionsActive] = useState({
         NutritionBoost: false,
         Nutrients: false,
         DietType: false,
 
     })
+    const { handleSubmit, setValue, watch, control } = useForm<RecipeFromTypes>({
+        resolver: zodResolver(UpdateRecipeFrom),
+        defaultValues: {
+            variant: "",
+            dish: "",
+            Nutrient: "",
+            DishType: "",
+            language: language.value
+        }
+    })
+    const navigate = useNavigate()
     const dish = watch("dish")
     const variant = watch("variant")
-    const nutrient = watch("Nutrients")
+    const nutrient = watch("Nutrient")
     const dishtype = watch("DishType")
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
-    //     }, 2000)
-    //     if (dish.length > 0) {
-    //         clearInterval(interval)
-    //     }
-    //     return () => clearInterval(interval)
-    // }, [dish])
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
+        }, 2000)
+        if (dish.length > 0) {
+            clearInterval(interval)
+        }
+        return () => clearInterval(interval)
+    }, [dish])
 
-    const OnSubmit = (data: RecipeFromTypes) => { }
+    const GenerateSuggestionByKey = debounce(async (dish: string) => {
+        const response = await Getsuggestions(dish) as { suggestions: string[] }
+        setsuggestions(response.suggestions)
+    }, 300)
 
-    console.log(dish)
+    useEffect(() => {
+        if (dish.length === 0) {
+            return
+        }
+        else {
+            GenerateSuggestionByKey(dish)
+        }
+    }, [dish])
+
+    const selectfromsuggestions = (suggestion: string) => {
+        console.log("Selected suggestion:", suggestion);
+        setValue("dish", suggestion, { shouldValidate: true });
+        setsuggestions([]);
+    }
+
+    const OnSubmit = async (data: RecipeFromTypes) => {
+        try {
+
+            if (dish.length === 0) {
+                return
+            }
+            else {
+                const response = await createRecipe(data.Nutrient, data.dish, data.variant, data.language, data.DishType)
+                if (response) {
+                    navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
+                    setisGenrateRecipeloading(false);
+                }
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div className={styles.Container}>
             <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
             <div className={styles.SerchinputboxWithSuggestions}>
+                <div className={styles.suggestionsForMobile}>
+                    {suggestions.length > 0 &&
+                        <Suggestions setsuggestions={setsuggestions} suggestions={suggestions} selectfromsuggestions={selectfromsuggestions} />
+                    }
+                </div>
                 <div >
                     {SuggestionsActive.NutritionBoost && <NutritionBoost setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
                     {SuggestionsActive.Nutrients && <Nutrients setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
@@ -79,17 +130,29 @@ const UpdateSerchInputBox: React.FC = () => {
                             </div>
                         </div>
                         <div className={styles.SerchinputboxOptionSecond}>
-                            <div className={styles.optionfile}>
+                            {/* <label htmlFor="ingredientUpload" className={styles.optionfile}>
                                 <Paperclip />
                                 <span className={styles.optionfiletext}>Upload Ingredient</span>
-                            </div>
-                            <div>
-                                <ArrowRight className={styles.arrowroud} />
-                            </div>
+                                <input
+                                    type="file"
+                                    id="ingredientUpload"
+                                    accept="image/*"
+                                    capture="environment"
+                                    style={{ display: "none" }}
+                                    onChange={handleImageUpload}
+                                />
+                            </label> */}
+
+                            <button className={styles.arrowroud} type="submit">
+                                <ArrowRight className={`${styles.arrow} ${dish.length > 0 ? styles.arrowactive : ""}`} />
+                            </button>
                         </div>
                     </div>
                 </form>
                 <div className={styles.suggestionsForDesktop}>
+                    {suggestions.length > 0 &&
+                        <Suggestions setsuggestions={setsuggestions} suggestions={suggestions} selectfromsuggestions={selectfromsuggestions} />
+                    }
                 </div>
             </div>
         </div >

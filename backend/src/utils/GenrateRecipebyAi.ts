@@ -1,11 +1,11 @@
 import { AI_Model } from "../services";
 import { groq } from "../services/Groq"
 function buildPromptFromRecipeText(
-  Calories: string,
-  Carbs: string,
+  Nutrient: string,
   recipeText: string,
   Variant: string,
-  Language: string
+  Language: string,
+  DishType: string
 ): string {
   return `You are a friendly Indian nutrition expert and home cooking assistant helping everyday Indian families improve their traditional recipes while keeping them authentic and delicious.
 
@@ -27,10 +27,10 @@ Transform this recipe into a healthier version while:
 - Respecting regional preferences and dietary restrictions
 
 **User's Health Goals:**
-- Calorie Preference: ${Calories}
-- Carbohydrate Preference: ${Carbs}
+- Nutrient Preference: ${Nutrient} 
 - Diet Variant: ${Variant}
 - Communication Language: ${Language}
+-DishType : ${DishType}
 
 **RESPOND ONLY WITH THIS JSON FORMAT (NO extra text):**
 
@@ -100,7 +100,7 @@ Transform this recipe into a healthier version while:
 
 
 
-function buildPrompt(Calories: string, Carbs: string, dishname: string, Variant: string, Language: string): string {
+function buildPrompt(Nutrient: string, dishname: string, Variant: string, Language: string, DishType: string): string {
   return `You are a nutrition expert assistant helping users improve their Indian meals with locally available ingredients.
 
 🚨 CRITICAL LANGUAGE REQUIREMENT - READ THIS FIRST:
@@ -125,9 +125,9 @@ function buildPrompt(Calories: string, Carbs: string, dishname: string, Variant:
 User Details:
 - Dish Name: ${dishname}
 - Variant Type: ${Variant}
-- Calories Type: ${Calories}
-- Carbs Type: ${Carbs}
+- Nutrient Preference: ${Nutrient} 
 - Response Language: ${Language}
+-DishType : ${DishType}
 
 Required JSON format:
 {
@@ -239,21 +239,21 @@ function validateRecipe(recipe: any): void {
     throw new Error("Invalid nutritionComparison structure");
   }
 }
-
+// Nutrients, dish, variant, language
 export async function GenrateRecipebyAi(
-  Calories: string,
-  Carbs: string,
+  Nutrient: string,
   dishOrRecipe: string,
   Variant: string,
   Language: string,
-  type: string
+  type: string,
+  dishtype: string
 ) {
   let prompt
   if (type === "dish") {
-    prompt = buildPrompt(Calories, Carbs, dishOrRecipe, Variant, Language);
+    prompt = buildPrompt(Nutrient, dishOrRecipe, Variant, Language, dishtype);
   }
   else {
-    prompt = buildPromptFromRecipeText(Calories, Carbs, dishOrRecipe, Variant, Language)
+    prompt = buildPromptFromRecipeText(Nutrient, dishOrRecipe, Variant, Language, dishtype)
   }
 
   try {

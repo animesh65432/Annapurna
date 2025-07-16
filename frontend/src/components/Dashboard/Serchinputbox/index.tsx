@@ -6,12 +6,10 @@ import { useNavigate } from "react-router-dom"
 import { placeholders } from "../../../utils"
 import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import type { z } from "zod"
-import LanguageSelect from "./LanguageSelect"
 import DishInput from "./DishInput"
 import VariantSelector from "./VariantSelector"
 import NutritionToggles from "./NutritionToggles"
 import { Foodloading } from "../../../components"
-import MobileMenu from "../../Navbar/Mobile"
 import { useLocation } from "react-router-dom"
 import type { RecipeTypes } from "../../../types"
 import { Getsuggestions } from "../../../api/ai"
@@ -98,11 +96,11 @@ export default function SearchInputBox({ language, isGenrateRecipeloading, creat
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
             console.log(data)
-            // const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
-            // if (response) {
-            //     navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
-            //     setisGenrateRecipeloading(false);
-            // }
+            const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
+            if (response) {
+                navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
+                setisGenrateRecipeloading(false);
+            }
         } catch (error) {
             console.error(error)
         }

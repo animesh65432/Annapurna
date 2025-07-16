@@ -7,10 +7,10 @@ export const useGenrateRecipe = () => {
     const [isGenrateRecipeloading, setisGenrateRecipeloading] = useState<boolean>(false)
     const [issucessed, setisucessed] = useState<boolean>(false)
     const navigate = useNavigate()
-    const createRecipe = async (Calories: string, Cabs: string, dish: string, variant: string, language: string): Promise<{ id: string, recipe: RecipeTypes } | null> => {
+    const createRecipe = async (Nutrient: string, dish: string, variant: string, language: string, DishType: string): Promise<{ id: string, recipe: RecipeTypes } | null> => {
         setisGenrateRecipeloading(true)
         try {
-            const res = await GenrateRecipe(Calories, Cabs, dish, variant, language) as { id: string, recipe: RecipeTypes }
+            const res = await GenrateRecipe(Nutrient, dish, variant, language, DishType) as { id: string, recipe: RecipeTypes }
             setisucessed(true)
             return res
         } catch (error) {
