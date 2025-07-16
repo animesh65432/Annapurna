@@ -13,6 +13,11 @@
         height: 100vh;
         justify-content: space-between;
     }
+    @media (max-width:350px) {
+      justify-content: space-around;
+    }
+    
+  
     
 }
 .textlabel{
@@ -47,9 +52,10 @@
       width: 70%;
       font-size: 2rem;
     }
-    @media (max-width:346px) {
-      width: 70%;
-      font-size: 1.6rem;
+    @media (max-width:350px) {
+      width: 80%;
+      height: 60%;
+      font-size: 1.4rem;
     }
 
 }
