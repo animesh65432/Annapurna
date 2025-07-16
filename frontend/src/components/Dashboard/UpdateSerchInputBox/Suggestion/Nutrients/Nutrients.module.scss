@@ -1,0 +1,156 @@
+.NutrientsContainer{
+    position: fixed;
+    top: 60%;
+    left: 33%;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 30%;
+    color: #568b05;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #B2C793;
+    z-index: 10;
+    width: 20%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(1){
+        padding-top: 8px;
+    }
+    &:nth-child(2){
+        border: 0;
+    }
+    @media (max-width:1400px){
+        left: 30%;
+    }
+
+    @media (max-width:1300px) {
+        left: 26%;
+    }
+    @media (max-width:1200px) {
+        left: 24%;
+        top:59%;
+        width: 24%;
+    }
+    @media (max-width:1100px) {
+        left: 22%;
+    }
+    @media (max-width:1000px) {
+        top: 58%;
+        left: 24%;
+    }
+    @media (max-width:900px) {
+        left: 22%;
+    }
+    @media (max-width:850px) {
+        left: 18%;
+    }
+    @media (max-width:800px) {
+        left: 18%;
+    }
+    @media (max-width:765px){
+        top:55%;
+        left: 20%;
+        width: 30%;
+    }
+    @media (max-width:750px) {
+        top: 59%;
+        left: 10%;
+        width: 30%;
+    }
+    @media (max-width:656px){
+        width: 45%;
+    }
+    @media (max-width:600px){
+        left: 13%;
+    }
+    @media (max-width:500px){
+        width: 55%;
+    }
+    @media (max-width:361px) {
+        width:60% ;
+    }
+}
+
+.NutrientsSerchboxContainer{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.NutrientsSerchbox {
+    background-color: white;
+    color: black;
+    border: 1px solid #B2C793;
+    border-radius: 5px;
+    width: 90%;
+    margin: 0 auto;
+    height: 4vh;
+  
+    &:hover,
+    &:focus {
+      border-color: #7fb232;
+      background-color: white !important;
+      color: black !important;
+      outline: none;
+    }
+  
+    &:-webkit-autofill {
+      background-color: white !important;
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      color: black !important;
+    }
+}
+.InputWithIcon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+.SerchIcon{
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    top: 20%;
+    right: 10%;
+}
+
+.NutrientList {
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #7fb232 #f0f0f0;
+}
+  
+
+.Nutrient{
+    border-bottom: 1px solid #B2C793;
+    padding: 5px;
+    padding-left: 20px;
+    font-size: 15px;
+    &:hover{
+        color: #7fb232;
+    }
+    &:nth-child(24){
+        border: 0;
+    }
+    @media (max-width:600px) {
+        font-size: 14px;
+    }
+    @media (max-width:450px) {
+        font-size: 13px;
+    }
+    @media (max-width:400px) {
+        font-size: 12px;
+
+    }
+}

@@ -6,12 +6,10 @@ import { useNavigate } from "react-router-dom"
 import { placeholders } from "../../../utils"
 import { RecipeFromSchema } from "../../../schema/RecipeFrom"
 import type { z } from "zod"
-import LanguageSelect from "./LanguageSelect"
 import DishInput from "./DishInput"
 import VariantSelector from "./VariantSelector"
 import NutritionToggles from "./NutritionToggles"
 import { Foodloading } from "../../../components"
-import MobileMenu from "../../Navbar/Mobile"
 import { useLocation } from "react-router-dom"
 import type { RecipeTypes } from "../../../types"
 import { Getsuggestions } from "../../../api/ai"
@@ -23,10 +21,11 @@ export type RecipeFromTypes = z.infer<typeof RecipeFromSchema>
 type Props = {
     createRecipe: (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Promise<{ id: string, recipe: RecipeTypes } | null>
     setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
-    isGenrateRecipeloading: boolean
+    isGenrateRecipeloading: boolean,
+    language: string
 }
 
-export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading }: Props) {
+export default function SearchInputBox({ language, isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading }: Props) {
     const navigate = useNavigate()
     const [suggestions, setsuggestions] = useState<string[]>([])
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
@@ -35,7 +34,6 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
         setValue,
         watch,
         control,
-        formState: { errors }
     } = useForm<RecipeFromTypes>({
         resolver: zodResolver(RecipeFromSchema),
         defaultValues: {
@@ -52,7 +50,6 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
     const carbs = watch("Cabs")
     const calories = watch("Calories")
     const variant = watch("variant")
-    const hasErrors = Object.keys(errors).length > 0
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -65,8 +62,13 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
     }, [dish])
 
     useEffect(() => {
-        if (dishstate) setValue("dish", dishstate, { shouldValidate: true })
-    }, [dishstate])
+        if (dishstate) {
+            setValue("dish", dishstate, { shouldValidate: true })
+        }
+        if (language) {
+            setValue("language", language, { shouldValidate: true })
+        }
+    }, [dishstate, language])
 
     const GenerateSuggestionByKey = debounce(async (dish: string) => {
         const response = await Getsuggestions(dish) as { suggestions: string[] }
@@ -93,6 +95,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
 
     const onSubmit = async (data: RecipeFromTypes) => {
         try {
+            console.log(data)
             const response = await createRecipe(data.Calories, data.Cabs, data.dish, data.variant, data.language);
             if (response) {
                 navigate(`/recipe/${response.id}`, { replace: true, state: response.recipe });
@@ -106,18 +109,7 @@ export default function SearchInputBox({ isGenrateRecipeloading, createRecipe, s
 
     return (
         <>
-            <form className={`${styles.Container} ${hasErrors ? styles.hasErrors : ''}`} onSubmit={handleSubmit(onSubmit)}>
-                <div className={styles.upperContainer}>
-                    <div className={styles.titlewithIcon}>
-                        <span className={styles.MenuIcon}>
-                            <MobileMenu />
-                        </span>
-                        <div className={styles.Headingtitle}>Annapurna Ai</div>
-                    </div>
-                    <div className={styles.SelectContainer}>
-                        <LanguageSelect control={control} />
-                    </div>
-                </div>
+            <form className={`${styles.Container}`} onSubmit={handleSubmit(onSubmit)}>
                 {
                     !isGenrateRecipeloading ? <div className={styles.downContainer}>
                         <div className={styles.textlabel}>Amp your recipes with healthy twists</div>

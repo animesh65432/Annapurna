@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import styles from "./Suggestions.module.scss"
 import { Salad } from "lucide-react"
+import { useClickOutside } from "../../../../hooks/useClickOutside"
 
 type Props = {
     suggestions: string[],
@@ -12,22 +13,14 @@ const Suggestions: React.FC<Props> = ({ suggestions, selectfromsuggestions, sets
     const modalRef = useRef<HTMLDivElement>(null);
     if (suggestions.length === 0) return null;
 
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-                setsuggestions([])
-            }
-        };
+    useClickOutside(modalRef, () => setsuggestions([]));
 
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [])
     return (
-        <div className={styles.suggestionsContainer} ref={modalRef}>
+        <div className={styles.suggestionsContainer} ref={modalRef} >
             {suggestions.map((suggestion) => (
-                <div key={suggestion} className={styles.suggestion} onClick={() => selectfromsuggestions(suggestion)} >
+                <div key={suggestion}
+                    className={styles.suggestion}
+                    onMouseDown={() => selectfromsuggestions(suggestion)}  >
                     <Salad size={20} />
                     <span>
                         {suggestion}

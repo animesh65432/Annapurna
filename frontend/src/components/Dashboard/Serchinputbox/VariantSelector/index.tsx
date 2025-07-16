@@ -1,6 +1,6 @@
 import type { UseFormSetValue } from "react-hook-form"
 import type { RecipeFromTypes } from "../index"
-import { optionsforFoods } from "../../../../utils"
+import { NutritionBoostOptions } from "../../../../utils"
 import styles from "../Serchinputbox.module.scss"
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 export default function VariantSelector({ variant, setValue, suggestions }: Props) {
     return (
         <div className={`${styles.optionforvariants}  ${suggestions.length === 5 ? styles.VariantSelectoractive : null}`}>
-            {optionsforFoods.map((option) => (
+            {NutritionBoostOptions.map((option) => (
                 <div key={option.value} className={styles.optionforvariant} onClick={() => setValue("variant", option.value)}>
                     <div className={`${styles.optionforvariantbox} ${variant === option.value ? styles.activevariant : ""}`}></div>
                     <div>{option.label}</div>

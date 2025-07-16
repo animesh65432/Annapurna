@@ -8,14 +8,20 @@ export const Getsuggestions = (prompt: string) => Call({
     method: "POST"
 })
 
-export const GenrateRecipe = (Calories: string, Cabs: string, dish: string, variant: string, language: string) => Call({
+export const GenrateRecipe = (Nutrient: string, dish: string, variant: string, language: string, DishType: string) => Call({
     path: "/ai/generate-recipe",
     request: {
         dish,
         variant,
         language,
-        Calories,
-        Cabs
+        Nutrient,
+        DishType
     },
     method: "POST"
+})
+
+export const Isdetectingredient = (image: string) => Call({
+    path: "/ai/detectIngredient",
+    method: "POST",
+    request: { image }
 })

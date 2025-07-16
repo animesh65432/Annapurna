@@ -22,17 +22,23 @@ export const generateSuggestionController = async (req: Request, res: Response) 
 }
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
-    const { Calories, Cabs, dish, variant, language } = req.body
-    if (!dish || !variant || !language || !Calories || !Cabs) {
-        res.status(400).json({
-            message: "invalid credentials"
-        })
+    const { Nutrient, dish, variant, language, DishType } = req.body;
 
+    if (!dish || !language) {
+        res.status(400).json({ message: "Invalid credentials" });
         return
     }
 
-    const DishOrRecipe = await isDishOrRecipe(dish) as string
-    const recipe = await GenrateRecipebyAi(Calories, Cabs, dish, variant, language, DishOrRecipe)
+
+    const DishOrRecipe = await isDishOrRecipe(dish) as string;
+
+    const finalNutrient = Nutrient.trim().length === 0 ? "Better" : Nutrient.trim();
+    const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
+    const finalDishType = DishType.trim().length === 0 ? "Normal Dish" : DishType.trim();
+
+    const recipe = await GenrateRecipebyAi(finalNutrient, dish, finalVariant, language, DishOrRecipe, finalDishType);
+
+
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,
@@ -42,15 +48,17 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
             motivationalMessage: recipe.motivationalMessage,
             funFact: recipe.funFact,
             dish: recipe.dish,
-            variant,
+            variant: finalVariant,
             language,
             foodHistoryContext: recipe.foodHistoryContext,
         }
-    })
+    });
+
+    // Send response
     res.status(201).json({
-        message: "sucessfully create it",
+        message: "Successfully created recipe",
         id: dbrecipe.id,
         recipe: { ...recipe, language, id: dbrecipe.id }
-    })
+    });
     return
-})
+});

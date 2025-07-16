@@ -1,0 +1,98 @@
+.NutritionBoostSuggestion{
+    position: fixed;
+    top: 35%;
+    left: 31%;
+    right: 0;
+    bottom: 0;
+    width: 10%;
+    height: 16%;
+    color: #568b05;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #B2C793;
+    z-index: 10;
+    width: 20%;
+
+    &:nth-child(1){
+        padding-top: 8px;
+    }
+    &:nth-child(2){
+        border: 0;
+    }
+    @media (max-width:1400px){
+        left: 27%;
+    }
+
+    @media (max-width:1300px) {
+        left: 26%;
+    }
+    @media (max-width:1200px) {
+        left: 22%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:1100px) {
+        left: 18%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:1000px) {
+        left: 20%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:900px) {
+        left: 18%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:850px) {
+        left: 15%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:800px) {
+        left: 15%;
+        top: 33%;
+        width: 26%;
+    }
+    @media (max-width:765px){
+        top: 32%;
+    }
+    @media (max-width:750px) {
+        top: 72%;
+        left: 6%;
+        width: 37%;
+    }
+    @media (max-width:500px){
+        width: 43%;
+    }
+    @media (max-width:400px){
+        width: 50%;
+    }
+}
+.option{
+    border-bottom: 1px solid #B2C793;
+    padding: 5px;
+    padding-left: 20px;
+    font-size: 15px;
+    &:hover{
+        color: #7fb232;
+    }
+    &:nth-child(3){
+        border: 0;
+    }
+    @media (max-width:600px) {
+        font-size: 14px;
+    }
+    @media (max-width:450px) {
+        font-size: 13px;
+    }
+    @media (max-width:400px) {
+        font-size: 12px;
+
+    }
+}
