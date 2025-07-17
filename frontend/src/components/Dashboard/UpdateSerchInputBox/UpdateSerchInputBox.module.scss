@@ -157,7 +157,7 @@
         padding-left: 6px;
         padding-right: 6px;
     }
-    :nth-child(3){
+    > :nth-child(3) {
       border: 0;
     }
 }

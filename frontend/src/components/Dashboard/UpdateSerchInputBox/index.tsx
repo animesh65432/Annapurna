@@ -130,11 +130,7 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
                         <Suggestions setsuggestions={setsuggestions} suggestions={suggestions} selectfromsuggestions={selectfromsuggestions} />
                     }
                 </div>
-                <div >
-                    {SuggestionsActive.NutritionBoost && <NutritionBoost setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
-                    {SuggestionsActive.Nutrients && <Nutrients setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
-                    {SuggestionsActive.DietType && <Dish setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
-                </div>
+
                 <form className={styles.Serchinputbox} onSubmit={handleSubmit(OnSubmit)}>
                     <Controller name='dish' control={control} render={({ field }) => {
                         return <input className={styles.inputbox} {...field} onChange={(e) => field.onChange(e)} placeholder={placeholders[placeholderIndex]} value={dish} />
@@ -142,16 +138,20 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
                     <div className={styles.SerchinputboxOptions}>
                         <div className={styles.SerchinputboxOptionFirst}>
                             <div className={`${styles.option} ${variant.length > 0 ? styles.active : null}`} onClick={() => setSuggestionsActive(() => ({ NutritionBoost: true, Nutrients: false, DietType: false }))}>
+
+                                {SuggestionsActive.NutritionBoost && <NutritionBoost setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
                                 <Sprout />
                                 <span>{variant}</span>
                                 <span className={styles.optiontext}>Choose NutritionBoost</span>
                             </div>
                             <div className={`${styles.option}  ${Nutrients.length > 0 ? styles.active : null}`} onClick={() => setSuggestionsActive(() => ({ Nutrients: true, NutritionBoost: false, DietType: false }))}>
+                                {SuggestionsActive.Nutrients && <Nutrients setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
                                 <Carrot />
                                 <span>{nutrient}</span>
                                 <span className={styles.optiontext}>Choose Nutrients</span>
                             </div>
                             <div className={`${styles.option} ${dishtype.length > 0 ? styles.active : null}`} onClick={() => setSuggestionsActive(() => ({ DietType: true, Nutrients: false, NutritionBoost: false }))}>
+                                {SuggestionsActive.DietType && <Dish setValue={setValue} setSuggestionsActive={setSuggestionsActive} />}
                                 <Soup />
                                 <span>{dishtype}</span>
                                 <span className={styles.optiontext}>Choose Diet Type</span>
