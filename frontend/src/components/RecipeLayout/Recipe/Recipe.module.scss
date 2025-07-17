@@ -236,7 +236,7 @@
   gap: 6px;
   align-items: center;
   padding-left: 30px;
-  line-height: 1.5rem;
+  line-height: 1.3rem;
 
   @media (max-width:1000px) {
     font-size: 15px;
@@ -252,6 +252,7 @@
 
   @media (max-width:500px) {
     padding-left: 0px;
+    line-height: 1.4;
   }
 
   @media (max-width:370px) {
