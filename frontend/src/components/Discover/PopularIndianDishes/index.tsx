@@ -2,6 +2,7 @@ import { popularindianFoods } from "../../../utils";
 import styles from "./PopularIndianDishes.module.scss";
 import Dishes from "./Dishes";
 
+
 export default function PopularIndianDishes() {
 
     return (

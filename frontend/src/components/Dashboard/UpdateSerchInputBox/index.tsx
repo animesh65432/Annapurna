@@ -11,7 +11,7 @@ import Suggestions from "../Serchinputbox/Suggestions"
 import { Getsuggestions } from '../../../api/ai'
 import { debounce } from '../../../utils/usedebounce'
 import type { RecipeTypes } from '../../../types'
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export type RecipeFromTypes = z.infer<typeof UpdateRecipeFrom>
 
@@ -21,6 +21,8 @@ type Props = {
     setisGenrateRecipeloading: React.Dispatch<boolean>
 }
 const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGenrateRecipeloading }) => {
+    const location = useLocation();
+    const recipestate = location.state
     const [suggestions, setsuggestions] = useState<string[]>([])
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
     const [SuggestionsActive, setSuggestionsActive] = useState({
@@ -45,6 +47,7 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
     const nutrient = watch("Nutrient")
     const dishtype = watch("DishType")
 
+
     useEffect(() => {
         const interval = setInterval(() => {
             setPlaceholderIndex((prev) => (prev + 1) % placeholders.length)
@@ -68,6 +71,12 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
             GenerateSuggestionByKey(dish)
         }
     }, [dish])
+
+    useEffect(() => {
+        if (recipestate) {
+            setValue("dish", recipestate)
+        }
+    }, [recipestate])
 
     const selectfromsuggestions = (suggestion: string) => {
         console.log("Selected suggestion:", suggestion);
@@ -143,8 +152,8 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
                                 />
                             </label> */}
 
-                            <button className={styles.arrowroud} type="submit">
-                                <ArrowRight className={`${styles.arrow} ${dish.length > 0 ? styles.arrowactive : ""}`} />
+                            <button className={`${styles.arrowroud} ${dish.length > 0 ? styles.arrowactive : ""}`} type="submit">
+                                <ArrowRight className={`${styles.arrow} }`} />
                             </button>
                         </div>
                     </div>
