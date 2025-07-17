@@ -9,6 +9,8 @@ function buildPromptFromRecipeText(
 ): string {
   return `You are a friendly Indian nutrition expert and home cooking assistant helping everyday Indian families improve their traditional recipes while keeping them authentic and delicious.
 
+
+
 🚨 CRITICAL LANGUAGE REQUIREMENT:
 - TARGET LANGUAGE: ${Language}
 - Write ALL content in "${Language}" language ONLY
@@ -31,6 +33,21 @@ Transform this recipe into a healthier version while:
 - Diet Variant: ${Variant}
 - Communication Language: ${Language}
 -DishType : ${DishType}
+
+*INSTRUCTIONS:**
+
+1. Respond ONLY with valid JSON - no markdown, no extra text, no code blocks
+2. Keep JSON structure keys in English (like "originalNutrition", "description", etc.)
+3. Write ALL content values (descriptions, ingredients, steps, messages) in "${Language}" language
+4. Double-check: Is every text value written in "${Language}"? If not, rewrite it.
+5. 🇮🇳 INGREDIENT RULES:
+   - Use ONLY Indian-market-friendly ingredients (paneer, soya chunks, moong dal, atta, ghee, mustard oil, etc.)
+   - AVOID imported/hard-to-find items (broccoli, olive oil, tofu, quinoa, etc.)
+   - Focus on ingredients available in local Indian grocery stores
+   - Use traditional Indian spices and cooking methods
+6. Recommend trusted Indian brand products where applicable (e.g., Amul Protein Dahi, Tata Sampann Dal)
+7. Wherever possible, provide a direct online buying link (Amazon, BigBasket, Blinkit, etc.)
+8. Everything should be Indian-friendly and culturally appropriate
 
 **RESPOND ONLY WITH THIS JSON FORMAT (NO extra text):**
 
@@ -101,6 +118,7 @@ Transform this recipe into a healthier version while:
 
 
 function buildPrompt(Nutrient: string, dishname: string, Variant: string, Language: string, DishType: string): string {
+  console.log("call build recipe by the")
   return `You are a nutrition expert assistant helping users improve their Indian meals with locally available ingredients.
 
 🚨 CRITICAL LANGUAGE REQUIREMENT - READ THIS FIRST:
@@ -120,8 +138,9 @@ function buildPrompt(Nutrient: string, dishname: string, Variant: string, Langua
    - AVOID imported/hard-to-find items (broccoli, olive oil, tofu, quinoa, etc.)
    - Focus on ingredients available in local Indian grocery stores
    - Use traditional Indian spices and cooking methods
-6. Everything should be Indian-friendly and culturally appropriate
-
+6. Recommend trusted Indian brand products where applicable (e.g., Amul Protein Dahi, Tata Sampann Dal)
+7. Wherever possible, provide a direct online buying link (Amazon, BigBasket, Blinkit, etc.)
+8. Everything should be Indian-friendly and culturally appropriate
 User Details:
 - Dish Name: ${dishname}
 - Variant Type: ${Variant}
@@ -146,7 +165,7 @@ Required JSON format:
       "[Continue with all ingredients - use only Indian-available items]"
     ],
     "steps": [
-      "[Start with detailed prep work in ${Language}]",
+      "[Start with detailed prep work in ${Language} and each every step give fullstop .]",
       "[Describe next step clearly in ${Language}]",
       "[Include traditional Indian cooking techniques]",
       "[Mention cooking times and heat levels]",
@@ -176,13 +195,15 @@ Required JSON format:
     {
       "from": "[original ingredient in ${Language}]",
       "to": "[substitute ingredient easily available in India in ${Language}]",
-      "why": "[detailed reason explaining health benefits in ${Language}]"
+      "why": "[detailed reason explaining health benefits in ${Language}and each every step give fullstop .]"
     }
   ],
-  "foodHistoryContext": "[Write about the fascinating history of ingredients used in ${dishname} in ${Language}. Research and mention the origins of key ingredients - for example: if the dish contains potatoes (came from South America via Portuguese traders in 16th century), tomatoes (brought by Portuguese from Americas), chillies (introduced by Portuguese from Mexico/South America), paneer (techniques from Middle Eastern/Persian influence), onions (came via Central Asian trade routes), garlic (ancient trade from Mediterranean), soya products (Chinese influence), etc. Explain specifically how these ingredients traveled to India through trade, colonization, or cultural exchange. Show how ${dishname} itself represents this beautiful fusion of global ingredients that became 'Indian' over time. This proves that cuisine evolution is natural and our healthy modifications today continue this ancient tradition and they evolved into that dish. Please make it informative and engaging - at least 10 lines.]",
+  "foodHistoryContext": "[Write about the fascinating history of ingredients used in ${dishname} in ${Language}. Research and mention the origins of key ingredients - for example: if the dish contains potatoes (came from South America via Portuguese traders in 16th century), tomatoes (brought by Portuguese from Americas), chillies (introduced by Portuguese from Mexico/South America), paneer (techniques from Middle Eastern/Persian influence), onions (came via Central Asian trade routes), garlic (ancient trade from Mediterranean), soya products (Chinese influence), etc. Explain specifically how these ingredients traveled to India through trade, colonization, or cultural exchange. Show how ${dishname} itself represents this beautiful fusion of global ingredients that became 'Indian' over time. This proves that cuisine evolution is natural and our healthy modifications today continue this ancient tradition and they evolved into that dish. Please make it informative and engaging - at least 10 lines , and last step give fullstop .]",
   "motivationalMessage": "[Write an inspiring and encouraging message in ${Language} about how making small healthy changes to traditional recipes can improve family health while preserving cultural food traditions]",
-  "funFact": "[Write an interesting and lesser-known fact about Indian cuisine, spices, or cooking techniques in ${Language}]",
-  "dish": "[Write dish name as 'Healthy ${dishname}' or 'Nutritious ${dishname}' in ${Language}]"
+  "funFact": "[Write an interesting and lesser-known fact about Indian cuisine, spices, or cooking techniques in ${Language},and last step give fullstop .]",
+  "dish": "[Write dish name as 'Healthy ${dishname}' or 'Nutritious ${dishname}' in ${Language}]",
+ "recommendedProducts": ["Suggest new, affordable, and nutritious products from brands that Indians already trust — such as Amul, Tata Soulfull, Fortune, or Nestlé. Mention specific product names like Amul Protein Dahi, Tata Soulfull Millet Muesli, or Fortune Soya Chunks where relevant, and naturally include them in the recipe's ingredients in ${Language}"]
+
 }
 
 ⚠️ FINAL CHECK:
@@ -264,9 +285,10 @@ export async function GenrateRecipebyAi(
     return parsed;
 
   } catch (geminiError) {
-    console.warn("Gemini failed, falling back to Groq...", geminiError);
+    console.log("Gemini failed, falling back to Groq...", geminiError);
 
     try {
+      console.log("start")
       const groqResponse = await groq.chat.completions.create({
         messages: [{ role: "user", content: prompt }],
         model: "llama-3.3-70b-versatile"
