@@ -12,6 +12,7 @@ import { Getsuggestions } from '../../../api/ai'
 import { debounce } from '../../../utils/usedebounce'
 import type { RecipeTypes } from '../../../types'
 import { useLocation, useNavigate } from "react-router-dom"
+import { motion } from 'framer-motion'
 
 export type RecipeFromTypes = z.infer<typeof UpdateRecipeFrom>
 
@@ -20,11 +21,14 @@ type Props = {
     createRecipe: (Nutrient: string, dish: string, variant: string, language: string, DishType: string) => Promise<{ id: string, recipe: RecipeTypes } | null>,
     setisGenrateRecipeloading: React.Dispatch<boolean>
 }
+const sentence = "Amp your recipes with healthy twists";
+
 const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGenrateRecipeloading }) => {
     const location = useLocation();
     const recipestate = location.state
     const [suggestions, setsuggestions] = useState<string[]>([])
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
+    const words = sentence.split(" ");
     const [SuggestionsActive, setSuggestionsActive] = useState({
         NutritionBoost: false,
         Nutrients: false,
@@ -104,7 +108,22 @@ const UpdateSerchInputBox: React.FC<Props> = ({ language, createRecipe, setisGen
     }
     return (
         <div className={styles.Container}>
-            <div className={styles.textlabel}>Amp your recipes with healthy twists</div>
+            <div className={styles.textlabel}>
+                {words.map((word, index) => (
+                    <motion.span
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 0.4,
+                            delay: index * 0.2,
+                        }}
+                        style={{ display: "inline-block", marginRight: "6px" }}
+                    >
+                        {word}
+                    </motion.span>
+                ))}
+            </div>
             <div className={styles.SerchinputboxWithSuggestions}>
                 <div className={styles.suggestionsForMobile}>
                     {suggestions.length > 0 &&
