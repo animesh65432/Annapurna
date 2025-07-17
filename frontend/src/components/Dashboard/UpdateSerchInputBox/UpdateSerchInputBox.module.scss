@@ -281,6 +281,7 @@
 
 .arrowroud{
     background-color: #cae9a2 ;
+    color: #878484;
     border: 0;
     height: 4.5vh;
     width: 2.5vw;
@@ -308,16 +309,17 @@
     @media (max-width:508px) {
       width:8vw;
     }
-  .arrowactive{
-    color: #558E00;
-  }
+  
+}
+.arrowactive{
+  background-color: #558E00;
+  color: white ;
 }
   
 .arrow{
     height: 3vh;
     width: 2vw;
     font-weight: bolder;
-    color: #878484;
     @media (max-width:1200px) {
       height:2.8vh;
       width: 2.8vw;
