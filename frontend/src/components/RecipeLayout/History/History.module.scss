@@ -7,17 +7,21 @@
     color: #4C7C04;
     font-family: "Philosopher";
     font-size: 1.7rem;
-    padding-left: 10px;
+    padding-left: 20px;
 
     @media (max-width:1409px) {
-      gap: 10px;
+      gap: 5px;
     }
     @media (max-width:785px) {
       font-size: 1.5rem;
     }
     @media (max-width:500px) {
-      font-size: 1rem;
+      font-size: 1.3rem;
+      width: 95%;
       align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: start;
     }
 }
 .HistoryIcon{
@@ -41,6 +45,10 @@
         height: 5vh;
         width: 5vw;
     }
+    @media (max-width:400px) {
+      height: 6vh;
+      width: 6vw;
+  }
 }
 .foodHistoryContext{
     color: #4C7C04;
@@ -52,29 +60,33 @@
     line-height: 2;
     margin-left: auto;
     margin-right: auto;
-    @media (max-width:1000px) {
-        font-size: 15px;
-      }
-      @media (max-width:700px) {
-        font-size: 13px;
-      }
-      @media (max-width:600px) {
-        font-size: 12px;
-      }
-      @media (max-width:500px) {
-        padding-left: 20px;
-      }
-      @media (max-width:370px) {
-        font-size: 11px;
-      }
 
+    @media (max-width:1200px) {
+      width: 90%;
+    }
+    @media (max-width:1000px) {
+      font-size: 15px;
+    }
     @media (max-width:767px) {
-        width: 90%;
+      width: 90%;
+    }
+    @media (max-width:700px) {
+      font-size: 13px;
+    }
+    @media (max-width:600px) {
+      font-size: 12px;
+    }
+    @media (max-width:500px) {
+      width: 80%;
     }
     @media (max-width:450px) {
       width: 88%;
       padding: 8px;
-  }
+    }
+    @media (max-width:370px) {
+      font-size: 11px;
+    }
+    
 }
 .funfactContainer{
     display: flex;
@@ -90,6 +102,14 @@
     height: 4.5vh;
     width: 4.5vw;
   }
+  @media (max-width:500px) {
+    height: 5vh;
+    width: 5vw;
+  }
+  @media (max-width:400px) {
+    height: 6vh;
+    width: 6vw;
+  }
 }
 .funFactHeader{
     display: flex;
@@ -97,13 +117,16 @@
     color: #4C7C04;
     font-family: "Philosopher";
     font-size: 1.7rem;
-    padding-left: 10px;
+    padding-left: 5px;
     @media (max-width:785px) {
       font-size: 1.5rem;
     }
     @media (max-width:500px) {
-      font-size: 1rem;
+      font-size: 1.3rem;
+      width: 90%;
       align-items: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 }
 .funFactsubtitle{
@@ -116,27 +139,28 @@
     line-height: 1.7;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width:1200px) {
+      width: 90%;
+    }
     @media (max-width:1000px) {
-        font-size: 15px;
-      }
-      @media (max-width:700px) {
-        font-size: 13px;
-      }
-      @media (max-width:600px) {
-        font-size: 12px;
-      }
-      @media (max-width:500px) {
-        padding-left: 20px;
-      }
-      @media (max-width:370px) {
-        font-size: 11px;
-      }
-
+      font-size: 15px;
+    }
     @media (max-width:767px) {
-        width: 90%;
+      width: 90%;
+    }
+    @media (max-width:700px) {
+      font-size: 13px;
+    }
+    @media (max-width:600px) {
+      font-size: 12px;
+    }
+    @media (max-width:500px) {
+      width: 80%;
     }
     @media (max-width:450px) {
-      width: 88%;
-      padding: 8px;
-  }
+      width: 85%;
+    }
+    @media (max-width:370px) {
+      font-size: 11px;
+    }
 }

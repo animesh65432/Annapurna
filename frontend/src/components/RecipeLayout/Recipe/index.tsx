@@ -47,12 +47,18 @@ export default function Recipe() {
                 </div>
                 <div className={styles.ingredientsGrid}>
                     {
-                        recipe?.healthierVersion.ingredients.map((ingredient, index) => <div className={styles.ingredient} key={ingredient} onClick={() => clickingredient(index)}>
-                            <div className={styles.Checkbox} >
+                        recipe?.healthierVersion.ingredients.map((ingredient, index) => <div
+                            className={`${styles.ingredient} ${ingredientindexs.includes(index) ? styles.ingredientChecked : ""
+                                }`}
+                            key={ingredient}
+                            onClick={() => clickingredient(index)}
+                        >
+                            <div className={styles.Checkbox}>
                                 {ingredientindexs.includes(index) && <img src={rightarrow} />}
                             </div>
-                            <div> {capitalizeWords(ingredient)}</div>
-                        </div>)
+                            <div>{capitalizeWords(ingredient)}</div>
+                        </div>
+                        )
 
                     }
                 </div>
@@ -68,12 +74,17 @@ export default function Recipe() {
                 </div>
                 <div className={styles.RecipeContainerSteps}>
                     {
-                        recipe?.healthierVersion.steps.map((step, index) => <div className={styles.recipe} key={step}>
+                        recipe?.healthierVersion.steps.map((step, index) => <div
+                            className={`${styles.recipe} ${stepsindexs.includes(index) ? styles.stepChecked : ""
+                                }`}
+                            key={step}
+                        >
                             <div className={styles.Checkbox} onClick={() => Onclicksteps(index)}>
                                 {stepsindexs.includes(index) && <img src={rightarrow} />}
                             </div>
                             <div className={styles.recipetext}>{step}</div>
-                        </div>)
+                        </div>
+                        )
                     }
                 </div>
             </div>
