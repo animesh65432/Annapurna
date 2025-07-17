@@ -448,7 +448,7 @@
 }
 .WhyTheseChangesIcon{
   background-color: #F3FFE2;
-  width: 2vw; 
+  width: 1.9vw; 
   height: 4vh;
   border: 1px solid #4c7c04;
   border-radius: 50%;
@@ -470,32 +470,38 @@
     height: 3vh;
   }
   @media (max-width:900px) {
-    width: 3vw; 
+    width: 5vw; 
     height: 4vh;
   }
 
-  @media (max-width:765px) {
-    width: 4.2vw;
+  @media (max-width:945px) {
+    width: 6vw;
   }
-  @media (max-width:655px) {
-    width: 4vw;
-    height: 4vw;
+  @media (max-width:675px) {
+    width: 7vw;
+    height: 4vh;
   }
   @media (max-width:600px) {
-    width: 5vw;
-    height: 4vw;
+    width: 8vw;
+    height: 3.4vh;
+  }
+  @media (max-width:550px) {
+    height: 3vh;
+    width: 9vw;
   }
   @media (max-width:500px) {
-    height: 3vh;
-    width: 5vw;
+    height: 3.5vh;
+    width: 13vw;
   }
-  @media (max-width:445px) {
+  @media (max-width:450px) {
     height: 3.2vh;
-    width: 5vw;
+    width: 15vw;
   }
-  @media (max-width:425px) {
-    height: 3.2vh;
-    width: 6vw;
+  @media (max-width:400px) {
+    width: 18vw;
+  }
+  @media (max-width:350px) {
+    width: 24vw;
   }
 }
 .questionvg{
