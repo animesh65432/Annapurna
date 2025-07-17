@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@react-oauth/google": "^0.12.2",
     "axios": "^1.10.0",
     "bulma": "^1.0.4",
@@ -26,7 +27,7 @@
     "react-vertical-timeline-component": "^3.5.3",
     "scss": "^0.2.4",
     "uuid": "^11.1.0",
-    "zod": "^3.25.67",
+    "zod": "^3.25.76",
     "zustand": "^5.0.5"
   },
   "devDependencies": {
