@@ -8,7 +8,7 @@
     }
     @media (max-width:500px) {
       padding-left: 0px;
-      gap: 10px;
+      gap: 20px;
       padding-top: 15px;
     }
 }
@@ -26,7 +26,11 @@
     font-size: 1.5rem;
   }
   @media (max-width:500px) {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    align-self: flex-start;
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .Svg{
@@ -43,6 +47,10 @@
   @media (max-width:500px) {
     height: 5vh;
     width: 5vw;
+  }
+  @media (max-width:400px) {
+    height: 6vh;
+    width: 6vw;
   }
 }
 .comparisonContainer{
@@ -313,6 +321,15 @@
   }
 }
 
+.whyTheseChangesContainer{
+
+  @media (max-width:500px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 
 
 .sectionTitleForwhyTheseChanges{
@@ -325,9 +342,9 @@
     font-size: 1.5rem;
   }
   @media (max-width:500px) {
-    font-size: 1rem;
+    font-size: 1.3rem;
     align-items: center;
-
+    padding-left: 8%;
     :nth-child(2){
       margin-top: 10px;
     }
@@ -403,7 +420,9 @@
     font-size: 12px;
   }
   @media (max-width:500px) {
-    padding-left: 20px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   @media (max-width:370px) {
     font-size: 11px;
