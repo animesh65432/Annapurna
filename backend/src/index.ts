@@ -9,7 +9,7 @@ import cookieparser from "cookie-parser"
 const app = express()
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://annapurna-ai.tech', `${config.RECIPE_PDF_GENERATER}`],
+    origin: ["http://localhost:3000", "https://annapurna-ai-frontend.vercel.app", 'http://localhost:5173', 'https://annapurna-ai.tech', `${config.RECIPE_PDF_GENERATER}`],
     credentials: true
 }))
 app.use(express.json({ limit: "20mb" }))
