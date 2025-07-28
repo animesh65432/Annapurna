@@ -286,7 +286,7 @@ export async function GenrateRecipebyAi(
     try {
       const groqResponse = await groq.chat.completions.create({
         messages: [{ role: "user", content: prompt }],
-        model: "gemma2-9b-it"
+        model: "llama-3.1-8b-instant"
       });
 
       const groqText = groqResponse.choices?.[0]?.message?.content || "";

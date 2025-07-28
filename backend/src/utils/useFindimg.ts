@@ -3,7 +3,8 @@ import { groq } from "../services/Groq";
 
 export const usefindimgformgoogle = async (DishOrRecipe: string): Promise<string> => {
     try {
-        // Get dish name and region from Groq
+        console.log("Finding image...");
+
         const groqResponse = await groq.chat.completions.create({
             messages: [
                 {
@@ -21,33 +22,35 @@ State: <State Name>
 No explanation. No markdown. No extra lines. Just the result in the exact format above.`,
                 },
             ],
-            model: "llama-3.3-70b-versatile",
+            model: "deepseek-r1-distill-llama-70b",
         });
 
         const rawOutput = groqResponse.choices?.[0]?.message?.content?.trim() || "";
 
-        // Extract dish name
         const dishMatch = rawOutput.match(/Dish:\s*(.+)/i);
         const stateMatch = rawOutput.match(/State:\s*(.+)/i);
 
         const dishName = dishMatch?.[1]?.trim() || DishOrRecipe;
         const state = stateMatch?.[1]?.trim() || "Indian";
 
-        // Build search query
-        const query = `${dishName} ${state}  authentic recipe photo`;
+        const query = `${dishName} ${state} traditional Indian food close-up`;
 
-        console.log(query)
+        console.log("Querying Google:", query);
 
-        // Search Google Images
         const res = await fetch(
-            `https://www.googleapis.com/customsearch/v1?key=${config.GOOGLE_API_KEY}&cx=${config.GOOGLE_CX}&q=${encodeURIComponent(query)}&searchType=image&num=5`
+            `https://www.googleapis.com/customsearch/v1?key=${config.GOOGLE_API_KEY}&cx=${config.GOOGLE_CX}&q=${encodeURIComponent(query)}&searchType=image&imgType=photo&num=5`
         );
 
         const data = await res.json();
-        return data.items[0].link;
 
-    } catch (error) {
-        console.error("Error getting food image:", error);
-        return "";
+        if (!data.items || data.items.length === 0) {
+            console.error("No image results found.");
+            return "https://via.placeholder.com/400x300?text=No+Image+Found";
+        }
+
+        return data.items[0].link;
+    } catch (err) {
+        console.error("Error fetching image from Google:", err);
+        return "https://via.placeholder.com/400x300?text=Image+Fetch+Error";
     }
 };

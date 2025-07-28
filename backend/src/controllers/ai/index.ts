@@ -40,6 +40,7 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
 
     const imageLink = await usefindimgformgoogle(recipe.dish)
 
+    console.log(recipe)
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,
