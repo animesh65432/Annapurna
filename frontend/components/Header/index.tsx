@@ -4,12 +4,14 @@ import {
     SheetTrigger,
     SheetClose,
 } from "@/components/ui/sheet";
+import { useAuthstore } from "@/store/useauth";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 
 export default function Header() {
+    const { token } = useAuthstore()
 
     return (
         <header className="ml-auto mr-auto pt-5 flex justify-between items-center w-[85%]  ">
@@ -22,11 +24,13 @@ export default function Header() {
                 <Link href="/Explore">
                     <li >Explore</li>
                 </Link>
-                <Link href="/Saves" className="cursor-pointer">
-                    <li>
-                        Save
-                    </li>
-                </Link>
+                {token &&
+                    <Link href="/Saves" className="cursor-pointer">
+                        <li>
+                            Save
+                        </li>
+                    </Link>
+                }
             </ul>
             <ul className="md:hidden block">
                 <Sheet>
@@ -48,11 +52,13 @@ export default function Header() {
                             <Link href="/Explore">
                                 <ul>Explore</ul>
                             </Link>
-                            <Link href="/Saves" className="cursor-pointer">
-                                <ul>
-                                    Save
-                                </ul>
-                            </Link>
+                            {token &&
+                                <Link href="/Saves" className="cursor-pointer">
+                                    <ul>
+                                        Save
+                                    </ul>
+                                </Link>
+                            }
                         </nav>
                     </SheetContent>
                 </Sheet>

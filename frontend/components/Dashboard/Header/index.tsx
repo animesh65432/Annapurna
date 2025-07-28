@@ -4,10 +4,13 @@ import {
     SheetTrigger,
     SheetClose,
 } from "@/components/ui/sheet";
+import { useAuthstore } from "@/store/useauth";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function Header() {
+    const { token } = useAuthstore()
     return (
         <header className="ml-auto  mr-auto pt-5 flex justify-between items-center w-[80%]  md:max-w-[75%] lg:max-w-[740px] xl:max-w-[1120px]">
             <Link href="/">
@@ -19,7 +22,9 @@ export default function Header() {
                 <Link href="/Explore">
                     <li className="text-[#353535]">Explore</li>
                 </Link>
-                <li className="text-[#353535]">Save</li>
+                {token &&
+                    <li className="text-[#353535]">Save</li>
+                }
             </ul>
             <ul className="md:hidden block">
                 <Sheet>
@@ -39,11 +44,13 @@ export default function Header() {
                         </SheetClose>
                         <nav className="flex  font-poppins text-[1rem] text-[#048452] font-medium flex-col justify-center items-center gap-8">
                             <ul> <Link href="/Explore">Explore</Link></ul>
-                            <ul>
-                                <Link href="/Saves">
-                                    Save
-                                </Link>
-                            </ul>
+                            {token &&
+                                <ul>
+                                    <Link href="/Saves">
+                                        Save
+                                    </Link>
+                                </ul>
+                            }
                         </nav>
                     </SheetContent>
                 </Sheet>

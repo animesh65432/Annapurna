@@ -42,14 +42,14 @@ export default function Ingredients() {
     }
     return (
         <>
-            <div className="w-[85%] mx-auto flex flex-col gap-6">
+            <div className="w-[85%] mx-auto flex flex-col gap-6 mt-8">
                 <div className="text-[#434343] text-[1.3rem] sm:text-3xl flex justify-between">
                     <h1>
                         {recipe?.dish}
                     </h1>
                     <div className="flex gap-6">
                         <Save onClick={addrecipe} />
-                        <Share onClick={addrecipe} />
+                        <Share onClick={() => setisShareOPen((prev) => !prev)} />
                     </div>
                 </div>
                 <div className="flex flex-col gap-4">

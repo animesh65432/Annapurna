@@ -40,9 +40,6 @@ export default function NutritionComparison({ recipeId }: Props) {
     const navigate_to = (Id: string) => {
         router.push(`/Recipe/${Id}`)
     }
-
-    console.log(recipe)
-
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col justify-between">
             <Header />
