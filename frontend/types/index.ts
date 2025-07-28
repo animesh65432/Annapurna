@@ -42,5 +42,5 @@ export type RecipeTypes = {
     Img: string
 };
 export type SavesRecipesTypes = {
-    recipe: RecipeTypes[]
+    recipe: RecipeTypes
 }
