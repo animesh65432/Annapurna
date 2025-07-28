@@ -12,29 +12,31 @@ export const usefindimgformgoogle = async (DishOrRecipe: string): Promise<string
 
     const rawOutput = groqResponse.choices?.[0]?.message?.content?.trim() || "";
 
-
     const dishname = rawOutput
         .replace(/<think>[\s\S]*?<\/think>/gi, "")
         .replace(/["'“”`]/g, "")
+        .toLowerCase()
+        .replace(/\s+/g, " ")
         .trim();
 
     if (!dishname) {
         console.error("No dish name returned by Groq.");
-        return ""
+        return "";
     }
 
+    const query = `${dishname} food dish photo site:allrecipes.com OR site:bbcgoodfood.com OR site:foodnetwork.com`;
+
     const res = await fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${config.GOOGLE_API_KEY}&cx=${config.GOOGLE_CX}&q=${encodeURIComponent(dishname)}&searchType=image`
+        `https://www.googleapis.com/customsearch/v1?key=${config.GOOGLE_API_KEY}&cx=${config.GOOGLE_CX}&q=${encodeURIComponent(query)}&searchType=image`
     );
 
     const data = await res.json();
 
     console.log(data)
 
-
     if (!data.items || data.items.length === 0) {
         console.warn("No image results found from Google Search.");
-        return ""
+        return "";
     }
     return data.items[0].link;
 };

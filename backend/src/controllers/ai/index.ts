@@ -59,7 +59,7 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
     res.status(201).json({
         message: "Successfully created recipe",
         id: dbrecipe.id,
-        recipe: { ...recipe, language: "English", id: dbrecipe.id }
+        recipe: { ...recipe, language: "English", id: dbrecipe.id, Img: imageLink }
     });
     return
 });
