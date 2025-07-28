@@ -171,7 +171,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 30,
         when: ["morning", "evening"],
-        id: "68874984097ff623fcc4c972",
+        id: "688788d1bc7733d37c85bd80",
         after: "33% less fat"
     },
     {

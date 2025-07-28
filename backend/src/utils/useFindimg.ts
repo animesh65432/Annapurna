@@ -44,13 +44,7 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
         );
 
         const data = await res.json();
-
-        if (data.items?.length > 0) {
-            const bestImage = data.items.find((item: { link: string; }) => item.link?.endsWith(".jpg") || item.link?.endsWith(".png"));
-            return bestImage?.link || data.items[0].link;
-        }
-
-        return "";
+        return data.items[0].link;
 
     } catch (error) {
         console.error("Error getting food image:", error);

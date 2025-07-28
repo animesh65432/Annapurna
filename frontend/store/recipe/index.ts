@@ -3,7 +3,7 @@ import type { RecipeTypes } from "@/types";
 
 type RecipeStore = {
     recipe: RecipeTypes | null;
-    setRecipe: (recipe: RecipeTypes) => void;
+    setRecipe: (recipe: RecipeTypes | null) => void;
     clearRecipe: () => void;
 };
 

@@ -27,6 +27,7 @@ export default function NutritionComparison({ recipeId }: Props) {
 
     useEffect(() => {
         if (!recipe || recipe.id !== recipeId) {
+            setRecipe(null)
             loadRecipe(recipeId);
         }
     }, [recipeId, recipe]);
