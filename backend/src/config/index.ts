@@ -12,7 +12,9 @@ const config = {
     CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
     CLOUDINARY_API_SECRET: process.env.CLOUDINARY_API_SECRET,
     REPLIATE_API_TOKEN: process.env.REPLIATE_API_TOKEN,
-    HUGGINGFACEAPI: process.env.HUGGINGFACEAPI
+    HUGGINGFACEAPI: process.env.HUGGINGFACEAPI,
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+    GOOGLE_CX: process.env.GOOGLE_CX
 }
 
 export default config

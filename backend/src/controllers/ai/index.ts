@@ -3,6 +3,7 @@ import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
 import { isDishOrRecipe } from "../../utils/Checkdishorrecipe"
+import { usefindimgformgoogle } from "../../utils/useFindimg"
 import db from "../../db"
 
 export const generateSuggestionController = async (req: Request, res: Response) => {
@@ -22,9 +23,9 @@ export const generateSuggestionController = async (req: Request, res: Response) 
 }
 
 export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Response) => {
-    const { Nutrient, dish, variant, language, DishType } = req.body;
+    const { dish, variant, DishType } = req.body;
 
-    if (!dish || !language) {
+    if (!dish) {
         res.status(400).json({ message: "Invalid credentials" });
         return
     }
@@ -32,12 +33,12 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
 
     const DishOrRecipe = await isDishOrRecipe(dish) as string;
 
-    const finalNutrient = Nutrient.trim().length === 0 ? "Better" : Nutrient.trim();
     const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
     const finalDishType = DishType.trim().length === 0 ? "Normal Dish" : DishType.trim();
 
-    const recipe = await GenrateRecipebyAi(finalNutrient, dish, finalVariant, language, DishOrRecipe, finalDishType);
+    const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", DishOrRecipe, finalDishType);
 
+    const imageLink = await usefindimgformgoogle(recipe.dish)
 
     const dbrecipe = await db.recipe.create({
         data: {
@@ -49,16 +50,16 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
             funFact: recipe.funFact,
             dish: recipe.dish,
             variant: finalVariant,
-            language,
+            language: "English",
             foodHistoryContext: recipe.foodHistoryContext,
+            Img: imageLink
         }
     });
 
-    // Send response
     res.status(201).json({
         message: "Successfully created recipe",
         id: dbrecipe.id,
-        recipe: { ...recipe, language, id: dbrecipe.id }
+        recipe: { ...recipe, language: "English", id: dbrecipe.id }
     });
     return
 });

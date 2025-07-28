@@ -1,7 +1,6 @@
 import { AI_Model } from "../services";
 import { groq } from "../services/Groq"
 function buildPromptFromRecipeText(
-  Nutrient: string,
   recipeText: string,
   Variant: string,
   Language: string,
@@ -28,8 +27,7 @@ Transform this recipe into a healthier version while:
 - Making it practical for daily home cooking
 - Respecting regional preferences and dietary restrictions
 
-**User's Health Goals:**
-- Nutrient Preference: ${Nutrient} 
+**User's Health Goals:** 
 - Diet Variant: ${Variant}
 - Communication Language: ${Language}
 -DishType : ${DishType}
@@ -117,7 +115,7 @@ Transform this recipe into a healthier version while:
 
 
 
-function buildPrompt(Nutrient: string, dishname: string, Variant: string, Language: string, DishType: string): string {
+function buildPrompt(dishname: string, Variant: string, Language: string, DishType: string): string {
   console.log("call build recipe by the")
   return `You are a nutrition expert assistant helping users improve their Indian meals with locally available ingredients.
 
@@ -144,7 +142,6 @@ function buildPrompt(Nutrient: string, dishname: string, Variant: string, Langua
 User Details:
 - Dish Name: ${dishname}
 - Variant Type: ${Variant}
-- Nutrient Preference: ${Nutrient} 
 - Response Language: ${Language}
 -DishType : ${DishType}
 
@@ -262,7 +259,6 @@ function validateRecipe(recipe: any): void {
 }
 // Nutrients, dish, variant, language
 export async function GenrateRecipebyAi(
-  Nutrient: string,
   dishOrRecipe: string,
   Variant: string,
   Language: string,
@@ -271,10 +267,10 @@ export async function GenrateRecipebyAi(
 ) {
   let prompt
   if (type === "dish") {
-    prompt = buildPrompt(Nutrient, dishOrRecipe, Variant, Language, dishtype);
+    prompt = buildPrompt(dishOrRecipe, Variant, Language, dishtype);
   }
   else {
-    prompt = buildPromptFromRecipeText(Nutrient, dishOrRecipe, Variant, Language, dishtype)
+    prompt = buildPromptFromRecipeText(dishOrRecipe, Variant, Language, dishtype)
   }
 
   try {
@@ -288,7 +284,6 @@ export async function GenrateRecipebyAi(
     console.log("Gemini failed, falling back to Groq...", geminiError);
 
     try {
-      console.log("start")
       const groqResponse = await groq.chat.completions.create({
         messages: [{ role: "user", content: prompt }],
         model: "llama-3.3-70b-versatile"
