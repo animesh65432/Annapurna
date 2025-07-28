@@ -33,7 +33,7 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
         const dishName = dishMatch?.[1]?.trim() || DishOrRecipe;
         const state = stateMatch?.[1]?.trim() || "Indian";
 
-        const query = `${dishName} ${state} traditional Indian food close-up`;
+        const query = `${dishName} ${state} traditional Indian food `;
 
         console.log("Querying Google:", query);
 
