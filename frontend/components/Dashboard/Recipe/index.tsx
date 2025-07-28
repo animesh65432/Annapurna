@@ -1,13 +1,16 @@
 import Image from "next/image"
+import { useRouter } from "next/router"
 type Props = {
     name: string,
     time: number,
     when: string[],
     image: string,
     after: string
+    id: string
 }
 
-export default function Recipe({ name, time, when, image, after }: Props) {
+export default function Recipe({ name, time, when, image, after, id }: Props) {
+    const router = useRouter()
     return (
         <div className="flex flex-col  gap-2">
             <div className="relative w-[37vw]   md:w-[32vw] lg:w-[240px] xl:w-[260px] h-[150px] lg:h-[141px]">
@@ -39,7 +42,7 @@ export default function Recipe({ name, time, when, image, after }: Props) {
                         {when.join(', ')}
                     </div>
                 </div>
-                <div className="text-[#006C41] font-medium flex items-center gap-1">
+                <div onClick={() => router.push(`/nutritionComparison/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
                     See healthier Version
                     <div className="relative w-8 h-8">
                         <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />

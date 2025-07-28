@@ -40,6 +40,8 @@ export default function NutritionComparison({ recipeId }: Props) {
     const navigate_to = (Id: string) => {
         router.push(`/Recipe/${Id}`)
     }
+
+    console.log(recipe.Img)
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col justify-between">
             <Header />
@@ -51,7 +53,7 @@ export default function NutritionComparison({ recipeId }: Props) {
                         </h1>
                         <div className=" w-[70vw] sm:w-[60vw] md:w-[50vw] lg:w-[420px] mx-auto lg:mx-0 xl:w-[460px] h-[498px] border border-[#A8A8A8] rounded-md flex flex-col justify-center  sm:justify-start sm:items-start gap-5 sm:p-[3%] lg:p-[10%]">
                             <div className="relative w-[60vw] sm:w-[350px] lg:w-[330px] xl:w-[354px] h-[30vh] sm:h-[45vh] lg:h-[215px] ml-auto mr-auto">
-                                <Image src={recipe.Img} alt="dish" fill className="object-cover rounded-md" />
+                                <Image src={recipe.Img} alt="dish" fill className="rounded-md" />
                             </div>
                             <div className="flex flex-col gap-2 sw-[50vw] sm:w-[354px] ml-[6%]   sm:mx-auto">
                                 {nutritionData?.before && Object.entries(nutritionData.before).map(([key, value]) => (
@@ -78,7 +80,7 @@ export default function NutritionComparison({ recipeId }: Props) {
                         </h1>
                         <div className="bg-[#F5EFD8]  w-[70vw] sm:w-[60vw] md:w-[50vw]   lg:w-[420px] mx-auto lg:mx-0 xl:w-[460px] h-[530px] sm:h-[498px] border border-[#FFD059] rounded-md flex flex-col justify-center  sm:justify-start sm:items-start gap-5 sm:p-[3%] lg:pl-[10%] lg:pt-[10%] lg:pr-[10%] lg:pb-[3%]">
                             <div className="relative w-[60vw] sm:w-[350px] lg:w-[330px] xl:w-[354px] h-[30vh] sm:h-[45vh] lg:h-[215px] ml-auto mr-auto">
-                                <Image src={recipe.Img} alt="dish" fill className="object-cover rounded-md" />
+                                <Image src={recipe.Img} alt="dish" fill className="rounded-md" />
                             </div>
                             <div className="flex flex-col gap-2 sw-[50vw] sm:w-[354px] ml-[6%]   sm:mx-auto">
                                 {nutritionData?.before && Object.entries(nutritionData.after).map(([key, value]) => (

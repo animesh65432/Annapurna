@@ -8,7 +8,7 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import Image from "next/image";
-import { DishTypeOptions, micronutrientIcons, optionsforLanguages } from "@/lib/Herosectiondata"
+import { DishTypeOptions, micronutrientIcons } from "@/lib/Herosectiondata"
 import { useEffect, useState } from "react";
 import { placeholders } from "@/lib/Herosectiondata"
 import { RecipeFrom } from "@/schema/RecipeSchema"

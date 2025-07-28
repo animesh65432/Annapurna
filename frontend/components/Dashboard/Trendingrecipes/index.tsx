@@ -76,6 +76,7 @@ export default function TrendingRecipes() {
                                     when={recipe.when}
                                     image={recipe.img}
                                     after={recipe.after}
+                                    id={recipe.id}
                                 />
                             </motion.div>
                         ))

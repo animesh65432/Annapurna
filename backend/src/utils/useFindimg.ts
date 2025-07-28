@@ -34,7 +34,9 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
         const state = stateMatch?.[1]?.trim() || "Indian";
 
         // Build search query
-        const query = `${dishName} ${state} food indian cuisine authentic`;
+        const query = `${dishName} ${state}  authentic recipe photo`;
+
+        console.log(query)
 
         // Search Google Images
         const res = await fetch(
@@ -43,8 +45,9 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
 
         const data = await res.json();
 
-        if (data.items && data.items.length > 0) {
-            return data.items[0].link;
+        if (data.items?.length > 0) {
+            const bestImage = data.items.find((item: { link: string; }) => item.link?.endsWith(".jpg") || item.link?.endsWith(".png"));
+            return bestImage?.link || data.items[0].link;
         }
 
         return "";

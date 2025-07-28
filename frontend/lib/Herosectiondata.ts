@@ -82,7 +82,7 @@ export const trendingRecipes = [
         after: "Now with 50% less fat!",
         time: 30,
         when: ["breakfast", "lunch"],
-        id: "68792a51d644bbfc1d668b64"
+        id: "688745e23da669a6e6d3e9dc"
     },
     {
         name: "Idli Sambar",
@@ -97,7 +97,7 @@ export const trendingRecipes = [
         after: "Increased Protein 50%",
         time: 45,
         when: ["breakfast", "morning"],
-        id: "68803644321ef1bda9dbf8ed"
+        id: "6887461f3da669a6e6d3e9dd"
     },
     {
         name: "Pav Bhaji",
@@ -112,7 +112,7 @@ export const trendingRecipes = [
         after: "33% more protein",
         time: 35,
         when: ["lunch", "dinner"],
-        id: "68803797fa1676d9736ac647"
+        id: "688746563da669a6e6d3e9de"
     },
     {
         name: "Baingan Bharta",
@@ -126,8 +126,8 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 40,
         when: ["lunch", "dinner"],
-        id: "6880381cfa1676d9736ac648",
-        after: "60% more fiber"
+        id: "688746843da669a6e6d3e9df",
+        after: "60% more fiber",
     },
     {
         name: "Shorshe Ilish",
@@ -141,7 +141,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Omega-3"],
         time: 25,
         when: ["lunch", "dinner"],
-        id: "6880386efa1676d9736ac649",
+        id: "688746cf3da669a6e6d3e9e0",
         after: "8% fewer calories"
     },
     {
@@ -156,7 +156,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 20,
         when: ["lunch", "dinner"],
-        id: "688038bafa1676d9736ac64a",
+        id: "688746fd3da669a6e6d3e9e1",
         after: "140% more protein"
     },
     {
@@ -171,7 +171,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 30,
         when: ["morning", "evening"],
-        id: "68803922fa1676d9736ac64b",
+        id: "68874984097ff623fcc4c972",
         after: "33% less fat"
     },
     {
@@ -186,7 +186,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 15,
         when: ["morning", "evening"],
-        id: "68803972fa1676d9736ac64c",
+        id: "688749cd097ff623fcc4c973",
         after: "More 10% fiber."
     },
     {
@@ -201,7 +201,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich"],
         time: 50,
         when: ["lunch", "dinner"],
-        id: "688039e0fa1676d9736ac64d",
+        id: "68874a90097ff623fcc4c974",
         after: "150% more fiber"
     },
     {
@@ -216,8 +216,8 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 25,
         when: ["breakfast", "dinner"],
-        id: "68803e0ffa1676d9736ac657",
-        after: "Calories Up 12%ss"
+        id: "68874aca097ff623fcc4c975",
+        after: "Calories Up 12%"
     },
     {
         name: "Dal Baati Churma",
@@ -231,7 +231,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 90,
         when: ["lunch", "dinner"],
-        id: "68803ecdfa1676d9736ac659",
+        id: "68874af4097ff623fcc4c976",
         after: "Fiber Up 50%"
     },
     {
@@ -246,7 +246,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 35,
         when: ["lunch", "dinner"],
-        id: "68803e5efa1676d9736ac658",
+        id: "68874b3d097ff623fcc4c977",
         after: "Calories Up 12%"
     },
     {
@@ -261,7 +261,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 40,
         when: ["breakfast", "morning"],
-        id: "68803dc1fa1676d9736ac656",
+        id: "68874c060313829208ad1812",
         after: "Protein Up 25%"
     },
     {
@@ -276,7 +276,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Omega-3"],
         time: 30,
         when: ["lunch", "dinner"],
-        id: "68803d1ffa1676d9736ac655",
+        id: "68874c570313829208ad1813",
         after: "Iron Up 50%"
     },
     {
@@ -291,7 +291,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Probiotic"],
         time: 45,
         when: ["lunch", "dinner"],
-        id: "68803cd9fa1676d9736ac654",
+        id: "68874c810313829208ad1814",
         after: "Calories Down 12.5%"
     },
     {
@@ -306,7 +306,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Alkaline"],
         time: 25,
         when: ["lunch", "dinner"],
-        id: "68803c53fa1676d9736ac653",
+        id: "68874cb10313829208ad1815",
         after: "Protein Up 80%"
     },
     {
@@ -321,7 +321,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Iron-rich", "Plant Protein"],
         time: 60,
         when: ["lunch", "dinner"],
-        id: "68803bfffa1676d9736ac652",
+        id: "6887501a6c5d092ea91a7c6d",
         after: "Iron Up 20%"
     },
     {
@@ -336,7 +336,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Probiotic", "Spicy"],
         time: 35,
         when: ["lunch", "dinner"],
-        id: "68803b9bfa1676d9736ac651",
+        id: "68874d0e0313829208ad1817",
         after: "Calories Down 14%"
     },
     {
@@ -351,7 +351,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Calcium-rich", "Gluten-free"],
         time: 20,
         when: ["lunch", "dinner"],
-        id: "68803ad3fa1676d9736ac650",
+        id: "68874d3f0313829208ad1818",
         after: "Iron Up 33%"
     },
     {
@@ -366,7 +366,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Warm & Healing", "Low-fat"],
         time: 40,
         when: ["lunch", "dinner"],
-        id: "68803a8bfa1676d9736ac64f",
+        id: "68874d730313829208ad1819",
         after: "50% more iron"
     },
     {
@@ -381,7 +381,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Spice-rich", "Soft-textured"],
         time: 45,
         when: ["lunch", "dinner"],
-        id: "68803a3cfa1676d9736ac64e",
+        id: "688752a82ac8460e1bdc822f",
         after: "40% less fat"
     }
 ];
