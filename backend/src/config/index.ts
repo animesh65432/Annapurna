@@ -14,7 +14,9 @@ const config = {
     REPLIATE_API_TOKEN: process.env.REPLIATE_API_TOKEN,
     HUGGINGFACEAPI: process.env.HUGGINGFACEAPI,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
-    GOOGLE_CX: process.env.GOOGLE_CX
+    GOOGLE_CX: process.env.GOOGLE_CX,
+    INGRIDENT_GOOGLE_API_KEY: process.env.INGRIDENT_GOOGLE_API_KEY,
+    INGRIDENT_GOOGLE_CX: process.env.INGRIDENT_GOOGLE_CX
 }
 
 export default config

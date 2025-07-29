@@ -29,6 +29,7 @@ export type RecipeTypes = {
         description: string;
         ingredients: string[];
         steps: string[];
+        suggestionsInGredients: string[]
     };
     substitutions: {
         from: string;

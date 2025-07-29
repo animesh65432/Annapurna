@@ -4,7 +4,6 @@ import { errorMiddleware } from "./middleware"
 import cors from "cors"
 import router from "./router"
 import cookieparser from "cookie-parser"
-// import { usefindimgformgoogle } from "./utils/useFindimg"
 
 const app = express()
 
@@ -18,16 +17,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(router)
 app.use(errorMiddleware)
 
-// async function test() {
-//     try {
-//         const res = await usefindimgformgoogle("briyani")
-//         console.log(res)
-//     } catch (error) {
-
-//     }
-
-// }
-// test()
 app.listen(config.PORT, () => {
     console.log(`Server is running on port ${config.PORT}`)
 })

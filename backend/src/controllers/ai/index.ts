@@ -3,6 +3,7 @@ import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
 import { isDishOrRecipe } from "../../utils/Checkdishorrecipe"
+import { GetsuggestionsArrays } from "../../utils/findthenindgridentlink"
 import { usefindimgformgoogle } from "../../utils/useFindimg"
 import db from "../../db"
 
@@ -30,21 +31,18 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
         return
     }
 
-
     const DishOrRecipe = await isDishOrRecipe(dish) as string;
 
     const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
     const finalDishType = DishType.trim().length === 0 ? "Normal Dish" : DishType.trim();
 
     const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", DishOrRecipe, finalDishType);
-
+    const suggestionsInGredients = await GetsuggestionsArrays(recipe.healthierVersion.ingredients)
     const imageLink = await usefindimgformgoogle(recipe.dish)
-
-    console.log(recipe)
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,
-            healthierVersion: recipe.healthierVersion,
+            healthierVersion: { ...recipe.healthierVersion, suggestionsInGredients },
             nutritionComparison: recipe.nutritionComparison,
             substitutions: recipe.substitutions,
             motivationalMessage: recipe.motivationalMessage,
@@ -53,14 +51,13 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
             variant: finalVariant,
             language: "English",
             foodHistoryContext: recipe.foodHistoryContext,
-            Img: imageLink
+            Img: imageLink,
         }
     });
-
     res.status(201).json({
         message: "Successfully created recipe",
-        id: dbrecipe.id,
-        recipe: { ...recipe, language: "English", id: dbrecipe.id, Img: imageLink }
+        recipe: { ...recipe, language: "English", Img: imageLink, suggestionsInGredients },
+        id: dbrecipe.id
     });
     return
 });
