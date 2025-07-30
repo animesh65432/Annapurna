@@ -39,7 +39,7 @@ export default function NutritionComparison({ recipeId }: Props) {
     const nutritionData = recipe?.nutritionComparison;
 
     const navigate_to = (Id: string) => {
-        router.push(`/Recipe/${Id}`)
+        router.push(`/recipe/${Id}`)
     }
 
     console.log(recipe.Img)

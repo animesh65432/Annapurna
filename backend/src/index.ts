@@ -3,7 +3,6 @@ import express from "express"
 import { errorMiddleware } from "./middleware"
 import cors from "cors"
 import router from "./router"
-import cookieparser from "cookie-parser"
 
 
 const app = express()
@@ -13,7 +12,6 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json({ limit: "20mb" }))
-app.use(cookieparser())
 app.use(express.urlencoded({ extended: true }))
 app.use(router)
 app.use(errorMiddleware)

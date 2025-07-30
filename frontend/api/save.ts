@@ -1,12 +1,18 @@
 import { Call } from "../service/call"
 
 
-export const create = (recipeId: string) => Call({
+export const create = (recipeId: string, token: string) => Call({
     path: `/save/add?Id=${recipeId}`,
-    method: "POST"
+    method: "POST",
+    request: {
+        token
+    }
 })
 
-export const GetAll = () => Call({
+export const GetAll = (token: string) => Call({
     path: `/save/Get`,
-    method: "GET"
+    method: "GET",
+    request: {
+        token
+    }
 })

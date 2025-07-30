@@ -6,7 +6,7 @@ export default function Save({ recipe }: { recipe: RecipeTypes }) {
     const router = useRouter()
 
     const navigate_to = (Id: string) => {
-        router.push(`/Recipe/${Id}`)
+        router.push(`/recipe/${Id}`)
     }
     return (
         <div className="w-full bg-white p-3 rounded-md flex gap-3 sm:gap-0 flex-col sm:flex-row">
