@@ -1,6 +1,4 @@
 import { groq } from "../services/Groq";
-import config from "../config";
-
 export async function findIngredientKeyword(ingredient: string): Promise<string> {
 
     const res = await groq.chat.completions.create({

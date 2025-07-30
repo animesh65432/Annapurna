@@ -53,6 +53,7 @@ export default function Ingredients() {
                         <Share onClick={() => setisShareOPen((prev) => !prev)} />
                     </div>
                 </div>
+
                 <div className="flex flex-col gap-4">
                     <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">Ingredients</h1>
                     <div className="grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -67,49 +68,53 @@ export default function Ingredients() {
                         }
                     </div>
                 </div>
-                <div className="flex flex-col gap-2 sm:gap-6">
-                    <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl font-semibold">
-                        Suggestions Ingredients
-                    </h1>
-                    {recipe?.healthierVersion?.suggestionsInGredients.map((suggestionsInGredient, index) => {
-                        const sociallinks = getIngredientSearchLink(suggestionsInGredient);
-                        return (
-                            <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
-                                <div className="text-[#757575] text-[1rem] lg:text-[1.1rem] font-medium">
-                                    {suggestionsInGredient}:
+
+                {recipe?.healthierVersion.suggestionsInGredients &&
+
+                    <div className="flex flex-col gap-2 sm:gap-6">
+                        <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl font-semibold">
+                            Suggestions Ingredients
+                        </h1>
+                        {recipe?.healthierVersion?.suggestionsInGredients.map((suggestionsInGredient, index) => {
+                            const sociallinks = getIngredientSearchLink(suggestionsInGredient);
+                            return (
+                                <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:gap-3">
+                                    <div className="text-[#757575] text-[1rem] lg:text-[1.1rem] font-medium">
+                                        {suggestionsInGredient}:
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                        <a
+                                            href={sociallinks.amazon}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
+                                        >
+                                            Amazon
+                                        </a>
+                                        <span className="text-[#757575]">|</span>
+                                        <a
+                                            href={sociallinks.flipkart}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
+                                        >
+                                            Flipkart
+                                        </a>
+                                        <span className="text-[#757575]">|</span>
+                                        <a
+                                            href={sociallinks.blinkit}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
+                                        >
+                                            Blinkit
+                                        </a>
+                                    </div>
                                 </div>
-                                <div className="flex flex-wrap gap-2">
-                                    <a
-                                        href={sociallinks.amazon}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
-                                    >
-                                        Amazon
-                                    </a>
-                                    <span className="text-[#757575]">|</span>
-                                    <a
-                                        href={sociallinks.flipkart}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
-                                    >
-                                        Flipkart
-                                    </a>
-                                    <span className="text-[#757575]">|</span>
-                                    <a
-                                        href={sociallinks.blinkit}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-black text-[0.9rem] lg:text-[1rem] hover:underline"
-                                    >
-                                        Blinkit
-                                    </a>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+                            );
+                        })}
+                    </div>
+                }
 
             </div>
             {isShareOPen && <ShareSection setisShareOPen={setisShareOPen} dishname={recipe?.dish!} />}

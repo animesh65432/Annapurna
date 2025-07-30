@@ -25,6 +25,7 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
             model: "deepseek-r1-distill-llama-70b",
         });
 
+
         const rawOutput = groqResponse.choices?.[0]?.message?.content?.trim() || "";
 
         const dishMatch = rawOutput.match(/Dish:\s*(.+)/i);
@@ -42,6 +43,7 @@ No explanation. No markdown. No extra lines. Just the result in the exact format
         );
 
         const data = await res.json();
+        console.log(data)
 
         if (!data.items || data.items.length === 0) {
             console.error("No image results found.");
