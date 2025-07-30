@@ -25,7 +25,6 @@ model Recipe {
   funFact              String
   foodHistoryContext   String
   save                 Save?   
-  Img                  String
 }
 
 model Save {

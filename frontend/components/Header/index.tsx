@@ -10,9 +10,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next"
 import { Select } from "@/components/ui/select"
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 export default function Header() {
     const { token } = useAuthstore()
+    const hasMounted = useHasMounted();
     const { t } = useTranslation("Header")
     return (
         <header className="ml-auto mr-auto pt-5 flex justify-between items-center w-[85%]  ">
@@ -25,11 +27,9 @@ export default function Header() {
                 <Link href="/Explore">
                     <li >{t("Explore")}</li>
                 </Link>
-                {token &&
-                    <Link href="/Saves" className="cursor-pointer">
-                        <li>
-                            Save
-                        </li>
+                {hasMounted && token &&
+                    <Link href="/saves" className="text-[#353535] cursor-pointer">
+                        Save
                     </Link>
                 }
                 <li>
@@ -57,7 +57,7 @@ export default function Header() {
                                 <ul>Explore</ul>
                             </Link>
                             {token &&
-                                <Link href="/Saves" className="cursor-pointer">
+                                <Link href="/saves" className="cursor-pointer">
                                     <ul>
                                         Save
                                     </ul>

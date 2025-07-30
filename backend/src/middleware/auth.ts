@@ -5,43 +5,39 @@ import JSONWEBTOEKN from "jsonwebtoken"
 
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.body.token
+    const header = req.headers["authorization"];
+    const token = header && header.startsWith("Bearer ") ? header.split(" ")[1] : null;
 
-    console.log("auth middleware called")
-    console.log("req.body", req.body)
-    console.log("token", token)
+    console.log("token", token);
+
     if (!token) {
-        res.status(400).json({
-            messsage: "token is required"
-        })
-        return
+        res.status(400).json({ message: "Token is required" });
+        return;
     }
 
-    const { email } = JSONWEBTOEKN.verify(token, config.JWT_SECRET as string) as { email: string }
-    if (!email) {
-        res.status(400).json({
-            message: "token is not vaild"
-        })
-        return
-    }
+    try {
+        const { email } = JSONWEBTOEKN.verify(token, config.JWT_SECRET as string) as { email: string };
 
-    const checkuser = await db.user.findUnique({
-        where: {
-            email
-        },
-        select: {
-            id: true,
-            email: true
+        if (!email) {
+            res.status(400).json({ message: "Token is not valid" });
+            return;
         }
-    })
 
-    if (!checkuser) {
-        res.status(400).json({
-            message: "user did not found"
-        })
+        const checkuser = await db.user.findUnique({
+            where: { email },
+            select: { id: true, email: true }
+        });
+
+        if (!checkuser) {
+            res.status(400).json({ message: "User not found" });
+            return;
+        }
+
+        req.user = checkuser;
+        next();
+    } catch (err) {
+        console.error("JWT verification error:", err);
+        res.status(401).json({ message: "Invalid or expired token" });
         return
     }
-    req.user = checkuser
-    next()
-
-}
+};

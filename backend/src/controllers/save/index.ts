@@ -8,6 +8,10 @@ export const saverecipe = asyncerrorhandler(async (req: Request, res: Response) 
     const { Id } = req.query
     const userId = req.user?.id
 
+
+    console.log("Id", Id)
+    console.log("userId", userId)
+
     if (!Id || typeof Id !== "string" || !userId) {
         res.status(400).json({
             message: "Invaild credentials"

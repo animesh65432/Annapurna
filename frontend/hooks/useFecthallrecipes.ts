@@ -9,6 +9,9 @@ export function useFecthallsaverecipes() {
 
     const fecthallsaves = async (): Promise<SavesRecipesTypes[]> => {
         setisFecthallsaverecipeslaoding(true)
+        if (!token) {
+            return []
+        }
         try {
             const res = await GetAll(token!) as SavesRecipesTypes[]
             return res

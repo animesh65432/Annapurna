@@ -35,14 +35,11 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
 
     const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
     const finalDishType = DishType.trim().length === 0 ? "Normal Dish" : DishType.trim();
-
     const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", DishOrRecipe, finalDishType);
-    const suggestionsInGredients = await GetsuggestionsArrays(recipe.healthierVersion.ingredients)
-    const imageLink = await usefindimgformgoogle(recipe.dish)
     const dbrecipe = await db.recipe.create({
         data: {
             originalNutrition: recipe.originalNutrition,
-            healthierVersion: { ...recipe.healthierVersion, suggestionsInGredients },
+            healthierVersion: recipe.healthierVersion,
             nutritionComparison: recipe.nutritionComparison,
             substitutions: recipe.substitutions,
             motivationalMessage: recipe.motivationalMessage,
@@ -51,12 +48,11 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
             variant: finalVariant,
             language: "English",
             foodHistoryContext: recipe.foodHistoryContext,
-            Img: imageLink,
         }
     });
     res.status(201).json({
         message: "Successfully created recipe",
-        recipe: { ...recipe, language: "English", Img: imageLink, suggestionsInGredients },
+        recipe: { ...recipe, language: "English" },
         id: dbrecipe.id
     });
     return

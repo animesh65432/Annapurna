@@ -1,5 +1,4 @@
 import { RecipeTypes } from "@/types"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/router"
 export default function Save({ recipe }: { recipe: RecipeTypes }) {
@@ -8,15 +7,13 @@ export default function Save({ recipe }: { recipe: RecipeTypes }) {
     const navigate_to = (Id: string) => {
         router.push(`/recipe/${Id}`)
     }
+
+    if (!recipe) {
+        return null
+    }
     return (
         <div className="w-full bg-white p-3 rounded-md flex gap-3 sm:gap-0 flex-col sm:flex-row">
-            <div className=" block sm:hidden  h-[17vh] sm:h-32 w-28 relative rounded-md overflow-hidden ">
-                <Image src={recipe.Img} alt="dish" fill />
-            </div>
             <div className="flex gap-2 sm:gap-4">
-                <div className=" hidden sm:block  h-[17vh] sm:h-32 w-28 relative rounded-md overflow-hidden ">
-                    <Image src={recipe.Img} alt="dish" fill />
-                </div>
                 <div className="flex flex-col gap-2 flex-1">
                     <div className="flex justify-between">
                         <h1 className="text-[#414141] text-[1.1rem] sm:text-xl">{recipe.dish}</h1>

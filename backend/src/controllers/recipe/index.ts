@@ -44,8 +44,7 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             dish: true,
             language: true,
             foodHistoryContext: true,
-            id: true,
-            Img: true
+            id: true
         },
     });
 

@@ -40,7 +40,6 @@ export type RecipeTypes = {
     language: string;
     foodHistoryContext: string;
     id: string;
-    Img: string
 };
 export type SavesRecipesTypes = {
     recipe: RecipeTypes

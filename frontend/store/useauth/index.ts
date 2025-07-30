@@ -4,36 +4,23 @@ type AuthstoreTypes = {
     token: string | null;
     addtoken: (token: string) => void;
     removetoken: () => void;
-    loadToken: () => void;
+};
+
+export const getInitialToken = () => {
+    if (typeof window !== "undefined") {
+        return localStorage.getItem("token");
+    }
+    return null;
 };
 
 export const useAuthstore = create<AuthstoreTypes>((set) => ({
-    token: null,
-
+    token: getInitialToken(),
     addtoken: (token) => {
-        localStorage.setItem("token", JSON.stringify(token));
+        localStorage.setItem("token", token);
         set({ token });
     },
-
     removetoken: () => {
         localStorage.removeItem("token");
         set({ token: null });
-    },
-
-    loadToken: () => {
-        if (typeof window !== "undefined") {
-            const storedToken = localStorage.getItem("token");
-            if (storedToken) {
-                try {
-                    const token = JSON.parse(storedToken);
-                    set({ token: token || null });
-                } catch (error) {
-                    localStorage.removeItem("token");
-                    set({ token: null });
-                }
-            } else {
-                set({ token: null });
-            }
-        }
     }
 }));

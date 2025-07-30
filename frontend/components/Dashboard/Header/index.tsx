@@ -6,14 +6,18 @@ import {
     SheetClose,
 } from "@/components/ui/sheet";
 import { useAuthstore } from "@/store/useauth";
+import { useHasMounted } from "@/hooks/useHasMounted"
 // import { SelectTrigger } from "@radix-ui/react-select";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router"
 // import { optionsforLanguages } from "@/lib/Herosectiondata"
 
 export default function Header() {
+    const router = useRouter()
+    const hasMounted = useHasMounted();
     const { i18n } = useTranslation()
     const { token } = useAuthstore()
     return (
@@ -27,8 +31,8 @@ export default function Header() {
                 <Link href="/Explore">
                     <li className="text-[#353535]">Explore</li>
                 </Link>
-                {token &&
-                    <li className="text-[#353535]">Save</li>
+                {hasMounted && token &&
+                    <Link href="/saves" className="text-[#353535] cursor-pointer">Save</Link>
                 }
                 {/* <li>
                     <Select value={i18n.language} onValueChange={(value) => i18n.changeLanguage(value)}>
@@ -63,7 +67,7 @@ export default function Header() {
                             <ul> <Link href="/Explore">Explore</Link></ul>
                             {token &&
                                 <ul>
-                                    <Link href="/Saves">
+                                    <Link href="/saves">
                                         Save
                                     </Link>
                                 </ul>
