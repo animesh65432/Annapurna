@@ -34,28 +34,29 @@ export const micronutrientIcons = [
 ];
 
 export const optionsforLanguages = [
-    { label: "हिन्दी", value: "hindi" },
-    { label: "বাংলা", value: "bengali" },
-    { label: "தமிழ்", value: "tamil" },
-    { label: "తెలుగు", value: "telugu" },
-    { label: "मराठी", value: "marathi" },
-    { label: "ગુજરાતી", value: "gujarati" },
-    { label: "ಕನ್ನಡ", value: "kannada" },
-    { label: "മലയാളം", value: "malayalam" },
-    { label: "ਪੰਜਾਬੀ", value: "punjabi" },
-    { label: "ଓଡ଼ିଆ", value: "odia" },
-    { label: "اردو", value: "urdu" },
-    { label: "অসমীয়া", value: "assamese" },
-    { label: "संस्कृतम्", value: "sanskrit" },
-    { label: "मैथिली", value: "maithili" },
-    { label: "संथाली", value: "santhali" },
-    { label: "नेपाली", value: "nepali" },
-    { label: "कोंकणी", value: "konkani" },
-    { label: "डोगरी", value: "dogri" },
-    { label: "बोडो", value: "bodo" },
-    { label: "मणिपुरी", value: "manipuri" },
-    { label: "English", value: "english" }
+    { label: "हिन्दी", value: "hi" },
+    { label: "বাংলা", value: "bn" },         // Bengali
+    { label: "தமிழ்", value: "ta" },         // Tamil
+    { label: "తెలుగు", value: "te" },        // Telugu
+    { label: "मराठी", value: "mr" },         // Marathi
+    { label: "ગુજરાતી", value: "gu" },        // Gujarati
+    { label: "ಕನ್ನಡ", value: "kn" },         // Kannada
+    { label: "മലയാളം", value: "ml" },        // Malayalam
+    { label: "ਪੰਜਾਬੀ", value: "pa" },         // Punjabi
+    { label: "ଓଡ଼ିଆ", value: "or" },         // Odia
+    { label: "اردو", value: "ur" },           // Urdu
+    { label: "অসমীয়া", value: "as" },         // Assamese
+    { label: "संस्कृतम्", value: "sa" },       // Sanskrit
+    { label: "मैथिली", value: "mai" },        // Maithili
+    { label: "संथाली", value: "sat" },        // Santhali
+    { label: "नेपाली", value: "ne" },         // Nepali
+    { label: "कोंकणी", value: "kok" },        // Konkani
+    { label: "डोगरी", value: "doi" },         // Dogri
+    { label: "बोडो", value: "brx" },          // Bodo
+    { label: "मणिपुरी", value: "mni" },       // Manipuri
+    { label: "English", value: "en" }         // English
 ];
+
 export const placeholders = [
     "e.g. Aloo Paratha",
     "e.g. Paste biryani recipe",

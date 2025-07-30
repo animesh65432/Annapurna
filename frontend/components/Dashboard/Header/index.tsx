@@ -1,3 +1,4 @@
+import { Select, SelectContent, SelectItem, SelectValue } from "@/components/ui/select";
 import {
     Sheet,
     SheetContent,
@@ -5,13 +6,15 @@ import {
     SheetClose,
 } from "@/components/ui/sheet";
 import { useAuthstore } from "@/store/useauth";
+// import { SelectTrigger } from "@radix-ui/react-select";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+// import { optionsforLanguages } from "@/lib/Herosectiondata"
 
 export default function Header() {
-    const { t } = useTranslation()
+    const { i18n } = useTranslation()
     const { token } = useAuthstore()
     return (
         <header className="ml-auto  mr-auto pt-5 flex justify-between items-center w-[80%]  md:max-w-[75%] lg:max-w-[740px] xl:max-w-[1120px]">
@@ -22,11 +25,23 @@ export default function Header() {
             </Link>
             <ul className=" hidden md:flex gap-8 items-center text-[1rem] ">
                 <Link href="/Explore">
-                    <li className="text-[#353535]"> {t("Explore")}</li>
+                    <li className="text-[#353535]">Explore</li>
                 </Link>
                 {token &&
                     <li className="text-[#353535]">Save</li>
                 }
+                {/* <li>
+                    <Select value={i18n.language} onValueChange={(value) => i18n.changeLanguage(value)}>
+                        <SelectTrigger className={`bg-transparent text-[#353535] rounded-md cursor-pointer `}>
+                            <SelectValue placeholder={optionsforLanguages[optionsforLanguages.length - 1].label} />
+                        </SelectTrigger>
+                        <SelectContent >
+                            {optionsforLanguages.map((Lang) => (
+                                <SelectItem key={Lang.value} value={Lang.value}>{Lang.label}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </li> */}
             </ul>
             <ul className="md:hidden block">
                 <Sheet>
