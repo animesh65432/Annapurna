@@ -5,7 +5,7 @@ export default function Discover() {
     const router = useRouter();
 
     const handleGoToExplore = () => {
-        router.push('/Explore');
+        router.push('/explore');
     };
     return (
         <div className="bg-[url('/dashboard/Discover.png')] rounded-lg  p-8 bg-cover mb-5 bg-center ml-auto mr-auto pt-5  flex flex-col justify-between w-[90%] sm:w-[85%] md:w-[80%]  md:max-w-[75%] lg:max-w-[750px] h-[221px] sm:h-[259px] xl:hidden">

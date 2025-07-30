@@ -28,7 +28,7 @@ export default function Header() {
                 </ul>
             </Link>
             <ul className=" hidden md:flex gap-8 items-center text-[1rem] ">
-                <Link href="/Explore">
+                <Link href="/explore">
                     <li className="text-[#353535]">Explore</li>
                 </Link>
                 {hasMounted && token &&
@@ -64,7 +64,7 @@ export default function Header() {
                             <XIcon className="size-8 text-[#048452] ml-auto " />
                         </SheetClose>
                         <nav className="flex  font-poppins text-[1rem] text-[#048452] font-medium flex-col justify-center items-center gap-8">
-                            <ul> <Link href="/Explore">Explore</Link></ul>
+                            <ul> <Link href="/explore">Explore</Link></ul>
                             {token &&
                                 <ul>
                                     <Link href="/saves">

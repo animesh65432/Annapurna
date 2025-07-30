@@ -52,7 +52,7 @@ export default function TrendingRecipes() {
     }
 
     const handleGoToExplore = () => {
-        router.push('/Explore');
+        router.push('/explore');
     };
 
     const recipes = getRecipes()
