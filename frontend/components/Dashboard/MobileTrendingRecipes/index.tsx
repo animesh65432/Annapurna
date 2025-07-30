@@ -1,6 +1,8 @@
 import { trendingRecipes } from "@/lib/Herosectiondata"
 import Image from "next/image"
+import { useRouter } from "next/router"
 export default function MobileTrendingRecipes() {
+    const router = useRouter()
     return (
         <div className="sm:hidden w-[90%] ml-auto mr-auto  ">
             <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">Trending Recipes</h1>
@@ -28,7 +30,7 @@ export default function MobileTrendingRecipes() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-[80%] mx-auto text-[#168B5D] flex items-center justify-between  ">
+                            <div onClick={() => router.push(`/nutritionComparison/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
                                 See healthier Version
                                 <div className="relative w-8 h-8">
                                     <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />

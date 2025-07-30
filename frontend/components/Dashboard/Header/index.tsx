@@ -8,8 +8,10 @@ import { useAuthstore } from "@/store/useauth";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function Header() {
+    const { t } = useTranslation()
     const { token } = useAuthstore()
     return (
         <header className="ml-auto  mr-auto pt-5 flex justify-between items-center w-[80%]  md:max-w-[75%] lg:max-w-[740px] xl:max-w-[1120px]">
@@ -20,7 +22,7 @@ export default function Header() {
             </Link>
             <ul className=" hidden md:flex gap-8 items-center text-[1rem] ">
                 <Link href="/Explore">
-                    <li className="text-[#353535]">Explore</li>
+                    <li className="text-[#353535]"> {t("Explore")}</li>
                 </Link>
                 {token &&
                     <li className="text-[#353535]">Save</li>

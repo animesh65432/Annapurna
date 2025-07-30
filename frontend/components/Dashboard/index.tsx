@@ -7,6 +7,7 @@ import MobileTrendingRecipes from "./MobileTrendingRecipes"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import FoodLoading from "../Foodloading"
 
+
 type Props = {
     dishname: string | null
 }

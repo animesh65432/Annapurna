@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
   },
   images: {
     unoptimized: true
+  },
+  i18n: {
+    locales: ['en', 'bn'],
+    defaultLocale: 'en',
   }
 }
 
