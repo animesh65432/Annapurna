@@ -22,6 +22,7 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
 
     const handleSearch = () => {
         router.push(`/explore/search?${DietType ? `diet=${DietType}&` : ''}${Cuisine ? `cuisine=${Cuisine}&` : ''}${dish ? `q=${dish}` : ''}`);
+        settootleserch(false);
     }
     useEffect(() => {
         if (diet) {
