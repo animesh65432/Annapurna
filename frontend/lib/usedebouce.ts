@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 export function debounce<T extends (...args: any[]) => void>(
     func: T,
     delay: number

@@ -34,18 +34,6 @@ export default function Header() {
                 {hasMounted && token &&
                     <Link href="/saves" className="text-[#353535] cursor-pointer">Save</Link>
                 }
-                {/* <li>
-                    <Select value={i18n.language} onValueChange={(value) => i18n.changeLanguage(value)}>
-                        <SelectTrigger className={`bg-transparent text-[#353535] rounded-md cursor-pointer `}>
-                            <SelectValue placeholder={optionsforLanguages[optionsforLanguages.length - 1].label} />
-                        </SelectTrigger>
-                        <SelectContent >
-                            {optionsforLanguages.map((Lang) => (
-                                <SelectItem key={Lang.value} value={Lang.value}>{Lang.label}</SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
-                </li> */}
             </ul>
             <ul className="md:hidden block">
                 <Sheet>

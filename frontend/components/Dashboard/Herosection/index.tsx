@@ -89,7 +89,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
             const response = await createRecipe(data.dish, data.Nutrient, data.DishType)
             console.log(response)
             setRecipe(response?.recipe!)
-            router.push(`/nutritionComparison/${response?.id}`)
+            router.push(`/recipe/${response?.id}`)
         } catch (error) {
         }
         finally {

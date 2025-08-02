@@ -4,3 +4,4 @@ export const config = {
     EXPLORE_API_URL: "https://indiancuisine-five.vercel.app"
 }
 // https://annapurna-i54c.vercel.app
+// https://indiancuisine-five.vercel.app

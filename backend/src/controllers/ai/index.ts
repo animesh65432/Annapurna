@@ -3,8 +3,6 @@ import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
 import { isDishOrRecipe } from "../../utils/Checkdishorrecipe"
-import { GetsuggestionsArrays } from "../../utils/findthenindgridentlink"
-import { usefindimgformgoogle } from "../../utils/useFindimg"
 import db from "../../db"
 
 export const generateSuggestionController = async (req: Request, res: Response) => {

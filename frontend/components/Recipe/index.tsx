@@ -10,6 +10,7 @@ import History from "./History"
 import FuncFat from "./FunFact"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { config } from "@/config"
+import NutritionComparison from "./NutritionComparison"
 
 type Props = {
     recipeId: string
@@ -40,8 +41,8 @@ export default function Recipe({ recipeId }: Props) {
     }
     return (
         <GoogleOAuthProvider clientId={config.GOOGLE_CLIENT_ID}>
-            <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col gap-8">
-                <Header />
+            <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col gap-6 lg:gap-8 pb-5 ">
+                <NutritionComparison />
                 <Ingredients />
                 <Steps />
                 <WhyTheseChanges />
