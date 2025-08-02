@@ -30,7 +30,7 @@ export default function MobileTrendingRecipes() {
                                     </div>
                                 </div>
                             </div>
-                            <div onClick={() => router.push(`/nutritionComparison/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
+                            <div onClick={() => router.push(`/recipe/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
                                 See healthier Version
                                 <div className="relative w-8 h-8">
                                     <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />

@@ -42,7 +42,7 @@ export default function Recipe({ name, time, when, image, after, id }: Props) {
                         {when.join(', ')}
                     </div>
                 </div>
-                <div onClick={() => router.push(`/nutritionComparison/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
+                <div onClick={() => router.push(`/recipe/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
                     See healthier Version
                     <div className="relative w-8 h-8">
                         <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
