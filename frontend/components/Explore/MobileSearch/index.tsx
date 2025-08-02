@@ -2,18 +2,21 @@ import { useEffect, useState, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Search } from "lucide-react";
-import { DishTypeOptions, indianDishes, micronutrientIcons } from "@/lib/Herosectiondata";
+import { DishTypeOptions, dishesfrom, micronutrientIcons } from "@/lib/Herosectiondata";
 import { Button } from "@/components/ui/button";
 import { useClickOutside } from "@/hooks/useClickoutside"
-import { useExploreContext } from "@/context";
 
-export default function MobileSearch() {
+type Props = {
+    diet?: string | null,
+    cuisine?: string | null,
+    q?: string | null
+}
+export default function MobileSearch({ diet, cuisine, q }: Props) {
     const [toggleSearch, settootleserch] = useState(false);
     const modelref = useRef<HTMLDivElement>(null)
     const [dish, setdish] = useState<string>("")
     const [DietType, SetDietType] = useState<string>("")
     const [Nutrient, setNutrient] = useState<string>("")
-    const { setIsfiltering, setdish: setIndiandish, dish: Indiandish } = useExploreContext()
 
     useEffect(() => {
         if (toggleSearch) {
@@ -31,34 +34,18 @@ export default function MobileSearch() {
         settootleserch(false)
     })
 
-    const handleserch = () => {
-        const isFiltering = dish.length > 0 || Nutrient.length > 0 || DietType.length > 0;
-        setIsfiltering(isFiltering);
-
-        if (isFiltering) {
-            const filterdish = indianDishes.filter((d) => {
-                const matchName = dish ? d.name.toLowerCase().includes(dish.toLowerCase()) : true;
-                const matchDiet = DietType
-                    ? DietType === "any"
-                        ? true
-                        : d.diettype.toLowerCase() === DietType.toLowerCase()
-                    : true;
-
-                const matchNutrient = Nutrient
-                    ? Array.isArray(d.variant) && d.variant.some((n) =>
-                        n.toLowerCase().includes(Nutrient.toLowerCase())
-                    )
-                    : true;
-
-                return matchName && matchDiet && matchNutrient;
-            });
-
-            setIndiandish(filterdish);
-        } else {
-            setIndiandish(Indiandish);
+    useEffect(() => {
+        if (diet) {
+            SetDietType(diet);
         }
-        settootleserch(false)
-    }
+        if (cuisine) {
+            setNutrient(cuisine);
+        }
+        if (q) {
+            setdish(q);
+        }
+    }, [diet, cuisine, q])
+
 
     return (
         <>
@@ -99,17 +86,17 @@ export default function MobileSearch() {
                             </Select>
                             <Select onValueChange={(value) => setNutrient(value)}>
                                 <SelectTrigger className="rounded-md cursor-pointer ml-auto sm:ml-0 mr-auto p-5 text-black w-[80%] sm:w-[49%] bg-transparent shadow-none ">
-                                    <SelectValue placeholder="Nutrient Focus" />
+                                    <SelectValue placeholder="Cuisine Type" />
                                 </SelectTrigger>
                                 <SelectContent className="">
-                                    {micronutrientIcons.map((micronutrient) => (
-                                        <SelectItem key={micronutrient.label} value={micronutrient.label}>{micronutrient.label}</SelectItem>
+                                    {dishesfrom.map((place) => (
+                                        <SelectItem key={place} value={place}>{place.split("_").join(" ")}</SelectItem>
                                     ))}
                                 </SelectContent>
                             </Select>
                         </div>
                         <div className="mt-[10%] sm:mt-0 flex justify-center">
-                            <Button onClick={handleserch} className="bg-[#168B5D] cursor-pointer hover:bg-[#3c6d5a] text-white ml-auto mr-auto flex items-center gap-2 px-6 py-2">
+                            <Button className="bg-[#168B5D] cursor-pointer hover:bg-[#3c6d5a] text-white ml-auto mr-auto flex items-center gap-2 px-6 py-2">
                                 <Search className="w-4 h-4" />
                                 Search
                             </Button>

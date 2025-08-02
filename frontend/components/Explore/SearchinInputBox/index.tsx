@@ -1,45 +1,39 @@
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { DishTypeOptions, micronutrientIcons } from "@/lib/Herosectiondata"
+import { DishTypeOptions } from "@/lib/Herosectiondata"
 import InputIcon from "@/public/assets/dashboard/Vector.svg"
 import Image from "next/image"
 import { Search } from "lucide-react"
-import { useExploreContext } from "@/context"
-import { useState } from "react"
-import { indianDishes } from "@/lib/Herosectiondata"
+import { useEffect, useState } from "react"
+import { dishesfrom } from "@/lib/Herosectiondata"
+import { useRouter } from 'next/router';
 
-export default function SearchinInputBox() {
+type Props = {
+    diet?: string | null,
+    cuisine?: string | null,
+    q?: string | null
+}
+
+export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const [dish, setdish] = useState<string>("")
     const [DietType, SetDietType] = useState<string>("")
-    const [Nutrient, setNutrient] = useState<string>("")
-    const { setIsfiltering, setdish: setIndiandish, dish: Indiandish } = useExploreContext()
-    const handleserch = () => {
-        const isFiltering = dish.length > 0 || Nutrient.length > 0 || DietType.length > 0;
-        setIsfiltering(isFiltering);
+    const [Cuisine, setCuisine] = useState<string>("")
+    const router = useRouter();
 
-        if (isFiltering) {
-            const filterdish = indianDishes.filter((d) => {
-                const matchName = dish ? d.name.toLowerCase().includes(dish.toLowerCase()) : true;
-                const matchDiet = DietType
-                    ? DietType === "any"
-                        ? true
-                        : d.diettype.toLowerCase() === DietType.toLowerCase()
-                    : true;
-
-                const matchNutrient = Nutrient
-                    ? Array.isArray(d.variant) && d.variant.some((n) =>
-                        n.toLowerCase().includes(Nutrient.toLowerCase())
-                    )
-                    : true;
-
-                return matchName && matchDiet && matchNutrient;
-            });
-
-            setIndiandish(filterdish);
-        } else {
-            setIndiandish(Indiandish);
-        }
+    const handleSearch = () => {
+        router.push(`/explore/search?${DietType ? `diet=${DietType}&` : ''}${Cuisine ? `cuisine=${Cuisine}&` : ''}${dish ? `q=${dish}` : ''}`);
     }
+    useEffect(() => {
+        if (diet) {
+            SetDietType(diet);
+        }
+        if (cuisine) {
+            setCuisine(cuisine);
+        }
+        if (q) {
+            setdish(q);
+        }
+    }, [diet, cuisine, q]);
     return (
         <div className="w-full flex justify-center ">
             <div className=" hidden md:flex  rounded-4xl h-[8vh] items-center w-[75%] lg:w-[63%] xl:w-[55%] bg-white shadow-md border-2 border-neutral-100 text-black">
@@ -55,18 +49,18 @@ export default function SearchinInputBox() {
                         ))}
                     </SelectContent>
                 </Select>
-                <Select value={Nutrient} onValueChange={(value) => setNutrient(value)} >
+                <Select value={Cuisine} onValueChange={(value) => setCuisine(value)} >
                     <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none w-[20%]">
-                        <SelectValue placeholder="Nutrient Focus" />
+                        <SelectValue placeholder="Cuisine Type" />
                     </SelectTrigger>
                     <SelectContent className="">
-                        {micronutrientIcons.map((micronutrient) => (
-                            <SelectItem key={micronutrient.label} value={micronutrient.value}>{micronutrient.label}</SelectItem>
+                        {dishesfrom.map((place) => (
+                            <SelectItem key={place} value={place}>{place.split("_").join(" ")}</SelectItem>
                         ))}
                     </SelectContent>
                 </Select>
                 <div className="flex cursor-pointer ml-[5%] lg:ml-[2%] bg-[#168B5D] text-white rounded-3xl p-2">
-                    <Search onClick={handleserch} />
+                    <Search onClick={handleSearch} />
                 </div>
             </div>
         </div>

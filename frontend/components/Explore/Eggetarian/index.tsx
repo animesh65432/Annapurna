@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import Dish from "../Dish"
 import {
     Carousel,
     CarouselContent,
@@ -9,21 +7,23 @@ import {
 } from "@/components/ui/carousel"
 import { useGetdishes } from "@/hooks/useGetdishes"
 import DishSkeleton from "../DishSkelton";
-import { ChevronRight } from "lucide-react"
+import { useEffect } from "react";
+import Dish from "../Dish";
+import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/router"
 
-export default function Nonvegetarian() {
+export default function Eggetarian() {
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
     const router = useRouter();
 
     useEffect(() => {
-        fetchDishes("Non_Vegetarian");
+        fetchDishes("Eggetarian");
     }, []);
 
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
-            <h1 onClick={() => router.push(`/explore/Non_Vegetarian`)} className="text-[#565656] hover:underline font-bold cursor-pointer text-xl sm:text-2xl mb-4 flex items-center">
-                Non vegetarian
+            <h1 onClick={() => router.push("/explore/Eggetarian")} className="text-[#565656] cursor-pointer hover:underline font-bold text-xl sm:text-2xl mb-4 flex items-center">
+                Eggetarian
                 <span>
                     <ChevronRight className="ml-1  w-6 h-6 sm:w-8 sm:h-8" />
                 </span>
@@ -58,11 +58,13 @@ export default function Nonvegetarian() {
                                     prep_time={dish.prep_time}
                                     cuisine={dish.cuisine}
                                     id={dish.id}
+
                                 />
                             </CarouselItem>
                         ))}
                 </CarouselContent>
             </Carousel>
-        </div >
+        </div>
     );
 }
+

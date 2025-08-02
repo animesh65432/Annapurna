@@ -1,6 +1,6 @@
 export const DishTypeOptions = [
-    { label: " Veg", value: "veg" },
-    { label: "Non-Veg", value: "nonveg" },
+    { label: "Veg", value: "Vegetarian" },
+    { label: "Non-Veg", value: "Non_Vegetarian" },
     { label: "Any", value: "any" }
 ]
 
@@ -1545,3 +1545,43 @@ export const nutritionTranslations: Record<string, Record<string, string>> = {
 
 };
 
+export const dishesfrom = [
+    "South_Indian",
+    "Goan",
+    "North_Indian",
+    "Assamese",
+    "Tamil_Nadu",
+    "Karnataka",
+    "Malvani",
+    "Kerala",
+    "Gujarati",
+    "Sindhi",
+    "Konkan",
+    "Hyderabadi",
+    "Andhra",
+    "Coorg",
+    "Bengali",
+    "Mangalorean",
+    "Kongunadu",
+    "Punjabi",
+    "Udupi",
+    "Chettinad",
+    "Indo_Chinese",
+    "Parsi",
+    "Rajasthani",
+    "Kashmiri",
+    "Mughlai",
+    "Bihari",
+    "Maharashtrian",
+    "North_East_India",
+    "Himachal",
+    "Uttar_Pradesh",
+    "Awadhi",
+    "Oriya",
+    "Uttarakhand",
+    "Lucknowi",
+    "Haryana",
+    "Malabar",
+    "Jharkhand",
+    "Nagaland"
+];

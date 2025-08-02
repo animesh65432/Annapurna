@@ -44,3 +44,13 @@ export type RecipeTypes = {
 export type SavesRecipesTypes = {
     recipe: RecipeTypes
 }
+
+export type dishTypes = {
+    id: string;
+    name: string,
+    image_url: string,
+    cuisine: string,
+    description: string,
+    diet: string,
+    prep_time: string
+}

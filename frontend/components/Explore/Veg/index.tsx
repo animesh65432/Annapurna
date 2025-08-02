@@ -1,5 +1,5 @@
-import { indianDishes } from "@/lib/Herosectiondata"
 import Dish from "../Dish"
+import { useGetdishes } from "@/hooks/useGetdishes"
 import {
     Carousel,
     CarouselContent,
@@ -7,13 +7,27 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel"
-import { ChevronRight } from "lucide-react"
+import { useEffect } from "react"
+import DishSkeleton from "../DishSkelton";
+import { ChevronRight } from "lucide-react";
+import { useRouter } from "next/router"
 export default function Veg() {
-    const Veg = indianDishes.filter((dish) => dish.diettype === "veg")
+    const { dishes, IsLoading, fetchDishes } = useGetdishes();
+    const router = useRouter();
+
+    async function init() {
+        await fetchDishes("Non_Vegetarian")
+    }
+    useEffect(() => {
+        init()
+    }, [])
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
-            <h1 className="text-[#3f3f3f] font-bold text-xl sm:text-2xl mb-4 flex items-center">
-                Vegetarian dishes
+            <h1 onClick={() => router.push(`/explore/Vegetarian`)} className="text-[#3f3f3f] hover:underline cursor-pointer font-bold text-xl sm:text-2xl mb-4 flex items-center">
+                Vegetarian
+                <span>
+                    <ChevronRight className="ml-1  w-6 h-6 sm:w-8 sm:h-8" />
+                </span>
             </h1>
 
             <Carousel opts={{ align: "start" }} className="w-full relative">
@@ -22,19 +36,30 @@ export default function Veg() {
                     <CarouselNext />
                 </div>
                 <CarouselContent>
-                    {Veg.map((dish, index) => (
-                        <CarouselItem
-                            key={index}
-                            className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-                        >
-                            <Dish
-                                index={index}
-                                name={dish.name}
-                                variant={dish.variant}
-                                img={dish.img}
-                            />
-                        </CarouselItem>
-                    ))}
+                    {IsLoading
+                        ? Array.from({ length: 5 }).map((_, index) => (
+                            <CarouselItem
+                                key={index}
+                                className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                            >
+                                <DishSkeleton />
+                            </CarouselItem>
+                        ))
+                        : dishes.map((dish, index) => (
+                            <CarouselItem
+                                key={index}
+                                className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                            >
+                                <Dish
+                                    index={index}
+                                    name={dish.name}
+                                    img={dish.image_url}
+                                    prep_time={dish.prep_time}
+                                    cuisine={dish.cuisine}
+                                    id={dish.id}
+                                />
+                            </CarouselItem>
+                        ))}
                 </CarouselContent>
             </Carousel>
 
