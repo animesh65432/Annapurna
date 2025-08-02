@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 import { DishTypeOptions, dishesfrom, micronutrientIcons } from "@/lib/Herosectiondata";
 import { Button } from "@/components/ui/button";
 import { useClickOutside } from "@/hooks/useClickoutside"
+import { useRouter } from "next/router";
 
 type Props = {
     diet?: string | null,
@@ -16,7 +17,23 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
     const modelref = useRef<HTMLDivElement>(null)
     const [dish, setdish] = useState<string>("")
     const [DietType, SetDietType] = useState<string>("")
-    const [Nutrient, setNutrient] = useState<string>("")
+    const [Cuisine, setCuisine] = useState<string>("")
+    const router = useRouter();
+
+    const handleSearch = () => {
+        router.push(`/explore/search?${DietType ? `diet=${DietType}&` : ''}${Cuisine ? `cuisine=${Cuisine}&` : ''}${dish ? `q=${dish}` : ''}`);
+    }
+    useEffect(() => {
+        if (diet) {
+            SetDietType(diet);
+        }
+        if (cuisine) {
+            setCuisine(cuisine);
+        }
+        if (q) {
+            setdish(q);
+        }
+    }, [diet, cuisine, q]);
 
     useEffect(() => {
         if (toggleSearch) {
@@ -33,19 +50,6 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
     useClickOutside(modelref, () => {
         settootleserch(false)
     })
-
-    useEffect(() => {
-        if (diet) {
-            SetDietType(diet);
-        }
-        if (cuisine) {
-            setNutrient(cuisine);
-        }
-        if (q) {
-            setdish(q);
-        }
-    }, [diet, cuisine, q])
-
 
     return (
         <>
@@ -84,7 +88,7 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
                                     ))}
                                 </SelectContent>
                             </Select>
-                            <Select onValueChange={(value) => setNutrient(value)}>
+                            <Select onValueChange={(value) => setCuisine(value)}>
                                 <SelectTrigger className="rounded-md cursor-pointer ml-auto sm:ml-0 mr-auto p-5 text-black w-[80%] sm:w-[49%] bg-transparent shadow-none ">
                                     <SelectValue placeholder="Cuisine Type" />
                                 </SelectTrigger>
@@ -96,7 +100,7 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
                             </Select>
                         </div>
                         <div className="mt-[10%] sm:mt-0 flex justify-center">
-                            <Button className="bg-[#168B5D] cursor-pointer hover:bg-[#3c6d5a] text-white ml-auto mr-auto flex items-center gap-2 px-6 py-2">
+                            <Button onClick={handleSearch} className="bg-[#168B5D] cursor-pointer hover:bg-[#3c6d5a] text-white ml-auto mr-auto flex items-center gap-2 px-6 py-2">
                                 <Search className="w-4 h-4" />
                                 Search
                             </Button>
