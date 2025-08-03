@@ -21,4 +21,3 @@ export const useGenrateRecipe = () => {
 
 }
 
-export default useGenrateRecipe
