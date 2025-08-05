@@ -116,18 +116,18 @@ export default function FoodLoading() {
                             <div
                                 key={index}
                                 className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 ${completedSteps.has(index)
-                                    ? 'text-gray-600'
-                                    : index === currentStep
-                                        ? 'text-gray-900'
-                                        : 'text-gray-400'
+                                        ? 'text-gray-600'
+                                        : index === currentStep
+                                            ? 'text-gray-900'
+                                            : 'text-gray-400'
                                     }`}
                             >
                                 {/* Step indicator */}
-                                <div className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${completedSteps.has(index)
-                                    ? 'bg-gradient-to-br from-[#168B5D] to-[#29d691] border-transparent'
-                                    : index === currentStep
-                                        ? 'border-gray-400 bg-white'
-                                        : 'border-gray-200 bg-white'
+                                <div className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center transition-all duration-300 ${completedSteps.has(index)
+                                        ? 'bg-gradient-to-br from-[#168B5D] to-[#29d691]'
+                                        : index === currentStep
+                                            ? 'border-2 border-gray-400 bg-white'
+                                            : 'border-2 border-gray-200 bg-white'
                                     }`}>
                                     {completedSteps.has(index) ? (
                                         <Check className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" />
