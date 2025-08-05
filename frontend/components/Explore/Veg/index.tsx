@@ -16,7 +16,7 @@ export default function Veg() {
     const router = useRouter();
 
     async function init() {
-        await fetchDishes("Non_Vegetarian")
+        await fetchDishes("Vegetarian")
     }
     useEffect(() => {
         init()
