@@ -17,9 +17,8 @@ model Recipe {
   dish                 String
   variant              String
   language             String
-  originalNutrition    Json
   healthierVersion     Json
-  nutritionComparison  Json
+  Comparison           Json
   substitutions        Json
   motivationalMessage  String
   funFact              String

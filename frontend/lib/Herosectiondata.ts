@@ -83,7 +83,7 @@ export const trendingRecipes = [
         after: "Now with 50% less fat!",
         time: 30,
         when: ["breakfast", "lunch"],
-        id: "688745e23da669a6e6d3e9dc"
+        id: "6891a4b1890a1a18a1523b39"
     },
     {
         name: "Idli Sambar",
@@ -98,7 +98,7 @@ export const trendingRecipes = [
         after: "Increased Protein 50%",
         time: 45,
         when: ["breakfast", "morning"],
-        id: "6887461f3da669a6e6d3e9dd"
+        id: "6891b38b1aaa010587641e2e"
     },
     {
         name: "Pav Bhaji",
@@ -113,7 +113,7 @@ export const trendingRecipes = [
         after: "33% more protein",
         time: 35,
         when: ["lunch", "dinner"],
-        id: "688746563da669a6e6d3e9de"
+        id: "6891b40d1aaa010587641e2f"
     },
     {
         name: "Baingan Bharta",
@@ -127,7 +127,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 40,
         when: ["lunch", "dinner"],
-        id: "688746843da669a6e6d3e9df",
+        id: "6891b994abf2d1490a122827",
         after: "60% more fiber",
     },
     {
@@ -142,7 +142,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Omega-3"],
         time: 25,
         when: ["lunch", "dinner"],
-        id: "688746cf3da669a6e6d3e9e0",
+        id: "6891b9f3abf2d1490a122828",
         after: "8% fewer calories"
     },
     {
@@ -157,7 +157,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 20,
         when: ["lunch", "dinner"],
-        id: "688746fd3da669a6e6d3e9e1",
+        id: "6891bdfef42540fbbef8610c",
         after: "140% more protein"
     },
     {
@@ -172,7 +172,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 30,
         when: ["morning", "evening"],
-        id: "688788d1bc7733d37c85bd80",
+        id: "6891be78f42540fbbef8610d",
         after: "33% less fat"
     },
     {
@@ -187,7 +187,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich"],
         time: 15,
         when: ["morning", "evening"],
-        id: "688749cd097ff623fcc4c973",
+        id: "6891c479231c99b2b6275cdc",
         after: "More 10% fiber."
     },
     {
@@ -202,7 +202,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich"],
         time: 50,
         when: ["lunch", "dinner"],
-        id: "68874a90097ff623fcc4c974",
+        id: "6891c50a231c99b2b6275cdd",
         after: "150% more fiber"
     },
     {
@@ -217,7 +217,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 25,
         when: ["breakfast", "dinner"],
-        id: "68874aca097ff623fcc4c975",
+        id: "6891c676231c99b2b6275cde",
         after: "Calories Up 12%"
     },
     {
@@ -232,7 +232,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 90,
         when: ["lunch", "dinner"],
-        id: "68874af4097ff623fcc4c976",
+        id: "6891c6ff231c99b2b6275cdf",
         after: "Fiber Up 50%"
     },
     {
@@ -247,7 +247,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 35,
         when: ["lunch", "dinner"],
-        id: "68874b3d097ff623fcc4c977",
+        id: "6891c784231c99b2b6275ce0",
         after: "Calories Up 12%"
     },
     {
@@ -262,7 +262,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Fiber-rich"],
         time: 40,
         when: ["breakfast", "morning"],
-        id: "68874c060313829208ad1812",
+        id: "6891cf315995b4f9a28fabeb",
         after: "Protein Up 25%"
     },
     {
@@ -277,7 +277,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Omega-3"],
         time: 30,
         when: ["lunch", "dinner"],
-        id: "68874c570313829208ad1813",
+        id: "6891cf9d5995b4f9a28fabec",
         after: "Iron Up 50%"
     },
     {
@@ -292,7 +292,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Probiotic"],
         time: 45,
         when: ["lunch", "dinner"],
-        id: "68874c810313829208ad1814",
+        id: "6891d03a5995b4f9a28fabed",
         after: "Calories Down 12.5%"
     },
     {
@@ -307,7 +307,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Alkaline"],
         time: 25,
         when: ["lunch", "dinner"],
-        id: "68874cb10313829208ad1815",
+        id: "6891d14a5995b4f9a28fabee",
         after: "Protein Up 80%"
     },
     {
@@ -322,7 +322,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Iron-rich", "Plant Protein"],
         time: 60,
         when: ["lunch", "dinner"],
-        id: "6887501a6c5d092ea91a7c6d",
+        id: "6891d1de5995b4f9a28fabef",
         after: "Iron Up 20%"
     },
     {
@@ -337,7 +337,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Probiotic", "Spicy"],
         time: 35,
         when: ["lunch", "dinner"],
-        id: "68874d0e0313829208ad1817",
+        id: "6891d2595995b4f9a28fabf0",
         after: "Calories Down 14%"
     },
     {
@@ -352,7 +352,7 @@ export const trendingRecipes = [
         variant: ["Fiber-rich", "Calcium-rich", "Gluten-free"],
         time: 20,
         when: ["lunch", "dinner"],
-        id: "68874d3f0313829208ad1818",
+        id: "6891d3365995b4f9a28fabf1",
         after: "Iron Up 33%"
     },
     {
@@ -367,7 +367,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Warm & Healing", "Low-fat"],
         time: 40,
         when: ["lunch", "dinner"],
-        id: "68874d730313829208ad1819",
+        id: "6891d3b15995b4f9a28fabf2",
         after: "50% more iron"
     },
     {
@@ -382,7 +382,7 @@ export const trendingRecipes = [
         variant: ["Protein-rich", "Spice-rich", "Soft-textured"],
         time: 45,
         when: ["lunch", "dinner"],
-        id: "688752a82ac8460e1bdc822f",
+        id: "6891d4115995b4f9a28fabf3",
         after: "40% less fat"
     }
 ];

@@ -39,6 +39,8 @@ export default function Recipe({ recipeId }: Props) {
     if (!recipe) {
         return <Pageloading />
     }
+
+    console.log("Recipe data:", recipe);
     return (
         <GoogleOAuthProvider clientId={config.GOOGLE_CLIENT_ID}>
             <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col gap-6 lg:gap-8 pb-5 ">

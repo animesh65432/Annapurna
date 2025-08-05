@@ -1,3 +1,3 @@
-import AI_Model from "./Ai";
+import AI_Model from "./GENAIAPI";
 
 export { AI_Model }

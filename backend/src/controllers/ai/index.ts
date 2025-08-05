@@ -2,7 +2,6 @@ import { Request, Response } from "express"
 import { asyncerrorhandler } from "../../middleware"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
-import { isDishOrRecipe } from "../../utils/Checkdishorrecipe"
 import db from "../../db"
 
 export const generateSuggestionController = async (req: Request, res: Response) => {
@@ -29,16 +28,13 @@ export const GenrateRecipe = asyncerrorhandler(async (req: Request, res: Respons
         return
     }
 
-    const DishOrRecipe = await isDishOrRecipe(dish) as string;
-
     const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
     const finalDishType = DishType.trim().length === 0 ? "Normal Dish" : DishType.trim();
-    const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", DishOrRecipe, finalDishType);
+    const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", finalDishType);
     const dbrecipe = await db.recipe.create({
         data: {
-            originalNutrition: recipe.originalNutrition,
             healthierVersion: recipe.healthierVersion,
-            nutritionComparison: recipe.nutritionComparison,
+            Comparison: recipe.Comparison,
             substitutions: recipe.substitutions,
             motivationalMessage: recipe.motivationalMessage,
             funFact: recipe.funFact,

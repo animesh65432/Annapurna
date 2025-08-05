@@ -16,7 +16,9 @@ const config = {
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     GOOGLE_CX: process.env.GOOGLE_CX,
     INGRIDENT_GOOGLE_API_KEY: process.env.INGRIDENT_GOOGLE_API_KEY,
-    INGRIDENT_GOOGLE_CX: process.env.INGRIDENT_GOOGLE_CX
+    INGRIDENT_GOOGLE_CX: process.env.INGRIDENT_GOOGLE_CX,
+    GENAIAPIKEY1: process.env.GENAIAPIKEY1,
+    GENAIAPIKEY2: process.env.GENAIAPIKEY2,
 }
 
 export default config
