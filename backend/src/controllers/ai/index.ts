@@ -8,8 +8,8 @@ export const generateSuggestionController = async (req: Request, res: Response) 
     try {
         const { prompt } = req.body
 
-        if (!prompt) {
-            res.status(400).json({ error: "Prompt is required" })
+        if (!prompt || prompt.trim().length < 3) {
+            res.status(400).json({ suggestions: [] })
             return
         }
         const redisKey = `suggestion:${prompt}`
