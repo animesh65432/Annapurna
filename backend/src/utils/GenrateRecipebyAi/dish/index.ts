@@ -14,46 +14,38 @@ The dish type is: ${dishtype}.
 
 Create a detailed healthier recipe following the exact structure below:
 
-CRITICAL INSTRUCTIONS:
-- Return ONLY the JSON object below
-- Do NOT include any text before or after the JSON
-- Do NOT use markdown formatting or code blocks
-- Do NOT add explanations, comments, or additional text
-- Ensure all quotes are properly escaped
-- End your response immediately after the closing brace
+CRITICAL JSON FORMATTING INSTRUCTIONS:
+- Your response must be ONLY valid JSON - no text before or after
+- Start with { and end with }
+- Use double quotes for all strings, never single quotes
+- No trailing commas after the last item in objects or arrays
+- Escape quotes inside strings with \"
+- Test your JSON structure before responding
+- No line breaks inside string values
+- Ensure all brackets and braces match perfectly
+-and anything else that is not in the below structure should not be included
 
 {
   "healthierVersion": {
-    "description": "[Write a warm, encouraging description (3-4 sentences) in ${Language} about how this improved version maintains authentic taste while boosting nutrition. Specifically explain how it aligns with ${Variant} dietary goals and what health benefits it provides. Make it inspiring and appetizing, mentioning specific nutritional improvements.]",
+    "description": "[Write 3-4 sentences in ${Language} about this healthier version]",
     "ingredients": [
-      "[List each ingredient with precise quantities in ${Language} using exact measurements]",
-      "[Use only ingredients easily available in Indian markets and local grocery stores]",
-      "[Include traditional Indian spices and herbs with proper authentic names]",
-      "[Use measurements familiar to Indian cooking - cups, tablespoons, teaspoons, grams, pieces]",
-      "[Clearly highlight any healthier substitutions made while maintaining taste - explain why each substitution works]",
-      "[Ensure ingredients create authentic flavors despite being healthier - mention flavor impact]",
-      "[Include 8-12 ingredients total for completeness]"
+      "[Ingredient 1 with quantity]",
+      "[Ingredient 2 with quantity]",
+      "[Continue to list all ingredients with quantities]",
     ],
     "steps": [
-      "[Write detailed cooking steps in ${Language} with clear, actionable instructions]",
-      "[Include traditional Indian cooking techniques like tempering (tadka), grinding masalas, slow cooking, dum cooking]",
-      "[Mention specific cooking times and heat levels clearly (low/medium/high flame) with exact minutes]",
-      "[Include visual and texture cues for checking doneness - describe what to look for]",
-      "[Add traditional serving suggestions and garnishing tips with accompaniments]",
-      "[Provide exactly 8-10 complete, clear steps using authentic Indian cooking methods]",
-      "[Include professional tips for achieving restaurant-quality taste at home]",
-      "[Mention any special techniques that enhance the healthier version without compromising flavor]",
-      "[Add storage and reheating instructions if applicable]",
-      "[Avoid numbering the steps (don't use 1, 2, 3...).]"
+      "[Detailed step 1]",
+      "[Detailed step 2]", 
+      "[Continue to list all steps in order]",
     ]
   }
 }
-
-IMPORTANT: Your response must start with { and end with }. Nothing else.`;
+  `;
 }
 
 export function buildPromptdish2(dishOrRecipe: string, Variant: string, Language: string, dishtype: string, recipe: string) {
-  return `You are an expert nutritionist and Indian cuisine analyst with deep knowledge of traditional recipes and their nutritional profiles.
+  return `{
+  You are an expert nutritionist and Indian cuisine analyst with deep knowledge of traditional recipes and their nutritional profiles.
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
@@ -87,9 +79,11 @@ REQUIRED JSON STRUCTURE:
     }
   }
 }
-IMPORTANT: Your response must start with { and end with }. Nothing else.`;
+IMPORTANT: Your response must start with { and end with }. Nothing else."
 }
 
+`;
+}
 export function buildPromptdish3(dishOrRecipe: string, Variant: string, Language: string, dishtype: string, recipe: string) {
   return `You are an expert Indian cuisine analyst specializing in identifying and explaining ingredient substitutions for healthier cooking while maintaining authentic flavors.
 
@@ -129,8 +123,7 @@ Guidelines:
 - Focus on substitutions that make the biggest impact on health without compromising taste
 - Write explanations in clear, conversational ${Language}
 - Consider traditional Indian cooking methods when suggesting substitutions
-
-IMPORTANT: Your response must start with { and end with }. Nothing else.`;
+`;
 }
 
 export function buildPromptdish4(dishOrRecipe: string, Variant: string, Language: string, dishtype: string) {
@@ -168,42 +161,112 @@ Guidelines:
 - Make the food history engaging and informative without being too lengthy
 - Focus on positive aspects of both tradition and health improvements
 - Write in a tone that makes people excited to cook and eat healthier
-
-IMPORTANT: Your response must start with { and end with }. Nothing else.`;
+`;
 }
 
-function validatePrompt(prompt: string): string {
-  // Ensure the prompt ends with a clear instruction
-  if (!prompt.includes("Your response must start with { and end with }")) {
-    prompt += "\n\nIMPORTANT: Your response must start with { and end with }. Nothing else.";
-  }
-  return prompt;
+export function buildCombinedRecipePrompt(dishOrRecipe: string, Variant: string, Language: string, dishtype: string) {
+  return `You are an expert Indian recipe developer, nutritionist, food historian, and wellness coach specializing in creating healthier versions of traditional dishes while preserving authentic flavors and cultural heritage.
+
+The dish or recipe name is: ${dishOrRecipe}.
+The variant is: ${Variant}.
+The language is: ${Language}.
+The dish type is: ${dishtype}.
+
+Create a comprehensive analysis and healthier recipe following the exact structure below:
+
+CRITICAL JSON FORMATTING INSTRUCTIONS:
+- Your response must be ONLY valid JSON - no text before or after
+- Start with { and end with }
+- Use double quotes for all strings, never single quotes
+- No trailing commas after the last item in objects or arrays
+- Escape quotes inside strings with \"
+- Test your JSON structure before responding
+- No line breaks inside string values
+- Ensure all brackets and braces match perfectly
+- Use camelCase for all keys (no spaces or hyphens)
+- All property names must be in double quotes
+
+{
+  "dish": "[Write the name of the dish with the ${Variant} specification - e.g., 'Healthy Butter Chicken (Low-Fat Version)' in ${Language}]",
+  "motivationalMessage": "[Write an inspiring 2-3 sentence message in ${Language} that motivates people to try this healthier version. Focus on how they can enjoy their favorite ${dishOrRecipe} while taking care of their health and achieving their ${Variant} goals. Make it warm, encouraging, and positive.]",
+  "foodHistoryContext": "[Write a brief but engaging paragraph in ${Language} about the origins and cultural significance of ${dishOrRecipe}. Include its regional roots, traditional preparation methods, cultural importance, and how it has evolved over time. Make it interesting and informative while respecting the dish's heritage.]",
+  "funFact": "[Write a fun fact in ${Language} about the dish or its ingredients that adds cultural richness and engages the reader.]",
+  "healthierVersion": {
+    "description": "[Write 3-4 sentences in ${Language} about this healthier version]",
+    "ingredients": [
+      "[Ingredient 1 with quantity]",
+      "[Ingredient 2 with quantity]",
+      "[Continue to list all ingredients with quantities]"
+    ],
+    "steps": [
+      "[Detailed step 1]",
+      "[Detailed step 2]", 
+      "[Continue to list all steps in order]"
+    ]
+  },
+  "Comparison": {
+    "before": {
+      // Dynamic key-value pairs based on the specific dish
+      // Keys should be relevant to the dish type (e.g., for parathas: doughComposition, fillingComposition)
+      // Keys should be in camelCase format
+      // Include 6-9 relevant aspects that differentiate traditional vs healthier version
+    },
+    "after": {
+      // Same keys as "before" but showing the healthier modifications
+      // Detailed descriptions of improvements made
+    }
+  },
+  "substitutions": [
+    {
+      "from": "[Original ingredient used in traditional ${dishOrRecipe} recipe]",
+      "to": "[Healthier substitute ingredient that aligns with ${Variant} goals]",
+      "why": "[Explain in ${Language} why this substitution works - include health benefits, taste impact, and how it maintains authenticity]"
+    }
+  ]
 }
 
-async function AI_Model_generateContentFordish1(dish: string, Variant: string, Language: string, dishtype: string): Promise<string> {
-  const prompt = validatePrompt(buildPromptdish1(dish, Variant, Language, dishtype));
+Guidelines:
+- Write in warm, encouraging, and culturally respectful ${Language}
+- Make the motivational message personally inspiring and achievable
+- Include accurate historical and cultural information about ${dishOrRecipe}
+- Connect traditional heritage with modern healthy cooking approaches
+- Ensure content is authentic and celebrates Indian culinary traditions
+- Only include substitutions that actually improve the recipe for ${Variant} dietary goals
+- Each substitution must maintain or enhance the authentic taste of ${dishOrRecipe}
+- Explain both health benefits and flavor impact for each substitution
+- Use ingredients easily available in Indian markets and stores
+- Ensure substitutions are practical and cost-effective for home cooking
+- Focus on substitutions that make the biggest impact on health without compromising taste
+- Include 3-8 substitutions in the array
+- For comparison section, use dynamic keys relevant to the specific dish type
+- Include 6-9 relevant aspects in the comparison that differentiate traditional vs healthier version
+- Make the food history engaging and informative without being too lengthy
+- Focus on positive aspects of both tradition and health improvements
+- Write in a tone that makes people excited to cook and eat healthier
+- Preserve authentic flavors and taste while creating healthier alternatives`;
+}
+
+export async function AI_Model_generateContentFordish1(dish: string, Variant: string, Language: string, dishtype: string): Promise<string> {
+  const prompt = buildCombinedRecipePrompt(dish, Variant, Language, dishtype);
   try {
 
-    const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-    const rawText = AIresponse.response.text() || "";
-    console.log("Raw AI Response:", rawText);
+    const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
+    const rawText = AIresponse.response.text()
     return `${rawText}`;
 
   } catch (geminiError) {
-    console.log("Gemini option 1 failed", geminiError);
+    console.log("Gemini option 3 failed", geminiError);
 
     try {
-      const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
-      const rawText = AIresponse.response.text() || "";
-      console.log("Raw AI Response:", rawText);
+      const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
+      const rawText = AIresponse.response.text()
       return `${rawText}`;
     } catch (error) {
-      console.log("Gemini option 2 failed", error);
+      console.log("Gemini option 1 failed", error);
 
       try {
         const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-        const rawText = AIresponse.response.text() || "";
-        console.log("Raw AI Response:", rawText);
+        const rawText = AIresponse.response.text()
         return `${rawText}`;
       } catch (error) {
         console.log("Gemini option 3 failed back to groq", error);
@@ -226,12 +289,11 @@ async function AI_Model_generateContentFordish1(dish: string, Variant: string, L
   }
 
 }
-async function AI_Model_generateContentFordish2(dish: string, Variant: string, Language: string, dishtype: string, recipe: string): Promise<string> {
-  const prompt = validatePrompt(buildPromptdish2(dish, Variant, Language, dishtype, recipe));
+export async function AI_Model_generateContentFordish2(dish: string, Variant: string, Language: string, dishtype: string, recipe: any): Promise<string> {
+  const prompt = buildPromptdish2(dish, Variant, Language, dishtype, recipe);
   try {
-    const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-    const rawText = AIresponse.response.text() || "";
-    console.log("Raw AI Response:", rawText);
+    const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
+    const rawText = AIresponse.response.text()
     return `${rawText}`;
 
   } catch (geminiError) {
@@ -239,16 +301,14 @@ async function AI_Model_generateContentFordish2(dish: string, Variant: string, L
 
     try {
       const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
-      const rawText = AIresponse.response.text() || "";
-      console.log("Raw AI Response:", rawText);
+      const rawText = AIresponse.response.text()
       return `${rawText}`;
     } catch (error) {
       console.log("Gemini option 2 failed", error);
 
       try {
-        const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-        const rawText = AIresponse.response.text() || "";
-        console.log("Raw AI Response:", rawText);
+        const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
+        const rawText = AIresponse.response.text()
         return `${rawText}`;
       } catch (error) {
         console.log("Gemini option 3 failed back to groq", error);
@@ -272,30 +332,27 @@ async function AI_Model_generateContentFordish2(dish: string, Variant: string, L
 
 }
 
-async function AI_Model_generateContentFordish3(dish: string, Variant: string, Language: string, dishtype: string, recipe: string): Promise<string> {
-  const prompt = validatePrompt(buildPromptdish3(dish, Variant, Language, dishtype, recipe));
+export async function AI_Model_generateContentFordish3(dish: string, Variant: string, Language: string, dishtype: string, recipe: string): Promise<string> {
+  const prompt = buildPromptdish3(dish, Variant, Language, dishtype, recipe);
   try {
 
-    const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-    const rawText = AIresponse.response.text() || "";
-    console.log("Raw AI Response:", rawText);
+    const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
+    const rawText = AIresponse.response.text()
     return `${rawText}`;
 
   } catch (geminiError) {
     console.log("Gemini option 1 failed", geminiError);
 
     try {
-      const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
-      const rawText = AIresponse.response.text() || "";
-      console.log("Raw AI Response:", rawText);
+      const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
+      const rawText = AIresponse.response.text()
       return `${rawText}`;
     } catch (error) {
       console.log("Gemini option 2 failed", error);
 
       try {
         const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-        const rawText = AIresponse.response.text() || "";
-        console.log("Raw AI Response:", rawText);
+        const rawText = AIresponse.response.text()
         return `${rawText}`;
       } catch (error) {
         console.log("Gemini option 3 failed back to groq", error);
@@ -318,13 +375,12 @@ async function AI_Model_generateContentFordish3(dish: string, Variant: string, L
   }
 
 }
-async function AI_Model_generateContentFordish4(dish: string, Variant: string, Language: string, dishtype: string): Promise<string> {
-  const prompt = validatePrompt(buildPromptdish4(dish, Variant, Language, dishtype));
+export async function AI_Model_generateContentFordish4(dish: string, Variant: string, Language: string, dishtype: string): Promise<string> {
+  const prompt = buildPromptdish4(dish, Variant, Language, dishtype);
   try {
 
     const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-    const rawText = AIresponse.response.text() || "";
-    console.log("Raw AI Response:", rawText);
+    const rawText = AIresponse.response.text()
     return `${rawText}`;
 
   } catch (geminiError) {
@@ -332,16 +388,14 @@ async function AI_Model_generateContentFordish4(dish: string, Variant: string, L
 
     try {
       const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
-      const rawText = AIresponse.response.text() || "";
-      console.log("Raw AI Response:", rawText);
+      const rawText = AIresponse.response.text()
       return `${rawText}`;
     } catch (error) {
       console.log("Gemini option 2 failed", error);
 
       try {
         const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-        const rawText = AIresponse.response.text() || "";
-        console.log("Raw AI Response:", rawText);
+        const rawText = AIresponse.response.text()
         return `${rawText}`;
       } catch (error) {
         console.log("Gemini option 3 failed back to groq", error);
@@ -368,34 +422,13 @@ async function AI_Model_generateContentFordish4(dish: string, Variant: string, L
 export async function buildrecipefromdish(dish: string, Variant: string, Language: string, dishtype: string) {
   try {
 
-    const recipeRaw = await AI_Model_generateContentFordish1(dish, Variant, Language, dishtype);
+    const contentFirst = await AI_Model_generateContentFordish1(dish, Variant, Language, dishtype);
+    const parsedFirst = await safeParse("test-1", contentFirst);;
 
-
-    const [comparisonRaw, substitutionsRaw, contextRaw] = await Promise.all([
-      AI_Model_generateContentFordish2(dish, Variant, Language, dishtype, recipeRaw),
-      AI_Model_generateContentFordish3(dish, Variant, Language, dishtype, recipeRaw),
-      AI_Model_generateContentFordish4(dish, Variant, Language, dishtype),
-    ]);
-
-
-    const [healthierVersion, comparison, substitutions, dishContext] = await Promise.all([
-      safeParse('healthierVersion', recipeRaw),
-      safeParse('comparison', comparisonRaw),
-      safeParse('substitutions', substitutionsRaw),
-      safeParse('context', contextRaw),
-    ]);
-
-
-
-    return {
-      ...healthierVersion,
-      ...comparison,
-      ...substitutions,
-      ...dishContext
-    }
-
-  } catch (error) {
-    console.error("❌ Error generating or parsing recipe content:", error);
+    return { ...parsedFirst }
+  }
+  catch (error) {
+    console.error("Error generating recipe content:", error);
     throw new Error("Failed to generate recipe content");
   }
 }
