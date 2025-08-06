@@ -2,22 +2,26 @@ import { useState, useEffect } from "react"
 import { Soup, Check } from "lucide-react"
 
 const text = "Sourcing best produce"
+
 const steps = [
-    { text: "Validating your inputs", duration: 1000 },
-    { text: "Analyzing dish type", duration: 1500 },
-    { text: "Crafting recipe with AI", duration: 2500 },
-    { text: "Saving recipe to kitchen database", duration: 1800 },
+    { id: "1", text: "Validating your inputs", completed: false },
+    { id: "3", text: "Crafting recipe with AI", completed: false },
+    { id: "4", text: "Saving recipe to kitchen database", completed: false },
 ]
 
+interface FoodLoadingProps {
+    currentServerStep?: string;
+    serverMessage?: string;
+}
 
-export default function FoodLoading() {
+export default function FoodLoading({ currentServerStep, serverMessage }: FoodLoadingProps) {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [currentStep, setCurrentStep] = useState(0)
-    const [completedSteps, setCompletedSteps] = useState(new Set())
+    const [currentStepIndex, setCurrentStepIndex] = useState(0)
+    const [completedSteps, setCompletedSteps] = useState(new Set<number>())
     const [showCursor, setShowCursor] = useState(true)
-    const [progress, setProgress] = useState(0)
+    const [localSteps, setLocalSteps] = useState(steps)
 
-    // Typewriter effect
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prev) => {
@@ -37,32 +41,53 @@ export default function FoodLoading() {
         return () => clearInterval(cursorInterval)
     }, [])
 
-    // Step progression
-    useEffect(() => {
-        const stepInterval = setInterval(() => {
-            setCurrentStep(prev => {
-                const nextStep = (prev + 1) % steps.length
-                setCompletedSteps(prevCompleted => new Set([...prevCompleted, prev]))
-                return nextStep
-            })
-        }, 2500)
-
-        return () => clearInterval(stepInterval)
-    }, [])
 
     useEffect(() => {
-        const progressInterval = setInterval(() => {
-            setProgress(prev => {
-                if (prev >= 100) return 100
-                return prev + 0.8
-            })
-        }, 50)
+        if (currentServerStep) {
+            const stepIndex = steps.findIndex(step => step.id === currentServerStep)
+            if (stepIndex !== -1) {
 
-        return () => clearInterval(progressInterval)
-    }, [])
+                const newCompletedSteps = new Set<number>()
+                for (let i = 0; i < stepIndex; i++) {
+                    newCompletedSteps.add(i)
+                }
+                setCompletedSteps(newCompletedSteps)
+                setCurrentStepIndex(stepIndex)
+
+
+                if (serverMessage) {
+                    setLocalSteps(prevSteps =>
+                        prevSteps.map((step, index) =>
+                            index === stepIndex
+                                ? { ...step, text: serverMessage }
+                                : step
+                        )
+                    )
+                }
+            }
+        }
+    }, [currentServerStep, serverMessage])
+
+
+    useEffect(() => {
+        if (!currentServerStep) {
+            const stepInterval = setInterval(() => {
+                setCurrentStepIndex(prev => {
+                    if (prev >= steps.length - 1) return prev
+                    const nextStep = prev + 1
+                    setCompletedSteps(prevCompleted => new Set([...prevCompleted, prev]))
+                    return nextStep
+                })
+            }, 2500)
+
+            return () => clearInterval(stepInterval)
+        }
+    }, [currentServerStep])
+
+    console.log("Current Step Index:", currentServerStep, serverMessage);
 
     return (
-        <div className="flex-1   flex justify-center items-center relative px-4 sm:px-6 lg:px-8">
+        <div className="flex-1 flex justify-center items-center relative px-4 sm:px-6 lg:px-8">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-[0.02]"
                 style={{
@@ -70,7 +95,7 @@ export default function FoodLoading() {
                 }}>
             </div>
 
-            <div className="flex flex-col sitems-center  gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+            <div className="flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Logo and title section */}
                 <div className="text-center space-y-4 sm:space-y-6">
                     {/* Logo */}
@@ -83,7 +108,7 @@ export default function FoodLoading() {
                     </div>
 
                     {/* Main title with typewriter */}
-                    <div className="space-y-2 mr-[35%] sm:mr-[40%] ">
+                    <div className="space-y-2 mr-[35%] sm:mr-[40%]">
                         <div className="text-gray-900 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight min-h-[24px] sm:min-h-[28px] md:min-h-[32px] lg:min-h-[36px] flex items-center justify-center px-2">
                             {text.split("").map((char, idx) => (
                                 <span
@@ -112,46 +137,56 @@ export default function FoodLoading() {
                 {/* Status steps section */}
                 <div className="w-full space-y-4 sm:space-y-6">
                     <div className="space-y-2 sm:space-y-3">
-                        {steps.map((step, index) => (
+                        {localSteps.map((step, index) => (
                             <div
-                                key={index}
-                                className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 ${completedSteps.has(index)
-                                        ? 'text-gray-600'
-                                        : index === currentStep
-                                            ? 'text-gray-900'
-                                            : 'text-gray-400'
+                                key={step.id}
+                                className={`flex items-center gap-2 sm:gap-3 transition-all duration-500 ${completedSteps.has(index)
+                                    ? 'text-gray-600'
+                                    : index === currentStepIndex
+                                        ? 'text-gray-900 scale-105'
+                                        : 'text-gray-400'
                                     }`}
                             >
                                 {/* Step indicator */}
-                                <div className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center transition-all duration-300 ${completedSteps.has(index)
-                                        ? 'bg-gradient-to-br from-[#168B5D] to-[#29d691]'
-                                        : index === currentStep
-                                            ? 'border-2 border-gray-400 bg-white'
-                                            : 'border-2 border-gray-200 bg-white'
+                                <div className={`flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 rounded-full flex items-center justify-center transition-all duration-500 ${completedSteps.has(index)
+                                    ? 'bg-gradient-to-br from-[#168B5D] to-[#29d691] scale-110'
+                                    : index === currentStepIndex
+                                        ? 'border-2 border-[#168B5D] bg-white shadow-md'
+                                        : 'border-2 border-gray-200 bg-white'
                                     }`}>
                                     {completedSteps.has(index) ? (
                                         <Check className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-white" />
-                                    ) : index === currentStep ? (
-                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gray-400 rounded-full animate-pulse"></div>
+                                    ) : index === currentStepIndex ? (
+                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#168B5D] rounded-full animate-pulse"></div>
                                     ) : null}
                                 </div>
 
                                 {/* Step text */}
-                                <span className={`text-xs sm:text-sm md:text-base text-[#434343] font-medium transition-all duration-300 flex-1 ${index === currentStep ? 'font-semibold' : ''
+                                <span className={`text-xs sm:text-sm md:text-base text-[#434343] font-medium transition-all duration-500 flex-1 ${index === currentStepIndex ? 'font-semibold' : ''
                                     }`}>
                                     {step.text}
                                 </span>
 
                                 {/* Loading dots for current step */}
-                                {index === currentStep && (
+                                {index === currentStepIndex && (
                                     <div className="flex gap-0.5 sm:gap-1">
-                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-[#168B5D] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-[#168B5D] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                                        <div className="w-1 h-1 sm:w-1 sm:h-1 bg-[#168B5D] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                                     </div>
                                 )}
                             </div>
                         ))}
+                    </div>
+
+                    {/* Progress bar */}
+                    <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2 overflow-hidden">
+                        <div
+                            className="bg-gradient-to-r from-[#168B5D] to-[#29d691] h-full transition-all duration-1000 ease-out"
+                            style={{
+                                width: `${((completedSteps.size + (currentStepIndex >= 0 ? 0.5 : 0)) / localSteps.length) * 100}%`
+                            }}
+                        ></div>
                     </div>
                 </div>
 

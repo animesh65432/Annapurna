@@ -7,28 +7,40 @@ import MobileTrendingRecipes from "./MobileTrendingRecipes"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import FoodLoading from "../Foodloading"
 
-
 type Props = {
     dishname: string | null
 }
+
 export default function Dashboard({ dishname }: Props) {
-    const { createRecipe, isGenrateRecipeloading, setisGenrateRecipeloading } = useGenrateRecipe()
+    const {
+        createRecipe,
+        isGenrateRecipeloading,
+        setisGenrateRecipeloading,
+        currentStep,
+        stepMessage
+    } = useGenrateRecipe()
+
+    console.log(isGenrateRecipeloading)
+
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh overflow-y-auto w-full flex flex-col xl:justify-around gap-5 xl:gap-0 pb-0 xl:pb-4">
             <Header />
             {!isGenrateRecipeloading &&
-                <Herosection dishname={dishname} createRecipe={createRecipe} setisGenrateRecipeloading={setisGenrateRecipeloading} />
+                <Herosection
+                    dishname={dishname}
+                    createRecipe={createRecipe}
+                    setisGenrateRecipeloading={setisGenrateRecipeloading}
+                />
             }
-            {
-                !isGenrateRecipeloading && <TrendingRecipes />
-            }
-            {
-                !isGenrateRecipeloading && <Discover />
-            }
-            {
-                !isGenrateRecipeloading && <MobileTrendingRecipes />
-            }
-            {isGenrateRecipeloading && <FoodLoading />}
+            {!isGenrateRecipeloading && <TrendingRecipes />}
+            {!isGenrateRecipeloading && <Discover />}
+            {!isGenrateRecipeloading && <MobileTrendingRecipes />}
+            {isGenrateRecipeloading && (
+                <FoodLoading
+                    currentServerStep={currentStep}
+                    serverMessage={stepMessage}
+                />
+            )}
         </div>
     )
 }

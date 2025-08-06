@@ -37,7 +37,7 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
             funFact: true,
             variant: true,
             motivationalMessage: true,
-            Comparison: true,
+            comparison: true,
             healthierVersion: true,
             substitutions: true,
             dish: true,

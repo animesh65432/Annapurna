@@ -1,44 +1,48 @@
 import { buildrecipefromdish } from "./dish"
+import { jsonrepair } from "jsonrepair";
 
 
 export async function safeParse(label: string, raw: string) {
   try {
-    return await extractAndParseJSON(raw);
+    console.log(raw)
+    const cleaned = raw.replace(/^```(?:json)?|```$/g, "").trim();
+    const repaired = jsonrepair(cleaned);
+    return JSON.parse(repaired);
   } catch (err) {
-    console.error(`❌ Failed to parse ${label}:`, raw);
-    console.error("🔍 JSON parse error:", err); // <== Add this
+    console.log(raw)
+    console.error(`${label} - Failed to parse:\n`, raw);
     throw new Error(`${label} content could not be parsed`);
   }
 }
 
 
-
 export function extractAndParseJSON(rawText: string): any {
   let cleanedText = rawText.trim();
 
-  // Prefer extracting a JSON block from within triple-backtick markdown
-  const jsonBlockMatch = cleanedText.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (jsonBlockMatch) {
-    cleanedText = jsonBlockMatch[1].trim();
+  // Try to extract JSON within triple-backtick
+  const backtickBlock = cleanedText.match(/```(?:json)?\s*([\s\S]*?)```/);
+  if (backtickBlock) {
+    cleanedText = backtickBlock[1].trim();
   }
 
-  // If no backtick block found, try to extract a raw JSON object from anywhere
-  const jsonObjectMatch = cleanedText.match(/\{[\s\S]*\}/);
-  if (jsonObjectMatch) {
-    cleanedText = jsonObjectMatch[0].trim();
+  // Fallback: Extract the first valid-looking JSON object
+  const firstBrace = cleanedText.indexOf("{");
+  const lastBrace = cleanedText.lastIndexOf("}");
+
+  if (firstBrace === -1 || lastBrace === -1 || lastBrace <= firstBrace) {
+    throw new Error("No valid JSON object found");
   }
 
-  // Remove leading/trailing text that GPT might accidentally include
-  // (like "Here is your JSON:" or extra whitespace or newlines)
-  cleanedText = cleanedText.replace(/^[^{]*?(\{[\s\S]*\})[^}]*?$/, "$1");
+  const jsonCandidate = cleanedText.slice(firstBrace, lastBrace + 1);
 
-  return JSON.parse(cleanedText);
+  return JSON.parse(jsonCandidate);
 }
+
 
 function validateRecipe(recipe: any): void {
   const requiredFields = [
     'healthierVersion',
-    'Comparison',
+    'comparison',
     'substitutions',
     'foodHistoryContext',
     'motivationalMessage',
@@ -58,7 +62,7 @@ function validateRecipe(recipe: any): void {
     throw new Error("Invalid healthierVersion structure");
   }
 
-  const comparison = recipe.Comparison;
+  const comparison = recipe.comparison;
   if (!comparison.before || !comparison.after) {
     throw new Error("Invalid comparison structure");
   }

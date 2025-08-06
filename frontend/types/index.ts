@@ -2,7 +2,7 @@ export type RecipeTypes = {
     dish: string;
     funFact: string;
     motivationalMessage: string;
-    Comparison: {
+    comparison: {
         before: Record<string, string>;
         after: Record<string, string>;
     };

@@ -204,7 +204,7 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
       "[Continue to list all steps in order]"
     ]
   },
-  "Comparison": {
+  "comparison": {
     "before": {
       // Dynamic key-value pairs based on the specific dish
       // Keys should be relevant to the dish type (e.g., for parathas: doughComposition, fillingComposition)

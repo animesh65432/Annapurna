@@ -12,13 +12,18 @@ model User {
   email String @unique
   save Save[] 
 }
+enum Dishtypes {
+  Vegetarian
+  Non_Vegetarian
+  any
+}
 model Recipe {
   id                    String   @id @default(auto()) @map("_id") @db.ObjectId
   dish                 String
   variant              String
   language             String
   healthierVersion     Json
-  Comparison           Json
+  comparison           Json
   substitutions        Json
   motivationalMessage  String
   funFact              String

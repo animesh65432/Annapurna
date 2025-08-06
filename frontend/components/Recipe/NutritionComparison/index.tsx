@@ -16,7 +16,7 @@ export default function NutritionComparison() {
     const [auth, setauth] = useState<boolean>(false)
     const { saverecipe } = useSaverecipe()
     const [isShareOPen, setisShareOPen] = useState<boolean>(false)
-    const nutritionData = recipe?.Comparison!
+    const nutritionData = recipe?.comparison!
 
     const addrecipe = async () => {
         if (token) {

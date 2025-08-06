@@ -19,6 +19,7 @@
         "express": "^5.1.0",
         "google-auth-library": "^10.1.0",
         "groq-sdk": "^0.25.0",
+        "jsonrepair": "^3.13.0",
         "jsonwebtoken": "^9.0.2",
         "replicate": "^1.0.1",
         "typescript": "^5.8.3"

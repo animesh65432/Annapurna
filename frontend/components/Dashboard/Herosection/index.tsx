@@ -87,10 +87,10 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     const OnSubmit = async (data: RecipeFromTypes) => {
         try {
             const response = await createRecipe(data.dish, data.Nutrient, data.DishType)
-            console.log(response)
-            setRecipe(response?.recipe!)
-            router.push(`/recipe/${response?.id}`)
-        } catch (error) {
+            if (response?.recipe) {
+                setRecipe(response?.recipe!)
+                router.push(`/recipe/${response?.id}`)
+            }
         }
         finally {
             setisGenrateRecipeloading(false)
