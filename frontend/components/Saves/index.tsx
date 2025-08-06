@@ -30,12 +30,23 @@ export default function Saves() {
             <Header />
             <div className="w-[85%] mx-auto flex flex-col gap-3 overflow-y-auto">
                 {loading
-                    ? Array.from({ length: 3 }).map((_, index) => (
+                    && Array.from({ length: 3 }).map((_, index) => (
                         <SaveSkeleton key={index} />
                     ))
-                    : SaveRecipes.map((SaveRecipe, index) => (
-                        <Save key={index} recipe={SaveRecipe.recipe} />
-                    ))}
+                }
+                {
+                    SaveRecipes.length !== 0 && !loading && (
+                        !loading && SaveRecipes.map((SaveRecipe, index) => (
+                            <Save key={index} recipe={SaveRecipe.recipe} />
+                        ))
+                    )
+                }
+                {
+                    SaveRecipes.length === 0 && !loading && (
+                        <div className="text-center  text-xl text-[#414141]">No saved recipes found.</div>
+                    )
+                }
+
             </div>
         </div>
     )
