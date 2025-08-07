@@ -9,9 +9,10 @@ export const generateSuggestionController = async (req: Request, res: Response) 
         const { prompt } = req.body
 
         if (!prompt || prompt.trim().length < 3) {
-            res.status(400).json({ suggestions: [] })
+            res.status(200).json({ suggestions: [] })
             return
         }
+
         const redisKey = `suggestion:${prompt}`
         const cachedSuggestions = await redis.get<any>(redisKey)
         if (cachedSuggestions) {

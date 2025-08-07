@@ -32,19 +32,7 @@ export const GetRecipebyId = asyncerrorhandler(async (req: Request, res: Respons
     }
 
     const recipe = await db.recipe.findFirst({
-        where: { id },
-        select: {
-            funFact: true,
-            variant: true,
-            motivationalMessage: true,
-            comparison: true,
-            healthierVersion: true,
-            substitutions: true,
-            dish: true,
-            language: true,
-            foodHistoryContext: true,
-            id: true
-        },
+        where: { id }
     });
 
     if (!recipe) {
