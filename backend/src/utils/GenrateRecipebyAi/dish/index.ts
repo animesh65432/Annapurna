@@ -25,6 +25,7 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
 - Ensure all brackets and braces match perfectly
 -and anything else that is not in the below structure should not be included
 
+
 {
   "healthierVersion": {
     "description": "[Write 3-4 sentences in ${Language} about this healthier version]",
@@ -40,6 +41,7 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
     ]
   }
 }
+
   `;
 }
 
@@ -66,7 +68,7 @@ CRITICAL INSTRUCTIONS:
 
 REQUIRED JSON STRUCTURE:
 {
-  "Comparison": {
+  "comparison": {
     "before": {
       // Dynamic key-value pairs based on the specific dish
       // Keys should be relevant to the dish type (e.g., for parathas: doughComposition, fillingComposition)
@@ -179,7 +181,7 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
 - Start with { and end with }
 - Use double quotes for all strings, never single quotes
 - No trailing commas after the last item in objects or arrays
-- Escape quotes inside strings with \"
+- Escape quotes inside strings with \\"
 - Test your JSON structure before responding
 - No line breaks inside string values
 - Ensure all brackets and braces match perfectly
@@ -187,40 +189,44 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
 - All property names must be in double quotes
 
 {
-  "dish": "[Write the name of the dish with the ${Variant} specification - e.g., 'Healthy Butter Chicken (Low-Fat Version)' in ${Language}]",
-  "motivationalMessage": "[Write an inspiring 2-3 sentence message in ${Language} that motivates people to try this healthier version. Focus on how they can enjoy their favorite ${dishOrRecipe} while taking care of their health and achieving their ${Variant} goals. Make it warm, encouraging, and positive.]",
-  "foodHistoryContext": "[Write a brief but engaging paragraph in ${Language} about the origins and cultural significance of ${dishOrRecipe}. Include its regional roots, traditional preparation methods, cultural importance, and how it has evolved over time. Make it interesting and informative while respecting the dish's heritage.]",
-  "funFact": "[Write a fun fact in ${Language} about the dish or its ingredients that adds cultural richness and engages the reader.]",
+  "dish": "Write the name of the dish with the ${Variant} specification - e.g., 'Healthy Butter Chicken (Low-Fat Version)' in ${Language}",
+  "motivationalMessage": "Write an inspiring 2-3 sentence message in ${Language} that motivates people to try this healthier version. Focus on how they can enjoy their favorite ${dishOrRecipe} while taking care of their health and achieving their ${Variant} goals. Make it warm, encouraging, and positive.",
+  "foodHistoryContext": "Write a brief but engaging paragraph in ${Language} about the origins and cultural significance of ${dishOrRecipe}. Include its regional roots, traditional preparation methods, cultural importance, and how it has evolved over time. Make it interesting and informative while respecting the dish's heritage.",
+  "funFact": "Write a fun fact in ${Language} about the dish or its ingredients that adds cultural richness and engages the reader.",
   "healthierVersion": {
-    "description": "[Write 3-4 sentences in ${Language} about this healthier version]",
+    "description": "Write 3-4 sentences in ${Language} about this healthier version",
     "ingredients": [
-      "[Ingredient 1 with quantity]",
-      "[Ingredient 2 with quantity]",
-      "[Continue to list all ingredients with quantities]"
+      "List all ingredients with quantities here"
     ],
     "steps": [
-      "[Detailed step 1]",
-      "[Detailed step 2]", 
-      "[Continue to list all steps in order]"
+      "List all cooking steps in order here"
     ]
   },
   "comparison": {
     "before": {
-      // Dynamic key-value pairs based on the specific dish
-      // Keys should be relevant to the dish type (e.g., for parathas: doughComposition, fillingComposition)
-      // Keys should be in camelCase format
-      // Include 6-9 relevant aspects that differentiate traditional vs healthier version
+      "doughComposition": "Traditional dough composition",
+      "fillingComposition": "Traditional filling composition", 
+      "cookingOil": "Traditional cooking oil used",
+      "cookingMethod": "Traditional cooking method",
+      "portionSize": "Traditional portion size",
+      "calorieCount": "Traditional calorie count",
+      "nutritionalProfile": "Traditional nutritional profile"
     },
     "after": {
-      // Same keys as "before" but showing the healthier modifications
-      // Detailed descriptions of improvements made
+      "doughComposition": "Healthier dough composition",
+      "fillingComposition": "Healthier filling composition",
+      "cookingOil": "Healthier cooking oil used", 
+      "cookingMethod": "Healthier cooking method",
+      "portionSize": "Healthier portion size",
+      "calorieCount": "Healthier calorie count",
+      "nutritionalProfile": "Improved nutritional profile"
     }
   },
   "substitutions": [
     {
-      "from": "[Original ingredient used in traditional ${dishOrRecipe} recipe]",
-      "to": "[Healthier substitute ingredient that aligns with ${Variant} goals]",
-      "why": "[Explain in ${Language} why this substitution works - include health benefits, taste impact, and how it maintains authenticity]"
+      "from": "Original ingredient used in traditional ${dishOrRecipe} recipe",
+      "to": "Healthier substitute ingredient that aligns with ${Variant} goals",
+      "why": "Explain in ${Language} why this substitution works - include health benefits, taste impact, and how it maintains authenticity"
     }
   ]
 }
@@ -238,63 +244,32 @@ Guidelines:
 - Ensure substitutions are practical and cost-effective for home cooking
 - Focus on substitutions that make the biggest impact on health without compromising taste
 - Include 3-8 substitutions in the array
-- For comparison section, use dynamic keys relevant to the specific dish type
 - Include 6-9 relevant aspects in the comparison that differentiate traditional vs healthier version
 - Make the food history engaging and informative without being too lengthy
 - Focus on positive aspects of both tradition and health improvements
 - Write in a tone that makes people excited to cook and eat healthier
-- Preserve authentic flavors and taste while creating healthier alternatives`;
+- Preserve authentic flavors and taste while creating healthier alternatives
+
+IMPORTANT: 
+If you output anything other than valid JSON, the request will be rejected.
+Do NOT include markdown formatting, comments, or extra text. 
+Your entire response must be a single valid JSON object.
+VALIDATE your JSON before sending.`;
 }
 
-export async function AI_Model_generateContentFordish1(dish: string, Variant: string, Language: string, dishtype: string): Promise<string> {
-  const prompt = buildCombinedRecipePrompt(dish, Variant, Language, dishtype);
-  try {
 
-    const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-    const rawText = AIresponse.response.text()
-    return `${rawText}`;
-
-  } catch (geminiError) {
-    console.log("Gemini option 3 failed", geminiError);
-
-    try {
-      const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-      const rawText = AIresponse.response.text()
-      return `${rawText}`;
-    } catch (error) {
-      console.log("Gemini option 1 failed", error);
-
-      try {
-        const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-        const rawText = AIresponse.response.text()
-        return `${rawText}`;
-      } catch (error) {
-        console.log("Gemini option 3 failed back to groq", error);
-        try {
-          const groqResponse = await groq.chat.completions.create({
-            messages: [{ role: "system", content: prompt }],
-            model: "llama-3.1-8b-instant"
-          });
-
-          const groqText = groqResponse.choices?.[0]?.message?.content
-          return `${groqText}`;
-
-        } catch (groqError) {
-          console.log("Both Gemini and Groq failed:", groqError);
-          return "Error generating content";
-        }
-      }
-    }
-
-  }
-
-}
 export async function AI_Model_generateContentFordish2(dish: string, Variant: string, Language: string, dishtype: string, recipe: any): Promise<string> {
   const prompt = buildPromptdish2(dish, Variant, Language, dishtype, recipe);
   try {
-    const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
-    const rawText = AIresponse.response.text()
-    return `${rawText}`;
+    const groqResponse = await groq.chat.completions.create({
+      messages: [{ role: "system", content: prompt }],
+      model: "openai/gpt-oss-20b",
+      response_format: { type: "json_object" }
+    });
+
+    const groqText = groqResponse.choices?.[0]?.message?.content;
+    console.log("Groq Option 1 Response:", groqText);
+    return groqText || "";
 
   } catch (geminiError) {
     console.log("Gemini option 1 failed", geminiError);
@@ -336,9 +311,15 @@ export async function AI_Model_generateContentFordish3(dish: string, Variant: st
   const prompt = buildPromptdish3(dish, Variant, Language, dishtype, recipe);
   try {
 
-    const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
-    const rawText = AIresponse.response.text()
-    return `${rawText}`;
+    const groqResponse = await groq.chat.completions.create({
+      messages: [{ role: "system", content: prompt }],
+      model: "openai/gpt-oss-20b",
+      response_format: { type: "json_object" }
+    });
+
+    const groqText = groqResponse.choices?.[0]?.message?.content;
+    console.log("Groq Option 1 Response:", groqText);
+    return groqText || "";
 
   } catch (geminiError) {
     console.log("Gemini option 1 failed", geminiError);
@@ -379,10 +360,15 @@ export async function AI_Model_generateContentFordish4(dish: string, Variant: st
   const prompt = buildPromptdish4(dish, Variant, Language, dishtype);
   try {
 
-    const AIresponse = await Gemini_AI_Model_Option_1.generateContent(prompt);
-    const rawText = AIresponse.response.text()
-    return `${rawText}`;
+    const groqResponse = await groq.chat.completions.create({
+      messages: [{ role: "system", content: prompt }],
+      model: "openai/gpt-oss-20b",
+      response_format: { type: "json_object" }
+    });
 
+    const groqText = groqResponse.choices?.[0]?.message?.content;
+    console.log("Groq Option 1 Response:", groqText);
+    return groqText || "";
   } catch (geminiError) {
     console.log("Gemini option 1 failed", geminiError);
 
@@ -418,16 +404,84 @@ export async function AI_Model_generateContentFordish4(dish: string, Variant: st
   }
 
 }
+export async function AI_Model_generateContentForDish(
+  dish: string,
+  variant: string,
+  language: string,
+  dishtype: string
+): Promise<string> {
+  const prompt = buildPromptdish1(dish, variant, language, dishtype);
 
-export async function buildrecipefromdish(dish: string, Variant: string, Language: string, dishtype: string) {
+  try {
+    const groqResponse = await groq.chat.completions.create({
+      messages: [{ role: "system", content: prompt }],
+      model: "openai/gpt-oss-20b",
+      response_format: { type: "json_object" }
+    });
+
+    const groqText = groqResponse.choices?.[0]?.message?.content;
+    console.log("Gemini Option 1 Response:", groqText);
+    return groqText || "";
+  } catch (geminiError) {
+    console.log("Gemini option 1 failed:", geminiError);
+
+    try {
+      const AIresponse = await Gemini_AI_Model_Option_2.generateContent(prompt);
+      const rawText = AIresponse.response.text();
+      console.log("Gemini Option 2 Response:", AIresponse);
+      return rawText;
+    } catch (geminiError2) {
+      console.log("Gemini option 2 failed:", geminiError2);
+
+      try {
+        const AIresponse = await Gemini_AI_Model_Option_3.generateContent(prompt);
+        const rawText = AIresponse.response.text();
+        console.log("Gemini Option 3 Response:", AIresponse.response.text());
+        return rawText;
+      } catch (geminiError3) {
+        console.log("Gemini option 3 failed, trying Groq:", geminiError3);
+
+        try {
+          const groqResponse = await groq.chat.completions.create({
+            messages: [{ role: "system", content: prompt }],
+            model: "llama-3.1-8b-instant"
+          });
+
+          const groqText = groqResponse.choices?.[0]?.message?.content;
+          if (!groqText) {
+            throw new Error("No content received from Groq");
+          }
+          console.log("Groq Response:", groqText);
+          return groqText;
+        } catch (groqError) {
+          console.error("All AI models failed:", groqError);
+          throw new Error("All AI models failed to generate content");
+        }
+      }
+    }
+  }
+}
+
+
+export async function buildRecipeFromDish(dish: string, variant: string, language: string, dishtype: string) {
   try {
 
-    const contentFirst = await AI_Model_generateContentFordish1(dish, Variant, Language, dishtype);
-    const parsedFirst = await safeParse("test-1", contentFirst);;
+    const content = await AI_Model_generateContentForDish(dish, variant, language, dishtype);
+    const parsedcontent = await safeParse(content);
+    const content1 = await AI_Model_generateContentFordish2(dish, variant, language, dishtype, content)
+    const parsedcontent1 = await safeParse(content1);
+    const content2 = await AI_Model_generateContentFordish3(dish, variant, language, dishtype, content)
+    const parsedcontent2 = await safeParse(content2)
+    const content3 = await AI_Model_generateContentFordish4(dish, variant, language, dishtype)
+    const parsedcontent3 = await safeParse(content3)
 
-    return { ...parsedFirst }
-  }
-  catch (error) {
+    return {
+      ...parsedcontent,
+      ...parsedcontent1,
+      ...parsedcontent2,
+      ...parsedcontent3
+    }
+  } catch (error) {
     console.error("Error generating recipe content:", error);
     throw new Error("Failed to generate recipe content");
   }

@@ -1,45 +1,53 @@
-import { buildrecipefromdish } from "./dish"
-import { jsonrepair } from "jsonrepair";
+import { buildRecipeFromDish } from "./dish"
 
+function cleanJSON(str: string): string {
+  // Remove markdown code blocks
+  str = str.replace(/```json\s*/g, '');
+  str = str.replace(/```\s*/g, '');
 
-export async function safeParse(label: string, raw: string) {
+  // Remove any text before the first {
+  const firstBrace = str.indexOf('{');
+  if (firstBrace !== -1) {
+    str = str.substring(firstBrace);
+  }
+
+  // Remove any text after the last }
+  const lastBrace = str.lastIndexOf('}');
+  if (lastBrace !== -1) {
+    str = str.substring(0, lastBrace + 1);
+  }
+
+  // Remove any trailing commas before closing braces/brackets
+  str = str.replace(/,(\s*[}\]])/g, '$1');
+
+  return str.trim();
+}
+
+export async function safeParse(content: string) {
   try {
-    console.log(raw)
-    const cleaned = raw.replace(/^```(?:json)?|```$/g, "").trim();
-    const repaired = jsonrepair(cleaned);
-    return JSON.parse(repaired);
+    if (!content || content.trim().length === 0) {
+      throw new Error("Empty content received from AI");
+    }
+
+    console.log("Raw AI content:", content);
+    const cleaned = cleanJSON(content);
+    console.log("Cleaned JSON:", cleaned);
+
+    const parsed = JSON.parse(cleaned);
+    return parsed;
   } catch (err) {
-    console.log(raw)
-    console.error(`${label} - Failed to parse:\n`, raw);
-    throw new Error(`${label} content could not be parsed`);
+    console.error("JSON parsing error:", err);
+    console.error("Content that failed to parse:", content);
+    throw new Error(`Failed to parse AI response as JSON: ${err}`);
   }
 }
 
-
-export function extractAndParseJSON(rawText: string): any {
-  let cleanedText = rawText.trim();
-
-  // Try to extract JSON within triple-backtick
-  const backtickBlock = cleanedText.match(/```(?:json)?\s*([\s\S]*?)```/);
-  if (backtickBlock) {
-    cleanedText = backtickBlock[1].trim();
+// Fixed Validation Function
+export function validateRecipe(recipe: any): void {
+  if (!recipe || typeof recipe !== 'object') {
+    throw new Error("Recipe must be a valid object");
   }
 
-  // Fallback: Extract the first valid-looking JSON object
-  const firstBrace = cleanedText.indexOf("{");
-  const lastBrace = cleanedText.lastIndexOf("}");
-
-  if (firstBrace === -1 || lastBrace === -1 || lastBrace <= firstBrace) {
-    throw new Error("No valid JSON object found");
-  }
-
-  const jsonCandidate = cleanedText.slice(firstBrace, lastBrace + 1);
-
-  return JSON.parse(jsonCandidate);
-}
-
-
-function validateRecipe(recipe: any): void {
   const requiredFields = [
     'healthierVersion',
     'comparison',
@@ -50,39 +58,72 @@ function validateRecipe(recipe: any): void {
     'dish'
   ];
 
-  const missing = requiredFields.filter(key => !recipe[key]);
+  const missing = requiredFields.filter(key => !recipe.hasOwnProperty(key));
   if (missing.length > 0) {
     throw new Error(`Missing required fields: ${missing.join(', ')}`);
   }
 
+
   const healthier = recipe.healthierVersion;
-  if (!healthier.description ||
-    !Array.isArray(healthier.ingredients) ||
-    !Array.isArray(healthier.steps)) {
-    throw new Error("Invalid healthierVersion structure");
+  if (!healthier || typeof healthier !== 'object') {
+    throw new Error("healthierVersion must be an object");
   }
 
+  if (!healthier.description || typeof healthier.description !== 'string') {
+    throw new Error("healthierVersion.description must be a string");
+  }
+
+  if (!Array.isArray(healthier.ingredients) || healthier.ingredients.length === 0) {
+    throw new Error("healthierVersion.ingredients must be a non-empty array");
+  }
+
+  if (!Array.isArray(healthier.steps) || healthier.steps.length === 0) {
+    throw new Error("healthierVersion.steps must be a non-empty array");
+  }
+
+  // Validate comparison structure
   const comparison = recipe.comparison;
-  if (!comparison.before || !comparison.after) {
-    throw new Error("Invalid comparison structure");
+  if (!comparison || typeof comparison !== 'object') {
+    throw new Error("comparison must be an object");
   }
-}
 
-// Nutrients, dish, variant, language
-export async function GenrateRecipebyAi(
+  if (!comparison.before || typeof comparison.before !== 'object') {
+    throw new Error("comparison.before must be an object");
+  }
+
+  if (!comparison.after || typeof comparison.after !== 'object') {
+    throw new Error("comparison.after must be an object");
+  }
+
+  // Validate substitutions
+  if (!Array.isArray(recipe.substitutions)) {
+    throw new Error("substitutions must be an array");
+  }
+
+  recipe.substitutions.forEach((sub: any, index: number) => {
+    if (!sub || typeof sub !== 'object') {
+      throw new Error(`substitutions[${index}] must be an object`);
+    }
+    if (!sub.from || !sub.to || !sub.why) {
+      throw new Error(`substitutions[${index}] must have 'from', 'to', and 'why' properties`);
+    }
+  });
+
+  console.log("Recipe validation passed successfully");
+}
+export async function GenerateRecipeByAI(
   dishOrRecipe: string,
-  Variant: string,
-  Language: string,
+  variant: string,
+  language: string,
   dishtype: string
 ) {
   try {
-    const result = await buildrecipefromdish(dishOrRecipe, Variant, Language, dishtype);
+    const result = await buildRecipeFromDish(dishOrRecipe, variant, language, dishtype);
     console.log("Generated Recipe:", result);
-    await validateRecipe(result)
-    return result
-  }
-  catch (error) {
-    console.error(error);
+    await validateRecipe(result);
+    return result;
+  } catch (error) {
+    console.error("Error in GenerateRecipeByAI:", error);
     throw new Error("Failed to generate recipe. Please check the input or try again later.");
   }
 }

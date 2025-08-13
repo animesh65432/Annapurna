@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
-import { GenrateRecipebyAi } from "../../utils/GenrateRecipebyAi"
+import { GenerateRecipeByAI } from "../../utils/GenrateRecipebyAi"
 import { RecipeStreamer } from "../../utils/RecipeStreamer"
 import db from "../../db"
 import { redis } from "../../services/redis"
@@ -40,14 +40,18 @@ export const GenrateRecipe = async (req: Request, res: Response) => {
         }
         streamer.send("1", 'Validating your inputs...');
 
+        streamer.delay(1000)
+
+
+        streamer.send("2", 'Crafting recipe with AI...');
+
 
         const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
         const finalDishType = DishType.trim().length === 0 ? "any" : DishType.trim();
-        const recipe = await GenrateRecipebyAi(dish, finalVariant, "English", finalDishType)
+        const recipe = await GenerateRecipeByAI(dish, finalVariant, "English", finalDishType)
 
-        streamer.send("2", 'Crafting recipe with AI...');
-        streamer.delay(1000)
 
+        streamer.send("3", 'Saving recipe to kitchen database...');
 
         const dbrecipe = await db.recipe.create({
             data: {
@@ -62,8 +66,6 @@ export const GenrateRecipe = async (req: Request, res: Response) => {
                 foodHistoryContext: recipe.foodHistoryContext,
             }
         });
-
-        streamer.send("3", 'Saving recipe to kitchen database...');
 
         streamer.complete({
             id: dbrecipe.id,
