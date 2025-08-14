@@ -39,7 +39,7 @@ export const Detectdishes = async (req: Request, res: Response) => {
         });
 
         const content = groqResponse.choices[0].message.content;
-        const dishResult = JSON.parse(content);
+        const dishResult = JSON.parse(content!);
 
         res.json({
             success: true,

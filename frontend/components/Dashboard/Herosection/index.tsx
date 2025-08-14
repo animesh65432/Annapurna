@@ -16,7 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
-import { Getsuggestions } from "@/api/ai";
+import { Getsuggestions, Isdetectdish } from "@/api/ai";
 import { debounce } from "@/lib/usedebouce";
 import Suggestions from "../Suggestions";
 import { RecipeTypes } from "@/types"
@@ -81,6 +81,12 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
         if (!dishname) return
         setValue("dish", dishname)
     }, [dishname])
+
+    useEffect(() => {
+        if (analysisdishname) {
+            setValue("dish", analysisdishname)
+        }
+    }, [analysisdishname])
 
     const onselectfromsuggestions = (dish: string) => {
         setValue("dish", dish)
@@ -160,11 +166,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                         {suggestions.length > 0 && dish.length > 0 && (
                             <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
                         )}
-                        <Input
-                            placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : placeholders[placeholderIndex]}`}
-                            value={analysisdishname ? analysisdishname : dish}
-                            onChange={(e) => setValue("dish", e.target.value)}
-                            className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
+                        <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : placeholders[placeholderIndex]}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
                         <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040] lg:max-w-[121px] shadow-md">See Recipe</Button>
                     </div>
 
