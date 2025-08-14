@@ -18,8 +18,8 @@ export const GenrateRecipe = (dish: string, variant: string, DishType: string) =
     method: "POST"
 })
 
-export const Isdetectingredient = (image: string) => Call({
-    path: "/ai/detectIngredient",
+export const Isdetectdish = (image: string) => Call({
+    path: "/ai/detectdishes",
     method: "POST",
     request: { image }
 })

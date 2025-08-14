@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select"
 import Image from "next/image";
 import { DishTypeOptions, micronutrientIcons } from "@/lib/Herosectiondata"
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { placeholders } from "@/lib/Herosectiondata"
 import { RecipeFrom } from "@/schema/RecipeSchema"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -22,6 +22,8 @@ import Suggestions from "../Suggestions";
 import { RecipeTypes } from "@/types"
 import { useRouter } from "next/router"
 import { useRecipeStore } from "@/store/recipe"
+import { useanalysisdish } from "@/hooks/useanalysisdish"
+import { Paperclip, LoaderCircle } from "lucide-react"
 
 export type RecipeFromTypes = z.infer<typeof RecipeFrom>
 
@@ -49,6 +51,8 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     const Nutrient = watch("Nutrient");
     const DishType = watch("DishType");
     const { setRecipe } = useRecipeStore()
+    const { IsanalysisDishLoading, analysisdish, analysisdishname } = useanalysisdish()
+    const fileInputRef = useRef<HTMLInputElement | null>(null);
 
 
     useEffect(() => {
@@ -82,6 +86,26 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
         setValue("dish", dish)
         setsuggestions([])
     }
+
+
+
+    const handleIconClick = () => {
+        if (fileInputRef.current) {
+            fileInputRef.current.click()
+        }
+    };
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const files = e.target.files;
+        if (files && files.length > 0) {
+            const reader = new FileReader();
+            reader.onloadend = async () => {
+                const base64String = reader.result as string;
+                await analysisdish(base64String)
+
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    };
 
 
     const OnSubmit = async (data: RecipeFromTypes) => {
@@ -119,15 +143,32 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                 </div>
             </div>
             <div className="flex flex-col gap-4  w-[90%] md:max-w-[478px] mx-auto">
-                <div className="flex gap-4 relative">
-                    <div className="absolute w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-3 lg:top-3">
-                        <Image src="/assets/dashboard/Vector.svg" alt="InputIcon" fill />
+                <div>
+                    <div className="flex gap-4 relative">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            ref={fileInputRef}
+                            onChange={handleFileChange}
+                            className="hidden"
+                        />
+                        {!IsanalysisDishLoading &&
+                            <Paperclip onClick={handleIconClick} className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-3 lg:top-3" />
+                        }
+                        {IsanalysisDishLoading && <LoaderCircle className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-3 lg:top-3 animate-spin" />}
+
+                        {suggestions.length > 0 && dish.length > 0 && (
+                            <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
+                        )}
+                        <Input
+                            placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : placeholders[placeholderIndex]}`}
+                            value={analysisdishname ? analysisdishname : dish}
+                            onChange={(e) => setValue("dish", e.target.value)}
+                            className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
+                        <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040] lg:max-w-[121px] shadow-md">See Recipe</Button>
                     </div>
-                    {suggestions.length > 0 && dish.length > 0 && (
-                        <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
-                    )}
-                    <Input placeholder={placeholders[placeholderIndex]} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
-                    <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040] lg:max-w-[121px] shadow-md">See Recipe</Button>
+
+
                 </div>
                 <div className="flex ml-2 md:ml-7 gap-2   md:gap-4 justify-center md:justify-start">
                     <Select value={DishType} onValueChange={(value) => setValue("DishType", value)}>
