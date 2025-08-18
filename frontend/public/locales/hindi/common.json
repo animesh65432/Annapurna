@@ -1,5 +1,9 @@
 {
-    "explore": "अन्वेषण करें",
-    "save": "सहेजें",
-    "language": "भाषा"
+    "Dashboard": {
+      "Header": {
+        "explore": "खोजें",
+        "save": "सहेजें"
+      }
+    }
 }
+  

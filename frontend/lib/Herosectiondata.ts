@@ -35,26 +35,26 @@ export const micronutrientIcons = [
 
 export const optionsforLanguages = [
     { label: "हिन्दी", value: "hi" },
-    { label: "বাংলা", value: "bn" },         // Bengali
-    { label: "தமிழ்", value: "ta" },         // Tamil
-    { label: "తెలుగు", value: "te" },        // Telugu
-    { label: "मराठी", value: "mr" },         // Marathi
-    { label: "ગુજરાતી", value: "gu" },        // Gujarati
-    { label: "ಕನ್ನಡ", value: "kn" },         // Kannada
-    { label: "മലയാളം", value: "ml" },        // Malayalam
-    { label: "ਪੰਜਾਬੀ", value: "pa" },         // Punjabi
-    { label: "ଓଡ଼ିଆ", value: "or" },         // Odia
-    { label: "اردو", value: "ur" },           // Urdu
-    { label: "অসমীয়া", value: "as" },         // Assamese
-    { label: "संस्कृतम्", value: "sa" },       // Sanskrit
-    { label: "मैथिली", value: "mai" },        // Maithili
-    { label: "संथाली", value: "sat" },        // Santhali
-    { label: "नेपाली", value: "ne" },         // Nepali
-    { label: "कोंकणी", value: "kok" },        // Konkani
-    { label: "डोगरी", value: "doi" },         // Dogri
-    { label: "बोडो", value: "brx" },          // Bodo
-    { label: "मणिपुरी", value: "mni" },       // Manipuri
-    { label: "English", value: "en" }         // English
+    { label: "বাংলা", value: "bn" },
+    { label: "தமிழ்", value: "ta" },
+    { label: "తెలుగు", value: "te" },
+    { label: "मराठी", value: "mr" },
+    { label: "ગુજરાતી", value: "gu" },
+    { label: "ಕನ್ನಡ", value: "kn" },
+    { label: "മലയാളം", value: "ml" },
+    { label: "ਪੰਜਾਬੀ", value: "pa" },
+    { label: "ଓଡ଼ିଆ", value: "or" },
+    { label: "اردو", value: "ur" },
+    { label: "অসমীয়া", value: "as" },
+    { label: "संस्कृतम्", value: "sa" },
+    { label: "मैथिली", value: "mai" },
+    { label: "संथाली", value: "sat" },
+    { label: "नेपाली", value: "ne" },
+    { label: "कोंकणी", value: "kok" },
+    { label: "डोगरी", value: "doi" },
+    { label: "बोडो", value: "brx" },
+    { label: "मणिपुरी", value: "mni" },
+    { label: "English", value: "en" }
 ];
 
 export const placeholders = [

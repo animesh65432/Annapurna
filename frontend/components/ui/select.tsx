@@ -26,9 +26,11 @@ function SelectTrigger({
   className,
   size = "default",
   children,
+  flg = false,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
-  size?: "sm" | "default"
+  size?: "sm" | "default",
+  flg?: boolean
 }) {
   return (
     <SelectPrimitive.Trigger
@@ -36,7 +38,6 @@ function SelectTrigger({
       data-size={size}
       className={cn(
         "border-input data-[placeholder]:text-muted-foreground flex w-fit items-center justify-between gap-2  border bg-transparent px-3 py-2 text-sm whitespace-nowrap shadow-xs transition-[color,box-shadow] outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-        "focus-visible:border-[#168B5D]",
         className
       )}
 

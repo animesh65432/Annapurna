@@ -20,8 +20,6 @@ export default function Dashboard({ dishname }: Props) {
         stepMessage
     } = useGenrateRecipe()
 
-    console.log(isGenrateRecipeloading)
-
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh overflow-y-auto w-full flex flex-col xl:justify-around gap-5 xl:gap-0 pb-0 xl:pb-4">
             <Header />

@@ -1,6 +1,9 @@
 {
-    "explore": "Explore",
-    "save": "Save",
-    "language": "Language"
+    "Dashboard" :{ 
+        "Header":{ 
+        "explore": "Explore",
+        "save": "Save"
+    }
+}
 }
   

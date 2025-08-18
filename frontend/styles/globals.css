@@ -143,6 +143,7 @@ h2 {
   }
 }
 
+
 @layer components {
   .title {
     @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-white;
