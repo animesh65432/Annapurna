@@ -16,13 +16,11 @@ export const TextGenerateEffect = ({
     const [scope, animate] = useAnimate();
     const hasAnimated = useRef(false);
 
-    console.log("TextGenerateEffect render:", words);
-
     useEffect(() => {
         console.log("useEffect triggered, words:", words);
 
         if (!words || words.trim() === "") {
-            console.log("No words, skipping animation");
+
             return;
         }
 
@@ -32,7 +30,7 @@ export const TextGenerateEffect = ({
             try {
                 // Reset all spans to opacity 0
                 await animate("span", { opacity: 0 }, { duration: 0 });
-                console.log("Reset spans to opacity 0");
+
 
                 // Wait a bit
                 await new Promise(resolve => setTimeout(resolve, 50));
@@ -49,10 +47,10 @@ export const TextGenerateEffect = ({
                         delay: stagger(0.2),
                     }
                 );
-                console.log("Animation completed");
+
 
             } catch (error) {
-                console.error("Animation error:", error);
+
             }
         };
 
@@ -60,7 +58,6 @@ export const TextGenerateEffect = ({
     }, [words, animate, duration, filter]);
 
     const wordsArray = words ? words.split(" ").filter(word => word.trim() !== "") : [];
-    console.log("Words array:", wordsArray);
 
     if (!words || wordsArray.length === 0) {
         return (

@@ -41,8 +41,8 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
         resolver: zodResolver(RecipeFrom),
         defaultValues: {
             dish: "",
-            Nutrient: "",
-            DishType: ""
+            Nutrient: undefined,
+            DishType: undefined
         }
     });
     const [placeholderIndex, setPlaceholderIndex] = useState(0)
@@ -60,6 +60,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     const randomPlaceholder = placeholders[placeholderIndex];
     const micronutrientValues: string[] = t("Dashboard.Herosection.micronutrientValues", { returnObjects: true }) as string[]
     const DishTypeOptions: string[] = t("Dashboard.Herosection.DishTypeOptions", { returnObjects: true }) as string[]
+    const Diet_Type_Placeholder = `${t("Dashboard.Herosection.Diet_Type")}`
     const hasmouted = useHasMounted()
 
 
@@ -148,7 +149,6 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
             setisGenrateRecipeloading(false)
         }
     }
-    console.log(t("Dashboard.Herosection.See_Recipe"))
     return (
         <form onSubmit={handleSubmit(OnSubmit)} className="border-1 border-[#DEDEDE] bg-[url('/dashboard/Hero.png')] bg-cover bg-center bg-[#F5EFD8] ml-auto mr-auto w-[90%] sm:w-[80%] md:w-[670px] lg:w-[737px] min-h-[59vh] sm:min-h-[50vh] md:min-h-[290px] lg:h-[296px] rounded-2xl p-5 md:p-14 lg:p-8 flex flex-col gap-6">
             <div className="relative flex flex-col gap-3 md:gap-2">
@@ -199,7 +199,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                 <div className="flex ml-2 md:ml-7 gap-2   md:gap-4 justify-center md:justify-start">
                     <Select value={DishType} onValueChange={(value) => setValue("DishType", value)}>
                         <SelectTrigger className={`bg-white rounded-md cursor-pointer  ${DishType ? "text-[#168B5D] border-[#168B5D]" : "text-[#4A4A4A]"}`}>
-                            <SelectValue placeholder={`${t("Dashboard.Herosection.Diet_Type")}`} />
+                            <SelectValue placeholder={Diet_Type_Placeholder} />
                         </SelectTrigger>
                         <SelectContent >
                             {DishTypeOptions.map((option) => (

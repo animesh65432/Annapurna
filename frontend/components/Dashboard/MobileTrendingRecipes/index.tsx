@@ -1,11 +1,20 @@
-import { trendingRecipes } from "@/lib/Herosectiondata"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next"
 export default function MobileTrendingRecipes() {
     const router = useRouter()
+    const { t } = useTranslation()
+    const trendingRecipes = t("Dashboard.Trending_recipes.recipes", { returnObjects: true }) as Array<{
+        name: string,
+        time: number,
+        when: string[],
+        img: string,
+        after: string,
+        id: string
+    }>
     return (
         <div className="sm:hidden w-[90%] ml-auto mr-auto  ">
-            <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">Trending Recipes</h1>
+            <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">{t("Dashboard.Trending_recipes.title")}</h1>
             <div className="flex flex-col gap-6">
                 {
                     trendingRecipes.map((recipe) => {

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next";
 type Props = {
     name: string,
     time: number,
@@ -10,6 +11,7 @@ type Props = {
 }
 
 export default function Recipe({ name, time, when, image, after, id }: Props) {
+    const { t } = useTranslation()
     const router = useRouter()
     return (
         <div className="flex flex-col  gap-2">
@@ -28,7 +30,7 @@ export default function Recipe({ name, time, when, image, after, id }: Props) {
                     {name}
                 </div>
 
-                <div className="text-[#757575] font-normal flex gap-2 text-[0.9rem]">
+                <div className="text-[#757575] font-normal flex gap-2 text-[0.9rem] xl:text-[0.8rem]">
                     <div className="flex items-center gap-1 whitespace-nowrap">
                         <div className="relative w-5 h-5 shrink-0">
                             <Image src="/assets/dashboard/Timer.svg" alt="timer" fill />
@@ -43,7 +45,7 @@ export default function Recipe({ name, time, when, image, after, id }: Props) {
                     </div>
                 </div>
                 <div onClick={() => router.push(`/recipe/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
-                    See healthier Version
+                    {t("Dashboard.See_healthier_Version")}
                     <div className="relative w-8 h-8">
                         <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
                     </div>
