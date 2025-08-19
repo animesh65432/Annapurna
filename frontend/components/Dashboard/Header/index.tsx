@@ -1,4 +1,3 @@
-
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
     Sheet,
@@ -13,16 +12,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { optionsforLanguages } from "@/lib/Herosectiondata"
+import { useEffect, useState } from "react";
 
 
 export default function Header() {
     const hasMounted = useHasMounted();
+    const [language, setLanguage] = useState<string>("");
     const { i18n, t } = useTranslation()
     const { token } = useAuthstore()
 
-    if (!hasMounted) {
-        return null
-    }
+
+    useEffect(() => {
+        if (i18n.language) {
+            const selectedLanguage = optionsforLanguages.find(
+                (lan) => lan.value === i18n.language
+            );
+            console.log("Selected Language:", selectedLanguage?.label);
+            setLanguage(selectedLanguage?.value || i18n.language);
+        }
+    }, [i18n.language]);
+
+
+
     return (
         <header className="ml-auto  mr-auto pt-5 flex justify-between items-center w-[80%]  md:max-w-[75%] lg:max-w-[740px] xl:max-w-[1120px]">
             <Link href="/">
@@ -42,9 +53,10 @@ export default function Header() {
                 <ul>
                     <Select
                         onValueChange={(value) => {
+                            setLanguage(value);
                             i18n.changeLanguage(value);
                         }}
-
+                        value={language}
                     >
                         <SelectTrigger className="border border-[#b8b6b6] p-1 font-light rounded focus:border-[#353535] shadow-none text-[#353535] data-[placeholder]:text-[#353535] focus:ring-0 focus:outline-none">
                             <SelectValue placeholder="English" />
@@ -52,7 +64,7 @@ export default function Header() {
                         <SelectContent className="text-[#353535]">
                             {optionsforLanguages.map((lan) => (
                                 <SelectItem
-                                    key={lan.label}
+                                    key={lan.value}
                                     value={lan.value}
                                     className="text-[#353535] font-medium focus:bg-gray-100"
                                 >
