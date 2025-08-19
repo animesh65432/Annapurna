@@ -8,7 +8,6 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 import Image from "next/image";
-import { DishTypeOptions, micronutrientIcons } from "@/lib/Herosectiondata"
 import { useEffect, useState, useRef } from "react";
 import { RecipeFrom } from "@/schema/RecipeSchema"
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -59,6 +58,8 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const placeholders: string[] = t("Dashboard.Herosection.placeholders", { returnObjects: true }) as string[]
     const randomPlaceholder = placeholders[placeholderIndex];
+    const micronutrientValues: string[] = t("Dashboard.Herosection.micronutrientValues", { returnObjects: true }) as string[]
+    const DishTypeOptions: string[] = t("Dashboard.Herosection.DishTypeOptions", { returnObjects: true }) as string[]
     const hasmouted = useHasMounted()
 
 
@@ -147,7 +148,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
             setisGenrateRecipeloading(false)
         }
     }
-    console.log(titlethirdword)
+    console.log(t("Dashboard.Herosection.See_Recipe"))
     return (
         <form onSubmit={handleSubmit(OnSubmit)} className="border-1 border-[#DEDEDE] bg-[url('/dashboard/Hero.png')] bg-cover bg-center bg-[#F5EFD8] ml-auto mr-auto w-[90%] sm:w-[80%] md:w-[670px] lg:w-[737px] min-h-[59vh] sm:min-h-[50vh] md:min-h-[290px] lg:h-[296px] rounded-2xl p-5 md:p-14 lg:p-8 flex flex-col gap-6">
             <div className="relative flex flex-col gap-3 md:gap-2">
@@ -164,10 +165,11 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
 
 
                 <div className="text-[#535353] text-center">
-                    Generate AI Powered Recipes
+                    {/* Generate AI Powered Recipes
                     <br className="sm:hidden block " />
                     <span className="sm:ml-1 ml-0">
-                        Just One Click!</span>
+                        Just One Click!</span> */}
+                    {t("Dashboard.Herosection.description")}
                 </div>
             </div>
             <div className="flex flex-col gap-4  w-[90%] md:max-w-[478px] mx-auto">
@@ -181,15 +183,15 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                             className="hidden"
                         />
                         {!IsanalysisDishLoading &&
-                            <Paperclip onClick={handleIconClick} className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-3 lg:top-3" />
+                            <Paperclip onClick={handleIconClick} className="absolute flex-shrink-0 text-[#404040] hover:text-[#262525] w-4 h-4 top-[32%] left-[3%]" />
                         }
-                        {IsanalysisDishLoading && <LoaderCircle className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-3 lg:top-3 animate-spin" />}
+                        {IsanalysisDishLoading && <LoaderCircle className="absolute flex-shrink-0 text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-[16px] lg:top-3 animate-spin" />}
 
                         {suggestions.length > 0 && dish.length > 0 && (
                             <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
                         )}
                         <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : randomPlaceholder}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
-                        <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040] lg:max-w-[121px] shadow-md">See Recipe</Button>
+                        <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040]  shadow-md">{t("Dashboard.Herosection.See_Recipe")}</Button>
                     </div>
 
 
@@ -197,27 +199,27 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                 <div className="flex ml-2 md:ml-7 gap-2   md:gap-4 justify-center md:justify-start">
                     <Select value={DishType} onValueChange={(value) => setValue("DishType", value)}>
                         <SelectTrigger className={`bg-white rounded-md cursor-pointer  ${DishType ? "text-[#168B5D] border-[#168B5D]" : "text-[#4A4A4A]"}`}>
-                            <SelectValue placeholder="Diet Type" />
+                            <SelectValue placeholder={`${t("Dashboard.Herosection.Diet_Type")}`} />
                         </SelectTrigger>
                         <SelectContent >
-                            {DishTypeOptions.map((dish) => (
-                                <SelectItem key={dish.value} value={dish.value}>{dish.label}</SelectItem>
+                            {DishTypeOptions.map((option) => (
+                                <SelectItem key={option} value={option}>{option}</SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
                     <Select value={Nutrient} onValueChange={(value) => setValue("Nutrient", value)}>
                         <SelectTrigger className={`bg-white cursor-pointer rounded-md ${Nutrient ? "text-[#168B5D] border-[#168B5D]" : "text-[#4A4A4A]"}`}>
-                            <SelectValue placeholder="Nutrient Focus" />
+                            <SelectValue placeholder={`${t("Dashboard.Herosection.Nutrient_Focus")}`} />
                         </SelectTrigger>
                         <SelectContent className="">
-                            {micronutrientIcons.map((micronutrient) => (
-                                <SelectItem key={micronutrient.label} value={micronutrient.label}>{micronutrient.label}</SelectItem>
+                            {micronutrientValues.map((micronutrient) => (
+                                <SelectItem key={micronutrient} value={micronutrient}>{micronutrient}</SelectItem>
                             ))}
                         </SelectContent>
                     </Select>
                 </div>
             </div>
-            <Button className="bg-[#FFD059] cursor-pointer ml-auto mr-auto block md:hidden hover:bg-[#f6d47e] text-[#404040] lg:max-w-[121px]">See Recipe</Button>
+            <Button className="bg-[#FFD059] cursor-pointer ml-auto mr-auto block md:hidden hover:bg-[#f6d47e] text-[#404040] lg:max-w-[121px]">{t("Dashboard.Herosection.See_Recipe")}</Button>
         </form>
     )
 }

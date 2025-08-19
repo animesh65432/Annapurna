@@ -1,37 +1,38 @@
 export const DishTypeOptions = [
-    { label: "Veg", value: "Vegetarian" },
-    { label: "Non-Veg", value: "Non_Vegetarian" },
-    { label: "Any", value: "any" }
+    "Veg",
+    "Non-Veg",
+    "Any"
 ]
 
-export const micronutrientIcons = [
-    { label: "Vitamin D", value: "vitamin d" },
-    { label: "Vitamin B12", value: "vitamin b12" },
-    { label: "Calcium", value: "calcium" },
-    { label: "Magnesium", value: "magnesium" },
-    { label: "Zinc", value: "zinc" },
-    { label: "Folate (B9)", value: "folate (b9)" },
-    { label: "Vitamin C", value: "vitamin c" },
-    { label: "Vitamin A", value: "vitamin a" },
-    { label: "Vitamin E", value: "vitamin e" },
-    { label: "Vitamin K", value: "vitamin k" },
-    { label: "Vitamin B1 (Thiamine)", value: "vitamin b1" },
-    { label: "Vitamin B2 (Riboflavin)", value: "vitamin b2" },
-    { label: "Vitamin B3 (Niacin)", value: "vitamin b3" },
-    { label: "Sodium", value: "sodium" },
-    { label: "Potassium", value: "potassium" },
-    { label: "Iodine", value: "iodine" },
-    { label: "Selenium", value: "selenium" },
-    { label: "Copper", value: "copper" },
-    { label: "Manganese", value: "manganese" },
-    { label: "Chromium", value: "chromium" },
-    { label: "Molybdenum", value: "molybdenum" },
-    { label: "Phosphorus", value: "phosphorus" },
-    { label: "Chloride", value: "chloride" },
-    { label: "High Protein", value: "protein" },
-    { label: "Fibre Rich", value: "fiber" },
-    { label: "Iron Boosting", value: "iron" },
+export const micronutrientValues = [
+    "vitamin d",
+    "vitamin b12",
+    "calcium",
+    "magnesium",
+    "zinc",
+    "folate (b9)",
+    "vitamin c",
+    "vitamin a",
+    "vitamin e",
+    "vitamin k",
+    "vitamin b1",
+    "vitamin b2",
+    "vitamin b3",
+    "sodium",
+    "potassium",
+    "iodine",
+    "selenium",
+    "copper",
+    "manganese",
+    "chromium",
+    "molybdenum",
+    "phosphorus",
+    "chloride",
+    "protein",
+    "fiber",
+    "iron"
 ];
+
 
 export const optionsforLanguages = [
     { label: "हिन्दी", value: "hi" },

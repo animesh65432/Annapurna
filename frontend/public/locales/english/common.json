@@ -21,7 +21,45 @@
           "first" :"Amp your recipes",
           "second" :"With",
           "third" :"Healthy twists"
-        }
+        },
+        "description" :"Generate AI Powered RecipesJust One Click!",
+        "See_Recipe" :"See Recipe",
+        "Nutrient_Focus" :"Nutrient Focus",
+        "Diet_Type" :"Diet Type",
+        "micronutrientValues" :[
+          "vitamin d",
+          "vitamin b12",
+          "calcium",
+          "magnesium",
+          "zinc",
+          "folate (b9)",
+          "vitamin c",
+          "vitamin a",
+          "vitamin e",
+          "vitamin k",
+          "vitamin b1",
+          "vitamin b2",
+          "vitamin b3",
+          "sodium",
+          "potassium",
+          "iodine",
+          "selenium",
+          "copper",
+          "manganese",
+          "chromium",
+          "molybdenum",
+          "phosphorus",
+          "chloride",
+          "protein",
+          "fiber",
+          "iron"
+        ],
+        "DishTypeOptions" :[
+          "Veg",
+          "Non-Veg",
+          "Any"
+        ]
+      
       }
     }
   }
