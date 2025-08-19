@@ -1,5 +1,4 @@
-"use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { motion, stagger, useAnimate } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -15,48 +14,80 @@ export const TextGenerateEffect = ({
     duration?: number;
 }) => {
     const [scope, animate] = useAnimate();
-    const wordsArray = words.split(" ");
-    useEffect(() => {
-        animate(
-            "span",
-            {
-                opacity: 1,
-                filter: filter ? "blur(0px)" : "none",
-            },
-            {
-                duration: duration ? duration : 1,
-                delay: stagger(0.2),
-            }
-        );
-    }, [animate, duration, filter]);
+    const hasAnimated = useRef(false);
 
-    const renderWords = () => {
+    console.log("TextGenerateEffect render:", words);
+
+    useEffect(() => {
+        console.log("useEffect triggered, words:", words);
+
+        if (!words || words.trim() === "") {
+            console.log("No words, skipping animation");
+            return;
+        }
+
+        const runAnimation = async () => {
+            console.log("Starting animation for:", words);
+
+            try {
+                // Reset all spans to opacity 0
+                await animate("span", { opacity: 0 }, { duration: 0 });
+                console.log("Reset spans to opacity 0");
+
+                // Wait a bit
+                await new Promise(resolve => setTimeout(resolve, 50));
+
+                // Animate them in
+                await animate(
+                    "span",
+                    {
+                        opacity: 1,
+                        filter: filter ? "blur(0px)" : "none",
+                    },
+                    {
+                        duration: duration,
+                        delay: stagger(0.2),
+                    }
+                );
+                console.log("Animation completed");
+
+            } catch (error) {
+                console.error("Animation error:", error);
+            }
+        };
+
+        runAnimation();
+    }, [words, animate, duration, filter]);
+
+    const wordsArray = words ? words.split(" ").filter(word => word.trim() !== "") : [];
+    console.log("Words array:", wordsArray);
+
+    if (!words || wordsArray.length === 0) {
         return (
-            <motion.div ref={scope}>
-                {wordsArray.map((word, idx) => {
-                    return (
-                        <motion.span
-                            key={word + idx}
-                            className="text-[#168B5D]  text-[1.6rem] sm:text-3xl md:text-[1.8rem] lg:text-3xl opacity-0"
-                            style={{
-                                filter: filter ? "blur(10px)" : "none",
-                            }}
-                        >
-                            {word}{" "}
-                        </motion.span>
-                    );
-                })}
-            </motion.div>
+            <div className={className}>
+                <span className="text-[#168B5D] text-[1.6rem] sm:text-2xl md:text-[1.8rem] lg:text-2xl">
+                    [No words to animate]
+                </span>
+            </div>
         );
-    };
+    }
 
     return (
         <div className={cn("font-bold", className)}>
-            <div className="mt-4">
-                <div className=" dark:text-white text-black text-2xl leading-snug tracking-wide">
-                    {renderWords()}
-                </div>
-            </div>
+            <motion.div ref={scope}>
+                {wordsArray.map((word, idx) => (
+                    <span
+                        key={`${word}-${idx}`}
+                        className="text-[#168B5D] text-[1.6rem] sm:text-3xl md:text-[1.8rem] lg:text-3xl opacity-0"
+                        style={{
+                            filter: filter ? "blur(10px)" : "none",
+                        }}
+                    >
+                        {word}
+                        {idx < wordsArray.length - 1 ? " " : ""}
+                    </span>
+                ))}
+            </motion.div>
         </div>
     );
 };
