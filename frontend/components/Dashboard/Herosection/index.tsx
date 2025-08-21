@@ -182,20 +182,25 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                             onChange={handleFileChange}
                             className="hidden"
                         />
-                        {!IsanalysisDishLoading &&
-                            <Paperclip onClick={handleIconClick} className="absolute flex-shrink-0 text-[#404040] hover:text-[#262525] w-4 h-4 top-[32%] left-[3%]" />
+
+                        {
+                            suggestions.length > 0 && dish.length > 0 && (
+                                <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
+                            )
                         }
-                        {IsanalysisDishLoading && <LoaderCircle className="absolute flex-shrink-0 text-[#404040] hover:text-[#262525] w-4 h-4 top-3 left-2 sm:top-2 sm:left-2 md:left-8 md:top-3 lg:left-[16px] lg:top-3 animate-spin" />}
+                        <div className="relative mx-auto md:mx-0">
+                            {!IsanalysisDishLoading &&
+                                <Paperclip onClick={handleIconClick} className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3 sm:top-2 md:top-3 left-[90%] lg:top-3" />
+                            }
+                            {IsanalysisDishLoading && <LoaderCircle className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3  sm:top-2 left-[90%] lg:top-3 animate-spin" />}
+                            <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : randomPlaceholder}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] hover:text-black pl-3 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " >
+                            </Input>
+                        </div>
+                        <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040] lg:max-w-[121px] shadow-md">See Recipe</Button>
+                    </div >
 
-                        {suggestions.length > 0 && dish.length > 0 && (
-                            <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
-                        )}
-                        <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : randomPlaceholder}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] pl-7 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " />
-                        <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040]  shadow-md">{t("Dashboard.Herosection.See_Recipe")}</Button>
-                    </div>
 
-
-                </div>
+                </div >
                 <div className="flex ml-2 md:ml-7 gap-2   md:gap-4 justify-center md:justify-start">
                     <Select value={DishType} onValueChange={(value) => setValue("DishType", value)}>
                         <SelectTrigger className={`bg-white rounded-md cursor-pointer  ${DishType ? "text-[#168B5D] border-[#168B5D]" : "text-[#4A4A4A]"}`}>
@@ -218,8 +223,8 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
                         </SelectContent>
                     </Select>
                 </div>
-            </div>
+            </div >
             <Button className="bg-[#FFD059] cursor-pointer ml-auto mr-auto block md:hidden hover:bg-[#f6d47e] text-[#404040] lg:max-w-[121px]">{t("Dashboard.Herosection.See_Recipe")}</Button>
-        </form>
+        </form >
     )
 }
