@@ -103,7 +103,7 @@ export default function TrendingRecipes() {
                         <div>{t("Dashboard.Discover.title")}</div>
                         <div className="text-[#FFD059]">{t("Dashboard.Discover.subtitle")}</div>
                     </div>
-                    <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl w-[50%] text-[#404040]">{t("Dashboard.Discover.button")}</Button>
+                    <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl  text-[#404040]  text-nowrap w-[55%]">{t("Dashboard.Discover.button")}</Button>
                 </div>
             </div>
         </div>

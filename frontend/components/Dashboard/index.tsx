@@ -7,6 +7,7 @@ import MobileTrendingRecipes from "./MobileTrendingRecipes"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import FoodLoading from "../Foodloading"
 import { useHasMounted } from "@/hooks/useHasMounted"
+import { useTranslation } from "react-i18next"
 
 type Props = {
     dishname: string | null
@@ -21,7 +22,7 @@ export default function Dashboard({ dishname }: Props) {
         stepMessage
     } = useGenrateRecipe()
     const hasmounted = useHasMounted()
-
+    const { i18n } = useTranslation()
     if (!hasmounted) return null
 
     return (
