@@ -11,7 +11,7 @@ export function useGetdishes() {
     const fetchDishes = async (diet?: string, page?: number, limit?: number) => {
         setIsLoading(true)
         try {
-            const response = await axios.get(`${config.EXPLORE_API_URL}/GetDietTypeDishes?diet=${diet ? diet : "Vegetarian"}&page=${page || 0}&limit=${limit || 30}`) as { data: { dishes: dishTypes[], totalItems: number } }
+            const response = await axios.get(`${config.EXPLORE_API_URL}/GetDietTypeDishes?diet=${diet ? diet : "Vegetarian"}&page=${page || 0}&limit=${limit || 30}&lan=bn`) as { data: { dishes: dishTypes[], totalItems: number } }
             setDishes(response.data.dishes)
             setTotalItems(response.data.totalItems)
         } catch (error) {

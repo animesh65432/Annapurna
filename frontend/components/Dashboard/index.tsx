@@ -22,7 +22,6 @@ export default function Dashboard({ dishname }: Props) {
         stepMessage
     } = useGenrateRecipe()
     const hasmounted = useHasMounted()
-    const { i18n } = useTranslation()
     if (!hasmounted) return null
 
     return (

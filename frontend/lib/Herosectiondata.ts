@@ -51,7 +51,6 @@ export const optionsforLanguages = [
     { label: "मैथिली", value: "mai" },
     { label: "संथाली", value: "sat" },
     { label: "नेपाली", value: "ne" },
-    { label: "कोंकणी", value: "kok" },
     { label: "डोगरी", value: "doi" },
     { label: "बोडो", value: "brx" },
     { label: "मणिपुरी", value: "mni" },

@@ -68,6 +68,8 @@ export default function TrendingRecipes() {
 
     const recipes = getRecipes()
 
+    console.log(trendingRecipes, "TrendingRecipes")
+
     if (!hasmuted) {
         return null
     }
@@ -77,7 +79,7 @@ export default function TrendingRecipes() {
             <div className="flex gap-10">
                 <div className="flex w-full lg:w-fit justify-between gap-6 lg:gap-4 xl:gap-6">
                     {
-                        recipes.map((recipe, index) => (
+                        recipes.map((recipe) => (
                             <motion.div
                                 key={recipe.name}
                                 initial={{ opacity: 0, y: 20 }}
@@ -103,7 +105,9 @@ export default function TrendingRecipes() {
                         <div>{t("Dashboard.Discover.title")}</div>
                         <div className="text-[#FFD059]">{t("Dashboard.Discover.subtitle")}</div>
                     </div>
-                    <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl  text-[#404040]  text-nowrap w-[55%]">{t("Dashboard.Discover.button")}</Button>
+                    <div>
+                        <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl  text-[#404040]  text-nowrap">{t("Dashboard.Discover.button")}</Button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -30,18 +30,18 @@ export default function Recipe({ name, time, when, image, after, id }: Props) {
                     {name}
                 </div>
 
-                <div className="text-[#757575] font-normal flex gap-2 text-[0.9rem] xl:text-[0.8rem]">
+                <div className="text-[#757575] font-normal flex gap-2 text-[0.9rem]">
                     <div className="flex items-center gap-1 whitespace-nowrap">
                         <div className="relative w-5 h-5 shrink-0">
                             <Image src="/assets/dashboard/Timer.svg" alt="timer" fill />
                         </div>
-                        {time} Minutes
+                        {time}
                     </div>
                     <div className="flex items-center gap-1 whitespace-nowrap">
                         <div className="relative w-5 h-5 shrink-0">
                             <Image src="/assets/dashboard/ForkKnife.svg" alt="timer" fill />
                         </div>
-                        {when.join(', ')}
+                        {when[0]}
                     </div>
                 </div>
                 <div onClick={() => router.push(`/recipe/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
