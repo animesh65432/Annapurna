@@ -388,5 +388,14 @@
 },
 "See_healthier_Version": "صحت مند تبدیلیوں کے ساتھ دیکھیں"
 
-  }
+  },
+  "Fooodloading": [
+  { "id": "1", "text": "باورچی خانے کے ڈیٹا بیس میں کھانوں کو محفوظ کریں۔", "completed": false },
+  { "id": "2", "text": "AI کا استعمال کرتے ہوئے ترکیبیں تیار کریں۔", "completed": false },
+  { "id": "3", "text": "باورچی خانے کے ڈیٹا بیس میں کھانوں کو محفوظ کریں۔", "completed": false }
+],
+"Fooodloading-description": "اس میں کچھ وقت لگ سکتا ہے",
+"Fooodloading-title": "بہترین مصنوعات کا ذریعہ"
+
+
 }

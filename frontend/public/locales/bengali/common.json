@@ -390,7 +390,9 @@
   },
   "Fooodloading": [
     { "id": "1", "text": "আপনার ইনপুট যাচাই করা হচ্ছে", "completed": false },
-    { "id": "3", "text": "AI দিয়ে কারুশিল্পের রেসিপি", "completed": false },
-    { "id": "4", "text": "রান্নাঘরের ডাটাবেসে রেসিপি সংরক্ষণ করা হচ্ছে", "completed": false }
-  ]
+    { "id": "2", "text": "AI দিয়ে কারুশিল্পের রেসিপি", "completed": false },
+    { "id": "3", "text": "রান্নাঘরের ডাটাবেসে রেসিপি সংরক্ষণ করা হচ্ছে", "completed": false }
+  ],
+  "Fooodloading-description" :"এতে কয়েক মুহূর্ত সময় লাগতে পারে",
+  "Fooodloading-title":"সেরা পণ্যের উৎস"
 }

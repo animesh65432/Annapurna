@@ -390,8 +390,11 @@
 
   },
   "Fooodloading": [
-    { "id": "1", "text": "Validating your inputs", "completed": false },
-    { "id": "3", "text": "Crafting recipe with AI", "completed": false },
-    { "id": "4", "text": "Saving recipe to kitchen database", "completed": false }
-  ]
+    { "id": "1", "text": "अपन इनपुट के मान्य करब", "completed": false },
+    { "id": "2", "text": "एआई के साथ क्राफ्टिंग रेसिपी", "completed": false },
+    { "id": "3", "text": "किचन डाटाबेस मे रेसिपी सेव करब", "completed": false }
+  ],
+  "Fooodloading-description": "एहि में किछु समय लागि सकैत अछि",
+  "Fooodloading-title": "श्रेष्ठ उत्पादक स्रोत"
+
 }

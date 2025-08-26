@@ -388,6 +388,14 @@
 },
 "See_healthier_Version": "ఆరోగ్యకరమైన సంస్కరణను చూడండి"
 
-  }
+  },
+  "Fooodloading": [
+  { "id": "1", "text": "వంటగది డేటాబేస్‌లో వంటకాలను భద్రపరచండి.", "completed": false },
+  { "id": "2", "text": "AI ఉపయోగించి వంటకాలను రూపొందించండి.", "completed": false },
+  { "id": "3", "text": "వంటగది డేటాబేస్‌లో వంటకాలను భద్రపరచండి.", "completed": false }
+],
+"Fooodloading-description": "దీనికి కొంత సమయం పట్టవచ్చు",
+"Fooodloading-title": "ఉత్తమ ఉత్పత్తుల మూలం"
+
 }
 

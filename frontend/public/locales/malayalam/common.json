@@ -388,5 +388,13 @@
 },
 "See_healthier_Version": "ആരോഗ്യകരമായ പതിപ്പ് കാണുക"
 
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "നിങ്ങളുടെ ഇൻപുട്ട് സാധൂകരിക്കുക", "completed": false },
+    { "id": "2", "text": "AI ഉപയോഗിച്ച് പാചകക്കുറിപ്പുകൾ തയ്യാറാക്കൽ", "completed": false },
+    { "id": "3", "text": "പാചകക്കുറിപ്പുകൾ അടുക്കള ഡാറ്റാബേസിൽ സംരക്ഷിക്കുന്നു", "completed": false }
+  ],
+  "Fooodloading-description": "ഇതിന് കുറച്ച് സമയം എടുക്കാം",
+  "Fooodloading-title": "മികച്ച ഉൽപ്പന്നങ്ങളുടെ ഉറവിടം"
+
 }

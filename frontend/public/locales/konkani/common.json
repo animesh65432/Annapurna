@@ -392,7 +392,10 @@
   },
   "Fooodloading": [
     { "id": "1", "text": "तुमच्या इनपुटांचें प्रमाणीकरण करप", "completed": false },
-    { "id": "3", "text": "एआय कडेन क्राफ्टिंग रेसिपी", "completed": false },
-    { "id": "4", "text": "रेसिपी किचन डेटाबेसांत जतनाय घेवप", "completed": false }
-  ]
+    { "id": "2", "text": "एआय कडेन क्राफ्टिंग रेसिपी", "completed": false },
+    { "id": "3", "text": "रेसिपी किचन डेटाबेसांत जतनाय घेवप", "completed": false }
+  ],
+  "Fooodloading-description": "हाका थोडा वेळ लागू येता",
+  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्रोत"
+
 }

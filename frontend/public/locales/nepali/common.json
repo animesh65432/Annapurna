@@ -387,5 +387,13 @@
   "button": "थप हेर्नुहोस्"
 },
     "See_healthier_Version": "स्वस्थ संस्करण हेर्नुहोस्"
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "भान्साको डाटाबेसमा रेसिपीहरू बचत गर्नुहोस्।", "completed": false },
+    { "id": "2", "text": "एआई प्रयोग गरेर रेसिपीहरू सिर्जना गर्दै।", "completed": false },
+    { "id": "3", "text": "भान्साको डाटाबेसमा रेसिपीहरू बचत गर्नुहोस्।", "completed": false }
+  ],
+  "Fooodloading-description": "यसमा केही समय लाग्न सक्छ",
+  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादनहरूको स्रोत"
+
 }

@@ -7,8 +7,6 @@ import MobileTrendingRecipes from "./MobileTrendingRecipes"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import FoodLoading from "../Foodloading"
 import { useHasMounted } from "@/hooks/useHasMounted"
-import { useTranslation } from "react-i18next"
-
 type Props = {
     dishname: string | null
 }

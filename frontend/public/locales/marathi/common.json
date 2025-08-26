@@ -387,6 +387,14 @@
   "button": "अधिक पहा"
 },
 "See_healthier_Version": "आरोग्यदायी आवृत्ती पहा"
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "स्वयंपाकघर डेटाबेस मे रेसिपी सेव्ह करा.", "completed": false },
+    { "id": "2", "text": "एआय वापरून पाककृती तयार करणे.", "completed": false },
+    { "id": "3", "text": "स्वयंपाकघरातील डेटाबेसमध्ये पाककृती जतन करा.", "completed": false }
+  ],
+  "Fooodloading-description": "यासाठी थोडा वेळ लागू शकतो",
+  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्त्रोत"
+
 }
 

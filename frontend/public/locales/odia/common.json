@@ -388,5 +388,13 @@
 },
 "See_healthier_Version": "ସ୍ୱାସ୍ଥ୍ୟକର ସଂସ୍କରଣ ଦେଖନ୍ତୁ"
 
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "ରୋଷେଇ ଘର ଡାଟାବେସରେ ରେସିପିଗୁଡ଼ିକୁ ସଂରକ୍ଷଣ କରନ୍ତୁ।", "completed": false },
+    { "id": "2", "text": "AI ବ୍ୟବହାର କରି ରେସିପି ତିଆରି କରିବା।", "completed": false },
+    { "id": "3", "text": "ରୋଷେଇ ଘର ଡାଟାବେସରେ ରେସିପିଗୁଡ଼ିକୁ ସଂରକ୍ଷଣ କରନ୍ତୁ।", "completed": false }
+  ],
+  "Fooodloading-description": "ଏଥିରେ କିଛି ସମୟ ଲାଗି ପାରେ",
+  "Fooodloading-title": "ସର୍ବଶ୍ରେଷ୍ଠ ପଣ୍ୟର ଉତ୍ସ"
+
 }

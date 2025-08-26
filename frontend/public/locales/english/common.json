@@ -392,7 +392,10 @@
     
     "Fooodloading": [
       { "id": "1", "text": "Validating your inputs", "completed": false },
-      { "id": "3", "text": "Crafting recipe with AI", "completed": false },
-      { "id": "4", "text": "Saving recipe to kitchen database", "completed": false }
-    ]
+      { "id": "2", "text": "Crafting recipe with AI", "completed": false },
+      { "id": "3", "text": "Saving recipe to kitchen database", "completed": false }
+    ],
+   "Fooodloading-description": "This may take a few moments",
+   "Fooodloading-title": "Sourcing best produce"
+
 }

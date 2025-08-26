@@ -390,7 +390,9 @@
   },
   "Fooodloading": [
     { "id": "1", "text": "आपके इनपुट को मान्य करना", "completed": false },
-    { "id": "3", "text": "AI के साथ क्राफ्टिंग रेसिपी", "completed": false },
-    { "id": "4", "text": "रेसिपी को रसोई डेटाबेस में सहेजना", "completed": false }
-  ]
+    { "id": "2", "text": "AI के साथ क्राफ्टिंग रेसिपी", "completed": false },
+    { "id": "3", "text": "रेसिपी को रसोई डेटाबेस में सहेजना", "completed": false }
+  ],
+  "Fooodloading-description": "इसमें कुछ समय लग सकता है",
+  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादों का स्रोत"
 }

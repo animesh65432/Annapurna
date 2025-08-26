@@ -390,7 +390,7 @@
   },
   "Fooodloading": [
       { "id": "1", "text": "আপোনাৰ ইনপুটসমূহ বৈধ কৰা", "completed": false },
-      { "id": "3", "text": "এআইৰ সৈতে ক্ৰাফটিং ৰেচিপি", "completed": false },
-      { "id": "4", "text": "পাকঘৰৰ ডাটাবেছত ৰেচিপি সংৰক্ষণ কৰা", "completed": false }
+      { "id": "2", "text": "এআইৰ সৈতে ক্ৰাফটিং ৰেচিপি", "completed": false },
+      { "id": "3", "text": "পাকঘৰৰ ডাটাবেছত ৰেচিপি সংৰক্ষণ কৰা", "completed": false }
     ]
 }
