@@ -389,5 +389,10 @@
 ,
     "See_healthier_Version": "आरोग्यदायी आवृत्ती पहा"
 
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "तुमच्या इनपुटांचें प्रमाणीकरण करप", "completed": false },
+    { "id": "3", "text": "एआय कडेन क्राफ्टिंग रेसिपी", "completed": false },
+    { "id": "4", "text": "रेसिपी किचन डेटाबेसांत जतनाय घेवप", "completed": false }
+  ]
 }

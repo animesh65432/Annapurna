@@ -388,5 +388,10 @@
 },
 "See_healthier_Version": "स्वस्थ आवृत्ती देखें"
 
-  }
+  },
+  "Fooodloading": [
+    { "id": "1", "text": "Validating your inputs", "completed": false },
+    { "id": "3", "text": "Crafting recipe with AI", "completed": false },
+    { "id": "4", "text": "Saving recipe to kitchen database", "completed": false }
+  ]
 }

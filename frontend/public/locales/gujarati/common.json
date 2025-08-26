@@ -388,5 +388,10 @@
     },
     "See_healthier_Version": "સ્વસ્થ વર્ઝન જુઓ"
 
-  }
+  },
+  "Fooodloading": [
+      { "id": "1", "text": "તમારા ઇનપુટ્સને માન્ય કરી રહ્યાં છીએ", "completed": false },
+      { "id": "3", "text": "AI સાથે ક્રાફ્ટિંગ રેસીપી", "completed": false },
+      { "id": "4", "text": "રસોડાના ડેટાબેઝમાં રેસીપી સાચવી રહ્યા છીએ", "completed": false }
+    ]
 }
