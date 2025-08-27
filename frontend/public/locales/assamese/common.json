@@ -403,7 +403,16 @@
   "Why_These_Changes": "এই পৰিৱৰ্তনসমূহ কিয়",
   "History": "ইতিহাস",
   "FunFact": "মজাদাৰ তথ্য"
-}
+}, 
+  "explore":{
+    "Non_vegetarian": "",
+    "High-Protein Non-Veg":"",
+    "Vegetarian":"",
+    "High_Protein_Veg":"",
+    "Eggetarian":"",
+    "Diabetic Friendly":"",
+    "Gluten Free" :""
+  }
 
     
 }

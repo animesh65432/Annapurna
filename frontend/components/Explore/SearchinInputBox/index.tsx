@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import { useExploreSuggestions } from "@/hooks/useExploreSuggestions"
 import Suggestions from "../Suggestions"
 import { debounce } from "@/lib/usedebouce";
+import { useTranslation } from "react-i18next"
 
 type Props = {
     diet?: string | null,
@@ -21,6 +22,7 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const [dish, setdish] = useState<string>("")
     const [DietType, SetDietType] = useState<string>("")
     const [Cuisine, setCuisine] = useState<string>("")
+    const { t } = useTranslation();
     const { fetchSuggestions, suggestions, setSuggestions } = useExploreSuggestions()
     const router = useRouter();
 
@@ -65,7 +67,7 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
                     </SelectTrigger>
                     <SelectContent >
                         {DishTypeOptions.map((dish) => (
-                            <SelectItem key={dish.value} value={dish.value}>{dish.label}</SelectItem>
+                            <SelectItem key={dish} value={dish}>{dish}</SelectItem>
                         ))}
                     </SelectContent>
                 </Select>

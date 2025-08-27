@@ -11,14 +11,16 @@ import { useGetdishes } from "@/hooks/useGetdishes"
 import DishSkeleton from "../DishSkelton";
 import { ChevronRight } from "lucide-react"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next";
 
 export default function Nonvegetarian() {
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
+    const { i18n } = useTranslation()
     const router = useRouter();
 
     useEffect(() => {
         fetchDishes("Non_Vegetarian");
-    }, []);
+    }, [i18n.language]);
 
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">

@@ -11,8 +11,10 @@ import { useEffect } from "react"
 import DishSkeleton from "../DishSkelton";
 import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next";
 export default function Veg() {
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
+    const { i18n } = useTranslation()
     const router = useRouter();
 
     async function init() {
@@ -20,7 +22,7 @@ export default function Veg() {
     }
     useEffect(() => {
         init()
-    }, [])
+    }, [i18n.language])
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
             <h1 onClick={() => router.push(`/explore/Vegetarian`)} className="text-[#3f3f3f] hover:underline cursor-pointer font-bold text-xl sm:text-2xl mb-4 flex items-center">

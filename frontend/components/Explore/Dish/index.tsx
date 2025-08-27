@@ -28,7 +28,7 @@ export default function Dish({ name, img, prep_time, cuisine, id }: Props) {
                             <div className="relative w-4 h-4 min-[400px]:w-5 min-[400px]:h-5 shrink-0">
                                 <Image src="/assets/dashboard/Timer.svg" alt="timer" fill />
                             </div>
-                            {prep_time} Minutes
+                            {prep_time}
                         </div>
                         <div className="flex items-center gap-1 whitespace-nowrap">
                             <div className="relative w-4 h-4 min-[400px]:w-5 min-[400px]:h-5 shrink-0">
