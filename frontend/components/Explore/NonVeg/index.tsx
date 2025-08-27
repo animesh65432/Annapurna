@@ -22,7 +22,6 @@ export default function Nonvegetarian() {
         fetchDishes("Non_Vegetarian");
     }, [i18n.language]);
 
-    console.log(t("explore"))
 
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">

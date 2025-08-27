@@ -412,7 +412,53 @@
     "High_Protein_Veg": "ഉയർന്ന പ്രോട്ടീൻ സസ്യാഹാരി",
     "Eggetarian": "മുട്ടാഹാരി",
     "Diabetic_Friendly": "മധുമേഹികൾക്ക് അനുയോജ്യം",
-    "Gluten_Free": "ഗ്ലൂട്ടൺ രഹിതം"
+    "Gluten_Free": "ഗ്ലൂട്ടൺ രഹിതം",
+    "Diet_Type_Options": [
+  {"Vegetarian": "സസ്യാഹാരി"},
+  {"Non_Vegetarian": "അമാംസാഹാരി"},
+  {"Any": "ഏതെങ്കിലും"}
+],
+"CuisineOptions": [
+  {"South_Indian": "ദക്ഷിണേന്ത്യൻ"},
+  {"Goan": "ഗോവൻ"},
+  {"North_Indian": "വടക്കേന്ത്യൻ"},
+  {"Assamese": "ആസാമീസ്"},
+  {"Tamil_Nadu": "തമിഴ്നാട്"},
+  {"Karnataka": "കർണാടക"},
+  {"Malvani": "മാൽവാണി"},
+  {"Kerala": "കേരള"},
+  {"Gujarati": "ഗുജറാത്തി"},
+  {"Sindhi": "സിന്ധി"},
+  {"Konkan": "കോങ്കൺ"},
+  {"Hyderabadi": "ഹൈദരാബാദി"},
+  {"Andhra": "ആന്ധ്ര"},
+  {"Coorg": "കൂർഗ്"},
+  {"Bengali": "ബംഗാളി"},
+  {"Mangalorean": "മംഗളൂറിയൻ"},
+  {"Kongunadu": "കോംഗുനാട്"},
+  {"Punjabi": "പഞ്ചാബി"},
+  {"Udupi": "ഉഡുപ്പി"},
+  {"Chettinad": "ചെട്ടിനാട്"},
+  {"Indo_Chinese": "ഇൻഡോ-ചൈനീസ്"},
+  {"Parsi": "പാർസി"},
+  {"Rajasthani": "രാജസ്ഥാനി"},
+  {"Kashmiri": "കാശ്മീരി"},
+  {"Mughlai": "മുഗ്ലായി"},
+  {"Bihari": "ബിഹാരി"},
+  {"Maharashtrian": "മഹാരാഷ്ട്രൻ"},
+  {"North_East_India": "വടക്കുകിഴക്കൻ ഇന്ത്യ"},
+  {"Himachal": "ഹിമാചൽ"},
+  {"Uttar_Pradesh": "ഉത്തർ പ്രദേശ്"},
+  {"Awadhi": "അവധീ"},
+  {"Oriya": "ഒറിയ"},
+  {"Uttarakhand": "ഉത്തരാഖണ്ഡ്"},
+  {"Lucknowi": "ലഖ്നവി"},
+  {"Haryana": "ഹരിയാന"},
+  {"Malabar": "മലബാർ"},
+  {"Jharkhand": "ഝാർഖണ്ഡ്"},
+  {"Nagaland": "നാഗാലാൻഡ്"}
+]
+
   }
 
 

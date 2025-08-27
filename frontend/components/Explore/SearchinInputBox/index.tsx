@@ -23,6 +23,8 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const [DietType, SetDietType] = useState<string>("")
     const [Cuisine, setCuisine] = useState<string>("")
     const { t } = useTranslation();
+    const CuisineOptions = t("explore.CuisineOptions", { returnObjects: true }) as any[];
+    const DietTypeOptions = t("explore.Diet_Type_Options", { returnObjects: true }) as any[];
     const { fetchSuggestions, suggestions, setSuggestions } = useExploreSuggestions()
     const router = useRouter();
 
@@ -56,30 +58,37 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const selectfromSuggestion = (suggestion: string) => {
         setdish(suggestion);
     }
+
+
     return (
         <div className="w-full flex justify-center ">
             <div className=" hidden md:flex relative  rounded-4xl h-[8vh] items-center w-[75%] lg:w-[63%] xl:w-[55%] bg-white shadow-md border-2 border-neutral-100 text-black">
                 <Image src={InputIcon} alt="inputicon" className="w-[2vw] h-[3vh] ml-5" />
-                <Input value={dish} onChange={(e) => setdish(e.target.value)} className="border-0 bg-transparent shadow-none  w-[40%] lg:w-[45%] " placeholder="Write Dish name" />
+                <Input value={dish} onChange={(e) => setdish(e.target.value)} className="border-0 bg-transparent shadow-none  w-[40%] lg:w-[45%] " placeholder={t("explore.Input_placeholder")} />
                 <Select value={DietType} onValueChange={(value) => SetDietType(value)}>
-                    <SelectTrigger className="border-t-0 border-r-0 border-b-0 cursor-pointer  bg-transparent shadow-none w-[20%]">
-                        <SelectValue placeholder="Diet Type" />
+                    <SelectTrigger className="border-t-0 border-r-0 border-b-0 cursor-pointer  bg-transparent shadow-none ">
+                        <SelectValue placeholder={t("explore.Select_Diet_placeholder")} />
                     </SelectTrigger>
                     <SelectContent >
-                        {DishTypeOptions.map((dish) => (
-                            <SelectItem key={dish} value={dish}>{dish}</SelectItem>
+                        {Object.entries(DietTypeOptions).map(([key, value]) => (
+                            <SelectItem key={key} value={key}>
+                                {Object.values(value).join(" / ")}
+                            </SelectItem>
                         ))}
                     </SelectContent>
                 </Select>
                 <Select value={Cuisine} onValueChange={(value) => setCuisine(value)} >
-                    <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none w-[20%]">
-                        <SelectValue placeholder="Cuisine Type" />
+                    <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none ">
+                        <SelectValue placeholder={t("explore.Select_Cuisine_placeholder")} />
                     </SelectTrigger>
-                    <SelectContent className="">
-                        {dishesfrom.map((place) => (
-                            <SelectItem key={place} value={place}>{place.split("_").join(" ")}</SelectItem>
+                    <SelectContent>
+                        {Object.entries(CuisineOptions).map(([key, value]) => (
+                            <SelectItem key={key} value={key}>
+                                {Object.values(value).join(" / ")}
+                            </SelectItem>
                         ))}
                     </SelectContent>
+
                 </Select>
                 <div className="flex cursor-pointer ml-[5%] lg:ml-[2%] bg-[#168B5D] text-white rounded-3xl p-2">
                     <Search onClick={handleSearch} />

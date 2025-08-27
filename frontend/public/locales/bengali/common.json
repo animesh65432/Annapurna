@@ -412,7 +412,57 @@
       "High_Protein_Veg": "উচ্চ প্রোটিন শাকাহারী",
       "Eggetarian": "ডিমভোজী",
       "Diabetic_Friendly": "ডায়াবেটিক-বান্ধব",
-      "Gluten_Free": "গ্লুটেন-মুক্ত"
+      "Gluten_Free": "গ্লুটেন-মুক্ত",
+      
+        "Input_placeholder": "খাবারের নাম লিখুন",
+        "Select_Diet_placeholder": "খাবারের ধরন নির্বাচন করুন",
+        "Select_Cuisine_placeholder": "রান্নার ধরন",
+        "Diet_Type_Options": [
+          {"Vegetarian": "শাকাহারি"},
+          {"Non-Vegetarian": "মাংসাহারি"},
+          {"Any": "যে কোনো"}
+        ],
+        "CuisineOptions": [
+          {"South_Indian": "দক্ষিণ ভারতীয়"},
+          {"Goan": "গোয়া"},
+          {"North_Indian": "উত্তর ভারতীয়"},
+          {"Assamese": "অসমীয়া"},
+          {"Tamil_Nadu": "তামিলনাড়ু"},
+          {"Karnataka": "কর্ণাটক"},
+          {"Malvani": "মালভানি"},
+          {"Kerala": "কেরালা"},
+          {"Gujarati": "গুজরাটি"},
+          {"Sindhi": "সিন্ধি"},
+          {"Konkan": "কোঙ্কণ"},
+          {"Hyderabadi": "হায়দ্রাবাদি"},
+          {"Andhra": "আন্ধ্রা"},
+          {"Coorg": "কোর্গ"},
+          {"Bengali": "বাংলা"},
+          {"Mangalorean": "মঙ্গলোরিয়ান"},
+          {"Kongunadu": "কোঙ্গুনাডু"},
+          {"Punjabi": "পাঞ্জাবি"},
+          {"Udupi": "উডুপি"},
+          {"Chettinad": "চেট্টিনাড"},
+          {"Indo_Chinese": "ইন্ডো-চাইনিজ"},
+          {"Parsi": "পার্সি"},
+          {"Rajasthani": "রাজস্থানী"},
+          {"Kashmiri": "কাশ্মীরি"},
+          {"Mughlai": "মুঘলাই"},
+          {"Bihari": "বিহারী"},
+          {"Maharashtrian": "মহারাষ্ট্রী"},
+          {"North_East_India": "উত্তর-পূর্ব ভারত"},
+          {"Himachal": "হিমাচল"},
+          {"Uttar_Pradesh": "উত্তর প্রদেশ"},
+          {"Awadhi": "আওধী"},
+          {"Oriya": "ওড়িয়া"},
+          {"Uttarakhand": "উত্তরাখণ্ড"},
+          {"Lucknowi": "লখনউই"},
+          {"Haryana": "হরিয়ানা"},
+          {"Malabar": "মালাবার"},
+          {"Jharkhand": "ঝাড়খণ্ড"},
+          {"Nagaland": "নাগাল্যান্ড"}
+        ]
+          
     }
   
 }

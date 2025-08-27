@@ -412,7 +412,56 @@
     "High_Protein_Veg": "ઉચ્ચ પ્રોટીન શાકાહારી",
     "Eggetarian": "અંડાહારી",
     "Diabetic_Friendly": "ડાયાબિટીસ માટે અનુકૂળ",
-    "Gluten_Free": "ગ્લૂટેન મુક્ત"
+    "Gluten_Free": "ગ્લૂટેન મુક્ત",
+      "Input_placeholder": "ખોરાકનું નામ લખો",
+      "Select_Diet_placeholder": "ખોરાકનો પ્રકાર પસંદ કરો",
+      "Select_Cuisine_placeholder": "રસોઈનો પ્રકાર",
+      "Diet_Type_Options": [
+        {"Vegetarian": "શાકાહારી"},
+        {"Non_Vegetarian": "મસાહારી"},
+        {"Any": "કોઈપણ"}
+      ],
+      "CuisineOptions": [
+        {"South_Indian": "દક્ષિણ ભારતીય"},
+        {"Goan": "ગોવા"},
+        {"North_Indian": "ઉત્તર ભારતીય"},
+        {"Assamese": "અસમીઝ"},
+        {"Tamil_Nadu": "તમિલનાડુ"},
+        {"Karnataka": "કર્ણાટક"},
+        {"Malvani": "માલવાણી"},
+        {"Kerala": "કેરળા"},
+        {"Gujarati": "ગુજરાતી"},
+        {"Sindhi": "સિંધિ"},
+        {"Konkan": "કોન્કણ"},
+        {"Hyderabadi": "હૈદરાબાદી"},
+        {"Andhra": "આંધ્રા"},
+        {"Coorg": "કોર્ગ"},
+        {"Bengali": "બંગાળી"},
+        {"Mangalorean": "મંગલોરિયન"},
+        {"Kongunadu": "કોંગુનાડુ"},
+        {"Punjabi": "પંજાબી"},
+        {"Udupi": "ઉડુપિ"},
+        {"Chettinad": "ચેટ્ટિનાડ"},
+        {"Indo_Chinese": "ઇન્ડો-ચાઇનીઝ"},
+        {"Parsi": "પારસી"},
+        {"Rajasthani": "રાજસ્થાની"},
+        {"Kashmiri": "કાશ્મીરી"},
+        {"Mughlai": "મુઘલાઈ"},
+        {"Bihari": "બિહારી"},
+        {"Maharashtrian": "મહારાષ્ટ્રિય"},
+        {"North_East_India": "ઉત્તર-પૂર્વ ભારત"},
+        {"Himachal": "હિમાચલ"},
+        {"Uttar_Pradesh": "ઉત્તર પ્રદેશ"},
+        {"Awadhi": "આવધી"},
+        {"Oriya": "ઓડિયા"},
+        {"Uttarakhand": "ઉત્તરાખંડ"},
+        {"Lucknowi": "લખનૌવી"},
+        {"Haryana": "હરિયાણા"},
+        {"Malabar": "માલાબાર"},
+        {"Jharkhand": "ઝારખંડ"},
+        {"Nagaland": "નાગાલેન્ડ"}
+      ]
+      
   }
 
 }

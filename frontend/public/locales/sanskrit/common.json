@@ -412,7 +412,56 @@
     "High_Protein_Veg": "उच्च-प्रोटीन शाकाहारी",
     "Eggetarian": "अण्डाहारी",
     "Diabetic_Friendly": "मधुमेहिनां हितकरः",
-    "Gluten_Free": "ग्लूटेन-मुक्तम्"
+    "Gluten_Free": "ग्लूटेन-मुक्तम्",
+
+  "Input_placeholder": "भोजनस्य नाम लिखत",
+  "Select_Diet_placeholder": "भोजनस्य प्रकारं चयनयतु",
+  "Select_Cuisine_placeholder": "पाकशैली प्रकारः",
+  "Diet_Type_Options": [
+    {"Vegetarian": "शाकाहारी"},
+    {"Non_Vegetarian": "मांसाहारी"},
+    {"Any": "किमपि"}
+  ],
+  "CuisineOptions": [
+    {"South_Indian": "दक्षिण भारतीय"},
+    {"Goan": "गोआ"},
+    {"North_Indian": "उत्तरी भारतीय"},
+    {"Assamese": "असमीया"},
+    {"Tamil_Nadu": "तमिलनाडु"},
+    {"Karnataka": "कर्नाटका"},
+    {"Malvani": "मालवाणी"},
+    {"Kerala": "केरला"},
+    {"Gujarati": "गुजराती"},
+    {"Sindhi": "सिन्धी"},
+    {"Konkan": "कोंकण"},
+    {"Hyderabadi": "हैदराबादी"},
+    {"Andhra": "आन्ध्र"},
+    {"Coorg": "कोर्ग"},
+    {"Bengali": "बंगाली"},
+    {"Mangalorean": "मंगलोरियन"},
+    {"Kongunadu": "कोंगुनाडु"},
+    {"Punjabi": "पञ्जाबी"},
+    {"Udupi": "उडुपी"},
+    {"Chettinad": "चेट्टिनाड"},
+    {"Indo_Chinese": "इन्डो-चायनीज"},
+    {"Parsi": "पारसी"},
+    {"Rajasthani": "राजस्थानी"},
+    {"Kashmiri": "काश्मीरी"},
+    {"Mughlai": "मुघलाय"},
+    {"Bihari": "बिहारी"},
+    {"Maharashtrian": "महाराष्ट्रीय"},
+    {"North_East_India": "उत्तर-पूर्व भारत"},
+    {"Himachal": "हिमाचल"},
+    {"Uttar_Pradesh": "उत्तर प्रदेश"},
+    {"Awadhi": "आवधी"},
+    {"Oriya": "ओडिया"},
+    {"Uttarakhand": "उत्तराखण्ड"},
+    {"Lucknowi": "लखनऊवी"},
+    {"Haryana": "हरियाणा"},
+    {"Malabar": "मालबार"},
+    {"Jharkhand": "झारखण्ड"},
+    {"Nagaland": "नागालैंड"}
+  ]
   }
 
 

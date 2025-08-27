@@ -85,7 +85,7 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
                                 </SelectTrigger>
                                 <SelectContent >
                                     {DishTypeOptions.map((dish) => (
-                                        <SelectItem key={dish.value} value={dish.value}>{dish.label}</SelectItem>
+                                        <SelectItem key={dish} value={dish}>{dish}</SelectItem>
                                     ))}
                                 </SelectContent>
                             </Select>
