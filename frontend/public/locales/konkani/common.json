@@ -396,6 +396,16 @@
     { "id": "3", "text": "रेसिपी किचन डेटाबेसांत जतनाय घेवप", "completed": false }
   ],
   "Fooodloading-description": "हाका थोडा वेळ लागू येता",
-  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्रोत"
+  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्रोत",
+  "recipe": {
+  "Before": "पेल्ले",
+  "After": "मगां",
+  "Ingredients": "साहित्य",
+  "Steps": "पायऱ्या",
+  "Why_These_Changes": "हे बदल कशें",
+  "History": "इतिहास",
+  "FunFact": "मजेदार गोष्ट"
+}
+
 
 }

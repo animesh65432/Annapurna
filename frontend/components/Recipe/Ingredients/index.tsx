@@ -1,10 +1,13 @@
 import { useRecipeStore } from "@/store/recipe"
 import { useState } from "react"
 import { Check } from "lucide-react"
+import { useTranslation } from "react-i18next"
+
 
 export default function Ingredients() {
     const [IngredientsIndexs, SetIngredientsIndexs] = useState<number[]>([])
     const { recipe } = useRecipeStore()
+    const { t } = useTranslation()
 
     const OnToggole = (index: number) => {
         if (IngredientsIndexs.includes(index)) {
@@ -19,7 +22,7 @@ export default function Ingredients() {
         <>
             <div className="w-[85%] mx-auto flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
-                    <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">Ingredients</h1>
+                    <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">{t("recipe.Ingredients")}</h1>
                     <div className="grid grid-cols-1 gap-5">
                         {
                             recipe?.healthierVersion.ingredients.map((ingredient, index) => (

@@ -396,6 +396,16 @@
       { "id": "3", "text": "Saving recipe to kitchen database", "completed": false }
     ],
    "Fooodloading-description": "This may take a few moments",
-   "Fooodloading-title": "Sourcing best produce"
+   "Fooodloading-title": "Sourcing best produce",
+   "recipe": {
+  "Before": "Before",
+  "After": "After",
+  "Ingredients": "Ingredients",
+  "Steps": "Steps",
+  "Why_These_Changes": "Why These Changes",
+  "History": "History",
+  "FunFact": "Fun Fact"
+}
+
 
 }

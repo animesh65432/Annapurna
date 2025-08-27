@@ -394,6 +394,16 @@
     { "id": "3", "text": "ಅಡುಗೆಮನೆಯ ಡೇಟಾಬೇಸ್‌ನಲ್ಲಿ ಪಾಕವಿಧಾನಗಳನ್ನು ಉಳಿಸಲಾಗುತ್ತಿದೆ", "completed": false }
   ],
   "Fooodloading-description": "ಇದಕ್ಕೆ ಸ್ವಲ್ಪ ಸಮಯ ಹಿಡಿಯಬಹುದು",
-  "Fooodloading-title": "ಉತ್ತಮ ಉತ್ಪನ್ನಗಳ ಮೂಲ"
+  "Fooodloading-title": "ಉತ್ತಮ ಉತ್ಪನ್ನಗಳ ಮೂಲ",
+  "recipe": {
+  "Before": "ಮುಂಬರುವ",
+  "After": "ನಂತರ",
+  "Ingredients": "ಪದಾರ್ಥಗಳು",
+  "Steps": "ಹಂತಗಳು",
+  "Why_These_Changes": "ಈ ಬದಲಾವಣೆಗಳು ಏಕೆ",
+  "History": "ಇತಿಹಾಸ",
+  "FunFact": "ಮಜಾದಾರ ವಾಸ್ತವ"
+}
+
 
 }

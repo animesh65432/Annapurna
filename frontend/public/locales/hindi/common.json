@@ -394,5 +394,14 @@
     { "id": "3", "text": "रेसिपी को रसोई डेटाबेस में सहेजना", "completed": false }
   ],
   "Fooodloading-description": "इसमें कुछ समय लग सकता है",
-  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादों का स्रोत"
+  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादों का स्रोत",
+  "recipe": {
+  "Before": "पहले",
+  "After": "बाद में",
+  "Ingredients": "सामग्री",
+  "Steps": "कदम",
+  "Why_These_Changes": "ये बदलाव क्यों",
+  "History": "इतिहास",
+  "FunFact": "दिलचस्प तथ्य"
+}
 }

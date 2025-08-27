@@ -394,7 +394,17 @@
     { "id": "3", "text": "स्वयंपाकघरातील डेटाबेसमध्ये पाककृती जतन करा.", "completed": false }
   ],
   "Fooodloading-description": "यासाठी थोडा वेळ लागू शकतो",
-  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्त्रोत"
+  "Fooodloading-title": "सर्वोत्कृष्ट उत्पादनांचे स्त्रोत",
+  "recipe": {
+  "Before": "पूर्वी",
+  "After": "नंतर",
+  "Ingredients": "साहित्य",
+  "Steps": "पायऱ्या",
+  "Why_These_Changes": "हे बदल का",
+  "History": "इतिहास",
+  "FunFact": "रंजक तथ्य"
+}
+
 
 }
 

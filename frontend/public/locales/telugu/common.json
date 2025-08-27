@@ -395,7 +395,17 @@
   { "id": "3", "text": "వంటగది డేటాబేస్‌లో వంటకాలను భద్రపరచండి.", "completed": false }
 ],
 "Fooodloading-description": "దీనికి కొంత సమయం పట్టవచ్చు",
-"Fooodloading-title": "ఉత్తమ ఉత్పత్తుల మూలం"
+"Fooodloading-title": "ఉత్తమ ఉత్పత్తుల మూలం",
+"recipe": {
+  "Before": "మునుపటి",
+  "After": "తర్వాత",
+  "Ingredients": "పదార్థాలు",
+  "Steps": "దశలు",
+  "Why_These_Changes": "ఈ మార్పులు ఎందుకు",
+  "History": "చరిత్ర",
+  "FunFact": "రసకరమైన వాస్తవం"
+}
+
 
 }
 

@@ -395,6 +395,16 @@
     { "id": "3", "text": "ରୋଷେଇ ଘର ଡାଟାବେସରେ ରେସିପିଗୁଡ଼ିକୁ ସଂରକ୍ଷଣ କରନ୍ତୁ।", "completed": false }
   ],
   "Fooodloading-description": "ଏଥିରେ କିଛି ସମୟ ଲାଗି ପାରେ",
-  "Fooodloading-title": "ସର୍ବଶ୍ରେଷ୍ଠ ପଣ୍ୟର ଉତ୍ସ"
+  "Fooodloading-title": "ସର୍ବଶ୍ରେଷ୍ଠ ପଣ୍ୟର ଉତ୍ସ",
+  "recipe": {
+  "Before": "ପূର୍ବରୁ",
+  "After": "ପରେ",
+  "Ingredients": "ସାମଗ୍ରୀ",
+  "Steps": "ପଦକ୍ଷେପ",
+  "Why_These_Changes": "ଏହି ପରିବର୍ତ୍ତନ କାହିଁକି",
+  "History": "ଇତିହାସ",
+  "FunFact": "ମଜାଦାର ତଥ୍ୟ"
+}
+
 
 }

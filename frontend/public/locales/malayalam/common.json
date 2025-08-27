@@ -395,6 +395,16 @@
     { "id": "3", "text": "പാചകക്കുറിപ്പുകൾ അടുക്കള ഡാറ്റാബേസിൽ സംരക്ഷിക്കുന്നു", "completed": false }
   ],
   "Fooodloading-description": "ഇതിന് കുറച്ച് സമയം എടുക്കാം",
-  "Fooodloading-title": "മികച്ച ഉൽപ്പന്നങ്ങളുടെ ഉറവിടം"
+  "Fooodloading-title": "മികച്ച ഉൽപ്പന്നങ്ങളുടെ ഉറവിടം",
+  "recipe": {
+  "Before": "മുൻപ്",
+  "After": "ശേഷം",
+  "Ingredients": "സാധനങ്ങൾ",
+  "Steps": "പടികൾ",
+  "Why_These_Changes": "ഈ മാറ്റങ്ങൾ എന്തുകൊണ്ട്",
+  "History": "ചരിത്രം",
+  "FunFact": "രസകരമായ വസ്തുത"
+}
+
 
 }

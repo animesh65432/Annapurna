@@ -394,5 +394,14 @@
     { "id": "3", "text": "রান্নাঘরের ডাটাবেসে রেসিপি সংরক্ষণ করা হচ্ছে", "completed": false }
   ],
   "Fooodloading-description" :"এতে কয়েক মুহূর্ত সময় লাগতে পারে",
-  "Fooodloading-title":"সেরা পণ্যের উৎস"
+  "Fooodloading-title":"সেরা পণ্যের উৎস",
+  "recipe": {
+      "Before": "আগে",
+      "After": "পরে",
+      "Ingredients": "উপকরণ",
+      "Steps": "পদ্ধতি",
+      "Why_These_Changes": "কেন এই পরিবর্তনসমূহ",
+      "History": "ইতিহাস",
+      "FunFact": "মজার তথ্য"
+  }
 }

@@ -9,13 +9,12 @@ import { XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next"
-import { Select } from "@/components/ui/select"
 import { useHasMounted } from "@/hooks/useHasMounted";
 
 export default function Header() {
     const { token } = useAuthstore()
     const hasMounted = useHasMounted();
-    const { t } = useTranslation("Header")
+    const { t } = useTranslation()
     return (
         <header className="ml-auto mr-auto pt-5 flex justify-between items-center w-[85%]  ">
             <Link href="/">
@@ -25,16 +24,13 @@ export default function Header() {
             </Link>
             <ul className=" hidden md:flex gap-8 items-center text-[1rem] text-[#353535]">
                 <Link href="/explore">
-                    <li >{t("Explore")}</li>
+                    <li >{t("Dashboard.Header.explore")}</li>
                 </Link>
                 {hasMounted && token &&
                     <Link href="/saves" className="text-[#353535] cursor-pointer">
-                        Save
+                        {t("Dashboard.Header.save")}
                     </Link>
                 }
-                <li>
-                    <Select></Select>
-                </li>
             </ul>
             <ul className="md:hidden block">
                 <Sheet>
@@ -54,12 +50,12 @@ export default function Header() {
                         </SheetClose>
                         <nav className="flex  font-poppins text-[1rem] text-[#048452] font-medium flex-col justify-center items-center gap-8">
                             <Link href="/explore">
-                                <ul>Explore</ul>
+                                <ul>{t("Dashboard.Header.explore")}</ul>
                             </Link>
                             {token &&
                                 <Link href="/saves" className="cursor-pointer">
                                     <ul>
-                                        Save
+                                        {t("Dashboard.Header.save")}
                                     </ul>
                                 </Link>
                             }

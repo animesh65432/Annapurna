@@ -392,5 +392,18 @@
       { "id": "1", "text": "আপোনাৰ ইনপুটসমূহ বৈধ কৰা", "completed": false },
       { "id": "2", "text": "এআইৰ সৈতে ক্ৰাফটিং ৰেচিপি", "completed": false },
       { "id": "3", "text": "পাকঘৰৰ ডাটাবেছত ৰেচিপি সংৰক্ষণ কৰা", "completed": false }
-    ]
+    ],
+  "Fooodloading-description" :"ইয়াৰ বাবে হয়তো কেইমুহূৰ্ত সময় লাগিব।",
+  "Fooodloading-title":"উত্তম সামগ্ৰীৰ উৎস আহৰণ কৰক",
+  "recipe": {
+  "Before": "আগতে",
+  "After": "পিছত",
+  "Ingredients": "উপকৰণসমূহ",
+  "Steps": "পদক্ষেপসমূহ",
+  "Why_These_Changes": "এই পৰিৱৰ্তনসমূহ কিয়",
+  "History": "ইতিহাস",
+  "FunFact": "মজাদাৰ তথ্য"
+}
+
+    
 }

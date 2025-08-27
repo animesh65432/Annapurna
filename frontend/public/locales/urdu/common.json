@@ -395,7 +395,16 @@
   { "id": "3", "text": "باورچی خانے کے ڈیٹا بیس میں کھانوں کو محفوظ کریں۔", "completed": false }
 ],
 "Fooodloading-description": "اس میں کچھ وقت لگ سکتا ہے",
-"Fooodloading-title": "بہترین مصنوعات کا ذریعہ"
+"Fooodloading-title": "بہترین مصنوعات کا ذریعہ",
+"recipe": {
+  "Before": "پہلے",
+  "After": "بعد میں",
+  "Ingredients": "اجزاء",
+  "Steps": "اقدامات",
+  "Why_These_Changes": "یہ تبدیلیاں کیوں",
+  "History": "تاریخ",
+  "FunFact": "دلچسپ حقیقت"
+}
 
 
 }

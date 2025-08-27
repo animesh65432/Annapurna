@@ -393,5 +393,15 @@
     { "id": "3", "text": "ꯀꯤꯆꯦꯟ ꯗꯦꯇꯥꯕꯦꯖꯗꯥ ꯔꯦꯁꯤꯄꯤꯁꯤꯡ ꯁꯦꯚ ꯇꯧꯕꯥ꯫", "completed": false }
   ],
   "Fooodloading-description": "মসি অদুগী মতম খরা লৈবা লৈ",
-  "Fooodloading-title": "অথুবা উৎপাদগী উৎস"
+  "Fooodloading-title": "অথুবা উৎপাদগী উৎস",
+  "recipe": {
+  "Before": "ꯃꯌꯦꯄꯨ",
+  "After": "ꯂꯦꯡꯕꯥ",
+  "Ingredients": "ꯁꯦꯝꯂꯣꯟ",
+  "Steps": "ꯄꯣꯗꯤ",
+  "Why_These_Changes": "ꯑꯃꯗꯨ ꯑꯃꯅꯥ ꯍꯧꯌꯕꯤ",
+  "History": "ꯄꯣꯡꯖꯥ",
+  "FunFact": "ꯃꯖꯦꯗꯥ ꯐꯣꯛꯇꯥ"
+}
+
 }

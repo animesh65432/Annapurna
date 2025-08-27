@@ -395,5 +395,15 @@
       { "id": "3", "text": "રસોડાના ડેટાબેઝમાં રેસીપી સાચવી રહ્યા છીએ", "completed": false }
     ],
     "Fooodloading-description": "આમાં થોડો સમય લાગી શકે છે",
-    "Fooodloading-title": "શ્રેષ્ઠ ઉત્પાદનોનું સ્ત્રોત"
+    "Fooodloading-title": "શ્રેષ્ઠ ઉત્પાદનોનું સ્ત્રોત",
+    "recipe": {
+  "Before": "પહેલાં",
+  "After": "પછી",
+  "Ingredients": "સામગ્રી",
+  "Steps": "પગલાં",
+  "Why_These_Changes": "આ બદલાવ કેમ",
+  "History": "ઇતિહાસ",
+  "FunFact": "મજેદાર તથ્ય"
+}
+
 }

@@ -9,7 +9,7 @@ export function buildPromptdish1(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ${Language}.
+The language is: ISO 639-1 standard-${Language}.
 The dish type is: ${dishtype}.
 
 Create a detailed healthier recipe following the exact structure below:
@@ -46,52 +46,84 @@ CRITICAL JSON FORMATTING INSTRUCTIONS:
 }
 
 export function buildPromptdish2(dishOrRecipe: string, Variant: string, Language: string, dishtype: string, recipe: string) {
-  return `{
-  You are an expert nutritionist and Indian cuisine analyst with deep knowledge of traditional recipes and their nutritional profiles.
+  return `You are an expert nutritionist and Indian cuisine analyst with deep knowledge of traditional recipes and their nutritional profiles.
 
-The dish or recipe name is: ${dishOrRecipe}.
-The variant is: ${Variant}.
-The language is: ${Language}.
-The dish type is: ${dishtype}.
-The reference recipe is: ${recipe}.
+The dish or recipe name is: ${dishOrRecipe}
+The variant is: ${Variant}
+The target language is: ISO 639-1 standard-${Language}
+The dish type is: ${dishtype}
+The reference recipe is: ${recipe}
 
 Analyze the provided recipe and create an accurate nutritional comparison following the exact structure below:
 
 CRITICAL INSTRUCTIONS:
 - Return ONLY the JSON object below
-- Do NOT include any text before or after the JSON
-- Do NOT use markdown formatting or code blocks
-- Do NOT add explanations, comments, or additional text
+- DO NOT include any text before or after the JSON
+- DO NOT use markdown formatting or code blocks
+- DO NOT add explanations, comments, or additional text
 - Ensure all quotes are properly escaped
 - End your response immediately after the closing brace
-- Use camelCase for all keys (no spaces or hyphens)
+
+LANGUAGE HANDLING FOR ISO 639-1 standard-${Language}:
+- If Language is "en" (English): Use English camelCase keys and English values
+- If Language is "bn" (Bengali): Use Bengali keys and Bengali values
+- If Language is "hi" (Hindi): Use Hindi keys and Hindi values
+- If Language is other: Use that language for both keys and values
+- NEVER mix languages - keep everything consistent in the target language
+- NO English words in non-English responses (avoid "অলিভ অয়েল", use "জলপাই তেল" or native equivalent)
 
 REQUIRED JSON STRUCTURE:
 {
   "comparison": {
     "before": {
-      // Dynamic key-value pairs based on the specific dish
-      // Keys should be relevant to the dish type (e.g., for parathas: doughComposition, fillingComposition)
-      // Keys should be in camelCase format
-      // Include 6-9 relevant aspects that differentiate traditional vs healthier version
+      // Create 6-9 dynamic key-value pairs based on dish type: ${dishtype}
+      // Keys should describe nutritional/cooking aspects in target language
+      // Values should describe traditional preparation in target language
+      // Focus on: ingredients, cooking methods, nutritional content, preparation style
     },
     "after": {
-      // Same keys as "before" but showing the healthier modifications
-      // Detailed descriptions of improvements made
+      // Same key concepts as "before" but showing healthier modifications
+      // Values should describe improvements and healthier alternatives
+      // All content in target language with native ingredient names
     }
   }
 }
-IMPORTANT: Your response must start with { and end with }. Nothing else."
-}
 
-`;
+KEY SUGGESTIONS BY LANGUAGE:
+
+FOR ENGLISH (en):
+- riceType, oilType, proteinSource, vegetableContent, spiceLevel, cookingMethod, fiberContent, calorieDensity
+- baseIngredients, creamContent, saltLevel, sugarContent, cookingTime, nutritionDensity
+
+FOR BENGALI (bn):
+- "চালের ধরন", "তেলের ধরন", "প্রোটিনের উৎস", "সবজির পরিমাণ", "মশলার মাত্রা", "রান্নার পদ্ধতি", "আঁশের পরিমাণ", "ক্যালোরির ঘনত্ব"
+- "মূল উপাদান", "ক্রিমের পরিমাণ", "লবণের মাত্রা", "চিনির পরিমাণ", "রান্নার সময়", "পুষ্টির ঘনত্ব"
+
+FOR HINDI (hi):
+- "चावल का प्रकार", "तेल का प्रकार", "प्रोटीन स्रोत", "सब्जी की मात्रा", "मसाले का स्तर", "पकाने की विधि", "फाइबर की मात्रा", "कैलोरी घनत्व"
+- "मुख्य सामग्री", "क्रीम की मात्रा", "नमक का स्तर", "चीनी की मात्रा", "पकाने का समय", "पोषण घनत्व"
+
+TRANSLATION EXAMPLES:
+English → Bengali:
+- "olive oil" → "জলপাই তেল"
+- "brown rice" → "বাদামি চাল" 
+- "grilled chicken" → "ভাজা মুরগি"
+- "high fiber" → "বেশি আঁশ"
+
+English → Hindi:
+- "olive oil" → "जैतून तेल"
+- "brown rice" → "भूरे चावल"
+- "grilled chicken" → "ग्रिल्ड चिकन" 
+- "high fiber" → "उच्च फाइबर"
+
+IMPORTANT: Your response must start with { and end with }. Nothing else. Create keys and values appropriate for the language ISO 639-1 standard-${Language}. Be consistent - if using Bengali, everything should be in Bengali script and vocabulary. If using Hindi, everything in Devanagari script. If using English, use proper English terms throughout.`;
 }
 export function buildPromptdish3(dishOrRecipe: string, Variant: string, Language: string, dishtype: string, recipe: string) {
   return `You are an expert Indian cuisine analyst specializing in identifying and explaining ingredient substitutions for healthier cooking while maintaining authentic flavors.
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ${Language}.
+The language is: ISO 639-1 standard-${Language}.
 The dish type is: ${dishtype}.
 The reference recipe is: ${recipe}.
 
@@ -133,7 +165,7 @@ export function buildPromptdish4(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ${Language}.
+The language is: ISO 639-1 standard-${Language}.
 The dish type is: ${dishtype}.
 
 Create an inspiring and informative context following the exact structure below:
@@ -171,7 +203,7 @@ export function buildCombinedRecipePrompt(dishOrRecipe: string, Variant: string,
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ${Language}.
+The language is: ISO 639-1 standard-${Language}.
 The dish type is: ${dishtype}.
 
 Create a comprehensive analysis and healthier recipe following the exact structure below:

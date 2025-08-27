@@ -395,7 +395,17 @@
     { "id": "3", "text": "ओंखाम संग्रानि डाटाबेसाव रेसिपि सेभ खालामनाय", "completed": false }
   ],
  "Fooodloading-description": "एखेपाजों मन्जाब थाफानो हागौ",
- "Fooodloading-title": "जोंमहोननि बिफायारि फुंखा"
+ "Fooodloading-title": "जोंमहोननि बिफायारि फुंखा",
+ "recipe": {
+  "Before": "आगौ",
+  "After": "माथाय",
+  "Ingredients": "सामग्री",
+  "Steps": "पदबन्ध",
+  "Why_These_Changes": "आबो आरो बदलबो निफर",
+  "History": "इतिहास",
+  "FunFact": "मजेदार थाब"
+}
+
 
 }
 

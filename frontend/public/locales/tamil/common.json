@@ -394,7 +394,16 @@
   { "id": "3", "text": "சமையலறை தரவுத்தளத்தில் உணவுகளைச் சேமிக்கவும்.", "completed": false }
 ],
 "Fooodloading-description": "இதற்கு சில நிமிடங்கள் ஆகலாம்",
-"Fooodloading-title": "சிறந்த தயாரிப்புகளின் மூலாதாரம்"
+"Fooodloading-title": "சிறந்த தயாரிப்புகளின் மூலாதாரம்",
+"recipe": {
+  "Before": "முந்தைய",
+  "After": "பின்னர்",
+  "Ingredients": "சேர்மான்கள்",
+  "Steps": "படிகள்",
+  "Why_These_Changes": "இந்த மாற்றங்கள் ஏன்",
+  "History": "வரலாறு",
+  "FunFact": "சுவாரஸ்யமான தகவல்"
+}
 
 
 }

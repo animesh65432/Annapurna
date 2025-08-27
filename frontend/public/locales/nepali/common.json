@@ -394,6 +394,16 @@
     { "id": "3", "text": "भान्साको डाटाबेसमा रेसिपीहरू बचत गर्नुहोस्।", "completed": false }
   ],
   "Fooodloading-description": "यसमा केही समय लाग्न सक्छ",
-  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादनहरूको स्रोत"
+  "Fooodloading-title": "सर्वश्रेष्ठ उत्पादनहरूको स्रोत",
+  "recipe": {
+  "Before": "अघिल्लो",
+  "After": "पछि",
+  "Ingredients": "सामग्री",
+  "Steps": "कदमहरू",
+  "Why_These_Changes": "यी परिवर्तन किन",
+  "History": "इतिहास",
+  "FunFact": "रोचक तथ्य"
+}
+
 
 }

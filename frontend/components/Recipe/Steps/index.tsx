@@ -1,9 +1,13 @@
 import { useRecipeStore } from "@/store/recipe"
 import { Check } from "lucide-react"
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
+
+
 
 export default function Steps() {
     const { recipe } = useRecipeStore()
+    const { t } = useTranslation()
     const [StepsIndexs, SetStepsIndexs] = useState<number[]>([])
     const Ontoggole = (index: number) => {
         if (StepsIndexs.includes(index)) {
@@ -15,7 +19,7 @@ export default function Steps() {
     }
     return (
         <div className="flex flex-col gap-4 w-[85%] mx-auto">
-            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">Steps</h1>
+            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">{t("recipe.Steps")}</h1>
             <div className="flex flex-col gap-4">
                 {recipe?.healthierVersion.steps.map((step, index) =>
                     <div

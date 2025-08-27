@@ -197,6 +197,16 @@
     { "id": "3", "text": "ਰਸੋਈ ਦੇ ਡੇਟਾਬੇਸ ਵਿੱਚ ਪਕਵਾਨਾਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਕਰੋ।", "completed": false }
   ],
   "Fooodloading-description": "ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ",
-  "Fooodloading-title": "ਸਭ ਤੋਂ ਵਧੀਆ ਉਤਪਾਦਾਂ ਦਾ ਸਰੋਤ"
+  "Fooodloading-title": "ਸਭ ਤੋਂ ਵਧੀਆ ਉਤਪਾਦਾਂ ਦਾ ਸਰੋਤ",
+  "recipe": {
+  "Before": "ਪਹਿਲਾਂ",
+  "After": "ਬਾਅਦ",
+  "Ingredients": "ਸਮੱਗਰੀ",
+  "Steps": "ਕਦਮ",
+  "Why_These_Changes": "ਇਹ ਬਦਲਾਅ ਕਿਉਂ",
+  "History": "ਇਤਿਹਾਸ",
+  "FunFact": "ਦਿਲਚਸਪ ਤੱਥ"
+}
+
 
 }

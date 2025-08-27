@@ -374,7 +374,15 @@
   { "id": "3", "text": "ᱯᱟᱜ ᱡᱟᱞᱟ ᱫᱚᱲᱚᱱ ᱧᱩᱛᱩᱢ ᱚᱲᱟᱜ ᱫᱚᱲᱚᱱ ᱨᱮ ᱧᱩᱛᱩᱢ ᱥᱟᱱᱛᱟᱲᱤ ᱦᱟᱛᱟᱣᱟᱜᱼᱟ।", "completed": false }
 ],
 "Fooodloading-description": "ᱱᱚᱶᱟ ᱫᱚᱦᱲᱟ ᱛᱮᱫ ᱟᱢ ᱠᱟᱹᱲᱤ ᱥᱮᱞᱮᱫ ᱠᱟᱱᱟ",
-"Fooodloading-title": "ᱥᱟᱹᱨᱵᱟᱹᱣᱤᱥᱚᱛ ᱵᱟᱝ ᱯᱟᱹᱨᱢᱟᱱ"
-
+"Fooodloading-title": "ᱥᱟᱹᱨᱵᱟᱹᱣᱤᱥᱚᱛ ᱵᱟᱝ ᱯᱟᱹᱨᱢᱟᱱ",
+"recipe": {
+  "Before": "ᱯᱟᱦᱮᱱᱮ",
+  "After": "ᱯᱤᱥᱛᱟᱹᱛ",
+  "Ingredients": "ᱥᱟᱢᱜᱟᱨᱤ",
+  "Steps": "ᱯᱟᱫᱮᱠ",
+  "Why_These_Changes": "ᱮᱛᱮ ᱯᱟᱨᱤᱣᱮᱱᱴ ᱠᱟᱭᱟᱹ",
+  "History": "ᱤᱛᱤᱦᱟᱥ",
+  "FunFact": "ᱢᱟᱡᱮᱫᱟᱨ ᱯᱟᱛᱤ"
+}
 
 }

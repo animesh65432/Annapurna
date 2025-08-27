@@ -8,6 +8,7 @@ import { toast } from "react-toastify"
 import { useSaverecipe } from "@/hooks/useSaverecipe";
 import ShareSection from "@/components/Share";
 import SigninwithGoogle from "@/components/SinginWithgoogle";
+import { useTranslation } from "react-i18next";
 
 
 export default function NutritionComparison() {
@@ -16,6 +17,7 @@ export default function NutritionComparison() {
     const [auth, setauth] = useState<boolean>(false)
     const { saverecipe } = useSaverecipe()
     const [isShareOPen, setisShareOPen] = useState<boolean>(false)
+    const { t } = useTranslation()
     const nutritionData = recipe?.comparison!
 
     const addrecipe = async () => {
@@ -52,7 +54,7 @@ export default function NutritionComparison() {
                     <div className="flex flex-col lg:flex-row gap-8 lg:gap-30 justify-center lg:justify-center items-stretch">
                         <div className="text-[#414141] flex flex-col gap-5 flex-1 max-w-[400px] h-full mx-auto lg:mx-0">
                             <h1 className="text-center font-[500] text-[1.4rem] md:text-2xl">
-                                Before
+                                {t("recipe.Before")}
                             </h1>
                             <div className="w-full flex-1 border border-[#A8A8A8] rounded-md flex flex-col p-6">
                                 <div className="flex flex-col gap-4 flex-1">
@@ -91,7 +93,7 @@ export default function NutritionComparison() {
                                     width={32}
                                     height={32}
                                 />
-                                After
+                                {t("recipe.After")}
                             </h1>
                             <div className="w-full flex-1 bg-[#F5EFD8] border border-[#FFD059] rounded-md flex flex-col p-6">
                                 <div className="flex flex-col gap-4 flex-1">

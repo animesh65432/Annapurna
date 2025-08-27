@@ -6,20 +6,20 @@ import db from "../../db"
 import { redis } from "../../services/redis"
 export const generateSuggestionController = async (req: Request, res: Response) => {
     try {
-        const { prompt } = req.body
+        const { prompt, language } = req.body
 
         if (!prompt || prompt.trim().length < 3) {
             res.status(200).json({ suggestions: [] })
             return
         }
 
-        const redisKey = `suggestion:${prompt}`
+        const redisKey = `suggestion:${prompt}-${language || 'en'}`;
         const cachedSuggestions = await redis.get<any>(redisKey)
         if (cachedSuggestions) {
             res.status(200).json({ suggestions: cachedSuggestions })
             return
         }
-        const suggestions = await generateSuggestion(prompt)
+        const suggestions = await generateSuggestion(prompt, language || 'en')
 
         redis.set(redisKey, suggestions, { ex: 600 })
         res.status(200).json({ suggestions })
@@ -31,7 +31,7 @@ export const generateSuggestionController = async (req: Request, res: Response) 
 }
 
 export const GenrateRecipe = async (req: Request, res: Response) => {
-    const { dish, variant, DishType } = req.query as { dish: string, variant: string, DishType: string }
+    const { dish, variant, DishType, language } = req.query as { dish: string, variant: string, DishType: string, language: string }
     const streamer = new RecipeStreamer(res);
     try {
         if (!dish) {
@@ -48,7 +48,7 @@ export const GenrateRecipe = async (req: Request, res: Response) => {
 
         const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
         const finalDishType = DishType.trim().length === 0 ? "any" : DishType.trim();
-        const recipe = await GenerateRecipeByAI(dish, finalVariant, "English", finalDishType)
+        const recipe = await GenerateRecipeByAI(dish, finalVariant, language, finalDishType)
 
 
         streamer.send("3", 'Saving recipe to kitchen database...');

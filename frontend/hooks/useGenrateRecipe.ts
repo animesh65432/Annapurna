@@ -2,12 +2,15 @@ import { useState } from "react";
 import type { RecipeTypes } from "@/types"
 import { config } from "@/config"
 import { toast } from "react-toastify"
+import { useTranslation } from "react-i18next"
 
 export const useGenrateRecipe = () => {
     const [isGenrateRecipeloading, setisGenrateRecipeloading] = useState<boolean>(false);
     const [issucessed, setisucessed] = useState<boolean>(false);
     const [currentStep, setCurrentStep] = useState<string>("");
     const [stepMessage, setStepMessage] = useState<string>("");
+    const { i18n } = useTranslation()
+    const language = i18n.language
     const createRecipe = async (
         dish: string,
         variant: string,
@@ -18,9 +21,8 @@ export const useGenrateRecipe = () => {
         setStepMessage("");
 
         try {
-            const params = new URLSearchParams({ dish, variant, DishType });
+            const params = new URLSearchParams({ dish, variant, DishType, language });
             const eventSource = new EventSource(`${config.API_URL}/ai/generate-recipe?${params.toString()}`);
-
             let finalRecipe: { id: string, recipe: RecipeTypes } | null = null;
 
             return await new Promise((resolve) => {

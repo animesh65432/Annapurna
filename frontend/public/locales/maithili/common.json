@@ -395,6 +395,16 @@
     { "id": "3", "text": "किचन डाटाबेस मे रेसिपी सेव करब", "completed": false }
   ],
   "Fooodloading-description": "एहि में किछु समय लागि सकैत अछि",
-  "Fooodloading-title": "श्रेष्ठ उत्पादक स्रोत"
+  "Fooodloading-title": "श्रेष्ठ उत्पादक स्रोत",
+  "recipe": {
+  "Before": "पहिने",
+  "After": "बादमे",
+  "Ingredients": "सामग्री",
+  "Steps": "कदम",
+  "Why_These_Changes": "ई बदलाव कियैक",
+  "History": "इतिहास",
+  "FunFact": "रोचक तथ्य"
+}
 
+  
 }

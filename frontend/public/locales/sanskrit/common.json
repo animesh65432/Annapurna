@@ -395,6 +395,16 @@
     { "id": "3", "text": "पाकशालायाः दत्तांशकोशे व्यञ्जनानि रक्षन्तु।", "completed": false }
   ],
   "Fooodloading-description": "अस्मिन् किञ्चित्कालः भविष्यति",
-  "Fooodloading-title": "श्रेष्ठानां उत्पादानां स्रोतः"
+  "Fooodloading-title": "श्रेष्ठानां उत्पादानां स्रोतः",
+  "recipe": {
+  "Before": "पूर्वम्",
+  "After": "पश्चात्",
+  "Ingredients": "सामग्री",
+  "Steps": "पद्धतयः",
+  "Why_These_Changes": "एतेषां परिवर्तनानां कारणम्",
+  "History": "इतिहासः",
+  "FunFact": "रोचक तथ्यं"
+}
+
 
 }
