@@ -405,7 +405,16 @@
   "Why_These_Changes": "Why These Changes",
   "History": "History",
   "FunFact": "Fun Fact"
-}
+   },
+  "explore": {
+    "Non_vegetarian": "Non-Vegetarian",
+    "High-Protein_Non-Veg": "High Protein Non-Vegetarian",
+    "Vegetarian": "Vegetarian",
+    "High_Protein_Veg": "High Protein Vegetarian",
+    "Eggetarian": "Eggetarian",
+    "Diabetic_Friendly": "Diabetic Friendly",
+    "Gluten_Free": "Gluten Free"
+  }
 
 
 }

@@ -404,7 +404,16 @@
   "Why_These_Changes": "ഈ മാറ്റങ്ങൾ എന്തുകൊണ്ട്",
   "History": "ചരിത്രം",
   "FunFact": "രസകരമായ വസ്തുത"
-}
+},
+"explore": {
+    "Non_vegetarian": "അമിഷാഹാരി",
+    "High-Protein_Non-Veg": "ഉയർന്ന പ്രോട്ടീൻ അമിഷാഹാരി",
+    "Vegetarian": "സസ്യാഹാരി",
+    "High_Protein_Veg": "ഉയർന്ന പ്രോട്ടീൻ സസ്യാഹാരി",
+    "Eggetarian": "മുട്ടാഹാരി",
+    "Diabetic_Friendly": "മധുമേഹികൾക്ക് അനുയോജ്യം",
+    "Gluten_Free": "ഗ്ലൂട്ടൺ രഹിതം"
+  }
 
 
 }

@@ -403,7 +403,16 @@
   "Why_These_Changes": "இந்த மாற்றங்கள் ஏன்",
   "History": "வரலாறு",
   "FunFact": "சுவாரஸ்யமான தகவல்"
-}
+},
+"explore": {
+    "Non_vegetarian": "அமிசம்",
+    "High-Protein_Non-Veg": "அதிக புரத அமிசம்",
+    "Vegetarian": "சைவம்",
+    "High_Protein_Veg": "அதிக புரத சைவம்",
+    "Eggetarian": "முட்டை சாப்பிடுபவர்",
+    "Diabetic_Friendly": "நீரிழிவு நோயாளிகளுக்குப் பொருத்தமானது",
+    "Gluten_Free": "குளூட்டன் இல்லாதது"
+  }
 
 
 }

@@ -404,15 +404,13 @@
   "History": "ইতিহাস",
   "FunFact": "মজাদাৰ তথ্য"
 }, 
-  "explore":{
-    "Non_vegetarian": "",
-    "High-Protein Non-Veg":"",
-    "Vegetarian":"",
-    "High_Protein_Veg":"",
-    "Eggetarian":"",
-    "Diabetic Friendly":"",
-    "Gluten Free" :""
+  "explore": {
+    "Non_vegetarian": "অ-শাকাহাৰী",
+    "High-Protein_Non-Veg": "উচ্চ প্ৰটিনযুক্ত অ-শাকাহাৰী",
+    "Vegetarian": "শাকাহাৰী",
+    "High_Protein_Veg": "উচ্চ প্ৰটিনযুক্ত শাকাহাৰী",
+    "Eggetarian": "মুঠাহাৰী",
+    "Diabetic_Friendly": "ডায়েবেটিকস‌ৰ বাবে উপযোগী",
+    "Gluten_Free": "গ্লুটেন-মুক্ত"
   }
-
-    
 }

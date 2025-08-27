@@ -403,7 +403,15 @@
   "Why_These_Changes": "ಈ ಬದಲಾವಣೆಗಳು ಏಕೆ",
   "History": "ಇತಿಹಾಸ",
   "FunFact": "ಮಜಾದಾರ ವಾಸ್ತವ"
-}
-
+},
+"explore": {
+    "Non_vegetarian": "ಅಮಿಷಾಹಾರಿ",
+    "High-Protein_Non-Veg": "ಹೆಚ್ಚು ಪ್ರೋಟೀನ್ ಅಮಿಷಾಹಾರಿ",
+    "Vegetarian": "ಶಾಕಾಹಾರಿ",
+    "High_Protein_Veg": "ಹೆಚ್ಚು ಪ್ರೋಟೀನ್ ಶಾಕಾಹಾರಿ",
+    "Eggetarian": "ಮೊಟ್ಟೆ ತಿನ್ನುವವ",
+    "Diabetic_Friendly": "ಮಧುಮೇಹಿಗಳಿಗೆ ಅನುಕೂಲಕರ",
+    "Gluten_Free": "ಗ್ಲೂಟನ್ ರಹಿತ"
+  }
 
 }

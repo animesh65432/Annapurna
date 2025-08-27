@@ -404,7 +404,16 @@
   "Why_These_Changes": "یہ تبدیلیاں کیوں",
   "History": "تاریخ",
   "FunFact": "دلچسپ حقیقت"
-}
+},
 
+  "explore": {
+    "Non_vegetarian": "غیر سبزی خور",
+    "High-Protein_Non-Veg": "اعلی پروٹین غیر سبزی خور",
+    "Vegetarian": "سبزی خور",
+    "High_Protein_Veg": "اعلی پروٹین سبزی خور",
+    "Eggetarian": "انڈہ خور",
+    "Diabetic_Friendly": "ذیابیطس کے لیے موزوں",
+    "Gluten_Free": "بلا گلوٹین"
+  }
 
 }

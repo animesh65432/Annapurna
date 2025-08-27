@@ -403,5 +403,16 @@
       "Why_These_Changes": "কেন এই পরিবর্তনসমূহ",
       "History": "ইতিহাস",
       "FunFact": "মজার তথ্য"
-  }
+  },
+  
+    "explore": {
+      "Non_vegetarian": "নন-ভেজ",
+      "High-Protein_Non-Veg": "উচ্চ প্রোটিন নন-ভেজ",
+      "Vegetarian": "শাকাহারী",
+      "High_Protein_Veg": "উচ্চ প্রোটিন শাকাহারী",
+      "Eggetarian": "ডিমভোজী",
+      "Diabetic_Friendly": "ডায়াবেটিক-বান্ধব",
+      "Gluten_Free": "গ্লুটেন-মুক্ত"
+    }
+  
 }

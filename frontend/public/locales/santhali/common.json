@@ -383,6 +383,15 @@
   "Why_These_Changes": "ᱮᱛᱮ ᱯᱟᱨᱤᱣᱮᱱᱴ ᱠᱟᱭᱟᱹ",
   "History": "ᱤᱛᱤᱦᱟᱥ",
   "FunFact": "ᱢᱟᱡᱮᱫᱟᱨ ᱯᱟᱛᱤ"
+},
+"explore": {
+  "Non_vegetarian": "ᱢᱟᱸᱥᱟᱦᱟᱨᱤ",
+  "High-Protein_Non-Veg": "ᱩᱪᱷᱚ ᱯᱨᱳᱛᱤᱱ ᱢᱟᱸᱥᱟᱦᱟᱨᱤ",
+  "Vegetarian": "ᱥᱟᱠᱟᱦᱟᱨᱤ",
+  "High_Protein_Veg": "ᱩᱪᱷᱚ ᱯᱨᱳᱛᱤᱱ ᱥᱟᱠᱟᱦᱟᱨᱤ",
+  "Eggetarian": "ᱚᱱᱰᱟ ᱦᱟᱨᱤ",
+  "Diabetic_Friendly": "ᱰᱟᱭᱵᱤᱛᱤᱡ ᱠᱟᱱ ᱡᱚᱦᱚᱨ",
+  "Gluten_Free": "ᱜᱞᱩᱴᱮᱱ ᱯᱟᱸᱪᱷᱟ"
 }
 
 }

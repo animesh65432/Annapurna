@@ -404,7 +404,19 @@
   "Why_These_Changes": "ఈ మార్పులు ఎందుకు",
   "History": "చరిత్ర",
   "FunFact": "రసకరమైన వాస్తవం"
-}
+},
+
+  "explore": {
+    "Non_vegetarian": "మాంసాహారి",
+    "High-Protein_Non-Veg": "అధిక ప్రోటీన్ మాంసాహారి",
+    "Vegetarian": "శాకాహారి",
+    "High_Protein_Veg": "అధిక ప్రోటీన్ శాకాహారి",
+    "Eggetarian": "గుడ్డు తినేవాడు",
+    "Diabetic_Friendly": "మధుమేహులకు అనుకూలం",
+    "Gluten_Free": "గ్లూటెన్ రహితం"
+  }
+
+
 
 
 }

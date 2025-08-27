@@ -404,7 +404,15 @@
   "Why_These_Changes": "ଏହି ପରିବର୍ତ୍ତନ କାହିଁକି",
   "History": "ଇତିହାସ",
   "FunFact": "ମଜାଦାର ତଥ୍ୟ"
+},
+"explore": {
+  "Non_vegetarian": "ମାଂସାହାରୀ",
+  "High-Protein_Non-Veg": "ଉଚ୍ଚ ପ୍ରୋଟିନ ମାଂସାହାରୀ",
+  "Vegetarian": "ଶାକାହାରୀ",
+  "High_Protein_Veg": "ଉଚ୍ଚ ପ୍ରୋଟିନ ଶାକାହାରୀ",
+  "Eggetarian": "ଡିମାହାରୀ",
+  "Diabetic_Friendly": "ଡାଇବେଟିକ୍‌ସ ପାଇଁ ଉପଯୁକ୍ତ",
+  "Gluten_Free": "ଗ୍ଲୁଟେନ୍‌ ମୁକ୍ତ"
 }
-
 
 }

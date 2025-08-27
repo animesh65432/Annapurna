@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 export default function Diabetic_Friendly() {
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
     const router = useRouter();
-    const { i18n } = useTranslation()
+    const { i18n, t } = useTranslation()
 
     useEffect(() => {
         fetchDishes("Diabetic_Friendly");
@@ -25,7 +25,7 @@ export default function Diabetic_Friendly() {
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
             <h1 onClick={() => router.push(`/explore/Diabetic_Friendly`)} className="text-[#565656] cursor-pointer hover:underline font-bold text-xl sm:text-2xl mb-4 flex items-center">
-                Diabetic Friendly
+                {t("explore.Diabetic_Friendly")}
                 <span>
                     <ChevronRight className="ml-1  w-6 h-6 sm:w-8 sm:h-8" />
                 </span>

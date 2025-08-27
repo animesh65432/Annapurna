@@ -404,7 +404,18 @@
   "Why_These_Changes": "ए बदलाव क्यों",
   "History": "इतिहास",
   "FunFact": "मज़ेदार तथ्य"
-}
+},
+
+  "explore": {
+    "Non_vegetarian": "ग़ैर-शाकाहारी",
+    "High-Protein_Non-Veg": "उच्च प्रोटीन ग़ैर-शाकाहारी",
+    "Vegetarian": "शाकाहारी",
+    "High_Protein_Veg": "उच्च प्रोटीन शाकाहारी",
+    "Eggetarian": "अंडा-खाने वाला",
+    "Diabetic_Friendly": "डायबिटीज़ लिए अनुकूल",
+    "Gluten_Free": "ग्लूटेन मुक्त"
+  }
+
 
 
 }

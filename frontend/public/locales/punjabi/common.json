@@ -206,6 +206,15 @@
   "Why_These_Changes": "ਇਹ ਬਦਲਾਅ ਕਿਉਂ",
   "History": "ਇਤਿਹਾਸ",
   "FunFact": "ਦਿਲਚਸਪ ਤੱਥ"
+},
+"explore": {
+  "Non_vegetarian": "ਮਾਸਾਹਾਰੀ",
+  "High-Protein_Non-Veg": "ਉੱਚ ਪ੍ਰੋਟੀਨ ਮਾਸਾਹਾਰੀ",
+  "Vegetarian": "ਸ਼ਾਕਾਹਾਰੀ",
+  "High_Protein_Veg": "ਉੱਚ ਪ੍ਰੋਟੀਨ ਸ਼ਾਕਾਹਾਰੀ",
+  "Eggetarian": "ਅੰਡਾਹਾਰੀ",
+  "Diabetic_Friendly": "ਡਾਇਬਟੀਜ਼ ਲਈ ਉਚਿਤ",
+  "Gluten_Free": "ਗਲੂਟਨ ਮੁਕਤ"
 }
 
 

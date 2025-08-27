@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 export default function HighNonvegetarian() {
     const router = useRouter();
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
-    const { i18n } = useTranslation()
+    const { i18n, t } = useTranslation()
 
     useEffect(() => {
         fetchDishes("High_Protein_Non_Vegetarian");
@@ -25,7 +25,7 @@ export default function HighNonvegetarian() {
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
             <h1 onClick={() => router.push('/explore/High_Protein_Non_Vegetarian')} className="text-[#565656] hover:underline cursor-pointer font-bold text-xl sm:text-2xl mb-4 flex items-center">
-                High-Protein Non-Veg
+                {t('explore.High-Protein_Non-Veg')}
                 <span>
                     <ChevronRight className="ml-1  w-6 h-6 sm:w-8 sm:h-8" />
                 </span>

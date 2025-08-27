@@ -402,6 +402,15 @@
   "Why_These_Changes": "ꯑꯃꯗꯨ ꯑꯃꯅꯥ ꯍꯧꯌꯕꯤ",
   "History": "ꯄꯣꯡꯖꯥ",
   "FunFact": "ꯃꯖꯦꯗꯥ ꯐꯣꯛꯇꯥ"
-}
+},
+"explore": {
+    "Non_vegetarian": "মাসাহারী",
+    "High-Protein_Non-Veg": "উচ্চ প্রোটিন মাসাহারী",
+    "Vegetarian": "শাকাহারী",
+    "High_Protein_Veg": "উচ্চ প্রোটিন শাকাহারী",
+    "Eggetarian": "ইণ্ডাহারী",
+    "Diabetic_Friendly": "ডায়াবেটিকগী উপযোগী",
+    "Gluten_Free": "গ্লুটেন মুক্ত"
+  }
 
 }

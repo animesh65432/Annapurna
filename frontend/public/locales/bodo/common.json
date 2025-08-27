@@ -404,7 +404,16 @@
   "Why_These_Changes": "आबो आरो बदलबो निफर",
   "History": "इतिहास",
   "FunFact": "मजेदार थाब"
-}
+},
+"explore": {
+    "Non_vegetarian": "मा-थाखो-गोसोनाय",
+    "High-Protein_Non-Veg": "बेसिनाय प्रोटिन मा-थाखो",
+    "Vegetarian": "थाखो-गोसोनाय",
+    "High_Protein_Veg": "बेसिनाय प्रोटिन थाखो-गोसोनाय",
+    "Eggetarian": "डिम-गोसोनाय",
+    "Diabetic_Friendly": "डायबेटिक-फ्रेंडली",
+    "Gluten_Free": "ग्लुटेन-फ्री"
+  }
 
 
 }
