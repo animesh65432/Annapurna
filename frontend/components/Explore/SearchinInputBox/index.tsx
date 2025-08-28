@@ -5,7 +5,6 @@ import InputIcon from "@/public/assets/dashboard/Vector.svg"
 import Image from "next/image"
 import { Search } from "lucide-react"
 import { useEffect, useState } from "react"
-import { dishesfrom } from "@/lib/Herosectiondata"
 import { useRouter } from 'next/router';
 import { useExploreSuggestions } from "@/hooks/useExploreSuggestions"
 import Suggestions from "../Suggestions"
@@ -29,6 +28,9 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const router = useRouter();
 
     const handleSearch = () => {
+        if (DietType.length === 0 && Cuisine.length === 0 && dish.length === 0) {
+            return;
+        }
         router.push(`/explore/search?${DietType ? `diet=${DietType}&` : ''}${Cuisine ? `cuisine=${Cuisine}&` : ''}${dish ? `q=${dish}` : ''}`);
     }
     useEffect(() => {
@@ -70,32 +72,36 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
                         <SelectValue placeholder={t("explore.Select_Diet_placeholder")} />
                     </SelectTrigger>
                     <SelectContent >
-                        {Object.entries(DietTypeOptions).map(([key, value]) => (
-                            <SelectItem key={key} value={key}>
-                                {Object.values(value).join(" / ")}
+                        {DietTypeOptions.map((option) => {
+                            const [key, label] = Object.entries(option)[0];
+                            return <SelectItem key={key} value={key}>
+                                {label as string}
                             </SelectItem>
-                        ))}
+                        })}
                     </SelectContent>
                 </Select>
-                <Select value={Cuisine} onValueChange={(value) => setCuisine(value)} >
-                    <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none ">
+                <Select value={Cuisine} onValueChange={(value) => setCuisine(value)}>
+                    <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none">
                         <SelectValue placeholder={t("explore.Select_Cuisine_placeholder")} />
                     </SelectTrigger>
                     <SelectContent>
-                        {Object.entries(CuisineOptions).map(([key, value]) => (
-                            <SelectItem key={key} value={key}>
-                                {Object.values(value).join(" / ")}
-                            </SelectItem>
-                        ))}
+                        {CuisineOptions.map((option) => {
+                            const [key, label] = Object.entries(option)[0];
+                            return (
+                                <SelectItem key={key} value={key}>
+                                    {label as string}
+                                </SelectItem>
+                            );
+                        })}
                     </SelectContent>
-
                 </Select>
+
                 <div className="flex cursor-pointer ml-[5%] lg:ml-[2%] bg-[#168B5D] text-white rounded-3xl p-2">
                     <Search onClick={handleSearch} />
                 </div>
                 {suggestions.length > 0 &&
                     <Suggestions selectfromSuggestion={selectfromSuggestion} suggestions={suggestions} setSuggestions={setSuggestions} />}
             </div>
-        </div>
+        </div >
     )
 }

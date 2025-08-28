@@ -36,18 +36,18 @@ export default function MobileTrendingRecipes() {
                                         <div className="relative w-5 h-5 shrink-0">
                                             <Image src="/assets/dashboard/ForkKnife.svg" alt="timer" fill />
                                         </div>
-                                        {recipe.when.join(', ')}
+                                        {recipe.when[0]}
                                     </div>
                                 </div>
                             </div>
-                            {i18n.language === "ta" &&
-                                <div onClick={() => router.push(`/recipe/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
-                                    {t("Dashboard.See_healthier_Version")}
-                                    <div className="relative w-8 h-8">
-                                        <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
-                                    </div>
+
+                            <div onClick={() => router.push(`/recipe/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
+                                {t("Dashboard.See_healthier_Version")}
+                                <div className="relative w-8 h-8">
+                                    <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
                                 </div>
-                            }
+                            </div>
+
                         </div>
                     })
                 }
