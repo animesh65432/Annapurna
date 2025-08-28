@@ -78,7 +78,7 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                 }}>
             </div>
 
-            <div className="flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+            <div className="flex flex-col  gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Logo and title section */}
                 <div className="text-center space-y-4 sm:space-y-6">
                     {/* Logo */}
@@ -91,9 +91,10 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                     </div>
 
                     {/* Main title with typewriter */}
-                    <div>
+                    <div className="text-start">
                         <TextGenerateEffect words={text} />
                     </div>
+
                 </div>
 
                 {/* Status steps section */}
