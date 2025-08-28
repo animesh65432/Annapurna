@@ -9,7 +9,7 @@ export function buildPromptdish1(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ISO 639-1 standard-${Language}.
+The language is: ${Language}.
 The dish type is: ${dishtype}.
 
 Create a detailed healthier recipe following the exact structure below:
@@ -50,7 +50,7 @@ export function buildPromptdish2(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}
 The variant is: ${Variant}
-The target language is: ISO 639-1 standard-${Language}
+The target language is: ${Language}
 The dish type is: ${dishtype}
 The reference recipe is: ${recipe}
 
@@ -64,7 +64,7 @@ CRITICAL INSTRUCTIONS:
 - Ensure all quotes are properly escaped
 - End your response immediately after the closing brace
 
-LANGUAGE HANDLING FOR ISO 639-1 standard-${Language}:
+LANGUAGE is${Language}:
 - If Language is "en" (English): Use English camelCase keys and English values
 - If Language is "bn" (Bengali): Use Bengali keys and Bengali values
 - If Language is "hi" (Hindi): Use Hindi keys and Hindi values
@@ -123,7 +123,7 @@ export function buildPromptdish3(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ISO 639-1 standard-${Language}.
+The language is: ${Language}.
 The dish type is: ${dishtype}.
 The reference recipe is: ${recipe}.
 
@@ -165,7 +165,7 @@ export function buildPromptdish4(dishOrRecipe: string, Variant: string, Language
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ISO 639-1 standard-${Language}.
+The language is: ${Language}.
 The dish type is: ${dishtype}.
 
 Create an inspiring and informative context following the exact structure below:
@@ -203,7 +203,7 @@ export function buildCombinedRecipePrompt(dishOrRecipe: string, Variant: string,
 
 The dish or recipe name is: ${dishOrRecipe}.
 The variant is: ${Variant}.
-The language is: ISO 639-1 standard-${Language}.
+The language is: ${Language}.
 The dish type is: ${dishtype}.
 
 Create a comprehensive analysis and healthier recipe following the exact structure below:

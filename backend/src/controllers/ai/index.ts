@@ -2,6 +2,7 @@ import { Request, Response } from "express"
 import { generateSuggestion } from "../../utils/GenrateSuggestion"
 import { GenerateRecipeByAI } from "../../utils/GenrateRecipebyAi"
 import { RecipeStreamer } from "../../utils/RecipeStreamer"
+import { languageMap } from "../../utils/lan"
 import db from "../../db"
 import { redis } from "../../services/redis"
 export const generateSuggestionController = async (req: Request, res: Response) => {
@@ -38,6 +39,11 @@ export const GenrateRecipe = async (req: Request, res: Response) => {
             res.status(400).json({ message: "Invalid credentials" });
             return
         }
+
+        const lang = languageMap[language as keyof typeof languageMap] || "en";
+
+        console.log(lang, "language selected")
+
         streamer.send("1", 'Validating your inputs...');
 
         streamer.delay(1000)
@@ -48,7 +54,7 @@ export const GenrateRecipe = async (req: Request, res: Response) => {
 
         const finalVariant = variant.trim().length === 0 ? "Better" : variant.trim();
         const finalDishType = DishType.trim().length === 0 ? "any" : DishType.trim();
-        const recipe = await GenerateRecipeByAI(dish, finalVariant, language, finalDishType)
+        const recipe = await GenerateRecipeByAI(dish, finalVariant, lang, finalDishType)
 
 
         streamer.send("3", 'Saving recipe to kitchen database...');

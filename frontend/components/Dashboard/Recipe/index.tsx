@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next";
+
 type Props = {
     name: string,
     time: number,
@@ -8,11 +9,32 @@ type Props = {
     image: string,
     after: string
     id: string
+    createRecipe: (dish: string, variant: string, DishType: string) => Promise<{ id: string, recipe: any } | null>,
+    setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Recipe({ name, time, when, image, after, id }: Props) {
-    const { t } = useTranslation()
+export default function Recipe({ name, time, when, image, after, id, createRecipe, setisGenrateRecipeloading }: Props) {
+    const { t, i18n } = useTranslation()
     const router = useRouter()
+
+    async function generateRecipe(name: string, variant: string, notes: string) {
+        const result = await createRecipe(name, variant, notes);
+        if (result && result.id) {
+            router.push(`/recipe/${result.id}`);
+            setisGenrateRecipeloading(false)
+        }
+    }
+
+    const handleClick = (id: string) => {
+        if (i18n.language === "en") {
+            router.push(`/recipe/${id}`)
+        }
+        else {
+            const variant = after.split(" ")[0]
+            generateRecipe(name, variant, "")
+        }
+    }
+
     return (
         <div className="flex flex-col  gap-2">
             <div className="relative w-[37vw]   md:w-[32vw] lg:w-[240px] xl:w-[260px] h-[150px] lg:h-[141px]">
@@ -44,7 +66,7 @@ export default function Recipe({ name, time, when, image, after, id }: Props) {
                         {when[0]}
                     </div>
                 </div>
-                <div onClick={() => router.push(`/recipe/${id}`)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
+                <div onClick={() => handleClick(id)} className="text-[#006C41] font-medium flex items-center gap-1 cursor-pointer">
                     {t("Dashboard.See_healthier_Version")}
                     <div className="relative w-8 h-8">
                         <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />

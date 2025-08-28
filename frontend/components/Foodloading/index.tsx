@@ -91,7 +91,7 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                     </div>
 
                     {/* Main title with typewriter */}
-                    <div className="mr-auto ml-0">
+                    <div>
                         <TextGenerateEffect words={text} />
                     </div>
                 </div>

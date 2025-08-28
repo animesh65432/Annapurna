@@ -32,7 +32,11 @@ export default function Dashboard({ dishname }: Props) {
                     setisGenrateRecipeloading={setisGenrateRecipeloading}
                 />
             }
-            {!isGenrateRecipeloading && <TrendingRecipes />}
+            {!isGenrateRecipeloading &&
+                <TrendingRecipes
+                    createRecipe={createRecipe}
+                    setisGenrateRecipeloading={setisGenrateRecipeloading}
+                />}
             {!isGenrateRecipeloading && <Discover />}
             {!isGenrateRecipeloading && <MobileTrendingRecipes />}
             {isGenrateRecipeloading && (

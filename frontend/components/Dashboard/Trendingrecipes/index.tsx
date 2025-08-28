@@ -1,12 +1,17 @@
 import Recipe from "../Recipe"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next";
 import { useHasMounted } from "@/hooks/useHasMounted"
 
-export default function TrendingRecipes() {
+type Props = {
+    createRecipe: (dish: string, variant: string, DishType: string) => Promise<{ id: string, recipe: any } | null>,
+    setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function TrendingRecipes({ createRecipe, setisGenrateRecipeloading }: Props) {
     const { t } = useTranslation();
     const [recipeIndex, setRecipeIndex] = useState(0)
     const [IsendNumber, setIsendNumber] = useState<number>(3)
@@ -94,6 +99,8 @@ export default function TrendingRecipes() {
                                     image={recipe.img}
                                     after={recipe.after}
                                     id={recipe.id}
+                                    createRecipe={createRecipe}
+                                    setisGenrateRecipeloading={setisGenrateRecipeloading}
                                 />
                             </motion.div>
                         ))
