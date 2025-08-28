@@ -72,9 +72,6 @@ export default function TrendingRecipes({ createRecipe, setisGenrateRecipeloadin
     };
 
     const recipes = getRecipes()
-
-    console.log(trendingRecipes, "TrendingRecipes")
-
     if (!hasmuted) {
         return null
     }

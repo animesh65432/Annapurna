@@ -38,7 +38,11 @@ export default function Dashboard({ dishname }: Props) {
                     setisGenrateRecipeloading={setisGenrateRecipeloading}
                 />}
             {!isGenrateRecipeloading && <Discover />}
-            {!isGenrateRecipeloading && <MobileTrendingRecipes />}
+            {!isGenrateRecipeloading &&
+                <MobileTrendingRecipes
+                    createRecipe={createRecipe}
+                    setisGenrateRecipeloading={setisGenrateRecipeloading}
+                />}
             {isGenrateRecipeloading && (
                 <FoodLoading
                     currentServerStep={currentStep}
