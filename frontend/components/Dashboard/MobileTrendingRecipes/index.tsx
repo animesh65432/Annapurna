@@ -1,7 +1,11 @@
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useTranslation } from "react-i18next"
-export default function MobileTrendingRecipes() {
+type Props = {
+    createRecipe: (dish: string, variant: string, DishType: string) => Promise<{ id: string, recipe: any } | null>,
+    setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
+}
+export default function MobileTrendingRecipes({ createRecipe, setisGenrateRecipeloading }: Props) {
     const router = useRouter()
     const { t, i18n } = useTranslation()
     const trendingRecipes = t("Dashboard.Trending_recipes.recipes", { returnObjects: true }) as Array<{
@@ -12,7 +16,31 @@ export default function MobileTrendingRecipes() {
         after: string,
         id: string
     }>
-    console.log(i18n.language)
+    async function generateRecipe(name: string, variant: string, notes: string) {
+        const result = await createRecipe(name, variant, notes);
+        if (result && result.id) {
+            router.push(`/recipe/${result.id}`);
+            setisGenrateRecipeloading(false)
+        }
+    }
+
+    const handleClick = (recipe: {
+        name: string,
+        time: number,
+        when: string[],
+        img: string,
+        after: string,
+        id: string
+    }) => {
+        if (i18n.language === "en") {
+            router.push(`/recipe/${recipe.id}`)
+        }
+        else {
+            const variant = recipe.after.split(" ")[0]
+            generateRecipe(recipe.name, variant, "")
+        }
+    }
+
     return (
         <div className="sm:hidden w-[90%] ml-auto mr-auto  ">
             <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">{t("Dashboard.Trending_recipes.title")}</h1>
@@ -41,7 +69,7 @@ export default function MobileTrendingRecipes() {
                                 </div>
                             </div>
 
-                            <div onClick={() => router.push(`/recipe/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
+                            <div onClick={() => handleClick(recipe)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
                                 {t("Dashboard.See_healthier_Version")}
                                 <div className="relative w-8 h-8">
                                     <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
