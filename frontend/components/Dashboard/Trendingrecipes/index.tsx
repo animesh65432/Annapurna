@@ -1,13 +1,29 @@
-import { trendingRecipes } from "@/lib/Herosectiondata"
 import Recipe from "../Recipe"
 import { Button } from "@/components/ui/button"
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next";
+import { useHasMounted } from "@/hooks/useHasMounted"
 
-export default function TrendingRecipes() {
+type Props = {
+    createRecipe: (dish: string, variant: string, DishType: string) => Promise<{ id: string, recipe: any } | null>,
+    setisGenrateRecipeloading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function TrendingRecipes({ createRecipe, setisGenrateRecipeloading }: Props) {
+    const { t } = useTranslation();
     const [recipeIndex, setRecipeIndex] = useState(0)
     const [IsendNumber, setIsendNumber] = useState<number>(3)
+    const trendingRecipes = t("Dashboard.Trending_recipes.recipes", { returnObjects: true }) as Array<{
+        name: string,
+        time: number,
+        when: string[],
+        img: string,
+        after: string,
+        id: string
+    }>
+    const hasmuted = useHasMounted()
     const router = useRouter();
 
 
@@ -56,13 +72,19 @@ export default function TrendingRecipes() {
     };
 
     const recipes = getRecipes()
+
+    console.log(trendingRecipes, "TrendingRecipes")
+
+    if (!hasmuted) {
+        return null
+    }
     return (
         <div className=" hidden sm:flex flex-col gap-4 w-[85%]  md:max-w-[75%] lg:max-w-[740px] xl:max-w-[1120px] ml-auto mr-auto">
-            <h1 className="text-[#565656] font-bold text-start text-[1.6rem]">Trending recipes</h1>
+            <h1 className="text-[#565656] font-bold text-start text-[1.6rem]">{t("Dashboard.Trending_recipes.title")}</h1>
             <div className="flex gap-10">
                 <div className="flex w-full lg:w-fit justify-between gap-6 lg:gap-4 xl:gap-6">
                     {
-                        recipes.map((recipe, index) => (
+                        recipes.map((recipe) => (
                             <motion.div
                                 key={recipe.name}
                                 initial={{ opacity: 0, y: 20 }}
@@ -77,6 +99,8 @@ export default function TrendingRecipes() {
                                     image={recipe.img}
                                     after={recipe.after}
                                     id={recipe.id}
+                                    createRecipe={createRecipe}
+                                    setisGenrateRecipeloading={setisGenrateRecipeloading}
                                 />
                             </motion.div>
                         ))
@@ -85,10 +109,12 @@ export default function TrendingRecipes() {
                 </div>
                 <div className=" bg-[url('/assets/dashboard/discover.svg')] p-4 bg-center bg-cover hidden xl:flex flex-col justify-between h-[200px] w-[350px] rounded-md ">
                     <div className="font-semibold text-[1.1rem]">
-                        <div>Discover More Indian </div>
-                        <div className="text-[#FFD059]">Recipe With AI</div>
+                        <div>{t("Dashboard.Discover.title")}</div>
+                        <div className="text-[#FFD059]">{t("Dashboard.Discover.subtitle")}</div>
                     </div>
-                    <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl w-[50%] text-[#404040]">See More</Button>
+                    <div>
+                        <Button onClick={handleGoToExplore} className="bg-[#FFD059] hidden md:block hover:bg-[#F2C100]  shadow-2xl  text-[#404040]  text-nowrap">{t("Dashboard.Discover.button")}</Button>
+                    </div>
                 </div>
             </div>
         </div>

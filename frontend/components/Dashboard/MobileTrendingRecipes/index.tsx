@@ -1,11 +1,21 @@
-import { trendingRecipes } from "@/lib/Herosectiondata"
 import Image from "next/image"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next"
 export default function MobileTrendingRecipes() {
     const router = useRouter()
+    const { t, i18n } = useTranslation()
+    const trendingRecipes = t("Dashboard.Trending_recipes.recipes", { returnObjects: true }) as Array<{
+        name: string,
+        time: number,
+        when: string[],
+        img: string,
+        after: string,
+        id: string
+    }>
+    console.log(i18n.language)
     return (
         <div className="sm:hidden w-[90%] ml-auto mr-auto  ">
-            <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">Trending Recipes</h1>
+            <h1 className="font-semibold text-[#565656] text-[1.5rem] mb-5">{t("Dashboard.Trending_recipes.title")}</h1>
             <div className="flex flex-col gap-6">
                 {
                     trendingRecipes.map((recipe) => {
@@ -26,16 +36,18 @@ export default function MobileTrendingRecipes() {
                                         <div className="relative w-5 h-5 shrink-0">
                                             <Image src="/assets/dashboard/ForkKnife.svg" alt="timer" fill />
                                         </div>
-                                        {recipe.when.join(', ')}
+                                        {recipe.when[0]}
                                     </div>
                                 </div>
                             </div>
+
                             <div onClick={() => router.push(`/recipe/${recipe.id}`)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
-                                See healthier Version
+                                {t("Dashboard.See_healthier_Version")}
                                 <div className="relative w-8 h-8">
                                     <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
                                 </div>
                             </div>
+
                         </div>
                     })
                 }

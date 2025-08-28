@@ -9,6 +9,7 @@ import FoodLoading from '@/components/Foodloading'
 import { useRecipeStore } from "@/store/recipe"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 type Props = {
     dishId: string
 }
@@ -17,6 +18,7 @@ export default function DishId({ dishId }: Props) {
     const { dish, IsLoading, GetDish } = useGetdish();
     const { isGenrateRecipeloading, createRecipe, setisGenrateRecipeloading } = useGenrateRecipe()
     const { setRecipe } = useRecipeStore();
+    const { t } = useTranslation()
     const router = useRouter();
 
     const fetchDish = useCallback(async (id: string) => {
@@ -89,7 +91,7 @@ export default function DishId({ dishId }: Props) {
                         </div>
                     </div>
                     <div className='flex w-full justify-end'>
-                        <Button onClick={handleSeeRecipe} className='bg-[#FFD059] hover:bg-[#cdb169] p-5 text-black'>See Recipe</Button>
+                        <Button onClick={handleSeeRecipe} className='bg-[#FFD059] hover:bg-[#cdb169] p-5 text-black'>{t("Dashboard.Herosection.See_Recipe")}</Button>
                     </div>
                 </div>
             }

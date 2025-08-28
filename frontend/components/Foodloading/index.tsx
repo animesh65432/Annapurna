@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react"
 import { Soup, Check } from "lucide-react"
-
-const text = "Sourcing best produce"
-
-const steps = [
-    { id: "1", text: "Validating your inputs", completed: false },
-    { id: "3", text: "Crafting recipe with AI", completed: false },
-    { id: "4", text: "Saving recipe to kitchen database", completed: false },
-]
+import { useTranslation } from "react-i18next"
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect"
 
 interface FoodLoadingProps {
     currentServerStep?: string;
@@ -15,12 +9,14 @@ interface FoodLoadingProps {
 }
 
 export default function FoodLoading({ currentServerStep, serverMessage }: FoodLoadingProps) {
+    const { t } = useTranslation()
+    const text = t("Fooodloading-title")
+    const steps = t("Fooodloading", { returnObjects: true }) as { id: string, text: string, completed: boolean }[]
     const [currentIndex, setCurrentIndex] = useState(0)
     const [currentStepIndex, setCurrentStepIndex] = useState(0)
     const [completedSteps, setCompletedSteps] = useState(new Set<number>())
     const [showCursor, setShowCursor] = useState(true)
     const [localSteps, setLocalSteps] = useState(steps)
-
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -53,20 +49,9 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                 }
                 setCompletedSteps(newCompletedSteps)
                 setCurrentStepIndex(stepIndex)
-
-
-                if (serverMessage) {
-                    setLocalSteps(prevSteps =>
-                        prevSteps.map((step, index) =>
-                            index === stepIndex
-                                ? { ...step, text: serverMessage }
-                                : step
-                        )
-                    )
-                }
             }
         }
-    }, [currentServerStep, serverMessage])
+    }, [currentServerStep])
 
 
     useEffect(() => {
@@ -84,8 +69,6 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
         }
     }, [currentServerStep])
 
-    console.log("Current Step Index:", currentServerStep, serverMessage);
-
     return (
         <div className="flex-1 flex justify-center items-center relative px-4 sm:px-6 lg:px-8">
             {/* Background pattern */}
@@ -95,7 +78,7 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                 }}>
             </div>
 
-            <div className="flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+            <div className="flex flex-col  gap-6 sm:gap-8 lg:gap-10 z-10 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 {/* Logo and title section */}
                 <div className="text-center space-y-4 sm:space-y-6">
                     {/* Logo */}
@@ -108,30 +91,10 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                     </div>
 
                     {/* Main title with typewriter */}
-                    <div className="space-y-2 mr-[35%] sm:mr-[40%]">
-                        <div className="text-gray-900 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold tracking-tight min-h-[24px] sm:min-h-[28px] md:min-h-[32px] lg:min-h-[36px] flex items-center justify-center px-2">
-                            {text.split("").map((char, idx) => (
-                                <span
-                                    key={idx}
-                                    className={`inline-block transition-all duration-200 ${idx < currentIndex
-                                        ? 'opacity-100 transform translate-y-0'
-                                        : 'opacity-0 transform translate-y-1'
-                                        }`}
-                                    style={{
-                                        transitionDelay: `${idx * 40}ms`
-                                    }}
-                                >
-                                    {char === " " ? "\u00A0" : char}
-                                </span>
-                            ))}
-                            {currentIndex < text.length && (
-                                <span
-                                    className={`inline-block w-0.5 h-5 sm:h-6 md:h-7 lg:h-8 bg-gray-400 ml-0.5 transition-opacity duration-150 ${showCursor ? 'opacity-100' : 'opacity-0'
-                                        }`}
-                                />
-                            )}
-                        </div>
+                    <div className="text-start">
+                        <TextGenerateEffect words={text} />
                     </div>
+
                 </div>
 
                 {/* Status steps section */}
@@ -193,7 +156,7 @@ export default function FoodLoading({ currentServerStep, serverMessage }: FoodLo
                 {/* Footer note */}
                 <div className="text-center">
                     <p className="text-xs sm:text-sm text-gray-600 font-medium">
-                        This may take a few moments
+                        {t("Fooodloading-description")}
                     </p>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 import { useRecipeStore } from "@/store/recipe"
-import Header from "../Header"
 import { useEffect } from "react"
 import Pageloading from "../Pageloading"
 import { useFecthrecipe } from "@/hooks/useFecthrecipe"
@@ -40,7 +39,6 @@ export default function Recipe({ recipeId }: Props) {
         return <Pageloading />
     }
 
-    console.log("Recipe data:", recipe);
     return (
         <GoogleOAuthProvider clientId={config.GOOGLE_CLIENT_ID}>
             <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh flex flex-col gap-6 lg:gap-8 pb-5 ">

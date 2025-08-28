@@ -6,7 +6,7 @@ import Discover from "./Discover"
 import MobileTrendingRecipes from "./MobileTrendingRecipes"
 import { useGenrateRecipe } from "@/hooks/useGenrateRecipe"
 import FoodLoading from "../Foodloading"
-
+import { useHasMounted } from "@/hooks/useHasMounted"
 type Props = {
     dishname: string | null
 }
@@ -19,8 +19,8 @@ export default function Dashboard({ dishname }: Props) {
         currentStep,
         stepMessage
     } = useGenrateRecipe()
-
-    console.log(isGenrateRecipeloading)
+    const hasmounted = useHasMounted()
+    if (!hasmounted) return null
 
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] min-h-dvh overflow-y-auto w-full flex flex-col xl:justify-around gap-5 xl:gap-0 pb-0 xl:pb-4">
@@ -32,7 +32,11 @@ export default function Dashboard({ dishname }: Props) {
                     setisGenrateRecipeloading={setisGenrateRecipeloading}
                 />
             }
-            {!isGenrateRecipeloading && <TrendingRecipes />}
+            {!isGenrateRecipeloading &&
+                <TrendingRecipes
+                    createRecipe={createRecipe}
+                    setisGenrateRecipeloading={setisGenrateRecipeloading}
+                />}
             {!isGenrateRecipeloading && <Discover />}
             {!isGenrateRecipeloading && <MobileTrendingRecipes />}
             {isGenrateRecipeloading && (

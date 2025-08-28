@@ -11,19 +11,22 @@ import { useGetdishes } from "@/hooks/useGetdishes"
 import DishSkeleton from "../DishSkelton";
 import { ChevronRight } from "lucide-react"
 import { useRouter } from "next/router"
+import { useTranslation } from "react-i18next";
 
 export default function Nonvegetarian() {
     const { dishes, IsLoading, fetchDishes } = useGetdishes();
+    const { i18n, t } = useTranslation()
     const router = useRouter();
 
     useEffect(() => {
         fetchDishes("Non_Vegetarian");
-    }, []);
+    }, [i18n.language]);
+
 
     return (
         <div className="flex flex-col gap-5 ml-auto mr-auto pt-5 w-[85%] sm:w-[80%] lg:w-[85%]">
             <h1 onClick={() => router.push(`/explore/Non_Vegetarian`)} className="text-[#565656] hover:underline font-bold cursor-pointer text-xl sm:text-2xl mb-4 flex items-center">
-                Non vegetarian
+                {t('explore.Non_vegetarian')}
                 <span>
                     <ChevronRight className="ml-1  w-6 h-6 sm:w-8 sm:h-8" />
                 </span>
