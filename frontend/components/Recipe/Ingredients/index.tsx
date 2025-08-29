@@ -1,13 +1,14 @@
 import { useRecipeStore } from "@/store/recipe"
 import { useState } from "react"
-import { Check } from "lucide-react"
+import { Check, Mic, LoaderCircle } from "lucide-react"
 import { useTranslation } from "react-i18next"
-
+import { usetexttospech } from "@/hooks/usetexttospech"
 
 export default function Ingredients() {
     const [IngredientsIndexs, SetIngredientsIndexs] = useState<number[]>([])
     const { recipe } = useRecipeStore()
     const { t } = useTranslation()
+    const { call, IsLoading } = usetexttospech()
 
     const OnToggole = (index: number) => {
         if (IngredientsIndexs.includes(index)) {
@@ -18,12 +19,19 @@ export default function Ingredients() {
         }
     }
 
+    const OnSpech = async () => {
+        if (recipe) {
+            const ingredients = recipe.healthierVersion.ingredients.join(", ")
+            await call(ingredients)
+        }
+    }
+
     return (
         <>
             <div className="w-[85%] mx-auto flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
-                    <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl">{t("recipe.Ingredients")}</h1>
-                    <div className="grid grid-cols-1 gap-5">
+                    <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl flex items-center gap-4">{t("recipe.Ingredients")} {IsLoading ? <LoaderCircle className="animate-spin" /> : <Mic onClick={OnSpech} />}</h1>
+                    <div className="grid grid-cols-1 gap-10">
                         {
                             recipe?.healthierVersion.ingredients.map((ingredient, index) => (
                                 <div

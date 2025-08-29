@@ -20,3 +20,7 @@ export const languageMap = {
     mni: "मणिपुरी",
     en: "English"
 };
+
+export const languagespporiton = [
+    "en", "bn", "hi", "ta", "te", "ml", "kn", "mr", "gu", "pa"
+]

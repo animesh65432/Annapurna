@@ -19,6 +19,7 @@ const config = {
     INGRIDENT_GOOGLE_CX: process.env.INGRIDENT_GOOGLE_CX,
     GENAIAPIKEY1: process.env.GENAIAPIKEY1,
     GENAIAPIKEY2: process.env.GENAIAPIKEY2,
+    SARVAM_API_KEY: process.env.SARVAM_API_KEY
 }
 
 export default config
