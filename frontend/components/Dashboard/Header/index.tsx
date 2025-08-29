@@ -94,11 +94,11 @@ export default function Header() {
                             <XIcon className="size-8 text-[#048452] ml-auto " />
                         </SheetClose>
                         <nav className="flex  font-poppins text-[1rem] text-[#048452] font-medium flex-col justify-center items-center gap-8">
-                            <ul> <Link href="/explore">Explore</Link></ul>
+                            <ul> <Link href="/explore">{t("Dashboard.Header.explore")}</Link></ul>
                             {token &&
                                 <ul>
                                     <Link href="/saves">
-                                        Save
+                                        Saves
                                     </Link>
                                 </ul>
                             }

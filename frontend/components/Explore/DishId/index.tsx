@@ -85,7 +85,7 @@ export default function DishId({ dishId }: Props) {
                         <h1 className='text-black text-xl sm:text-2xl lg:text-3xl '>{dish.name}</h1>
                     </div>
                     <div className='flex flex-col gap-2 sm:gap-0 sm:items-start'>
-                        <div className='text-[#414141] text-[1.1rem] sm:text-xl mb-1 '>About :</div>
+                        <div className='text-[#414141] text-[1.1rem] sm:text-xl mb-1 '>{t("explore.About")} :</div>
                         <div className='text-[#414141]  text-[0.9rem] sm:text-[1rem] sm:w-full'>
                             {dish.description || 'No description available.'}
                         </div>
