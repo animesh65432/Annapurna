@@ -1,14 +1,18 @@
 import { Request, Response } from "express";
 import Cloudinary from "../../services/Cloudinary"
 import { groq } from "../../services/Groq"
+import { languageMap } from "../../utils/lan"
 
 export const Detectdishes = async (req: Request, res: Response) => {
     try {
         const base64 = req.body.image;
+        const lan = req.body.lan || 'en';
         if (!base64 || !base64.startsWith("data:image")) {
             res.status(400).json({ error: "Invalid or missing base64 image" });
             return
         }
+
+        const language = languageMap[lan as keyof typeof languageMap]
 
         const putintocloudinary = await Cloudinary.uploader.upload(base64, {
             resource_type: "image",
@@ -25,7 +29,7 @@ export const Detectdishes = async (req: Request, res: Response) => {
                     content: [
                         {
                             type: "text",
-                            text: `Identify this Indian dish and return only the dish name in JSON format like:
+                            text: `Identify this Indian dish and return only the dish name in ${language} and the JSON format like:
                                    {"dish_name": "Dish Name"} 
                                    If it's not a dish photo then return {"dish_name": ""}`,
                         },

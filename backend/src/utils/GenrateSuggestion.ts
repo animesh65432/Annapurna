@@ -2,7 +2,7 @@ import { groq } from "../services/Groq"
 
 export const generateSuggestion = async (key: string, language: string): Promise<string[]> => {
     const checkAlreadyDishPrompt = `Is "${key}" the name of a famous Indian dish? Reply with only "yes" or "no".`;
-    const suggestionPrompt = `List 5 famous Indian foods that start with the letters "${key}". Only return the names in a valid JSON array format, with no extra text or explanation.`;
+    const suggestionPrompt = `List 5 famous Indian foods in ${language} that start with the letters "${key}". Only return the names in a valid JSON array format, with no extra text or explanation.`;
 
     try {
         const dishCheckResponse = await groq.chat.completions.create({
