@@ -16,7 +16,7 @@ export default function FuncFat() {
     }
     return (
         <div className="flex flex-col gap-4 w-[85%] mx-auto">
-            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl flex items-center gap-5">{t("recipe.FunFact")}  {IsLoading ? <LoaderCircle className="animate-spin" /> : <Mic onClick={OnSpech} />}</h1>
+            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl flex items-center gap-5">{t("recipe.FunFact")}  </h1>
             <div className="text-[#757575] text-[1rem] lg:text-[1.1rem] leading-relaxed pb-5">{recipe?.funFact}</div>
         </div>
     )

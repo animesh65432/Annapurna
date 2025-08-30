@@ -47,7 +47,7 @@ export default function Header() {
                         <li className="text-[#353535] hover:underline">{t("Dashboard.Header.explore")}</li>
                     </Link>
                     {hasMounted && token &&
-                        <Link href="/saves" className="text-[#353535] cursor-pointer">Save</Link>
+                        <Link href="/saves" className="text-[#353535] cursor-pointer">  {t("Dashboard.Header.save")}</Link>
                     }
                 </ul>
                 <ul>

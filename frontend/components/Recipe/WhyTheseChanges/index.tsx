@@ -17,7 +17,7 @@ export default function WhyTheseChanges() {
 
     return (
         <div className="w-[85%] mx-auto flex flex-col gap-2">
-            <div className="text-[#434343] flex items-center gap-5 text-[1.2rem] sm:text-2xl">{t("recipe.Why_These_Changes")}  ? {IsLoading ? <LoaderCircle className="animate-spin" /> : <Mic onClick={OnSpech} />}</div>
+            <div className="text-[#434343] flex items-center gap-5 text-[1.2rem] sm:text-2xl">{t("recipe.Why_These_Changes")}  ?</div>
             <div className="flex flex-col gap-4">
                 {recipe?.substitutions.map((substitution, index) => <div key={index} className="text-[#757575] flex items-center gap-2 text-[1rem] lg:text-[1.1rem] ">
                     <div className="flex flex-col">

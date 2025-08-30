@@ -15,6 +15,8 @@ export default function Header() {
     const { token } = useAuthstore()
     const hasMounted = useHasMounted();
     const { t } = useTranslation()
+
+    console.log(t("Dashboard.Header.explore"))
     return (
         <header className="ml-auto mr-auto pt-5 flex justify-between items-center w-[85%]  ">
             <Link href="/">

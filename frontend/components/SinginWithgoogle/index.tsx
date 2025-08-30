@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { GoogleLogin } from '@react-oauth/google';
 import type { CredentialResponse } from '@react-oauth/google';
 import { singinwithgoogle } from "@/api/user"
@@ -7,14 +7,17 @@ import jscookie from "js-cookie"
 import { useAuthstore } from '@/store/useauth';
 import { useClickOutside } from "@/hooks/useClickoutside"
 import { toast } from 'react-toastify';
+import { useTranslation } from "react-i18next"
 
 type Props = {
     setauth: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+
 const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
     const modalRef = useRef<HTMLDivElement>(null);
     const [isSinginLoading, setisSinginLoading] = useState<boolean>(false)
+    const { t } = useTranslation()
     const { addtoken } = useAuthstore()
 
     const onsinginwithgoogle = async (data: CredentialResponse) => {
@@ -58,12 +61,11 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
                         <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
                             <Shield size={32} className="text-green-600" />
                         </div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                            Welcome to <span className="text-green-600">Annapurna AI</span>
+                        <h2 className="text-2xl font-bold text-green-600 mb-2">
+                            {t("SinginPage.title")}
                         </h2>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            To save the recipe, please sign in with<br />
-                            your Google account.
+                            {t("SinginPage.subtitle")}
                         </p>
                     </div>
                 </div>
@@ -73,15 +75,15 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
                     <div className="space-y-3">
                         <div className="flex items-center gap-3 text-sm text-gray-700">
                             <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                            <span>Save your favorite recipes</span>
+                            <span>{t("SinginPage.description.first")}</span>
                         </div>
                         <div className="flex items-center gap-3 text-sm text-gray-700">
                             <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                            <span>Access recipes from any device</span>
+                            <span>{t("SinginPage.description.second")}</span>
                         </div>
                         <div className="flex items-center gap-3 text-sm text-gray-700">
                             <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                            <span>Get personalized recommendations</span>
+                            <span>{t("SinginPage.description.third")}</span>
                         </div>
                     </div>
                 </div>
@@ -108,8 +110,7 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
                                     />
                                 </div>
                                 <p className="text-xs text-gray-500 leading-relaxed">
-                                    By signing in, you agree to our Terms of Service and Privacy Policy.
-                                    Your data is secure and protected.
+                                    {t("SinginPage.metadata")}
                                 </p>
                             </div>
                         )}
@@ -120,7 +121,7 @@ const SigninwithGoogle: React.FC<Props> = ({ setauth }) => {
                 <div className="px-8 pb-6">
                     <div className="bg-green-50 rounded-lg p-4 text-center border border-green-100">
                         <p className="text-sm text-green-700">
-                            🔒 Your privacy is our priority. We never share your data.
+                            🔒{t("SinginPage.Privacy")}
                         </p>
                     </div>
                 </div>

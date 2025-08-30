@@ -463,7 +463,18 @@
       {"Nagaland": "Nagaland"}
   ],
   "About":"About"
+  },
+  "SinginPage":{
+    "title":"Welcome to Annapurna AI",
+    "subtitle":"To save the recipe, please sign in with your Google account.",
+    "description":{
+      "first" :"Save your favorite recipes",
+      "second" :"Access your recipes from any device",
+      "third" :"Get personalized recipe recommendations"
+    },
+    "button":"Sign in with Google",
+    "metadata" :"By signing in, you agree to our Terms of Service and Privacy Policy. Your data is secure and protected.",
+    "Privacy" :"Your privacy is our priority. We never share your data."
   }
-
 
 }

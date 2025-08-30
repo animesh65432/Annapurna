@@ -25,7 +25,7 @@ export default function Steps() {
     }
     return (
         <div className="flex flex-col gap-4 w-[85%] mx-auto">
-            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl flex items-center gap-5">{t("recipe.Steps")} {IsLoading ? <LoaderCircle className="animate-spin" /> : <Mic onClick={OnSpech} />}</h1>
+            <h1 className="text-[#434343] text-[1.2rem] sm:text-2xl flex items-center gap-5">{t("recipe.Steps")} </h1>
             <div className="flex flex-col gap-4">
                 {recipe?.healthierVersion.steps.map((step, index) =>
                     <div
