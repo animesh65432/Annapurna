@@ -23,7 +23,6 @@ import { useRecipeStore } from "@/store/recipe"
 import { useanalysisdish } from "@/hooks/useanalysisdish"
 import { Paperclip, LoaderCircle } from "lucide-react"
 import { useTranslation } from "react-i18next";
-import i18n from "@/lib/i18n";
 import { useHasMounted } from "@/hooks/useHasMounted";
 
 export type RecipeFromTypes = z.infer<typeof RecipeFrom>
@@ -53,7 +52,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     const DishType = watch("DishType");
     const { setRecipe } = useRecipeStore()
     const [titlethirdword, settitlethirdword] = useState<string>("")
-    const { t, ready } = useTranslation()
+    const { t, ready, i18n } = useTranslation()
     const { IsanalysisDishLoading, analysisdish, analysisdishname } = useanalysisdish()
     const fileInputRef = useRef<HTMLInputElement | null>(null);
     const placeholders: string[] = t("Dashboard.Herosection.placeholders", { returnObjects: true }) as string[]
@@ -75,7 +74,7 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
     }, [dish])
 
     const GenerateSuggestionByKey = debounce(async (dish: string) => {
-        const response = await Getsuggestions(dish) as { suggestions: string[] }
+        const response = await Getsuggestions(dish, i18n.language) as { suggestions: string[] }
         setsuggestions(response.suggestions)
     }, 300)
 

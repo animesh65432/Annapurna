@@ -419,7 +419,7 @@
         "Select_Cuisine_placeholder": "রান্নার ধরন",
         "Diet_Type_Options": [
           {"Vegetarian": "শাকাহারি"},
-          {"Non-Vegetarian": "মাংসাহারি"},
+          {"Non_Vegetarian": "মাংসাহারি"},
           {"Any": "যে কোনো"}
         ],
         "CuisineOptions": [

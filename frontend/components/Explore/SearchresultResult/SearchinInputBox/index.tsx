@@ -1,26 +1,30 @@
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { DishTypeOptions } from "@/lib/Herosectiondata"
 import InputIcon from "@/public/assets/dashboard/Vector.svg"
 import Image from "next/image"
 import { Search } from "lucide-react"
 import { useEffect, useState } from "react"
 import { useRouter } from 'next/router';
 import { useExploreSuggestions } from "@/hooks/useExploreSuggestions"
-import Suggestions from "../Suggestions"
+import Suggestions from "../../Suggestions"
 import { debounce } from "@/lib/usedebouce";
 import { useTranslation } from "react-i18next"
 
 type Props = {
-    diet?: string | null,
-    cuisine?: string | null,
-    q?: string | null
+    userInput?: {
+        diet?: string | null,
+        cuisine?: string | null,
+        q?: string | null,
+    },
+    setUserInput?: React.Dispatch<React.SetStateAction<{
+        diet: string | null;
+        cuisine: string | null;
+        q: string | null;
+    }>>,
+    setcallapi: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function SearchinInputBox({ diet, cuisine, q }: Props) {
-    const [dish, setdish] = useState<string>("")
-    const [DietType, SetDietType] = useState<string>("")
-    const [Cuisine, setCuisine] = useState<string>("")
+export default function SearchinInputBox({ userInput, setUserInput, setcallapi }: Props) {
     const { t } = useTranslation();
     const CuisineOptions = t("explore.CuisineOptions", { returnObjects: true }) as any[];
     const DietTypeOptions = t("explore.Diet_Type_Options", { returnObjects: true }) as any[];
@@ -28,22 +32,14 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     const router = useRouter();
 
     const handleSearch = () => {
-        if (DietType.length === 0 && Cuisine.length === 0 && dish.length === 0) {
+        if (!userInput?.diet && !userInput?.cuisine && !userInput?.q) {
+            console.log("Please select at least one filter or enter a search term.");
             return;
+        } else {
+            setcallapi((prev) => !prev);
+            router.push(`/explore/search?${userInput.diet ? `diet=${userInput.diet}&` : ''}${userInput.cuisine ? `cuisine=${userInput.q}&` : ''}${userInput?.q ? `q=${userInput.q}` : ''}`);
         }
-        router.push(`/explore/search?${DietType ? `diet=${DietType}&` : ''}${Cuisine ? `cuisine=${Cuisine}&` : ''}${dish ? `q=${dish}` : ''}`);
     }
-    useEffect(() => {
-        if (diet) {
-            SetDietType(diet);
-        }
-        if (cuisine) {
-            setCuisine(cuisine);
-        }
-        if (q) {
-            setdish(q);
-        }
-    }, [diet, cuisine, q]);
 
     const debouncedFetchSuggestions = debounce(async (dish: string) => {
         if (dish.length > 2) {
@@ -52,22 +48,49 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
     }, 300);
 
     useEffect(() => {
-        if (dish) {
-            debouncedFetchSuggestions(dish);
+        if (userInput?.q) {
+            debouncedFetchSuggestions(userInput.q);
         }
-    }, [dish]);
+    }, [userInput?.q]);
+
+    useEffect(() => {
+        if (userInput?.cuisine) {
+            const found = CuisineOptions.find(opt => {
+                const [key, label] = Object.entries(opt)[0];
+                return label === userInput.cuisine;
+            });
+
+            if (found) {
+                const [key] = Object.entries(found)[0];
+                setUserInput?.((prev) => ({ ...prev, cuisine: key }));
+            }
+        }
+    }, [userInput?.cuisine]);
+
 
     const selectfromSuggestion = (suggestion: string) => {
-        setdish(suggestion);
+        setUserInput?.((prev) => {
+            return { ...prev, q: suggestion }
+        })
+        setSuggestions([])
     }
-
 
     return (
         <div className="w-full flex justify-center ">
             <div className=" hidden md:flex relative  rounded-4xl h-[8vh] items-center w-[75%] lg:w-[63%] xl:w-[55%] bg-white shadow-md border-2 border-neutral-100 text-black">
                 <Image src={InputIcon} alt="inputicon" className="w-[2vw] h-[3vh] ml-5" />
-                <Input value={dish} onChange={(e) => setdish(e.target.value)} className="border-0 bg-transparent shadow-none  w-[40%] lg:w-[45%] " placeholder={t("explore.Input_placeholder")} />
-                <Select value={DietType} onValueChange={(value) => SetDietType(value)}>
+                <Input value={userInput?.q ?? ""}
+                    onChange={(e) => setUserInput?.((prev) => {
+                        return { ...prev, q: e.target.value }
+                    })}
+                    className="border-0 bg-transparent shadow-none  w-[40%] lg:w-[45%] "
+                    placeholder={t("explore.Input_placeholder")}
+                />
+                <Select value={userInput?.diet ?? undefined}
+                    onValueChange={(value) => setUserInput?.((prev) => {
+                        return { ...prev, diet: value }
+                    })}
+                >
                     <SelectTrigger className="border-t-0 border-r-0 border-b-0 cursor-pointer  bg-transparent shadow-none ">
                         <SelectValue placeholder={t("explore.Select_Diet_placeholder")} />
                     </SelectTrigger>
@@ -80,7 +103,9 @@ export default function SearchinInputBox({ diet, cuisine, q }: Props) {
                         })}
                     </SelectContent>
                 </Select>
-                <Select value={Cuisine} onValueChange={(value) => setCuisine(value)}>
+                <Select value={userInput?.cuisine ?? ""} onValueChange={(value) => setUserInput?.((prev) => {
+                    return { ...prev, cuisine: value }
+                })}>
                     <SelectTrigger className="border-t-0 cursor-pointer border-r-0 border-b-0 rounded-0 bg-transparent shadow-none">
                         <SelectValue placeholder={t("explore.Select_Cuisine_placeholder")} />
                     </SelectTrigger>
