@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import React, { useEffect, useState } from 'react'
-import SearchinInputBox from '../SearchinInputBox'
+import SearchinInputBox from '../SerchInputbox'
 import MobileSearch from '../MobileSearch'
 import { useGetdishes } from "@/hooks/useGetdishes"
 import DishSkeleton from '../DishSkelton'

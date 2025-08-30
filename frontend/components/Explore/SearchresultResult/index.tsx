@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Dish from '../Dish'
 import Header from '@/components/Header'
-import SearchinInputBox from '../SearchinInputBox'
+import SearchinInputBox from './SearchinInputBox'
 import MobileSearch from '../MobileSearch'
 import { useGetserchbydishes } from "@/hooks/useGetserchdishes"
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import DishSkeleton from '../DishSkelton'
+import { useHasMounted } from '@/hooks/useHasMounted'
 
 type props = {
     diet: string | null,
@@ -15,7 +16,13 @@ type props = {
 export default function SearchresultResult({ diet, cuisine, q }: props) {
     const { dishes, IsLoading, totalItems, SerchDishes } = useGetserchbydishes()
     const [currentPage, setCurrentPage] = useState<number>(0)
-
+    const hasmuted = useHasMounted()
+    const [callapi, setcallapi] = useState<boolean>(false)
+    const [userInput, setUserInput] = useState<{ diet: string | null, cuisine: string | null, q: string | null }>({
+        diet: diet,
+        cuisine: cuisine,
+        q: q
+    });
     const ITEMS_PER_PAGE = 30
     const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE)
     const hasNext = currentPage < totalPages - 1
@@ -37,19 +44,25 @@ export default function SearchresultResult({ diet, cuisine, q }: props) {
     }
 
     const fetchData = async () => {
-        if (diet || cuisine || q) {
-            await SerchDishes(diet ?? undefined, currentPage, ITEMS_PER_PAGE, cuisine ?? undefined, q ?? undefined);
+        console.log("calling fetch data")
+        if (userInput.diet || userInput.cuisine || userInput.q) {
+            await SerchDishes(userInput.diet ?? undefined, currentPage, ITEMS_PER_PAGE, userInput.cuisine ?? undefined, userInput.q ?? undefined);
         }
     }
 
     useEffect(() => {
         fetchData();
-    }, [diet, cuisine, q, currentPage]);
+    }, [callapi]);
+
+    if (!hasmuted) {
+        return null
+    }
+
     return (
         <div className="bg-[url('/dashboard/backgroundimage.png')] flex min-h-dvh overflow-y-auto w-full flex-col gap-10 lg:gap-8 pt-[220px]">
             <div className="flex flex-col gap-6 md:gap-10 fixed top-0 left-0 right-0 z-50 bg-slate-50 p-5">
                 <Header />
-                <SearchinInputBox diet={diet} cuisine={cuisine} q={q} />
+                <SearchinInputBox userInput={userInput} setUserInput={setUserInput} setcallapi={setcallapi} />
                 <MobileSearch diet={diet} cuisine={cuisine} q={q} />
             </div>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10 w-[90%] sm:w-[85%] mx-auto pb-5'>

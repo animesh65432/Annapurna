@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import SearchinInputBox from "./SearchinInputBox";
+import SearchinInputBox from "./SerchInputbox";
 import Nonvegetarian from "./NonVeg";
 import Veg from "./Veg";
 import MobileSearch from "./MobileSearch";

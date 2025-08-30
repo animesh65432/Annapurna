@@ -57,9 +57,6 @@ export default function MobileSearch({ diet, cuisine, q }: Props) {
     useClickOutside(modelref, () => {
         settootleserch(false)
     })
-
-    console.log(CuisineOptions)
-
     return (
         <>
             {!toggleSearch && (
