@@ -3,7 +3,6 @@ import express from "express"
 import { errorMiddleware } from "./middleware"
 import cors from "cors"
 import router from "./router"
-import { translatespech } from "./controllers/spech"
 
 const app = express()
 
