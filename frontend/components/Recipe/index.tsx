@@ -12,6 +12,7 @@ import { config } from "@/config"
 import NutritionComparison from "./NutritionComparison"
 import { Volume2, AudioLines, Pause, Play, Square } from "lucide-react"
 import { usetexttospech } from "@/hooks/usetexttospech"
+import { toast } from "react-toastify"
 
 type Props = {
     recipeId: string
@@ -53,15 +54,39 @@ export default function Recipe({ recipeId }: Props) {
             let textToSpeak = ""
 
             if (selectedSection === 'steps') {
-                textToSpeak = recipe.healthierVersion.steps.join(". ")
-            } else {
-                textToSpeak = recipe.healthierVersion.ingredients.join(", ")
-            }
+                if (!recipe.healthierVersion.steps || recipe.healthierVersion.steps.length === 0) {
+                    toast.error("No steps available to read aloud.")
+                    return
+                }
 
-            await call(textToSpeak)
+                textToSpeak = recipe.healthierVersion.steps.join(". ")
+
+
+                if (textToSpeak.length > 2500) {
+                    toast.error("Steps are too long to read aloud.")
+                    return
+                }
+
+                await call(textToSpeak)
+
+            } else {
+                if (!recipe.healthierVersion.ingredients || recipe.healthierVersion.ingredients.length === 0) {
+                    toast.error("No ingredients available to read aloud.")
+                    return
+                }
+
+                textToSpeak = recipe.healthierVersion.ingredients.join(", ")
+
+
+                if (textToSpeak.length > 2500) {
+                    toast.error("Ingredients are too long to read aloud.")
+                    return
+                }
+
+                await call(textToSpeak)
+            }
         }
     }
-
     const handleStopAudio = () => {
         stop()
     }
@@ -93,7 +118,6 @@ export default function Recipe({ recipeId }: Props) {
 
 
                 <div className="flex flex-col items-end gap-2 w-[95%] mx-auto fixed mt-[80vh] md:mt-[65%] lg:mt-[35%] z-40">
-
                     {(isPlaying || isPaused || IsLoading) && (
                         <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
                             <div className="flex gap-2 text-xs">
