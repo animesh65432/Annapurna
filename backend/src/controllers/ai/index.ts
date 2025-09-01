@@ -16,7 +16,7 @@ export const generateSuggestionController = async (req: Request, res: Response) 
 
         console.log(language, "language selected")
 
-        const redisKey = `suggestion:${prompt}-${language || 'english'}-${prompt.length}`;
+        const redisKey = `suggestion:${prompt}-${language || 'english'}-${prompt}`;
         const cachedSuggestions = await redis.get<any>(redisKey)
         if (cachedSuggestions) {
             console.log("Returning cached suggestions for key:", redisKey)
