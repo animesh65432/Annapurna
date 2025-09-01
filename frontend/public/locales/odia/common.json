@@ -62,7 +62,7 @@
 
     },
     "Trending_recipes": {
-      "title": "ਮਸ਼ਹੂਰ ਰੈਸੀਪੀ",
+      "title": "ଲୋକପ୍ରିୟ ରେସିପି",
       "recipes": [
         {
           "name": "ଆଳୁ ପରାଠା",
@@ -397,7 +397,7 @@
   "Fooodloading-description": "ଏଥିରେ କିଛି ସମୟ ଲାଗି ପାରେ",
   "Fooodloading-title": "ସର୍ବଶ୍ରେଷ୍ଠ ପଣ୍ୟର ଉତ୍ସ",
   "recipe": {
-  "Before": "ପূର୍ବରୁ",
+  "Before": "ପୁର୍ବରୁ",
   "After": "ପରେ",
   "Ingredients": "ସାମଗ୍ରୀ",
   "Steps": "ପଦକ୍ଷେପ",
@@ -423,18 +423,18 @@
   ],
   "CuisineOptions": [
     {"South_Indian": "ଦକ୍ଷିଣ ଭାରତୀୟ"},
-    {"Goan": "ଗୋଆ"},
+    {"Goan": "ଗୋଆନ୍"},
     {"North_Indian": "ଉତ୍ତର ଭାରତୀୟ"},
     {"Assamese": "ଅସମୀୟ"},
-    {"Tamil_Nadu": "ତମିଳନାଡୁ"},
+    {"Tamil_Nadu": "ତାମିଲନାଡୁ"},
     {"Karnataka": "କର୍ଣ୍ଣାଟକ"},
     {"Malvani": "ମାଲବାଣୀ"},
-    {"Kerala": "କେରଳା"},
+    {"Kerala": "କେରଳ"},
     {"Gujarati": "ଗୁଜରାଟୀ"},
     {"Sindhi": "ସିନ୍ଧୀ"},
     {"Konkan": "କୋଙ୍କଣ"},
     {"Hyderabadi": "ହାଇଦ୍ରାବାଦୀ"},
-    {"Andhra": "ଆନ୍ଧ୍ରା"},
+    {"Andhra": "ଆନ୍ଧ୍ର"},
     {"Coorg": "କୋର୍ଗ"},
     {"Bengali": "ବଙ୍ଗାଳୀ"},
     {"Mangalorean": "ମଙ୍ଗଲୋରୀୟ"},
@@ -442,7 +442,7 @@
     {"Punjabi": "ପଞ୍ଜାବୀ"},
     {"Udupi": "ଉଡୁପି"},
     {"Chettinad": "ଚେଟିନାଡ୍"},
-    {"Indo_Chinese": "ଇଣ୍ଡୋ-ଚାଇନୀଜ୍"},
+    {"Indo_Chinese": "ଭାରତୀୟ-ଚାଇନିଜ୍"},
     {"Parsi": "ପାରସି"},
     {"Rajasthani": "ରାଜସ୍ଥାନୀ"},
     {"Kashmiri": "କାଶ୍ମୀରୀ"},
@@ -452,7 +452,7 @@
     {"North_East_India": "ଉତ୍ତର-ପୂର୍ବ ଭାରତ"},
     {"Himachal": "ହିମାଚଳ"},
     {"Uttar_Pradesh": "ଉତ୍ତର ପ୍ରଦେଶ"},
-    {"Awadhi": "ଆବଧୀ"},
+    {"Awadhi": "ଅବଧୀ"},
     {"Oriya": "ଓଡ଼ିଆ"},
     {"Uttarakhand": "ଉତ୍ତରାଖଣ୍ଡ"},
     {"Lucknowi": "ଲକ୍ନୌଈ"},
@@ -461,7 +461,7 @@
     {"Jharkhand": "ଝାରଖଣ୍ଡ"},
     {"Nagaland": "ନାଗାଲ୍ୟାଣ୍ଡ"}
   ],
-  "About" :"ବିଷୟରେ "
+  "About": "ବିଷୟରେ"
 },
 "SinginPage": {
     "title": "ଅନ୍ନପୂର୍ଣ୍ଣା AI ରେ ସ୍ୱାଗତ",
