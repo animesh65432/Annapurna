@@ -4,8 +4,7 @@ import { translatespech } from "../../controllers/spech"
 
 const router = Router()
 
-router.use(rateLimiter(5, 60 * 1000) as RequestHandler)
-
+router.use(rateLimiter(5, 60000) as RequestHandler)
 router.post("/translatespech", translatespech)
 
 export default router

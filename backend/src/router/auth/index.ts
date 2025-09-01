@@ -4,7 +4,7 @@ import { googleAuth } from "../../controllers/user"
 
 const userauth = Router()
 
-userauth.use(rateLimiter(10, 60000) as RequestHandler)
+userauth.use(rateLimiter(15, 60000) as RequestHandler)
 userauth.post("/googeauth", googleAuth)
 
 
