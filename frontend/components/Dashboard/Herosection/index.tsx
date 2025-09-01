@@ -174,29 +174,34 @@ export default function Herosection({ dishname, createRecipe, setisGenrateRecipe
             <div className="flex flex-col gap-4  w-[90%] md:max-w-[478px] mx-auto">
                 <div>
                     <div className="flex gap-4 relative">
-                        <input
-                            type="file"
-                            accept="image/*"
-                            ref={fileInputRef}
-                            onChange={handleFileChange}
-                            className="hidden"
-                        />
-
-                        {
-                            suggestions.length > 0 && dish.length > 0 && (
-                                <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
-                            )
-                        }
-                        <div className="relative mx-auto md:mx-0">
-                            {!IsanalysisDishLoading &&
-                                <Paperclip onClick={handleIconClick} className="absolute z-10 text-[#404040] hover:text-[#262525] w-4 h-4 top-3 sm:top-2 md:top-3 left-[90%] lg:top-3" />
+                        <div className="flex flex-col">
+                            <input
+                                type="file"
+                                accept="image/*"
+                                ref={fileInputRef}
+                                onChange={handleFileChange}
+                                className="hidden"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full">
+                            <div className="relative mx-auto md:mx-0">
+                                {!IsanalysisDishLoading &&
+                                    <Paperclip onClick={handleIconClick} className="absolute z-10 text-[#404040] hover:text-[#262525] w-4 h-4 top-3 sm:top-2 md:top-3 left-[90%] lg:top-3" />
+                                }
+                                {IsanalysisDishLoading && <LoaderCircle className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3  sm:top-2 left-[90%] lg:top-3 animate-spin" />}
+                                <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : randomPlaceholder}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] hover:text-black pl-3 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " >
+                                </Input>
+                            </div>
+                            {
+                                suggestions.length > 0 && dish.length > 0 && (
+                                    <>
+                                        <Suggestions onselectfromsuggestions={onselectfromsuggestions} setsuggestions={setsuggestions} suggestions={suggestions} />
+                                    </>)
                             }
-                            {IsanalysisDishLoading && <LoaderCircle className="absolute text-[#404040] hover:text-[#262525] w-4 h-4 top-3  sm:top-2 left-[90%] lg:top-3 animate-spin" />}
-                            <Input placeholder={`${IsanalysisDishLoading ? "Analyze dish image" : randomPlaceholder}`} value={dish} onChange={(e) => setValue("dish", e.target.value)} className=" bg-white text-[#404040] hover:text-black pl-3 mx-auto text-sm sm:placeholder:text-[1rem] max500:w-[90%] sm:w-[100%] md:w-[300px] lg:w-[341px] placeholder:text-start  " >
-                            </Input>
                         </div>
                         <Button className="bg-[#FFD059] cursor-pointer hidden md:block hover:bg-[#F2C100] text-[#404040]  shadow-md">{t("Dashboard.Herosection.See_Recipe")}</Button>
                     </div >
+
 
 
                 </div >

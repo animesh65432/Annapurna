@@ -3,7 +3,6 @@ import express from "express"
 import { errorMiddleware } from "./middleware"
 import cors from "cors"
 import router from "./router"
-import { generateSuggestion } from "./utils/GenrateSuggestion"
 
 const app = express()
 
@@ -16,11 +15,9 @@ app.use(express.urlencoded({ extended: true }))
 app.use(router)
 app.use(errorMiddleware)
 
-async function testSuggestion() {
-    const suggestions = await generateSuggestion("br", "English");
-    console.log("Generated suggestions:", suggestions);
-}
 
-
+app.listen(config.PORT, () => {
+    console.log(`Server is running on port ${config.PORT}`)
+})
 
 export default app
