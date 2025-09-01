@@ -7,22 +7,19 @@ import db from "../../db"
 import { redis } from "../../services/redis"
 export const generateSuggestionController = async (req: Request, res: Response) => {
     try {
+
+        console.log("Received request body:", req.body);
         const { prompt, lan }: { prompt: string; lan: keyof typeof languageMap } = req.body
 
-        if (!prompt || prompt.trim().length < 3) {
-            res.status(200).json({ suggestions: [] })
-            return
-        }
-
-        console.log(lan, "language selected")
 
         const language = languageMap[lan as keyof typeof languageMap] || 'english'
 
         console.log(language, "language selected")
 
-        const redisKey = `suggestion:${prompt}-${language || 'english'}`;
+        const redisKey = `suggestion:${prompt}-${language || 'english'}-${prompt.length}`;
         const cachedSuggestions = await redis.get<any>(redisKey)
         if (cachedSuggestions) {
+            console.log("Returning cached suggestions for key:", redisKey)
             res.status(200).json({ suggestions: cachedSuggestions })
             return
         }

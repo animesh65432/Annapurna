@@ -10,6 +10,8 @@ export const generateSuggestion = async (key: string, language: string): Promise
             model: "openai/gpt-oss-120b",
         });
 
+        console.log("Raw dish check response:", dishCheckResponse);
+
         const isDish = dishCheckResponse.choices[0]?.message?.content?.trim().toLowerCase();
 
         if (isDish === "yes") {
