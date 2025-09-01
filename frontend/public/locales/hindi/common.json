@@ -382,11 +382,12 @@
       ]
     },
     "Discover": {
-      "title": "વધારે ભારતીય શોધો",
-      "subtitle": "AI સાથે રેસિપી",
-      "button": "વધારે જુઓ"
-    },
-    "See_healthier_Version": "સ્વસ્થ વર્ઝન જુઓ"
+  "title": "और भारतीय खोजें",
+  "subtitle": "AI के साथ रेसिपी",
+  "button": "और देखें"
+}
+,
+"See_healthier_Version": "स्वस्थ संस्करण देखें"
   },
   "Fooodloading": [
     { "id": "1", "text": "आपके इनपुट को मान्य करना", "completed": false },

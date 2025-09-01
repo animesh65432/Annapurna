@@ -382,12 +382,11 @@
       ]
     },
     "Discover": {
-  "title": "आओर भारतीय खोजू",
-  "subtitle": "AI संग रेसिपी",
-  "button": "आओर देखू"
-},
-"See_healthier_Version": "स्वस्थ आवृत्ती देखें"
-
+      "title": "आओर भारतीय खोजू",
+      "subtitle": "AI संग रेसिपी",
+      "button": "आओर देखू"
+    },
+    "See_healthier_Version": "स्वस्थ आवृत्ती देखें"
   },
   "Fooodloading": [
     { "id": "1", "text": "अपन इनपुट के मान्य करब", "completed": false },
@@ -397,72 +396,71 @@
   "Fooodloading-description": "एहि में किछु समय लागि सकैत अछि",
   "Fooodloading-title": "श्रेष्ठ उत्पादक स्रोत",
   "recipe": {
-  "Before": "पहिने",
-  "After": "बादमे",
-  "Ingredients": "सामग्री",
-  "Steps": "कदम",
-  "Why_These_Changes": "ई बदलाव कियैक",
-  "History": "इतिहास",
-  "FunFact": "रोचक तथ्य"
-},
-"explore": {
-    "Non_vegetarian": "मासाहारी",
-    "High-Protein_Non-Veg": "उच्च प्रोटीन मासाहारी",
+    "Before": "पहिने",
+    "After": "बादमे",
+    "Ingredients": "सामग्री",
+    "Steps": "कदम",
+    "Why_These_Changes": "ई बदलाव कियैक",
+    "History": "इतिहास",
+    "FunFact": "रोचक तथ्य"
+  },
+  "explore": {
+    "Non_vegetarian": "मांसाहारी",
+    "High-Protein_Non-Veg": "उच्च प्रोटीन मांसाहारी",
     "Vegetarian": "शाकाहारी",
     "High_Protein_Veg": "उच्च प्रोटीन शाकाहारी",
     "Eggetarian": "अंडाहारी",
-    "Diabetic_Friendly": "मधुमेही सभक लेल उपयुक्त",
+    "Diabetic_Friendly": "मधुमेह रोगी सभक लेल उपयुक्त",
     "Gluten_Free": "ग्लूटेन मुक्त",
     "Input_placeholder": "भोजनक नाम लिखू",
-      "Select_Diet_placeholder": "भोजनक प्रकार चुनू",
-      "Select_Cuisine_placeholder": "भोजन शैली",
-      "Diet_Type_Options": [
-        {"Vegetarian": "शाकाहारी"},
-        {"Non_Vegetarian": "मांसाहारी"},
-        {"Any": "कओनो"}
-      ],
-      "CuisineOptions": [
-        {"South_Indian": "दक्षिण भारतीय"},
-        {"Goan": "गोआ"},
-        {"North_Indian": "उत्तर भारतीय"},
-        {"Assamese": "असमिया"},
-        {"Tamil_Nadu": "तमिलनाडु"},
-        {"Karnataka": "कर्नाटक"},
-        {"Malvani": "मालवाणी"},
-        {"Kerala": "केरल"},
-        {"Gujarati": "गुजराती"},
-        {"Sindhi": "सिन्धी"},
-        {"Konkan": "कोंकण"},
-        {"Hyderabadi": "हैदराबादी"},
-        {"Andhra": "आंध्रा"},
-        {"Coorg": "कोर्ग"},
-        {"Bengali": "बंगाली"},
-        {"Mangalorean": "मंगलोरियन"},
-        {"Kongunadu": "कोंगुनाडु"},
-        {"Punjabi": "पंजाबी"},
-        {"Udupi": "उडुपी"},
-        {"Chettinad": "चेट्टिनाड"},
-        {"Indo_Chinese": "इंडो-चाइनीज"},
-        {"Parsi": "पारसी"},
-        {"Rajasthani": "राजस्थानी"},
-        {"Kashmiri": "काश्मीरी"},
-        {"Mughlai": "मुगलई"},
-        {"Bihari": "बिहारी"},
-        {"Maharashtrian": "महाराष्ट्रीय"},
-        {"North_East_India": "उत्तर-पूर्व भारत"},
-        {"Himachal": "हिमाचल"},
-        {"Uttar_Pradesh": "उत्तर प्रदेश"},
-        {"Awadhi": "आवधी"},
-        {"Oriya": "ओड़िया"},
-        {"Uttarakhand": "उत्तराखंड"},
-        {"Lucknowi": "लखनऊई"},
-        {"Haryana": "हरियाणा"},
-        {"Malabar": "मालाबार"},
-        {"Jharkhand": "झारखंड"},
-        {"Nagaland": "नागालैंड"}
-      ],
-      "About" :"बारे"
-        
+    "Select_Diet_placeholder": "भोजनक प्रकार चुनू",
+    "Select_Cuisine_placeholder": "भोजन शैली चुनू",
+    "Diet_Type_Options": [
+      {"Vegetarian": "शाकाहारी"},
+      {"Non_Vegetarian": "मांसाहारी"},
+      {"Any": "कोनो"}
+    ],
+    "CuisineOptions": [
+      {"South_Indian": "दक्षिण भारतीय"},
+      {"Goan": "गोवाई"},
+      {"North_Indian": "उत्तर भारतीय"},
+      {"Assamese": "आसामी"},
+      {"Tamil_Nadu": "तमिल नाडु"},
+      {"Karnataka": "कर्नाटक"},
+      {"Malvani": "मालवाणी"},
+      {"Kerala": "केरल"},
+      {"Gujarati": "गुजराती"},
+      {"Sindhi": "सिन्धी"},
+      {"Konkan": "कोंकणी"},
+      {"Hyderabadi": "हैदराबादी"},
+      {"Andhra": "आंध्र"},
+      {"Coorg": "कूर्ग"},
+      {"Bengali": "बांगला"},
+      {"Mangalorean": "मंगलोरी"},
+      {"Kongunadu": "कोंगुनाडु"},
+      {"Punjabi": "पंजाबी"},
+      {"Udupi": "उडुपी"},
+      {"Chettinad": "चेट्टिनाड"},
+      {"Indo_Chinese": "भारतीय-चीनी"},
+      {"Parsi": "पारसी"},
+      {"Rajasthani": "राजस्थानी"},
+      {"Kashmiri": "कश्मीरी"},
+      {"Mughlai": "मुगलाई"},
+      {"Bihari": "बिहारी"},
+      {"Maharashtrian": "महाराष्ट्रीय"},
+      {"North_East_India": "उत्तर-पूर्व भारत"},
+      {"Himachal": "हिमाचली"},
+      {"Uttar_Pradesh": "उत्तर प्रदेश"},
+      {"Awadhi": "अवधी"},
+      {"Oriya": "ओडिया"},
+      {"Uttarakhand": "उत्तराखंडी"},
+      {"Lucknowi": "लखनवी"},
+      {"Haryana": "हरियाणवी"},
+      {"Malabar": "मालाबारी"},
+      {"Jharkhand": "झारखंडी"},
+      {"Nagaland": "नागालैंडी"}
+    ],
+    "About": "बारे मे"
   },
   "SinginPage": {
     "title": "अन्नपूर्णा AI मे अहाँक स्वागत अछि",
@@ -476,6 +474,4 @@
     "metadata": "साइन इन कऽ कए अहाँ हमर सेवाक नियम आ गोपनीयता नीतिसँ सहमत भऽ रहल छी। अहाँक डेटा सुरक्षित आ संरक्षित अछि।",
     "Privacy": "अहाँक गोपनीयता हमर प्राथमिकता अछि। हम कहियो अहाँक डेटा साझा नहि करैत छी।"
   }
-
-  
 }

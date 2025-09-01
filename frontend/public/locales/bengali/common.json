@@ -382,7 +382,7 @@
     },
     "Discover": {
       "title": "আরও ভারতীয় আবিষ্কার করুন",
-      "subtitle": "AI-এর সঙ্গে রেসিপি",
+      "subtitle": "এআই-এর সঙ্গে রেসিপি",
       "button": "আরও দেখুন"
     },
     "See_healthier_Version": "স্বাস্থ্যকর সংস্করণ দেখুন"
@@ -390,7 +390,7 @@
   },
   "Fooodloading": [
     { "id": "1", "text": "আপনার ইনপুট যাচাই করা হচ্ছে", "completed": false },
-    { "id": "2", "text": "AI দিয়ে কারুশিল্পের রেসিপি", "completed": false },
+    { "id": "2", "text": "এআই দিয়ে কারুশিল্পের রেসিপি", "completed": false },
     { "id": "3", "text": "রান্নাঘরের ডাটাবেসে রেসিপি সংরক্ষণ করা হচ্ছে", "completed": false }
   ],
   "Fooodloading-description" :"এতে কয়েক মুহূর্ত সময় লাগতে পারে",
@@ -406,8 +406,8 @@
   },
   
     "explore": {
-      "Non_vegetarian": "নন-ভেজ",
-      "High-Protein_Non-Veg": "উচ্চ প্রোটিন নন-ভেজ",
+      "Non_vegetarian": "মাংসাহারি",
+      "High-Protein_Non-Veg": "উচ্চ প্রোটিন মাংসাহারি",
       "Vegetarian": "শাকাহারী",
       "High_Protein_Veg": "উচ্চ প্রোটিন শাকাহারী",
       "Eggetarian": "ডিমভোজী",
@@ -424,20 +424,20 @@
         ],
         "CuisineOptions": [
           {"South_Indian": "দক্ষিণ ভারতীয়"},
-          {"Goan": "গোয়া"},
+          {"Goan": "গোয়ান"},
           {"North_Indian": "উত্তর ভারতীয়"},
           {"Assamese": "অসমীয়া"},
           {"Tamil_Nadu": "তামিলনাড়ু"},
           {"Karnataka": "কর্ণাটক"},
           {"Malvani": "মালভানি"},
-          {"Kerala": "কেরালা"},
+          {"Kerala": "কেরল"},
           {"Gujarati": "গুজরাটি"},
           {"Sindhi": "সিন্ধি"},
           {"Konkan": "কোঙ্কণ"},
           {"Hyderabadi": "হায়দ্রাবাদি"},
-          {"Andhra": "আন্ধ্রা"},
+          {"Andhra": "অন্ধ্র"},
           {"Coorg": "কোর্গ"},
-          {"Bengali": "বাংলা"},
+          {"Bengali": "বাঙালি"},
           {"Mangalorean": "মঙ্গলোরিয়ান"},
           {"Kongunadu": "কোঙ্গুনাডু"},
           {"Punjabi": "পাঞ্জাবি"},
@@ -449,11 +449,11 @@
           {"Kashmiri": "কাশ্মীরি"},
           {"Mughlai": "মুঘলাই"},
           {"Bihari": "বিহারী"},
-          {"Maharashtrian": "মহারাষ্ট্রী"},
+          {"Maharashtrian": "মহারাষ্ট্রীয়"},
           {"North_East_India": "উত্তর-পূর্ব ভারত"},
           {"Himachal": "হিমাচল"},
           {"Uttar_Pradesh": "উত্তর প্রদেশ"},
-          {"Awadhi": "আওধী"},
+          {"Awadhi": "অওধী"},
           {"Oriya": "ওড়িয়া"},
           {"Uttarakhand": "উত্তরাখণ্ড"},
           {"Lucknowi": "লখনউই"},
