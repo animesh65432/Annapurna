@@ -7,7 +7,7 @@ export const generateSuggestion = async (key: string, language: string): Promise
     try {
         const dishCheckResponse = await groq.chat.completions.create({
             messages: [{ role: "user", content: checkAlreadyDishPrompt }],
-            model: "llama3-70b-8192",
+            model: "openai/gpt-oss-120b",
         });
 
         const isDish = dishCheckResponse.choices[0]?.message?.content?.trim().toLowerCase();
@@ -17,8 +17,10 @@ export const generateSuggestion = async (key: string, language: string): Promise
         }
         const suggestionResponse = await groq.chat.completions.create({
             messages: [{ role: "user", content: suggestionPrompt }],
-            model: "llama3-70b-8192",
+            model: "llama-3.1-8b-instant",
         });
+
+        console.log("Raw suggestion response:", suggestionResponse);
 
         const rawText = suggestionResponse.choices[0]?.message?.content ?? "";
 
