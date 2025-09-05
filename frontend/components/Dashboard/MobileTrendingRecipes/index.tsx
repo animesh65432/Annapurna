@@ -48,10 +48,10 @@ export default function MobileTrendingRecipes({ createRecipe, setisGenrateRecipe
                 {
                     trendingRecipes.map((recipe) => {
                         return <div key={recipe.id} className="bg-[#FFFFFF]  flex flex-col gap-4 rounded-md p-4">
-                            <div className="relative w-[80%] h-[30vh] overflow-hidden rounded-lg mx-auto">
+                            <div className="relative w-[90%] h-[30vh] overflow-hidden rounded-lg mx-auto">
                                 <Image src={recipe.img} alt={recipe.name} fill />
                             </div>
-                            <div className="w-[80%] mx-auto flex flex-col gap-2">
+                            <div className="w-[90%] mx-auto flex flex-col gap-2">
                                 <div className="text-[#434343] font-medium text-[1.1rem]">{recipe.name}</div>
                                 <div className="flex items-center text-[0.9rem] whitespace-nowrap text-[#434343] gap-2">
                                     <div className="flex items-center gap-1">
@@ -64,12 +64,12 @@ export default function MobileTrendingRecipes({ createRecipe, setisGenrateRecipe
                                         <div className="relative w-5 h-5 shrink-0">
                                             <Image src="/assets/dashboard/ForkKnife.svg" alt="timer" fill />
                                         </div>
-                                        {recipe.when[0]}
+                                        {recipe.when[0].length > 10 ? recipe.when[0].slice(0, 10) + "..." : recipe.when[0]}
                                     </div>
                                 </div>
                             </div>
 
-                            <div onClick={() => handleClick(recipe)} className="w-[80%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
+                            <div onClick={() => handleClick(recipe)} className="w-[90%] cursor-pointer mx-auto text-[#168B5D] flex items-center justify-between  ">
                                 {t("Dashboard.See_healthier_Version")}
                                 <div className="relative w-8 h-8">
                                     <Image alt="arrow left" src="/assets/dashboard/arrow_left_alt.svg" fill />
