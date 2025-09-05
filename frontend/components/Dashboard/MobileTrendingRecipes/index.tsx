@@ -64,7 +64,7 @@ export default function MobileTrendingRecipes({ createRecipe, setisGenrateRecipe
                                         <div className="relative w-5 h-5 shrink-0">
                                             <Image src="/assets/dashboard/ForkKnife.svg" alt="timer" fill />
                                         </div>
-                                        {recipe.when[0].length > 10 ? recipe.when[0].slice(0, 10) + "..." : recipe.when[0]}
+                                        {recipe.when[0].length > 10 ? recipe.when[0].slice(0, 15) + "..." : recipe.when[0]}
                                     </div>
                                 </div>
                             </div>
