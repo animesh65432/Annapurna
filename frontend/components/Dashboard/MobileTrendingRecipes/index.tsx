@@ -47,7 +47,7 @@ export default function MobileTrendingRecipes({ createRecipe, setisGenrateRecipe
             <div className="flex flex-col gap-6">
                 {
                     trendingRecipes.map((recipe) => {
-                        return <div key={recipe.id} className="bg-[#FFFFFF]  flex flex-col gap-4 rounded-md p-4">
+                        return <div key={recipe.id} className="bg-[#FFFFFF]  flex flex-col gap-1 md:gap-4 rounded-md p-4">
                             <div className="relative w-[90%] h-[30vh] overflow-hidden rounded-lg mx-auto">
                                 <Image src={recipe.img} alt={recipe.name} fill />
                             </div>
