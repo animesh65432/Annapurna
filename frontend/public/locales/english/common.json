@@ -407,8 +407,8 @@
   "FunFact": "Fun Fact"
    },
   "explore": {
-    "Non_vegetarian": "Non_Vegetarian",
-    "High-Protein_Non-Veg": "High Protein Non_Vegetarian",
+    "Non_vegetarian": "Non Vegetarian",
+    "High-Protein_Non-Veg": "High Protein Non Vegetarian",
     "Vegetarian": "Vegetarian",
     "High_Protein_Veg": "High Protein Vegetarian",
     "Eggetarian": "Eggetarian",
@@ -419,7 +419,7 @@
     "Select_Cuisine_placeholder": "Cuisine Type",
     "Diet_Type_Options": [
       {"Vegetarian": "Vegetarian"},
-      {"Non_Vegetarian": "Non_Vegetarian "},
+      {"Non_Vegetarian": "Non Vegetarian "},
       {"Any": "Any"}
     ],
     "CuisineOptions" :[
